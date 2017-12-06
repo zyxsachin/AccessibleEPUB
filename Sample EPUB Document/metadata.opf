@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">2</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">9e576a4a-d98e-468f-b469-36303be1beab</dc:identifier>
+        <dc:title>Sample EPUB Document</dc:title>
+        <dc:creator opf:file-as="Rajgopal, Sachin" opf:role="aut">Sachin Rajgopal</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (3.13.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:language>eng</dc:language>
+        <meta content="{&quot;Sachin Rajgopal&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2017-12-05T14:18:35.957000+00:00" name="calibre:timestamp"/>
+        <meta content="Sample EPUB Document" name="calibre:title_sort"/>
+    </metadata>
+    <guide>
+        <reference href="cover.jpg" title="Titelbild" type="cover"/>
+    </guide>
+</package>
