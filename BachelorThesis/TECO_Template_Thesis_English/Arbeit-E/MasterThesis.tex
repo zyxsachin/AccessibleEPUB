@@ -1,0 +1,245 @@
+\documentclass{wissdoc}
+
+% Autor: Roland Bless 1996-2009, bless <at> kit.edu
+% ----------------------------------------------------------------
+% Diplomarbeit - Hauptdokument
+% ----------------------------------------------------------------
+%%
+%% $Id: diplarb.tex 53 2009-12-10 12:23:37Z bless $
+%%
+% wissdoc Optionen: draft, relaxed, pdf --> siehe wissdoc.cls
+% ------------------------------------------------------------------
+% Weitere packages: (Dokumentation dazu durch "latex <package>.dtx")
+%\usepackage{bibgerm}
+%\usepackage[backend=biber]{biblatex} 
+\usepackage{csquotes} 
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+%\usepackage{tocbibind}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{newfloat,caption}
+\usepackage{subcaption}
+\usepackage{footnote}
+\usepackage{rotating}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{url}
+\usepackage{boxhandler}
+\usepackage{tabu}
+\usepackage{amssymb}
+%\usepackage{subfig}
+%\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage[plainpages=true]{hyperref}
+\usepackage[space]{grffile}
+%\usepackage[numbers,sort&compress]{natbib}
+\usepackage[backend=bibtexu,natbib=true,hyperref=true,doi=false,url=false]{biblatex}
+% \usepackage{varioref}
+% \usepackage{verbatim}
+\usepackage{float}    %z.B. \floatstyle{ruled}\restylefloat{figure}
+%\usepackage[hidelinks]{hyperref}
+% \usepackage{subfigure}
+% \usepackage{fancybox} % für schattierte,ovale Boxen etc.
+% \usepackage{tabularx} % automatische Spaltenbreite
+% \usepackage{supertab} % mehrseitige Tabellen
+% \usepackage[svnon,svnfoot]{svnver} % SVN Versionsinformation 
+%% ---------------- end of usepackages -------------
+
+%\svnversion{$Id: diplarb.tex 53 2009-12-10 12:23:37Z bless $} % In case that you want to include version information in the footer
+%\hyphenation{if...-then...}
+%% Informationen für die PDF-Datei
+\pgfplotsset{compat=newest}
+
+\hypersetup{
+%%% styling of link inside pdf
+	colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black,
+%%%		
+ pdfauthor={Sachin Rajgopal},
+ pdftitle={Accessible EPUB}
+ pdfsubject={Not set},
+ pdfkeywords={Not set}
+}
+\DeclareFloatingEnvironment[fileext=frm,placement={!ht},name=Listing,within=section]{listing}
+
+% Macros, nicht unbedingt notwendig
+\input{macros}
+
+% Print URLs not in Typewriter Font
+\def\UrlFont{\rm}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand\todo[1]{\textcolor{red}{TODO: #1}}
+
+\newcommand\hlcode[1]{\textcolor{red}{#1}}
+
+\newcommand\citeable[1]{\textcolor{green}{\hl{citeable: #1}}}
+
+\newcolumntype{$}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+
+\newif\ifcomment
+%\commenttrue %# Show comments
+
+
+\newcommand{\blankpage}{% Leerseite ohne Seitennummer, nächste Seite rechts
+ \clearpage{\pagestyle{empty}\cleardoublepage}
+}
+
+%% Einstellungen für das gesamte Dokument
+
+% Trennhilfen
+% Wichtig! 
+% Im german-paket sind zusätzlich folgende Trennhinweise enthalten:
+% "- = zusätzliche Trennstelle
+% "| = Vermeidung von Ligaturen und mögliche Trennung (bsp: Schaf"|fell)
+% "~ = Bindestrich an dem keine Trennung erlaubt ist (bsp: bergauf und "~ab)
+% "= = Bindestrich bei dem Worte vor und dahinter getrennt werden dürfen
+% "" = Trennstelle ohne Erzeugung eines Trennstrichs (bsp: und/""oder)
+
+% Trennhinweise fuer Woerter hier beschreiben
+\hyphenation{
+% Pro-to-koll-in-stan-zen
+% Ma-na-ge-ment  Netz-werk-ele-men-ten
+% Netz-werk Netz-werk-re-ser-vie-rung
+% Netz-werk-adap-ter Fein-ju-stier-ung
+% Da-ten-strom-spe-zi-fi-ka-tion Pa-ket-rumpf
+% Kon-troll-in-stanz
+}
+\lstset{
+    frame=single,
+    breaklines=true,
+		basicstyle=\scriptsize,
+    %postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+
+% Index-Datei öffnen
+\ifnotdraft{\makeindex}
+%%%%%%%%%%%%%% includeonly %%%%%%%%%%%%%%%%%%%
+% Es werden nur die Teile eingebunden, die hier 
+% aufgefuehrt sind!
+\includeonly{%
+titlepage,%
+statement,% Ist in KA Pflicht für Diplomarbeiten
+introduction,% Motivation, Zielsetzung, Gliederung
+background,% Grundlagen 
+analysis,   % Problembeschreibung (Detail) und Related Work
+design,   % Beschreibung der Problemlösung (Konzepte, allg. Architektur, ...)
+implementation,  % Beschreibung der Umsetzung/Implementierung
+evaluation,      % Nachweis und Auswertung
+futurework,% Future Work
+summary  % Zusammenfassung der Ergebnisse 
+}
+\bibliography{Literature, Websites}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{pgfplots.groupplots}
+%\addbibresource{diplarb.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\frontmatter
+\pagenumbering{roman}
+\ifnotdraft{
+ \include{titlepage}
+ \blankpage % Leerseite auf Titelrückseite
+ %
+ % Die folgende Erklärung ist für Diplomarbeiten Pflicht
+ % (siehe Prüfungsordnung), für Studienarbeiten nicht notwendig
+ \include{statement}
+ \blankpage % Leerseite auf Erklärungsrückseite
+}
+%
+%% *************** Hier geht's ab ****************
+%% ++++++++++++++++++++++++++++++++++++++++++
+%% Verzeichnisse
+%% ++++++++++++++++++++++++++++++++++++++++++
+\ifnotdraft{
+{\parskip 0pt\tableofcontents} % toc bitte einzeilig
+\pagenumbering{roman}
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{\listfigurename}
+%\listoffigures
+%
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{\listtablename}
+%\listoftables
+%\addcontensline{toc}{section}{List of Tables}
+%\pagenumbering{roman}
+%\listoffigures
+%\addcontensline{toc}{section}{List of Figures}
+%\blankpage
+%\listoffigures
+%\blankpage
+%\listoftables
+%\blankpage
+}
+\cleardoublepage
+\blankpage
+
+%% ++++++++++++++++++++++++++++++++++++++++++
+%% Hauptteil
+%% ++++++++++++++++++++++++++++++++++++++++++
+\graphicspath{{images/}}
+
+\mainmatter
+\null
+\newpage
+\pagenumbering{arabic}
+\include{introduction}  % Einleitung
+\include{background}  % Grundlagen
+\include{analysis}     % Analyse
+\include{design}     % Entwurf
+\include{implementation}    % Implementierung
+\include{evaluation}        % Evaluierung
+\include{futurework}  % Future Work
+\include{summary}   % Zusammenfassung und Ausblick
+
+%% ++++++++++++++++++++++++++++++++++++++++++
+%% Anhang
+%% ++++++++++++++++++++++++++++++++++++++++++
+
+\appendix
+%\include{anhang_a}
+%\include{anhang_b}
+
+%% ++++++++++++++++++++++++++++++++++++++++++
+%% Literatur
+%% ++++++++++++++++++++++++++++++++++++++++++
+%  mit dem Befehl \nocite werden auch nicht 
+%  zitierte Referenzen abgedruckt
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+%%
+%\nocite{*} % nur angeben, wenn auch nicht im Text zitierte Quellen 
+           % erscheinen sollen
+%\bibliographystyle{itmabbrv} % mit abgekürzten Vornamen der Autoren
+%\bibliographystyle{gerplain} % abbrvnat unsrtnat
+% spezielle Zitierstile: Labels mit vier Buchstaben und Jahreszahl
+%\bibliographystyle{itmalpha}  % ausgeschriebene Vornamen der Autoren
+\printbibliography
+%% ++++++++++++++++++++++++++++++++++++++++++
+%% Index
+%% ++++++++++++++++++++++++++++++++++++++++++
+\ifnotdraft{
+\cleardoublepage
+\phantomsection
+\printindex            % Index, Stichwortverzeichnis
+}
+\end{document}
+%% end of file
+

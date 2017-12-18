@@ -1,0 +1,59 @@
+%% Titelseite
+%% Vorlage $Id: titelseite.tex 54 2009-12-10 12:23:58Z bless $
+
+\def\usesf{}
+\let\usesf\sffamily % diese Zeile auskommentieren für normalen TeX Font
+
+\newsavebox{\Erstgutachter}
+\savebox{\Erstgutachter}{\usesf Prof.~Dr.~Rainer Stiefelhagen}
+\newsavebox{\Zweitgutachter}
+\savebox{\Zweitgutachter}{\usesf \todo{Eintragen}}
+
+\begin{titlepage}
+\setlength{\unitlength}{1pt}
+
+\begin{picture}(0,0)(85,770)
+\includegraphics[width=\paperwidth]{logos/KIT_Deckblatt}
+\end{picture}
+
+\vspace*{-45pt}\hspace*{400pt}\includegraphics[width=.1\paperwidth]{logos/SZS.png}
+
+\thispagestyle{empty}
+
+%\begin{titlepage}
+%%\let\footnotesize\small \let\footnoterule\relax
+\begin{center}
+\hbox{}
+\vfill
+{\usesf
+{\huge\bfseries Accessible EPUB
+ \par}
+\vskip 1.8cm
+Bachelor Thesis\\
+by\\[2mm]
+\vskip 1cm
+
+{\large\bfseries Sachin Rajgopal\\}
+\vskip 1.2cm
+Study Centre for the Visually Impaired Students (SZS)\\
+Department of Informatics\\
+%Universität Karlsruhe (TH)\\[2ex]
+\vskip 3cm
+\begin{tabular}{p{5.5cm}l}
+First Reviewer: & \usebox{\Erstgutachter} \\
+Second Reviewer: & \usebox{\Zweitgutachter} \\
+Supervisor: & Dr. Thorsten Schwarz \\
+\end{tabular}
+\vskip 3cm
+Project Period:\qquad 01/12/2017 -- XX/XX/20XX
+}
+\end{center}
+\vfill
+\end{titlepage}
+%% Titelseite Ende
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "diplarb"
+%%% End: 
