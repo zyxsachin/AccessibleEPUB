@@ -108,13 +108,13 @@ namespace AccessibleEPUB
                 /*FolderBrowserDialog dialog = new FolderBrowserDialog();
                 if (dialog.ShowDialog() != DialogResult.OK) { return; }
                 dialog.SelectedPath = tempFolder;*/
-                this.treeView1.Nodes.Add(TraverseDirectory(accEpubFolderName));
+                this.treeView1.Nodes.Add(TraverseDirectory(tempFile2));
 
 
-                System.IO.StreamReader sr = new
-                   System.IO.StreamReader(openFileDialog1.FileName);
-                MessageBox.Show(sr.ReadToEnd());
-                sr.Close();
+              
+
+
+    
 
             }
         }
@@ -137,17 +137,33 @@ namespace AccessibleEPUB
 
             TreeNode result = new TreeNode(path);
 
+            result.Text = rhs;
+
             foreach (var subdirectory in Directory.GetDirectories(path))
             {
                 //Uri uri = new Uri(subdirectory);
                 //string lastSegment = uri.Segments.Last();
 
                 result.Nodes.Add(TraverseDirectory(subdirectory));
+                
 
             }
-            result.Text = rhs;
+
+            foreach (var file in Directory.GetFiles(path))
+            {
+                int index2 = file.ToString().LastIndexOf('\\');
+                string rhs2 = file.ToString().Substring(index2 + 1);
+                var r = result.Nodes.Add(file);
+                r.Text = rhs2;
+               
+            }
+            
+
+
             return result;
         }
+
+
 
         private string GetRelativePath(string filespec, string folder)
         {
