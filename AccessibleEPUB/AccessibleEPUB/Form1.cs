@@ -40,20 +40,20 @@ namespace AccessibleEPUB
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        //private void textBox1_TextChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+        //private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
+        //private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        //{
 
-        }
+        //}
 
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
         {
@@ -95,9 +95,9 @@ namespace AccessibleEPUB
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                treeView1.Nodes.Clear();
-                richTextBox1.Clear();
-                geckoWebBrowser1.Navigate("");
+                //treeView1.Nodes.Clear();
+                //richTextBox1.Clear();
+                //geckoWebBrowser1.Navigate("");
                 tempFile = Path.Combine(accEpubFolderName, Path.GetFileName(openFileDialog1.FileName));
                 File.Copy(openFileDialog1.FileName, tempFile, true);
 
@@ -126,20 +126,17 @@ namespace AccessibleEPUB
                 //richTextBox1.Text = webBrowser1.DocumentText;
 
                 //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
-                
 
+               
             }
         }
 
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
+  
 
-        }
+        //private void tabPage1_Click(object sender, EventArgs e)
+        //{
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
+        //}
 
 
         private TreeNode TraverseDirectory(string path)
@@ -189,10 +186,11 @@ namespace AccessibleEPUB
             return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
         }
 
+        
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            
-            geckoWebBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
+
+
             //richTextBox1.Text = tempFolder + "\\" + e.Node.FullPath;
             //GeckoHtmlElement element = null;
 
@@ -205,11 +203,51 @@ namespace AccessibleEPUB
             //    geckoWebBrowser1.ViewSource();
             //}
 
-            richTextBox1.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
+            if (e.Node.Text.EndsWith(".xhtml") || e.Node.Text.EndsWith(".html") )
+            {
+                geckoWebBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
+                splitContainer2.Panel1Collapsed = false;
+                splitContainer2.Panel1.Show();
+                splitContainer2.Panel2Collapsed = false;
+                splitContainer2.Panel2.Show();
+                richTextBox1.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
+            }
+
+            else if (e.Node.Text.EndsWith(".svg") || e.Node.Text.EndsWith(".jpg") || e.Node.Text.EndsWith(".png"))
+            {
+                geckoWebBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
+                splitContainer2.Panel1Collapsed = true;
+                splitContainer2.Panel1.Hide();
+            }
+
+            else
+            {
+                splitContainer2.Panel1Collapsed = false;
+                splitContainer2.Panel1.Show();
+
+                splitContainer2.Panel2Collapsed = true;
+                splitContainer2.Panel2.Hide();
+                richTextBox1.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
+
+            }
+            
+
+           
 
             //webBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
             //richTextBox1.Text = geckoWebBrowser1.Text;
-        } 
+        }
+
+        private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        //private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
+        //{
+
+        //}
 
         //void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         //{
