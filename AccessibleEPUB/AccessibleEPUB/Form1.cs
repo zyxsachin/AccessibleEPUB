@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.IO;
 using System.IO.Compression;
+using Gecko;
 
 
 namespace AccessibleEPUB
@@ -24,9 +25,14 @@ namespace AccessibleEPUB
 
         string tempPath = Path.GetTempPath();
 
+        string tempFolder;
+
+
+
         public Form1()
         {
             InitializeComponent();
+            Xpcom.Initialize("Firefox");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,7 +65,7 @@ namespace AccessibleEPUB
 
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            string tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
+            tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
             DirectoryInfo accEpubFolder = Directory.CreateDirectory(tempPath + "AccessibleEPUB");
             //string accEpubFolderName = accEpubFolder.Name;
             string accEpubFolderName = Path.Combine(tempPath, "AccessibleEPUB\\");
@@ -81,13 +87,17 @@ namespace AccessibleEPUB
             openFileDialog1.InitialDirectory = homePath;
             openFileDialog1.Filter = "EPUB|*.epub|All Files|*.*";
 
+
             string tempFile;
             string tempFile2 = "";
             string tempFile3 = "";
 
+
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
+                treeView1.Nodes.Clear();
+                richTextBox1.Clear();
+                geckoWebBrowser1.Navigate("");
                 tempFile = Path.Combine(accEpubFolderName, Path.GetFileName(openFileDialog1.FileName));
                 File.Copy(openFileDialog1.FileName, tempFile, true);
 
@@ -111,10 +121,12 @@ namespace AccessibleEPUB
                 this.treeView1.Nodes.Add(TraverseDirectory(tempFile2));
 
 
-              
 
+                //webBrowser1.Navigate(tempFile2 + "\\OEBPS\\Text\\Content.xhtml");
+                //richTextBox1.Text = webBrowser1.DocumentText;
 
-    
+                //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
+                
 
             }
         }
@@ -176,5 +188,50 @@ namespace AccessibleEPUB
             Uri folderUri = new Uri(folder);
             return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
         }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            
+            geckoWebBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
+            //richTextBox1.Text = tempFolder + "\\" + e.Node.FullPath;
+            //GeckoHtmlElement element = null;
+
+            //var geckoDomElement = geckoWebBrowser1.Document.DocumentElement;
+            //if (geckoDomElement is GeckoHtmlElement)
+            //{
+            //    element = (GeckoHtmlElement)geckoDomElement;
+            //    var innerHtml = element.InnerHtml;
+            //    richTextBox1.Text = innerHtml;
+            //    geckoWebBrowser1.ViewSource();
+            //}
+
+            richTextBox1.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
+
+            //webBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
+            //richTextBox1.Text = geckoWebBrowser1.Text;
+        } 
+
+        //void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        //{
+        //    //try
+        //    //{
+        //    //    // Look for a file extension.
+        //    //    if (e.Node.Text.Contains("."))
+        //    //        System.Diagnostics.Process.Start(@"c:\" + e.Node.Text);
+        //    //}
+        //    //// If the file is not found, handle the exception and inform the user.
+        //    //catch (System.ComponentModel.Win32Exception)
+        //    //{
+        //    //    MessageBox.Show("File not found.");
+        //    //}
+
+        //    geckoWebBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
+        //    //richTextBox1.Text = tempFolder + "\\" + e.Node.FullPath;
+        //    richTextBox1.Text = geckoWebBrowser1.Text;
+
+
+        //}
+
+
     }
 }
