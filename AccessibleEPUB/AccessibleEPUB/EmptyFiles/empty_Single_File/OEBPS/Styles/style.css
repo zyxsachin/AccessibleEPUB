@@ -1,0 +1,192 @@
+
+h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
+  font-family: "Arial", Helvetica, sans-serif;
+}
+
+.versionChanger *{
+  font-family: "Arial", Helvetica, sans-serif;
+
+}
+
+.toc {
+  display:inline;
+}
+
+.visible {
+  display:inline; 
+}
+
+.impaired:target ~ .visible {
+  display:none; 
+}
+
+.blind:target ~ .visible {
+  display:none; 
+}
+
+.impaired {
+  display:none; 
+}
+
+.blind {
+  display:none; 
+}
+
+
+
+.impaired:target{
+  display:inline; 
+}
+
+.blind:target{
+  display:inline; 
+}
+
+
+.visible * {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.visible p {
+  font-size:12px;
+}
+
+.visible figure {
+	padding: 2px;
+	max-width : 95%;
+
+
+}
+
+.visible figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+  font-size:12px;
+}
+
+.visible img {
+	max-width : 100%;
+}
+
+
+.visible object {
+  max-width : 100%; 
+}
+
+.visible math {
+  max-width : 100%;
+}
+
+.visible table {
+  font-size:12px;
+}
+
+.visible .transparent {
+  display: none;
+  color: transparent;
+}
+
+.visible body {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.impaired *
+{
+	font-family: "Arial", Helvetica, sans-serif !important;
+}
+
+.impaired p {
+  font-size:16px;
+}
+
+.impaired figure {
+	padding: 2px;
+	max-width : 95%;
+}
+
+.impaired figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+  font-size:16px;
+}
+
+.impaired img {
+	max-width : 100%;
+}
+
+
+.impaired object {
+  max-width : 100%; 
+}
+
+.impaired math {
+  max-width : 100%;
+}
+
+.impaired table {
+  font-size:16px;
+}
+
+.impaired .transparent {
+  display: none;
+  color: transparent;
+}
+
+.impaired body {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*
+.impaired h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,td,a,figcaption,figure {
+  font-family: "Arial", Helvetica, sans-serif;
+}*/
+
+
+
+.blind figure {
+	padding: 2px;
+	max-width : 95%;
+
+}
+
+.blind figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+}
+
+.blind img {
+	max-width : 100%;
+	display:none;
+
+}
+
+
+.blind object {
+  max-width : 100%; 
+}
+
+.blind math {
+  max-width : 100%;
+
+}
+
+.blind .transparent {
+  display: inline;
+  color: initial;
+}
+
+.blind .math {
+	display:none;
+}
+
+
+
+.blind body {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
