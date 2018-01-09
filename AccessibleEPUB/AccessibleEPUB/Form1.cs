@@ -26,6 +26,13 @@ namespace AccessibleEPUB
         ScintillaNET.Scintilla TextArea;
         ICSharpCode.AvalonEdit.TextEditor codeArea;
 
+        string initialPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+
+
+
+
+
+
         string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
        Environment.OSVersion.Platform == PlatformID.MacOSX)
 ? Environment.GetEnvironmentVariable("HOME")
@@ -48,7 +55,7 @@ namespace AccessibleEPUB
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
@@ -76,7 +83,7 @@ namespace AccessibleEPUB
             openFile(sender, e);
         }
 
-  
+
 
         //private void tabPage1_Click(object sender, EventArgs e)
         //{
@@ -99,7 +106,7 @@ namespace AccessibleEPUB
                 //string lastSegment = uri.Segments.Last();
 
                 result.Nodes.Add(TraverseDirectory(subdirectory));
-                
+
 
             }
 
@@ -109,11 +116,11 @@ namespace AccessibleEPUB
                 string rhs2 = file.ToString().Substring(index2 + 1);
                 var r = result.Nodes.Add(file);
                 r.Text = rhs2;
-               
+
             }
 
             result.Expand();
-            
+
 
             return result;
         }
@@ -132,7 +139,7 @@ namespace AccessibleEPUB
             return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
         }
 
-        
+
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -149,13 +156,19 @@ namespace AccessibleEPUB
             //    geckoWebBrowser1.ViewSource();
             //}
 
-                 
-            if (openTabs == null || openTabs.Contains(e.Node.FullPath) == false)
+            string absPath = tempFolder + "\\" + e.Node.FullPath;
+            string fileName = e.Node.FullPath;
+            FileAttributes attr = File.GetAttributes(absPath);
+            if (attr.HasFlag(FileAttributes.Directory)) {
+                return;
+            }
+
+            if (openTabs == null || openTabs.Contains(fileName) == false)
             {
                 TabPage myTabPage = new TabPage(e.Node.Text);
-                myTabPage.Name = e.Node.FullPath;
+                myTabPage.Name = fileName;
                 tabControl2.TabPages.Add(myTabPage);
-                
+
                 //RichTextBox rtb = new RichTextBox();
 
                 System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
@@ -164,94 +177,103 @@ namespace AccessibleEPUB
                 host.Child = codeArea;
                 myTabPage.Controls.Add(host);
 
+                
+
                 //myTabPage.Controls.Add(rtb);
 
                 //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
-                openTabs.Add(e.Node.FullPath);
-               
+                openTabs.Add(fileName);
+
                 tabControl2.SelectedTab = myTabPage;
 
-                if (e.Node.Text.EndsWith(".xhtml") || e.Node.Text.EndsWith(".html"))
-                {
-                    geckoWebBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
-                    splitContainer2.Panel1Collapsed = false;
-                    splitContainer2.Panel1.Show();
+                openTab(absPath);
+                  
 
-                    splitContainer2.Panel2Collapsed = false;
-                    splitContainer2.Panel2.Show();
-                    //rtb.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
-                    openTabs.Add(e.Node.FullPath);
+                //if (e.Node.Text.EndsWith(".xhtml") || e.Node.Text.EndsWith(".html"))
+                //{
+                //    geckoWebBrowser1.Navigate(absPath);
+                //    splitContainer2.Panel1Collapsed = false;
+                //    splitContainer2.Panel1.Show();
 
-                    codeArea.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
-                    codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("HTML");
-
-                }
-
-                else if (e.Node.Text.EndsWith(".svg") || e.Node.Text.EndsWith(".jpg") || e.Node.Text.EndsWith(".png"))
-                {
-                    geckoWebBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
-                    splitContainer2.Panel1Collapsed = true;
-                    splitContainer2.Panel1.Hide();
-
-                    splitContainer2.Panel2Collapsed = false;
-                    splitContainer2.Panel2.Show();
-
-                    openTabs.Add(e.Node.FullPath);
-                }
-
-                else if (e.Node.Text.EndsWith(".css"))
-                {
-
-                    splitContainer2.Panel1Collapsed = false;
-                    splitContainer2.Panel1.Show();
-
-                    splitContainer2.Panel2Collapsed = true;
-                    splitContainer2.Panel2.Hide();
-                    codeArea.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
-                    codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("CSS");
+                //    splitContainer2.Panel2Collapsed = false;
+                //    splitContainer2.Panel2.Show();
+                //    //rtb.Text = File.ReadAllText(absPath);
 
 
-                    openTabs.Add(e.Node.FullPath);
+                //    codeArea.Load(absPath);
+                //    //codeArea.Text = File.ReadAllText(absPath);
+                //    codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("HTML");
 
-                }
+                //}
 
-                else if (e.Node.Text.EndsWith(".js"))
-                {
+                //else if (e.Node.Text.EndsWith(".svg") || e.Node.Text.EndsWith(".jpg") || e.Node.Text.EndsWith(".png"))
+                //{
+                //    geckoWebBrowser1.Navigate(absPath);
+                //    //splitContainer2.Panel1Collapsed = true;
+                //    //splitContainer2.Panel1.Hide();
 
-                    splitContainer2.Panel1Collapsed = false;
-                    splitContainer2.Panel1.Show();
-
-                    splitContainer2.Panel2Collapsed = true;
-                    splitContainer2.Panel2.Hide();
-                    codeArea.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
-                    codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("JavaScript");
+                //    splitContainer2.Panel2Collapsed = false;
+                //    splitContainer2.Panel2.Show();
 
 
-                    openTabs.Add(e.Node.FullPath);
+                //    //codeArea.Load(absPath);
 
-                }
+                //    //ICSharpCode.AvalonEdit.Utils.FileReader.OpenFile(absPath);
+                //}
 
-                else if (e.Node.GetNodeCount(true) == 0)
-                {
+                //else if (e.Node.Text.EndsWith(".css"))
+                //{
 
-                    splitContainer2.Panel1Collapsed = false;
-                    splitContainer2.Panel1.Show();
+                //    splitContainer2.Panel1Collapsed = false;
+                //    splitContainer2.Panel1.Show();
 
-                    splitContainer2.Panel2Collapsed = true;
-                    splitContainer2.Panel2.Hide();
-                    codeArea.Text = File.ReadAllText(tempFolder + "\\" + e.Node.FullPath);
-                    
+                //    splitContainer2.Panel2Collapsed = true;
+                //    splitContainer2.Panel2.Hide();
 
-                    openTabs.Add(e.Node.FullPath);
+                //    codeArea.Load(absPath);
+                //    //codeArea.Text = File.ReadAllText(absPath);
+                //    codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("CSS");
 
-                }
+
+
+                //}
+
+                //else if (e.Node.Text.EndsWith(".js"))
+                //{
+
+                //    splitContainer2.Panel1Collapsed = false;
+                //    splitContainer2.Panel1.Show();
+
+                //    splitContainer2.Panel2Collapsed = true;
+                //    splitContainer2.Panel2.Hide();
+                //    codeArea.Text = File.ReadAllText(absPath);
+                //    codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("JavaScript");
+
+
+
+                //}
+
+                //else if (e.Node.GetNodeCount(true) == 0)
+                //{
+
+                //    splitContainer2.Panel1Collapsed = false;
+                //    splitContainer2.Panel1.Show();
+
+                //    splitContainer2.Panel2Collapsed = true;
+                //    splitContainer2.Panel2.Hide();
+                //    codeArea.Text = File.ReadAllText(absPath);
+
+
+
+
+                //}
             }
 
             else
             {
                 foreach (TabPage tab in tabControl2.TabPages)
                 {
-                    if (tab.Name == e.Node.FullPath)
+                    if (tab.Name == fileName)
                     {
                         tabControl2.SelectedTab = tab;
                     }
@@ -264,8 +286,107 @@ namespace AccessibleEPUB
 
 
 
-            //webBrowser1.Navigate(tempFolder + "\\" + e.Node.FullPath);
+            //webBrowser1.Navigate(filePath);
             //richTextBox1.Text = geckoWebBrowser1.Text;
+        }
+
+        private void openTab(string absPath)
+        {
+            if (absPath.EndsWith(".xhtml") || absPath.EndsWith(".html"))
+            {
+                geckoWebBrowser1.Navigate(absPath);
+                splitContainer2.Panel1Collapsed = false;
+                splitContainer2.Panel1.Show();
+
+                splitContainer2.Panel2Collapsed = false;
+                splitContainer2.Panel2.Show();
+                //rtb.Text = File.ReadAllText(absPath);
+
+
+                codeArea.Load(absPath);
+                //codeArea.Text = File.ReadAllText(absPath);
+                codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("HTML");
+
+            }
+
+            else if (absPath.EndsWith(".svg") || absPath.EndsWith(".jpg") || absPath.EndsWith(".png"))
+            {
+                geckoWebBrowser1.Navigate(absPath);
+                splitContainer2.Panel1Collapsed = true;
+                splitContainer2.Panel1.Hide();
+
+                splitContainer2.Panel2Collapsed = false;
+                splitContainer2.Panel2.Show();
+
+ 
+
+                //codeArea.Load(absPath);
+
+                //ICSharpCode.AvalonEdit.Utils.FileReader.OpenFile(absPath);
+                return;
+
+            }
+
+            else if (absPath.EndsWith(".css"))
+            {
+
+                splitContainer2.Panel1Collapsed = false;
+                splitContainer2.Panel1.Show();
+
+                splitContainer2.Panel2Collapsed = true;
+                splitContainer2.Panel2.Hide();
+
+                codeArea.Load(absPath);
+                //codeArea.Text = File.ReadAllText(absPath);
+                codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("CSS");
+
+
+
+            }
+
+            else if (absPath.EndsWith(".js"))
+            {
+
+                splitContainer2.Panel1Collapsed = false;
+                splitContainer2.Panel1.Show();
+
+                splitContainer2.Panel2Collapsed = true;
+                splitContainer2.Panel2.Hide();
+
+                codeArea.Load(absPath);
+                //codeArea.Text = File.ReadAllText(absPath);
+                codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("JavaScript");
+
+
+            }
+
+
+            //else if (e.Node.GetNodeCount(true) == 0)
+            //{
+
+            //    splitContainer2.Panel1Collapsed = false;
+            //    splitContainer2.Panel1.Show();
+
+            //    splitContainer2.Panel2Collapsed = true;
+            //    splitContainer2.Panel2.Hide();
+            //    codeArea.Text = File.ReadAllText(absPath);
+
+            //}
+
+            else 
+            {
+
+                splitContainer2.Panel1Collapsed = false;
+                splitContainer2.Panel1.Show();
+
+                splitContainer2.Panel2Collapsed = true;
+                splitContainer2.Panel2.Hide();
+
+                codeArea.Load(absPath);
+                //codeArea.Text = File.ReadAllText(absPath);
+
+            }
+
         }
 
         private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
@@ -307,7 +428,7 @@ namespace AccessibleEPUB
 
         private void openFile(object sender, EventArgs e)
         {
-
+            closeFile(sender, e);
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
@@ -371,7 +492,7 @@ namespace AccessibleEPUB
                 //    node.Collapse();
                 //}
 
-                
+
 
                 //webBrowser1.Navigate(tempFile2 + "\\OEBPS\\Text\\Content.xhtml");
                 //richTextBox1.Text = webBrowser1.DocumentText;
@@ -412,7 +533,7 @@ namespace AccessibleEPUB
             TextArea.Styles[Style.Html.Comment].ForeColor = Color.Green;
 
             TextArea.Lexer = Lexer.Html;
- 
+
 
             TextArea.SetKeywords(0, "class extends implements import interface new case do while else if for in switch throw get set function var try catch finally while with default break continue delete return each const namespace package include use is as instanceof typeof author copy default deprecated eventType example exampleText exception haxe inheritDoc internal link mtasc mxmlc param private return see serial serialData serialField since throws usage version langversion playerversion productversion dynamic private public partial static intrinsic internal native override protected AS3 final super this arguments null Infinity NaN undefined true false abstract as base bool break by byte case catch char checked class const continue decimal default delegate do double descending explicit event extern else enum false finally fixed float for foreach from goto group if implicit in int interface internal into is lock long new null namespace object operator out override orderby params private protected public readonly ref return switch struct sbyte sealed short sizeof stackalloc static string select this throw true try typeof uint ulong unchecked unsafe ushort using var virtual volatile void while where yield");
             TextArea.SetKeywords(1, "void Null ArgumentError arguments Array Boolean Class Date DefinitionError Error EvalError Function int Math Namespace Number Object RangeError ReferenceError RegExp SecurityError String SyntaxError TypeError uint XML XMLList Boolean Byte Char DateTime Decimal Double Int16 Int32 Int64 IntPtr SByte Single UInt16 UInt32 UInt64 UIntPtr Void Path File System Windows Forms ScintillaNET");
@@ -444,6 +565,84 @@ namespace AccessibleEPUB
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void closeFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeFile(sender, e);
+           
+        }
+
+        private void closeFile(object sender, EventArgs e)
+        {
+            tabControl2.TabPages.Clear();
+            treeView1.Nodes.Clear();
+            openTabs.Clear();
+
+            geckoWebBrowser1.Navigate("about:blank");
+            splitContainer2.Panel1Collapsed = false;
+            splitContainer2.Panel1.Show();
+
+            splitContainer2.Panel2Collapsed = true;
+            splitContainer2.Panel2.Hide();
+
+        }
+
+ 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void newSingleFile()
+        {
+           
+        }
+
+        private static void DirectoryCopy(string sourceDirName, string destDirName)
+        {
+            // Get the subdirectories for the specified directory.
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException(
+                    "Source directory does not exist or could not be found: "
+                    + sourceDirName);
+            }
+
+            DirectoryInfo[] dirs = dir.GetDirectories();
+            // If the destination directory doesn't exist, create it.
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            // Get the files in the directory and copy them to the new location.
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = Path.Combine(destDirName, file.Name);
+                file.CopyTo(temppath, false);
+            }
+
+            // If copying subdirectories, copy them and their contents to new location.
+           
+            foreach (DirectoryInfo subdir in dirs)
+            {
+                string temppath = Path.Combine(destDirName, subdir.Name);
+                DirectoryCopy(subdir.FullName, temppath);
+            }
+            
+        }
+
+        private void tabControl2_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl2.TabPages.Count >= 1)
+            { 
+                string absPath = tempFolder + "\\" + e.TabPage.Name;
+                openTab(absPath);
+            }
         }
     }
 
