@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 using System.IO;
 using System.IO.Compression;
+
+
 using Gecko;
+using IPrompt;
 
 using ScintillaNET;
 using ICSharpCode.AvalonEdit;
@@ -30,7 +33,8 @@ namespace AccessibleEPUB
 
 
 
-
+        string target;
+        string targetFolder;
 
 
         string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
@@ -40,11 +44,13 @@ namespace AccessibleEPUB
 
         string tempPath = Path.GetTempPath();
 
+
+
         string tempFolder;
 
         List<string> openTabs = new List<string>();
 
-
+        string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB\\");
 
         public Form1()
         {
@@ -127,17 +133,17 @@ namespace AccessibleEPUB
 
 
 
-        private string GetRelativePath(string filespec, string folder)
-        {
-            Uri pathUri = new Uri(filespec);
-            // Folders must end in a slash
-            if (!folder.EndsWith(Path.DirectorySeparatorChar.ToString()))
-            {
-                folder += Path.DirectorySeparatorChar;
-            }
-            Uri folderUri = new Uri(folder);
-            return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
-        }
+        //private string GetRelativePath(string filespec, string folder)
+        //{
+        //    Uri pathUri = new Uri(filespec);
+        //    // Folders must end in a slash
+        //    if (!folder.EndsWith(Path.DirectorySeparatorChar.ToString()))
+        //    {
+        //        folder += Path.DirectorySeparatorChar;
+        //    }
+        //    Uri folderUri = new Uri(folder);
+        //    return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
+        //}
 
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -434,7 +440,7 @@ namespace AccessibleEPUB
             tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
             DirectoryInfo accEpubFolder = Directory.CreateDirectory(tempPath + "AccessibleEPUB");
             //string accEpubFolderName = accEpubFolder.Name;
-            string accEpubFolderName = Path.Combine(tempPath, "AccessibleEPUB\\");
+          
 
 
             System.IO.DirectoryInfo di = new DirectoryInfo(tempFolder);
@@ -458,6 +464,7 @@ namespace AccessibleEPUB
             string fileName = "";      // Formerly tempFile2
             string zipFileName = "";     // Formerly tempFile3 
 
+           
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -465,6 +472,7 @@ namespace AccessibleEPUB
                 //richTextBox1.Clear();
                 //geckoWebBrowser1.Navigate("");
                 epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(openFileDialog1.FileName));
+                target = openFileDialog1.FileName;
                 File.Copy(openFileDialog1.FileName, epubFileName, true);
 
 
@@ -591,12 +599,95 @@ namespace AccessibleEPUB
  
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            
+            closeFile(sender, e);
+            newSingleFile();
         }
+
+
 
         private void newSingleFile()
         {
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "EPUB|*.epub";
+            saveFileDialog1.Title = "Create a new EPUB File";
+            saveFileDialog1.ShowDialog();
+
+            if (saveFileDialog1.FileName == "")
+            {
+                return;
+            }
+            target = saveFileDialog1.FileName + ".epub";
+            DirectoryDelete(accEpubFolderName);
+            DirectoryCopy(initialPath + "\\EmptyFiles", accEpubFolderName);
+
+            //target = accEpubFolderName + "\\" + IInputBox.Show("What should be the name of the EPUB file?", "New File Name" ).ToString();
+            Directory.Move(accEpubFolderName + "\\empty_Single_File", target);
+
+            string epubFileName;       // Formerly tempFile
+            string fileName = "";      // Formerly tempFile2
+            string zipFileName = "";     // Formerly tempFile3 
+
+
            
+            //treeView1.Nodes.Clear();
+            //richTextBox1.Clear();
+            //geckoWebBrowser1.Navigate("");
+            epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(target));
+        
+
+
+            if (epubFileName.Contains('.'))
+            {
+                fileName = epubFileName.Substring(0, epubFileName.LastIndexOf('.'));
+            }
+
+            zipFileName = fileName + ".zip";
+
+            //using (File.Create(epubFileName)) ;
+            //using (File.Create(tempFile2)) ;
+            System.IO.File.Move(epubFileName, zipFileName);
+
+            System.IO.Compression.ZipFile.ExtractToDirectory(zipFileName, fileName);
+
+            /*FolderBrowserDialog dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() != DialogResult.OK) { return; }
+            dialog.SelectedPath = tempFolder;*/
+            this.treeView1.Nodes.Add(TraverseDirectory(fileName));
+
+            //this.treeView1.CollapseAll();
+            //foreach (TreeNode node in this.treeView1.Nodes)
+            //{
+            //    node.Collapse();
+            //}
+
+
+
+            //webBrowser1.Navigate(tempFile2 + "\\OEBPS\\Text\\Content.xhtml");
+            //richTextBox1.Text = webBrowser1.DocumentText;
+
+            //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
+
+
+            
+
+        }
+
+        private static void DirectoryDelete(string path)
+        {
+
+            System.IO.DirectoryInfo di = new DirectoryInfo(path);
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+            foreach (DirectoryInfo dir in di.GetDirectories())
+            {
+                dir.Delete(true);
+            }
+
+
         }
 
         private static void DirectoryCopy(string sourceDirName, string destDirName)
