@@ -50,7 +50,7 @@ namespace AccessibleEPUB
 
         List<string> openTabs = new List<string>();
 
-        string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB\\");
+        string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB");
 
         public Form1()
         {
@@ -122,6 +122,7 @@ namespace AccessibleEPUB
                 string rhs2 = file.ToString().Substring(index2 + 1);
                 var r = result.Nodes.Add(file);
                 r.Text = rhs2;
+                //r.Text = path;
 
             }
 
@@ -455,6 +456,28 @@ namespace AccessibleEPUB
             }
 
 
+
+            while (di.GetDirectories().Length != 0 || di.GetFiles().Length != 0)
+            {
+                var result = MessageBox.Show("Could not delete all files in temp folder", "Error Title", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Retry)
+                {
+                    foreach (FileInfo file in di.GetFiles())
+                    {
+                        file.Delete();
+                    }
+                    foreach (DirectoryInfo dir in di.GetDirectories())
+                    {
+                        dir.Delete(true);
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.InitialDirectory = homePath;
             openFileDialog1.Filter = "EPUB|*.epub|All Files|*.*";
@@ -607,34 +630,65 @@ namespace AccessibleEPUB
 
         private void newSingleFile()
         {
+            tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
+
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
             saveFileDialog1.Title = "Create a new EPUB File";
+            saveFileDialog1.InitialDirectory = homePath;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName == "")
             {
                 return;
             }
-            target = saveFileDialog1.FileName + ".epub";
+
+            if (saveFileDialog1.CheckFileExists)
+            {
+                File.Delete(saveFileDialog1.FileName);
+            }
+            target = saveFileDialog1.FileName;
+            targetFolder = Path.GetDirectoryName(target);
+
+            
             DirectoryDelete(accEpubFolderName);
-            DirectoryCopy(initialPath + "\\EmptyFiles", accEpubFolderName);
+            
+            //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
+
+            File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.zip", accEpubFolderName + "\\empty_Single_File.zip", true);
+            
+
+            //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", targetFolder);
+
+            File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.epub", target, true);
+
+            //System.IO.Compression.ZipFile.CreateFromDirectory(targetFolder + "\\empty_Single_File", targetFolder + "\\empty_Single_File.zip");
+
+
+            //File.Move(targetFolder + "\\empty_Single_File.zip", target);
+
+
+            //Directory.Move(targetFolder + "\\empty_Single_File", targetFolder + "\\" + Path.GetFileName(target));
+
+            //File.Copy(initialPath + "\\EmptyFiles\\empty_Single_File.zip", targetFolder);
+            //File.Move(targetFolder + "\\empty_Single_File.zip", target)
 
             //target = accEpubFolderName + "\\" + IInputBox.Show("What should be the name of the EPUB file?", "New File Name" ).ToString();
-            Directory.Move(accEpubFolderName + "\\empty_Single_File", target);
+            System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", accEpubFolderName + "\\" + Path.GetFileName(target));
+            //Directory.Move(accEpubFolderName + "\\empty_Single_File", accEpubFolderName + Path.GetFileName(target));
 
             string epubFileName;       // Formerly tempFile
             string fileName = "";      // Formerly tempFile2
             string zipFileName = "";     // Formerly tempFile3 
 
 
-           
-            //treeView1.Nodes.Clear();
-            //richTextBox1.Clear();
-            //geckoWebBrowser1.Navigate("");
+
+            ////treeView1.Nodes.Clear();
+            ////richTextBox1.Clear();
+            ////geckoWebBrowser1.Navigate("");
             epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(target));
-        
+
 
 
             if (epubFileName.Contains('.'))
@@ -642,17 +696,22 @@ namespace AccessibleEPUB
                 fileName = epubFileName.Substring(0, epubFileName.LastIndexOf('.'));
             }
 
+            System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", fileName);
+
+
             zipFileName = fileName + ".zip";
+
+            File.Delete(accEpubFolderName + "\\empty_Single_File.zip");
 
             //using (File.Create(epubFileName)) ;
             //using (File.Create(tempFile2)) ;
-            System.IO.File.Move(epubFileName, zipFileName);
+            //System.IO.File.Move(epubFileName, zipFileName);
 
-            System.IO.Compression.ZipFile.ExtractToDirectory(zipFileName, fileName);
+            //System.IO.Compression.ZipFile.ExtractToDirectory(zipFileName, fileName);
 
             /*FolderBrowserDialog dialog = new FolderBrowserDialog();
             if (dialog.ShowDialog() != DialogResult.OK) { return; }
-            dialog.SelectedPath = tempFolder;*/
+            dialog.SelectedPath = tempFolder; */
             this.treeView1.Nodes.Add(TraverseDirectory(fileName));
 
             //this.treeView1.CollapseAll();
@@ -669,7 +728,7 @@ namespace AccessibleEPUB
             //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
 
 
-            
+
 
         }
 
@@ -686,8 +745,28 @@ namespace AccessibleEPUB
             {
                 dir.Delete(true);
             }
+            //foreach (System.IO.FileInfo file in directory.GetFiles()) file.Delete();
+            //foreach (System.IO.DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
 
 
+        }
+
+        private static void CloneDirectory(string root, string dest)
+        {
+            foreach (var directory in Directory.GetDirectories(root))
+            {
+                string dirName = Path.GetFileName(directory);
+                if (!Directory.Exists(Path.Combine(dest, dirName)))
+                {
+                    Directory.CreateDirectory(Path.Combine(dest, dirName));
+                }
+                CloneDirectory(directory, Path.Combine(dest, dirName));
+            }
+
+            foreach (var file in Directory.GetFiles(root))
+            {
+                File.Copy(file, Path.Combine(dest, Path.GetFileName(file)));
+            }
         }
 
         private static void DirectoryCopy(string sourceDirName, string destDirName)
@@ -714,7 +793,9 @@ namespace AccessibleEPUB
             foreach (FileInfo file in files)
             {
                 string temppath = Path.Combine(destDirName, file.Name);
-                file.CopyTo(temppath, false);
+                //file.CopyTo(temppath, false);
+                file.CopyTo(temppath, true);
+
             }
 
             // If copying subdirectories, copy them and their contents to new location.
