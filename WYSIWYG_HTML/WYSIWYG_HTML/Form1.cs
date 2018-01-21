@@ -19,6 +19,8 @@ namespace WYSIWYG_HTML
         private IHTMLDocument2 doc;
         Dictionary<string, string> headings;
         string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+
         public Form1()
         {
             InitializeComponent();
@@ -28,11 +30,11 @@ namespace WYSIWYG_HTML
         private void Form1_Load(object sender, EventArgs e)
         {
             HTMLEditor.DocumentText = @"<html><body></body></html>"; //This will get our HTML editor ready, inserting common HTML blocks into the document
-                                                                    //Make the web 'browser' an editable HTML field
+                                                                    
        
             doc = HTMLEditor.Document.DomDocument as IHTMLDocument2;
      
-            doc.designMode = "On";
+            doc.designMode = "On";                                  //Make the web 'browser' an editable HTML field
 
 
             //What we just did was make our web browser editable!
@@ -79,6 +81,7 @@ object {
 
 math {
   max-width : 100%;
+
 }
 
 table {
@@ -96,6 +99,15 @@ body {
 	margin-right: auto;
 }
 
+.math {
+    font-size: 0%;
+    display:none;
+    visibility:hidden;
+    color:#FFFFFF;
+}
+
+
+
 ;"
 ;
             
@@ -107,11 +119,6 @@ body {
             InitHeadingsList();
             InitFontList();
             InitFontSizeList();
-        }
-
-        public IHTMLDocument2 getHTMLDocument()
-        {
-            return doc;
         }
 
         private void InitHeadingsList()
@@ -168,47 +175,40 @@ body {
         }
 
 
-
-
-        private void boldButton_Click(object sender, EventArgs e)
+        private void makeBold()
         {
             HTMLEditor.Document.ExecCommand("Bold", false, null);
-            richTextBox1.Text = HTMLEditor.DocumentText;
         }
 
-        private void italicButton_Click(object sender, EventArgs e)
+        private void makeItalic()
         {
             HTMLEditor.Document.ExecCommand("Italic", false, null);
         }
 
-        private void underlineButton_Click(object sender, EventArgs e)
+        private void makeUnderline()
         {
             HTMLEditor.Document.ExecCommand("Underline", false, null);
         }
 
-        private void strikethroughButton_Click(object sender, EventArgs e)
+        private void makeStrikethrough()
         {
             HTMLEditor.Document.ExecCommand("StrikeThrough", false, null);
-            
         }
 
 
 
-        
-
-
-        private void orderedListButton_Click(object sender, EventArgs e)
+        private void insertOrderedList()
         {
             HTMLEditor.Document.ExecCommand("InsertOrderedList", false, null);
         }
 
-        private void unorderedListButton_Click(object sender, EventArgs e)
+        private void insertUnorderedList()
         {
             HTMLEditor.Document.ExecCommand("InsertUnorderedList", false, null);
 
         }
-   
-        private void formatComboBox_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void changeFormat()
         {
             string format;
 
@@ -218,51 +218,50 @@ body {
             }
 
             HTMLEditor.Document.Focus();
-
-
-
         }
 
-        private void indentButton_Click(object sender, EventArgs e)
+        private void indent()
         {
             HTMLEditor.Document.ExecCommand("Indent", false, null);
         }
 
-        private void outdentButton_Click(object sender, EventArgs e)
+        private void outdent()
         {
             HTMLEditor.Document.ExecCommand("Outdent", false, null);
         }
 
-        private void justifyLeftButton_Click(object sender, EventArgs e)
+        private void justifyLeft()
         {
             HTMLEditor.Document.ExecCommand("JustifyLeft", false, null);
         }
 
-        private void justifyCenterButton_Click(object sender, EventArgs e)
+        private void justifyCenter()
         {
             HTMLEditor.Document.ExecCommand("JustifyCenter", false, null);
         }
 
-        private void justifyRightButton_Click(object sender, EventArgs e)
+        private void justifyRight()
         {
             HTMLEditor.Document.ExecCommand("JustifyRight", false, null);
         }
 
-        private void justifyButton_Click(object sender, EventArgs e)
+        private void justify()
         {
             HTMLEditor.Document.ExecCommand("JustifyFull", false, null);
         }
 
-        private void fontComboBox_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void changeFont()
         {
             HTMLEditor.Document.ExecCommand("FontName", false, fontComboBox.SelectedItem.ToString());
             //ss.cssText = "html * {	font-family: 'Arial', Helvetica, sans-serif !important; }";
             //ss.cssText = "html * {	font-family: '" + fontComboBox.SelectedItem.ToString() + "', Helvetica, sans-serif !important; }";
         }
 
-        private void colorPickerButton_Click(object sender, EventArgs e)
+
+        private void changeFontColor()
         {
-            Color col = new Color() ;
+            Color col = new Color();
             ColorDialog MyDialog = new ColorDialog();
             // Keeps the user from selecting a custom color.
             MyDialog.AllowFullOpen = false;
@@ -278,27 +277,153 @@ body {
             HTMLEditor.Document.ExecCommand("ForeColor", false, colorstr);
         }
 
-        private void fontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void changeFontSize()
         {
             HTMLEditor.Document.ExecCommand("FontSize", false, fontSizeComboBox.SelectedItem.ToString());
         }
 
-        private void imageButton_Click(object sender, EventArgs e)
+
+        private void insertImage()
         {
             ImageDialogBox idb = new ImageDialogBox(doc);
             idb.ShowDialog();
         }
 
-        private void tableButton_Click(object sender, EventArgs e)
+        private void insertTable()
         {
             TableDialogBox tdb = new TableDialogBox(doc);
             tdb.ShowDialog();
         }
 
-        private void mathButton_Click(object sender, EventArgs e)
+        private void insertMath()
         {
             MathDialogBox mdb = new MathDialogBox(doc);
             mdb.ShowDialog();
+        }
+
+
+
+        private void boldButton_Click(object sender, EventArgs e)
+        {
+            makeBold();
+        }
+
+        private void italicButton_Click(object sender, EventArgs e)
+        {
+            makeItalic();
+        }
+
+        private void underlineButton_Click(object sender, EventArgs e)
+        {
+            makeUnderline();
+        }
+
+        private void strikethroughButton_Click(object sender, EventArgs e)
+        {
+            makeStrikethrough();
+            
+        }
+
+
+
+        
+
+
+        private void orderedListButton_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+        }
+
+        private void unorderedListButton_Click(object sender, EventArgs e)
+        {
+            insertUnorderedList();
+        }
+   
+        private void formatComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeFormat();
+        }
+
+
+
+        private void indentButton_Click(object sender, EventArgs e)
+        {
+            HTMLEditor.Document.ExecCommand("Indent", false, null);
+        }
+
+        private void outdentButton_Click(object sender, EventArgs e)
+        {
+            HTMLEditor.Document.ExecCommand("Outdent", false, null);
+        }
+
+        private void justifyLeftButton_Click(object sender, EventArgs e)
+        {
+            justifyLeft();
+        }
+
+        private void justifyCenterButton_Click(object sender, EventArgs e)
+        {
+            justifyCenter();
+        }
+
+        private void justifyRightButton_Click(object sender, EventArgs e)
+        {
+            justifyRight();
+        }
+
+        private void justifyButton_Click(object sender, EventArgs e)
+        {
+            justify();
+        }
+
+        private void fontComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeFont();
+        }
+
+        private void colorPickerButton_Click(object sender, EventArgs e)
+        {
+            changeFontColor();
+        }
+
+        private void fontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeFontSize();
+        }
+
+        private void imageButton_Click(object sender, EventArgs e)
+        {
+            insertImage();
+        }
+
+        private void tableButton_Click(object sender, EventArgs e)
+        {
+            insertTable();
+        }
+
+        private void mathButton_Click(object sender, EventArgs e)
+        {
+            insertMath();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.B)
+            {
+                makeBold();
+            }
+            else if (e.Control && e.KeyCode == Keys.I)
+            {
+                makeItalic();
+            }
+            else if (e.Control && e.KeyCode == Keys.U)
+            {
+                makeUnderline();
+            }
+            else if (e.Control && e.KeyCode == Keys.I)
+            {
+                makeItalic();
+            }
         }
     }
 }

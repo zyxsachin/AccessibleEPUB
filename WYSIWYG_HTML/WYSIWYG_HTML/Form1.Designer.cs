@@ -49,11 +49,11 @@
             this.fontComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
             this.fontSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.imageButton = new System.Windows.Forms.ToolStripButton();
             this.tableButton = new System.Windows.Forms.ToolStripButton();
             this.mathButton = new System.Windows.Forms.ToolStripButton();
             this.HTMLEditor = new System.Windows.Forms.WebBrowser();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +80,7 @@
             this.fontComboBox,
             this.colorPickerButton,
             this.fontSizeComboBox,
+            this.toolStripSeparator4,
             this.imageButton,
             this.tableButton,
             this.mathButton});
@@ -97,6 +98,7 @@
             this.boldButton.Name = "boldButton";
             this.boldButton.Size = new System.Drawing.Size(34, 34);
             this.boldButton.Text = "boldButton";
+            this.boldButton.ToolTipText = "Bold (Ctrl+B)";
             this.boldButton.Click += new System.EventHandler(this.boldButton_Click);
             // 
             // italicButton
@@ -107,6 +109,7 @@
             this.italicButton.Name = "italicButton";
             this.italicButton.Size = new System.Drawing.Size(34, 34);
             this.italicButton.Text = "italicButton";
+            this.italicButton.ToolTipText = "Italic (Ctrl+I)";
             this.italicButton.Click += new System.EventHandler(this.italicButton_Click);
             // 
             // underlineButton
@@ -117,6 +120,7 @@
             this.underlineButton.Name = "underlineButton";
             this.underlineButton.Size = new System.Drawing.Size(34, 34);
             this.underlineButton.Text = "underlineButton";
+            this.underlineButton.ToolTipText = "Underline (Ctrl+U)";
             this.underlineButton.Click += new System.EventHandler(this.underlineButton_Click);
             // 
             // strikethroughButton
@@ -127,6 +131,7 @@
             this.strikethroughButton.Name = "strikethroughButton";
             this.strikethroughButton.Size = new System.Drawing.Size(34, 34);
             this.strikethroughButton.Text = "strikethroughButton";
+            this.strikethroughButton.ToolTipText = "Strikethrough";
             this.strikethroughButton.Click += new System.EventHandler(this.strikethroughButton_Click);
             // 
             // toolStripSeparator1
@@ -142,6 +147,7 @@
             this.orderedListButton.Name = "orderedListButton";
             this.orderedListButton.Size = new System.Drawing.Size(34, 34);
             this.orderedListButton.Text = "orderedListButton";
+            this.orderedListButton.ToolTipText = "Numbered List";
             this.orderedListButton.Click += new System.EventHandler(this.orderedListButton_Click);
             // 
             // unorderedListButton
@@ -152,6 +158,7 @@
             this.unorderedListButton.Name = "unorderedListButton";
             this.unorderedListButton.Size = new System.Drawing.Size(34, 34);
             this.unorderedListButton.Text = "unorderedListButton";
+            this.unorderedListButton.ToolTipText = "Button List";
             this.unorderedListButton.Click += new System.EventHandler(this.unorderedListButton_Click);
             // 
             // formatComboBox
@@ -159,6 +166,7 @@
             this.formatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.formatComboBox.Name = "formatComboBox";
             this.formatComboBox.Size = new System.Drawing.Size(121, 37);
+            this.formatComboBox.ToolTipText = "Choose Text Format";
             this.formatComboBox.SelectedIndexChanged += new System.EventHandler(this.formatComboBox_SelectedIndexChanged);
             // 
             // toolStripSeparator3
@@ -174,6 +182,7 @@
             this.indentButton.Name = "indentButton";
             this.indentButton.Size = new System.Drawing.Size(34, 34);
             this.indentButton.Text = "indentButton";
+            this.indentButton.ToolTipText = "Increase Indent";
             this.indentButton.Click += new System.EventHandler(this.indentButton_Click);
             // 
             // outdentButton
@@ -184,6 +193,7 @@
             this.outdentButton.Name = "outdentButton";
             this.outdentButton.Size = new System.Drawing.Size(34, 34);
             this.outdentButton.Text = "outdentButton";
+            this.outdentButton.ToolTipText = "Decrease Indent";
             this.outdentButton.Click += new System.EventHandler(this.outdentButton_Click);
             // 
             // toolStripSeparator2
@@ -199,6 +209,7 @@
             this.justifyLeftButton.Name = "justifyLeftButton";
             this.justifyLeftButton.Size = new System.Drawing.Size(34, 34);
             this.justifyLeftButton.Text = "justifyLeftButton";
+            this.justifyLeftButton.ToolTipText = "Align Left";
             this.justifyLeftButton.Click += new System.EventHandler(this.justifyLeftButton_Click);
             // 
             // justifyCenterButton
@@ -209,6 +220,7 @@
             this.justifyCenterButton.Name = "justifyCenterButton";
             this.justifyCenterButton.Size = new System.Drawing.Size(34, 34);
             this.justifyCenterButton.Text = "justifyCenterButton";
+            this.justifyCenterButton.ToolTipText = "Center";
             this.justifyCenterButton.Click += new System.EventHandler(this.justifyCenterButton_Click);
             // 
             // justifyRightButton
@@ -219,6 +231,7 @@
             this.justifyRightButton.Name = "justifyRightButton";
             this.justifyRightButton.Size = new System.Drawing.Size(34, 34);
             this.justifyRightButton.Text = "justifyRightButton";
+            this.justifyRightButton.ToolTipText = "Align Right";
             this.justifyRightButton.Click += new System.EventHandler(this.justifyRightButton_Click);
             // 
             // justifyButton
@@ -229,6 +242,7 @@
             this.justifyButton.Name = "justifyButton";
             this.justifyButton.Size = new System.Drawing.Size(34, 34);
             this.justifyButton.Text = "justifyButton";
+            this.justifyButton.ToolTipText = "Justify";
             this.justifyButton.Click += new System.EventHandler(this.justifyButton_Click);
             // 
             // fontComboBox
@@ -236,6 +250,7 @@
             this.fontComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fontComboBox.Name = "fontComboBox";
             this.fontComboBox.Size = new System.Drawing.Size(121, 37);
+            this.fontComboBox.ToolTipText = "Choose Font";
             this.fontComboBox.SelectedIndexChanged += new System.EventHandler(this.fontComboBox_SelectedIndexChanged);
             // 
             // colorPickerButton
@@ -246,6 +261,7 @@
             this.colorPickerButton.Name = "colorPickerButton";
             this.colorPickerButton.Size = new System.Drawing.Size(34, 34);
             this.colorPickerButton.Text = "colorPickerButton";
+            this.colorPickerButton.ToolTipText = "Choose Font Color";
             this.colorPickerButton.Click += new System.EventHandler(this.colorPickerButton_Click);
             // 
             // fontSizeComboBox
@@ -253,7 +269,13 @@
             this.fontSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fontSizeComboBox.Name = "fontSizeComboBox";
             this.fontSizeComboBox.Size = new System.Drawing.Size(121, 37);
+            this.fontSizeComboBox.ToolTipText = "Choose Font Size";
             this.fontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.fontSizeComboBox_SelectedIndexChanged);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 37);
             // 
             // imageButton
             // 
@@ -263,6 +285,7 @@
             this.imageButton.Name = "imageButton";
             this.imageButton.Size = new System.Drawing.Size(34, 34);
             this.imageButton.Text = "imageButton";
+            this.imageButton.ToolTipText = "Insert Image";
             this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
             // 
             // tableButton
@@ -273,6 +296,7 @@
             this.tableButton.Name = "tableButton";
             this.tableButton.Size = new System.Drawing.Size(34, 34);
             this.tableButton.Text = "tableButton";
+            this.tableButton.ToolTipText = "Insert Table";
             this.tableButton.Click += new System.EventHandler(this.tableButton_Click);
             // 
             // mathButton
@@ -283,6 +307,7 @@
             this.mathButton.Name = "mathButton";
             this.mathButton.Size = new System.Drawing.Size(34, 34);
             this.mathButton.Text = "mathButton";
+            this.mathButton.ToolTipText = "Insert Math";
             this.mathButton.Click += new System.EventHandler(this.mathButton_Click);
             // 
             // HTMLEditor
@@ -298,26 +323,18 @@
             this.HTMLEditor.Size = new System.Drawing.Size(1582, 816);
             this.HTMLEditor.TabIndex = 1;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(460, 291);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(567, 425);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.HTMLEditor);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -350,8 +367,8 @@
         private System.Windows.Forms.ToolStripComboBox fontSizeComboBox;
         private System.Windows.Forms.ToolStripButton imageButton;
         private System.Windows.Forms.ToolStripButton tableButton;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripButton mathButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

@@ -22,7 +22,9 @@ namespace WYSIWYG_HTML
     {
         WpfMath.Controls.FormulaControl formula = new WpfMath.Controls.FormulaControl();
         IHTMLDocument2 doc;
-        private WpfMath.TexFormulaParser formulaParser;
+        private WpfMath.TexFormulaParser formulaParser = new WpfMath.TexFormulaParser();
+        private string svgFile;
+        private string pngFile;
 
 
 
@@ -44,6 +46,11 @@ namespace WYSIWYG_HTML
 
         private void insertFormulaButton_Click(object sender, EventArgs e)
         {
+            if (formula.HasError)
+            {
+                System.Windows.Forms.MessageBox.Show("The entered formula is invalid.", "Invalid formula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             string pandoc = Path.Combine(initialPath, "pandoc-2.1");
             string currentDic = Directory.GetCurrentDirectory();
@@ -52,13 +59,21 @@ namespace WYSIWYG_HTML
 
             if (inputTextBox.Text == "")
             {
+                System.Windows.Forms.MessageBox.Show("No input was entered.", "Missing formula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (titleTextBox.Text == "")
+            {
+                System.Windows.Forms.MessageBox.Show("Please enter a title.", "Missing title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             System.IO.File.WriteAllText(Path.Combine(pandoc, "accEpub.txt"), "$" + inputTextBox.Text + "$");
-
-
-
+            
+            saveSVG();
+            Directory.SetCurrentDirectory(pandoc);
+            Console.WriteLine(svgFile);
             var proc = new Process
             {
                 StartInfo = new ProcessStartInfo
@@ -68,13 +83,15 @@ namespace WYSIWYG_HTML
                     Arguments = @"/c pandoc --mathml accEpub.txt> formulaResult.txt",
                     //UseShellExecute = false,
                     //RedirectStandardOutput = false,
-                    CreateNoWindow = true
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
                 }
             };
             
-            string math = "";
+            
             proc.Start();
             proc.WaitForExit();
+            string math = "";
             //while (!proc.StandardOutput.EndOfStream)
             //{
             //    math += proc.StandardOutput.ReadLine();
@@ -91,19 +108,31 @@ namespace WYSIWYG_HTML
             string mathResult = math.Substring(math.IndexOf(split));
             //Console.WriteLine(math);
             //Console.WriteLine(mathResult.LastIndexOf(split2));
-            Console.WriteLine(mathResult);
+            //Console.WriteLine(mathResult);
             mathResult = mathResult.Substring(0, mathResult.LastIndexOf(split2) + split2.Length);
 
             string mathHeader = @"
-            <div role = ""math"" class=""math"">
-                <math xmlns=""http://www.w3.org/1998/Math/MathML"" title="""" alttext=""" + inputTextBox.Text + @""">";
+            <div role=""math"" class=""math"">
+                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + svgFile +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">";
             string mathEnd = @"
                 </math>
             </div>";
-
+            
+            this.Hide();
             //dynamic r = doc.selection.createRange();
             //r.pasteHTML(mathHeader + mathResult + mathEnd);
             doc.body.innerHTML += mathHeader + mathResult + mathEnd;
+            doc.body.innerHTML += (@"
+<figure class=""toRemove"">
+	<img title=""" + titleTextBox.Text + @""" 
+        src =""" + pngFile + @""" alt =""" + inputTextBox.Text + @""" />
+  <p class=""transparent"" >
+   " + inputTextBox.Text + @"
+  </p>
+	<figcaption style = ""text -align:center"" > " + @"</figcaption>
+</figure>
+");
+            Directory.SetCurrentDirectory(currentDic);
 
             //doc.body.innerText += math;
             //formula.HorizontalAlignment
@@ -190,12 +219,12 @@ namespace WYSIWYG_HTML
             WpfMath.TexFormula formula = null;
             try
             {
-                formula = this.formulaParser.Parse(input);
+                formula = formulaParser.Parse(input);
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("An error occurred while parsing the given input:" + Environment.NewLine +
-                    //Environment.NewLine + ex.Message, "WPF-Math Example", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.MessageBox.Show("An error occurred while parsing the given input:" + Environment.NewLine +
+                    Environment.NewLine + ex.Message, "Accessible EPUB", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
             return formula;
@@ -243,8 +272,90 @@ namespace WYSIWYG_HTML
             }
         }
 
+        private void saveSVG()
+        {
+            string imagesFolder = Path.Combine(initialPath, "images");
+            string currentDic = Directory.GetCurrentDirectory();
+
+            System.IO.DirectoryInfo di = new DirectoryInfo(imagesFolder);
+
+            //foreach (FileInfo file in di.GetFiles())
+            //{
+            //    file.Delete();
+            //}
+            //foreach (DirectoryInfo dir in di.GetDirectories())
+            //{
+            //    dir.Delete(true);
+            //}
+            //while (di.GetDirectories().Length != 0 || di.GetFiles().Length != 0)
+            //{
+            //    var result = System.Windows.Forms.MessageBox.Show("Could not delete all files in temp folder", "Error Title", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
+            //    if (result == DialogResult.Retry)
+            //    {
+            //        foreach (FileInfo file in di.GetFiles())
+            //        {
+            //            file.Delete();
+            //        }
+            //        foreach (DirectoryInfo dir in di.GetDirectories())
+            //        {
+            //            dir.Delete(true);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+            //}
+            Directory.SetCurrentDirectory(imagesFolder);
+
+            
+            WpfMath.TexFormula formula = ParseFormula(inputTextBox.Text);
+            if (formula == null) return;
+            var renderer = formula.GetRenderer(WpfMath.TexStyle.Display, this.formula.Scale, "Arial");
+            // Open stream
+            var pngFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".png");
+            var svgFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".svg");
+            svgFile = svgFilename;
+            pngFile = pngFilename;
+            Console.WriteLine(svgFile);
+            using (var stream = new FileStream(pngFilename, FileMode.Create))
+            {
+               
+                //var geometry = renderer.RenderToGeometry(0, 0);
+                //var converter = new WpfMath.SVGConverter();
+                //var svgPathText = converter.ConvertGeometry(geometry);
+                //var svgText = this.AddSVGHeader(svgPathText);
+                //using (var writer = new StreamWriter(stream))
+                //    writer.WriteLine(svgText);
+
+                var bitmap = renderer.RenderToBitmap(0, 0);
+                var encoder = new PngBitmapEncoder
+                {
+                    Frames = { BitmapFrame.Create(bitmap) }
+                };
+                encoder.Save(stream);
+
+            }
+
+            using (var stream = new FileStream(svgFilename, FileMode.Create))
+            {
+
+                var geometry = renderer.RenderToGeometry(0, 0);
+                var converter = new WpfMath.SVGConverter();
+                var svgPathText = converter.ConvertGeometry(geometry);
+                var svgText = this.AddSVGHeader(svgPathText);
+                using (var writer = new StreamWriter(stream))
+                    writer.WriteLine(svgText);
+
+
+            }
+            Directory.SetCurrentDirectory(currentDic);
+
+        }
+
         private string AddSVGHeader(string svgText)
         {
+
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
                 .AppendLine("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" >")
@@ -270,6 +381,12 @@ namespace WYSIWYG_HTML
         {
             this.formula.Formula = inputTextBox.Text;
 
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dispose();
         }
     }
 }

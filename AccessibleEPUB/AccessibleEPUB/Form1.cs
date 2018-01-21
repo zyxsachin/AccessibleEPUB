@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.IO.Compression;
 
+using mshtml;
 
 using Gecko;
 using IPrompt;
@@ -30,7 +31,9 @@ namespace AccessibleEPUB
         ICSharpCode.AvalonEdit.TextEditor codeArea;
 
         string initialPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-
+        private IHTMLDocument2 doc;
+        Dictionary<string, string> headings;
+        string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
 
         string target;
@@ -56,12 +59,20 @@ namespace AccessibleEPUB
         {
             InitializeComponent();
             Xpcom.Initialize("Firefox");
-            tabControl2.Padding = new System.Drawing.Point(21, 3);
+            filesTabControl.Padding = new System.Drawing.Point(21, 3);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            HTMLEditor.DocumentText = @"<html><body></body></html>"; //This will get our HTML editor ready, inserting common HTML blocks into the document
 
+
+            doc = HTMLEditor.Document.DomDocument as IHTMLDocument2;
+
+            doc.designMode = "On";                                  //Make the web 'browser' an editable HTML field
+
+
+            //What we just did was make our web browser editable!
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
@@ -69,7 +80,7 @@ namespace AccessibleEPUB
 
         //}
 
-        //private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        //private void iconsToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         //{
 
         //}
@@ -174,7 +185,7 @@ namespace AccessibleEPUB
             {
                 TabPage myTabPage = new TabPage(e.Node.Text);
                 myTabPage.Name = fileName;
-                tabControl2.TabPages.Add(myTabPage);
+                filesTabControl.TabPages.Add(myTabPage);
 
                 //RichTextBox rtb = new RichTextBox();
 
@@ -191,7 +202,7 @@ namespace AccessibleEPUB
                 //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
                 openTabs.Add(fileName);
 
-                tabControl2.SelectedTab = myTabPage;
+                filesTabControl.SelectedTab = myTabPage;
 
                 openTab(absPath);
                   
@@ -278,11 +289,11 @@ namespace AccessibleEPUB
 
             else
             {
-                foreach (TabPage tab in tabControl2.TabPages)
+                foreach (TabPage tab in filesTabControl.TabPages)
                 {
                     if (tab.Name == fileName)
                     {
-                        tabControl2.SelectedTab = tab;
+                        filesTabControl.SelectedTab = tab;
                     }
                 }
             }
@@ -401,7 +412,7 @@ namespace AccessibleEPUB
 
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void openFileButton_Click(object sender, EventArgs e)
         {
             openFile(sender, e);
         }
@@ -606,7 +617,7 @@ namespace AccessibleEPUB
 
         private void closeFile(object sender, EventArgs e)
         {
-            tabControl2.TabPages.Clear();
+            filesTabControl.TabPages.Clear();
             treeView1.Nodes.Clear();
             openTabs.Clear();
 
@@ -620,7 +631,7 @@ namespace AccessibleEPUB
         }
 
  
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void newFileButton_Click(object sender, EventArgs e)
         {
             closeFile(sender, e);
             newSingleFile();
@@ -808,12 +819,396 @@ namespace AccessibleEPUB
             
         }
 
-        private void tabControl2_Selected(object sender, TabControlEventArgs e)
+        private void filesTabControl_Selected(object sender, TabControlEventArgs e)
         {
-            if (tabControl2.TabPages.Count >= 1)
+            if (filesTabControl.TabPages.Count >= 1)
             { 
                 string absPath = tempFolder + "\\" + e.TabPage.Name;
                 openTab(absPath);
+            }
+        }
+
+        private void toggleCode_Click(object sender, EventArgs e)
+        {
+            filesTabControl.Visible = !filesTabControl.Visible;
+            
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
+            ss.cssText = @"html *
+{
+	font-family: ""Arial"", Helvetica, sans-serif !important;
+}
+        p {
+  font-size:16px;
+}
+
+    figure {
+	padding: 2px;
+	max-width : 95%;
+}
+
+figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+  font-size:16px;
+}
+
+img {
+	max-width : 100%;
+}
+
+
+object {
+  max-width : 100%; 
+}
+
+math {
+  max-width : 100%;
+
+}
+
+table {
+  font-size:16px;
+}
+
+.transparent {
+  display: none;
+  color: transparent;
+}
+
+body {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.math {
+    font-size: 0%;
+    display:none;
+    visibility:hidden;
+    color:#FFFFFF;
+}
+
+
+
+;"
+;
+
+
+
+
+            //HTMLEditor.Document.ExecCommand("FontName", false, "Arial");
+
+            InitHeadingsList();
+            InitFontList();
+            InitFontSizeList();
+        }
+
+        private void InitHeadingsList()
+        {
+            headings = new Dictionary<string, string>();
+
+            //List<Tuple<string, string>> headings = new List<Tuple<string, string>>();
+            headings.Add("Paragraph", "<p>");
+            headings.Add("Heading 1", "<h1>");
+            headings.Add("Heading 2", "<h2>");
+            headings.Add("Heading 3", "<h3>");
+            headings.Add("Heading 4", "<h4>");
+            headings.Add("Heading 5", "<h5>");
+            headings.Add("Heading 6", "<h6>");
+            headings.Add("Address", "<address>");
+            headings.Add("Preformat", "<pre>");
+
+            foreach (var tuple in headings)
+            {
+                formatComboBox.Items.Add(tuple.Key);
+
+            }
+
+            formatComboBox.SelectedIndex = 0;
+
+        }
+
+        private void InitFontList()
+        {
+            foreach (var font in FontFamily.Families)
+            {
+                fontComboBox.Items.Add(font.Name);
+            }
+
+            int index = fontComboBox.Items.IndexOf("Arial");
+
+            fontComboBox.SelectedIndex = index;
+
+        }
+
+        private void InitFontSizeList()
+        {
+
+
+            for (int x = 1; x <= 10; x++)
+            {
+                fontSizeComboBox.Items.Add(x);
+            }
+
+            int index = fontSizeComboBox.Items.IndexOf(3);
+
+            fontSizeComboBox.SelectedIndex = index;
+
+        }
+
+
+        private void makeBold()
+        {
+            HTMLEditor.Document.ExecCommand("Bold", false, null);
+        }
+
+        private void makeItalic()
+        {
+            HTMLEditor.Document.ExecCommand("Italic", false, null);
+        }
+
+        private void makeUnderline()
+        {
+            HTMLEditor.Document.ExecCommand("Underline", false, null);
+        }
+
+        private void makeStrikethrough()
+        {
+            HTMLEditor.Document.ExecCommand("StrikeThrough", false, null);
+        }
+
+
+
+        private void insertOrderedList()
+        {
+            HTMLEditor.Document.ExecCommand("InsertOrderedList", false, null);
+        }
+
+        private void insertUnorderedList()
+        {
+            HTMLEditor.Document.ExecCommand("InsertUnorderedList", false, null);
+
+        }
+
+        private void changeFormat()
+        {
+            string format;
+
+            if (headings.TryGetValue(formatComboBox.SelectedItem.ToString(), out format))
+            {
+                HTMLEditor.Document.ExecCommand("formatBlock", false, format);
+            }
+
+            HTMLEditor.Document.Focus();
+        }
+
+        private void indent()
+        {
+            HTMLEditor.Document.ExecCommand("Indent", false, null);
+        }
+
+        private void outdent()
+        {
+            HTMLEditor.Document.ExecCommand("Outdent", false, null);
+        }
+
+        private void justifyLeft()
+        {
+            HTMLEditor.Document.ExecCommand("JustifyLeft", false, null);
+        }
+
+        private void justifyCenter()
+        {
+            HTMLEditor.Document.ExecCommand("JustifyCenter", false, null);
+        }
+
+        private void justifyRight()
+        {
+            HTMLEditor.Document.ExecCommand("JustifyRight", false, null);
+        }
+
+        private void justify()
+        {
+            HTMLEditor.Document.ExecCommand("JustifyFull", false, null);
+        }
+
+
+        private void changeFont()
+        {
+            HTMLEditor.Document.ExecCommand("FontName", false, fontComboBox.SelectedItem.ToString());
+            //ss.cssText = "html * {	font-family: 'Arial', Helvetica, sans-serif !important; }";
+            //ss.cssText = "html * {	font-family: '" + fontComboBox.SelectedItem.ToString() + "', Helvetica, sans-serif !important; }";
+        }
+
+
+        private void changeFontColor()
+        {
+            Color col = new Color();
+            ColorDialog MyDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            MyDialog.AllowFullOpen = false;
+            // Allows the user to get help. (The default is false.)
+            MyDialog.ShowHelp = false;
+            // Sets the initial color select to the current text color.
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                col = MyDialog.Color;
+            }
+
+            string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.R, col.G, col.B);
+            HTMLEditor.Document.ExecCommand("ForeColor", false, colorstr);
+        }
+
+        private void changeFontSize()
+        {
+            HTMLEditor.Document.ExecCommand("FontSize", false, fontSizeComboBox.SelectedItem.ToString());
+        }
+
+
+        private void insertImage()
+        {
+            ImageDialogBox idb = new ImageDialogBox(doc);
+            idb.ShowDialog();
+        }
+
+        private void insertTable()
+        {
+            TableDialogBox tdb = new TableDialogBox(doc);
+            tdb.ShowDialog();
+        }
+
+        private void insertMath()
+        {
+            MathDialogBox mdb = new MathDialogBox(doc);
+            mdb.ShowDialog();
+        }
+
+
+
+        private void boldButton_Click(object sender, EventArgs e)
+        {
+            makeBold();
+        }
+
+        private void italicButton_Click(object sender, EventArgs e)
+        {
+            makeItalic();
+        }
+
+        private void underlineButton_Click(object sender, EventArgs e)
+        {
+            makeUnderline();
+        }
+
+        private void strikethroughButton_Click(object sender, EventArgs e)
+        {
+            makeStrikethrough();
+
+        }
+
+
+
+
+
+
+        private void orderedListButton_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+        }
+
+        private void unorderedListButton_Click(object sender, EventArgs e)
+        {
+            insertUnorderedList();
+        }
+
+        private void formatComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeFormat();
+        }
+
+
+
+        private void indentButton_Click(object sender, EventArgs e)
+        {
+            HTMLEditor.Document.ExecCommand("Indent", false, null);
+        }
+
+        private void outdentButton_Click(object sender, EventArgs e)
+        {
+            HTMLEditor.Document.ExecCommand("Outdent", false, null);
+        }
+
+        private void justifyLeftButton_Click(object sender, EventArgs e)
+        {
+            justifyLeft();
+        }
+
+        private void justifyCenterButton_Click(object sender, EventArgs e)
+        {
+            justifyCenter();
+        }
+
+        private void justifyRightButton_Click(object sender, EventArgs e)
+        {
+            justifyRight();
+        }
+
+        private void justifyButton_Click(object sender, EventArgs e)
+        {
+            justify();
+        }
+
+        private void fontComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeFont();
+        }
+
+        private void colorPickerButton_Click(object sender, EventArgs e)
+        {
+            changeFontColor();
+        }
+
+        private void fontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeFontSize();
+        }
+
+        private void imageButton_Click(object sender, EventArgs e)
+        {
+            insertImage();
+        }
+
+        private void tableButton_Click(object sender, EventArgs e)
+        {
+            insertTable();
+        }
+
+        private void mathButton_Click(object sender, EventArgs e)
+        {
+            insertMath();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.B)
+            {
+                makeBold();
+            }
+            else if (e.Control && e.KeyCode == Keys.I)
+            {
+                makeItalic();
+            }
+            else if (e.Control && e.KeyCode == Keys.U)
+            {
+                makeUnderline();
+            }
+            else if (e.Control && e.KeyCode == Keys.I)
+            {
+                makeItalic();
             }
         }
     }

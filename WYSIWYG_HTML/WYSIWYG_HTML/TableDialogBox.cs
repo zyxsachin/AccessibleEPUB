@@ -256,5 +256,11 @@ namespace WYSIWYG_HTML
 </table>
 */
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dispose();
+        }
     }
 }
