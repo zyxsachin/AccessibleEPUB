@@ -19,6 +19,8 @@ using IPrompt;
 using ScintillaNET;
 using ICSharpCode.AvalonEdit;
 
+using Microsoft.Win32;
+
 
 
 namespace AccessibleEPUB
@@ -73,6 +75,31 @@ namespace AccessibleEPUB
 
 
             //What we just did was make our web browser editable!
+
+            int BrowserVer, RegVal;
+
+            // get the installed IE version
+            using (WebBrowser Wb = new WebBrowser())
+                BrowserVer = Wb.Version.Major;
+
+            // set the appropriate IE version
+            if (BrowserVer >= 11)
+                RegVal = 11001;
+            else if (BrowserVer == 10)
+                RegVal = 10001;
+            else if (BrowserVer == 9)
+                RegVal = 9999;
+            else if (BrowserVer == 8)
+                RegVal = 8888;
+            else
+                RegVal = 7000;
+
+            // set the actual key
+            using (RegistryKey Key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", RegistryKeyPermissionCheck.ReadWriteSubTree))
+                if (Key.GetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe") == null)
+                    Key.SetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe", RegVal, RegistryValueKind.DWord);
+
+            Console.WriteLine(RegVal);
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
@@ -489,7 +516,7 @@ namespace AccessibleEPUB
             }
 
 
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             openFileDialog1.InitialDirectory = homePath;
             openFileDialog1.Filter = "EPUB|*.epub|All Files|*.*";
 
@@ -644,7 +671,7 @@ namespace AccessibleEPUB
             tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
 
 
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
             saveFileDialog1.Title = "Create a new EPUB File";
             saveFileDialog1.InitialDirectory = homePath;
@@ -831,7 +858,14 @@ namespace AccessibleEPUB
         private void toggleCode_Click(object sender, EventArgs e)
         {
             filesTabControl.Visible = !filesTabControl.Visible;
-            
+            if (filesTabControl.Visible == false)
+            {
+                HTMLEditor.Focus();
+            }
+            else
+            {
+                filesTabControl.Focus();
+            }
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -840,6 +874,7 @@ namespace AccessibleEPUB
             ss.cssText = @"html *
 {
 	font-family: ""Arial"", Helvetica, sans-serif !important;
+
 }
         p {
   font-size:16px;
@@ -886,10 +921,10 @@ body {
 }
 
 .math {
-    font-size: 0%;
+
     display:none;
     visibility:hidden;
-    color:#FFFFFF;
+
 }
 
 

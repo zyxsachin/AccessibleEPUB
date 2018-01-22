@@ -24,7 +24,7 @@ namespace AccessibleEPUB
         IHTMLDocument2 doc;
         private WpfMath.TexFormulaParser formulaParser = new WpfMath.TexFormulaParser();
         private string svgFile;
-        private string pngFile;
+        //private string pngFile;
 
 
 
@@ -105,8 +105,8 @@ namespace AccessibleEPUB
             //Console.WriteLine(proc.StartInfo.FileName.ToString());
             //Console.WriteLine(proc.StartInfo.Arguments.ToString());
             System.IO.File.WriteAllText(Path.Combine(pandoc, "result.txt"), math);
-            string split = "<mrow>";
-            string split2 = "</mrow>";
+            string split = "<semantics>";
+            string split2 = "</semantics>";
             string mathResult = math.Substring(math.IndexOf(split));
             //Console.WriteLine(math);
             //Console.WriteLine(mathResult.LastIndexOf(split2));
@@ -125,14 +125,9 @@ namespace AccessibleEPUB
             //r.pasteHTML(mathHeader + mathResult + mathEnd);
             doc.body.innerHTML += mathHeader + mathResult + mathEnd;
             doc.body.innerHTML += (@"
-<figure class=""toRemove"">
-	<img title=""" + titleTextBox.Text + @""" 
-        src =""" + pngFile + @""" alt =""" + inputTextBox.Text + @""" />
-  <p class=""transparent"" >
-   " + inputTextBox.Text + @"
-  </p>
-	<figcaption style = ""text -align:center"" > " + @"</figcaption>
-</figure>
+	<img class=""toRemove"" title=""" + titleTextBox.Text + @""" 
+        src =""" + svgFile + @""" alt =""" + inputTextBox.Text + @""" />
+ 
 ");
             Directory.SetCurrentDirectory(currentDic);
 
@@ -315,29 +310,29 @@ namespace AccessibleEPUB
             if (formula == null) return;
             var renderer = formula.GetRenderer(WpfMath.TexStyle.Display, this.formula.Scale, "Arial");
             // Open stream
-            var pngFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".png");
+            //var pngFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".png");
             var svgFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".svg");
             svgFile = svgFilename;
-            pngFile = pngFilename;
+            //pngFile = pngFilename;
             Console.WriteLine(svgFile);
-            using (var stream = new FileStream(pngFilename, FileMode.Create))
-            {
+            //using (var stream = new FileStream(pngFilename, FileMode.Create))
+            //{
                
-                //var geometry = renderer.RenderToGeometry(0, 0);
-                //var converter = new WpfMath.SVGConverter();
-                //var svgPathText = converter.ConvertGeometry(geometry);
-                //var svgText = this.AddSVGHeader(svgPathText);
-                //using (var writer = new StreamWriter(stream))
-                //    writer.WriteLine(svgText);
+            //    //var geometry = renderer.RenderToGeometry(0, 0);
+            //    //var converter = new WpfMath.SVGConverter();
+            //    //var svgPathText = converter.ConvertGeometry(geometry);
+            //    //var svgText = this.AddSVGHeader(svgPathText);
+            //    //using (var writer = new StreamWriter(stream))
+            //    //    writer.WriteLine(svgText);
 
-                var bitmap = renderer.RenderToBitmap(0, 0);
-                var encoder = new PngBitmapEncoder
-                {
-                    Frames = { BitmapFrame.Create(bitmap) }
-                };
-                encoder.Save(stream);
+            //    var bitmap = renderer.RenderToBitmap(0, 0);
+            //    var encoder = new PngBitmapEncoder
+            //    {
+            //        Frames = { BitmapFrame.Create(bitmap) }
+            //    };
+            //    encoder.Save(stream);
 
-            }
+            //}
 
             using (var stream = new FileStream(svgFilename, FileMode.Create))
             {
