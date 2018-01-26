@@ -38,7 +38,8 @@
 %\usepackage[plainpages=true]{hyperref}
 \usepackage[space]{grffile}
 %\usepackage[numbers,sort&compress]{natbib}
-\usepackage[backend=bibtexu,natbib=true,hyperref=true,doi=false,url=false]{biblatex}
+\usepackage[backend=bibtex,natbib=true,hyperref=true,doi=false,url=false]{biblatex}
+%\usepackage{biblatex}
 % \usepackage{varioref}
 % \usepackage{verbatim}
 \usepackage{float}    %z.B. \floatstyle{ruled}\restylefloat{figure}
@@ -73,6 +74,7 @@
 % Macros, nicht unbedingt notwendig
 \input{macros}
 
+ \renewcommand{\familydefault}{\sfdefault}
 % Print URLs not in Typewriter Font
 \def\UrlFont{\rm}
 
