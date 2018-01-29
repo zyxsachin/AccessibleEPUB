@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.menuToolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -45,6 +39,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.filesTabControl = new System.Windows.Forms.TabControl();
             this.HTMLEditor = new System.Windows.Forms.WebBrowser();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -52,11 +47,17 @@
             this.geckoWebBrowser1 = new Gecko.GeckoWebBrowser();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.menuBar = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconsToolStrip = new System.Windows.Forms.ToolStrip();
             this.newFileButton = new System.Windows.Forms.ToolStripButton();
             this.openFileButton = new System.Windows.Forms.ToolStripButton();
             this.toggleCode = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.editToolStrip = new System.Windows.Forms.ToolStrip();
             this.boldButton = new System.Windows.Forms.ToolStripButton();
             this.italicButton = new System.Windows.Forms.ToolStripButton();
             this.underlineButton = new System.Windows.Forms.ToolStripButton();
@@ -81,8 +82,6 @@
             this.tableButton = new System.Windows.Forms.ToolStripButton();
             this.mathButton = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.filesTabControl = new System.Windows.Forms.TabControl();
-            this.menuToolStrip.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -96,66 +95,10 @@
             this.splitContainer2.SuspendLayout();
             this.TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.menuBar.SuspendLayout();
             this.iconsToolStrip.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
+            this.editToolStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuToolStrip
-            // 
-            this.menuToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuToolStrip.ImageScalingSize = new System.Drawing.Size(30, 30);
-            this.menuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1,
-            this.toolStripDropDownButton1});
-            this.menuToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuToolStrip.Name = "menuToolStrip";
-            this.menuToolStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuToolStrip.Size = new System.Drawing.Size(1426, 22);
-            this.menuToolStrip.Stretch = true;
-            this.menuToolStrip.TabIndex = 2;
-            this.menuToolStrip.Text = "menuToolStrip";
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.openFileToolStripMenuItem,
-            this.closeFileToolStripMenuItem});
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.ShowDropDownArrow = false;
-            this.toolStripTextBox1.Size = new System.Drawing.Size(29, 19);
-            this.toolStripTextBox1.Text = "File";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.newToolStripMenuItem.Text = "New Document";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // openFileToolStripMenuItem
-            // 
-            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.openFileToolStripMenuItem.Text = "Open File";
-            this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
-            // 
-            // closeFileToolStripMenuItem
-            // 
-            this.closeFileToolStripMenuItem.Name = "closeFileToolStripMenuItem";
-            this.closeFileToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.closeFileToolStripMenuItem.Text = "Close File";
-            this.closeFileToolStripMenuItem.Click += new System.EventHandler(this.closeFileToolStripMenuItem_Click);
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.ShowDropDownArrow = false;
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(31, 19);
-            this.toolStripDropDownButton1.Text = "Edit";
             // 
             // BottomToolStripPanel
             // 
@@ -200,21 +143,21 @@
             // 
             this.toolStripContainer1.ContentPanel.AutoScroll = true;
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1426, 739);
+            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1901, 927);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(2);
+            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1426, 839);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1901, 1033);
             this.toolStripContainer1.TabIndex = 8;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuToolStrip);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuBar);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.iconsToolStrip);
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.editToolStrip);
             this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
             // 
             // splitContainer1
@@ -222,7 +165,7 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -232,26 +175,25 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1426, 739);
-            this.splitContainer1.SplitterDistance = 148;
-            this.splitContainer1.SplitterWidth = 3;
+            this.splitContainer1.Size = new System.Drawing.Size(1901, 927);
+            this.splitContainer1.SplitterDistance = 197;
             this.splitContainer1.TabIndex = 8;
             // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(144, 735);
-            this.treeView1.TabIndex = 11;
+            this.treeView1.Size = new System.Drawing.Size(193, 923);
+            this.treeView1.TabIndex = 3;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -264,10 +206,20 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.TabControl1);
             this.splitContainer2.Panel2Collapsed = true;
-            this.splitContainer2.Size = new System.Drawing.Size(1271, 735);
+            this.splitContainer2.Size = new System.Drawing.Size(1696, 923);
             this.splitContainer2.SplitterDistance = 600;
-            this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // filesTabControl
+            // 
+            this.filesTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filesTabControl.Location = new System.Drawing.Point(0, 0);
+            this.filesTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.filesTabControl.Name = "filesTabControl";
+            this.filesTabControl.SelectedIndex = 0;
+            this.filesTabControl.Size = new System.Drawing.Size(1696, 923);
+            this.filesTabControl.TabIndex = 1;
+            this.filesTabControl.Visible = false;
             // 
             // HTMLEditor
             // 
@@ -275,11 +227,11 @@
             this.HTMLEditor.AllowWebBrowserDrop = false;
             this.HTMLEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HTMLEditor.Location = new System.Drawing.Point(0, 0);
-            this.HTMLEditor.Margin = new System.Windows.Forms.Padding(2);
-            this.HTMLEditor.MinimumSize = new System.Drawing.Size(15, 16);
+            this.HTMLEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.HTMLEditor.MinimumSize = new System.Drawing.Size(20, 20);
             this.HTMLEditor.Name = "HTMLEditor";
             this.HTMLEditor.ScriptErrorsSuppressed = true;
-            this.HTMLEditor.Size = new System.Drawing.Size(1271, 735);
+            this.HTMLEditor.Size = new System.Drawing.Size(1696, 923);
             this.HTMLEditor.TabIndex = 0;
             // 
             // TabControl1
@@ -289,8 +241,8 @@
             this.TabControl1.Controls.Add(this.tabPage3);
             this.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl1.Location = new System.Drawing.Point(0, 0);
-            this.TabControl1.Margin = new System.Windows.Forms.Padding(8);
-            this.TabControl1.MaximumSize = new System.Drawing.Size(1500, 4062);
+            this.TabControl1.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.TabControl1.MaximumSize = new System.Drawing.Size(2000, 4999);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
             this.TabControl1.Size = new System.Drawing.Size(96, 100);
@@ -300,21 +252,21 @@
             // 
             this.tabPage1.Controls.Add(this.elementHost1);
             this.tabPage1.Controls.Add(this.geckoWebBrowser1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(88, 74);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(120, 94);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Blind";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // elementHost1
             // 
-            this.elementHost1.Location = new System.Drawing.Point(75, 81);
-            this.elementHost1.Margin = new System.Windows.Forms.Padding(2);
+            this.elementHost1.Location = new System.Drawing.Point(100, 100);
+            this.elementHost1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(150, 81);
+            this.elementHost1.Size = new System.Drawing.Size(200, 100);
             this.elementHost1.TabIndex = 1;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Visible = false;
@@ -324,49 +276,102 @@
             // 
             this.geckoWebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.geckoWebBrowser1.FrameEventsPropagateToMainWindow = false;
-            this.geckoWebBrowser1.Location = new System.Drawing.Point(2, 2);
-            this.geckoWebBrowser1.Margin = new System.Windows.Forms.Padding(2);
+            this.geckoWebBrowser1.Location = new System.Drawing.Point(3, 2);
+            this.geckoWebBrowser1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.geckoWebBrowser1.Name = "geckoWebBrowser1";
-            this.geckoWebBrowser1.Size = new System.Drawing.Size(84, 70);
+            this.geckoWebBrowser1.Size = new System.Drawing.Size(114, 90);
             this.geckoWebBrowser1.TabIndex = 0;
             this.geckoWebBrowser1.UseHttpActivityObserver = false;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(88, 74);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(120, 94);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Visually Impaired";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(88, 74);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Size = new System.Drawing.Size(120, 94);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "No visual impairment";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // menuBar
+            // 
+            this.menuBar.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuBar.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem});
+            this.menuBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuBar.Location = new System.Drawing.Point(0, 0);
+            this.menuBar.Name = "menuBar";
+            this.menuBar.Size = new System.Drawing.Size(1901, 28);
+            this.menuBar.TabIndex = 5;
+            this.menuBar.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newDocumentToolStripMenuItem,
+            this.openFileToolStripMenuItem,
+            this.closeFileToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newDocumentToolStripMenuItem
+            // 
+            this.newDocumentToolStripMenuItem.Name = "newDocumentToolStripMenuItem";
+            this.newDocumentToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.newDocumentToolStripMenuItem.Text = "New Document";
+            this.newDocumentToolStripMenuItem.Click += new System.EventHandler(this.newDocumentToolStripMenuItem_Click);
+            // 
+            // openFileToolStripMenuItem
+            // 
+            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.openFileToolStripMenuItem.Text = "Open File";
+            this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click_1);
+            // 
+            // closeFileToolStripMenuItem
+            // 
+            this.closeFileToolStripMenuItem.Name = "closeFileToolStripMenuItem";
+            this.closeFileToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.closeFileToolStripMenuItem.Text = "Close File";
+            this.closeFileToolStripMenuItem.Click += new System.EventHandler(this.closeFileToolStripMenuItem_Click_1);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
             // iconsToolStrip
             // 
+            this.iconsToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.iconsToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.iconsToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.iconsToolStrip.ImageScalingSize = new System.Drawing.Size(34, 34);
             this.iconsToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileButton,
             this.openFileButton,
             this.toggleCode});
             this.iconsToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.iconsToolStrip.Location = new System.Drawing.Point(0, 22);
+            this.iconsToolStrip.Location = new System.Drawing.Point(0, 28);
             this.iconsToolStrip.Name = "iconsToolStrip";
-            this.iconsToolStrip.Size = new System.Drawing.Size(1426, 41);
+            this.iconsToolStrip.Size = new System.Drawing.Size(1901, 41);
             this.iconsToolStrip.Stretch = true;
-            this.iconsToolStrip.TabIndex = 3;
+            this.iconsToolStrip.TabIndex = 0;
             // 
             // newFileButton
             // 
@@ -398,11 +403,12 @@
             this.toggleCode.Text = "toggleCode";
             this.toggleCode.Click += new System.EventHandler(this.toggleCode_Click);
             // 
-            // toolStrip2
+            // editToolStrip
             // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(30, 30);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.editToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.editToolStrip.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.editToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.boldButton,
             this.italicButton,
             this.underlineButton,
@@ -426,15 +432,16 @@
             this.imageButton,
             this.tableButton,
             this.mathButton});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 63);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1426, 37);
-            this.toolStrip2.Stretch = true;
-            this.toolStrip2.TabIndex = 6;
-            this.toolStrip2.Text = "toolStrip2";
+            this.editToolStrip.Location = new System.Drawing.Point(0, 69);
+            this.editToolStrip.Name = "editToolStrip";
+            this.editToolStrip.Size = new System.Drawing.Size(1901, 37);
+            this.editToolStrip.Stretch = true;
+            this.editToolStrip.TabIndex = 1;
+            this.editToolStrip.Text = "toolStrip2";
             // 
             // boldButton
             // 
+            this.boldButton.AccessibleName = "boldButton";
             this.boldButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.boldButton.Image = ((System.Drawing.Image)(resources.GetObject("boldButton.Image")));
             this.boldButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -659,33 +666,22 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // filesTabControl
-            // 
-            this.filesTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filesTabControl.Location = new System.Drawing.Point(0, 0);
-            this.filesTabControl.Margin = new System.Windows.Forms.Padding(2);
-            this.filesTabControl.Name = "filesTabControl";
-            this.filesTabControl.SelectedIndex = 0;
-            this.filesTabControl.Size = new System.Drawing.Size(1271, 735);
-            this.filesTabControl.TabIndex = 2;
-            this.filesTabControl.Visible = false;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 839);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1901, 1033);
             this.Controls.Add(this.toolStripContainer1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MainMenuStrip = this.menuBar;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Accessible ePub";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.menuToolStrip.ResumeLayout(false);
-            this.menuToolStrip.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
@@ -701,21 +697,19 @@
             this.splitContainer2.ResumeLayout(false);
             this.TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.menuBar.ResumeLayout(false);
+            this.menuBar.PerformLayout();
             this.iconsToolStrip.ResumeLayout(false);
             this.iconsToolStrip.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.editToolStrip.ResumeLayout(false);
+            this.editToolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ToolStrip menuToolStrip;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripTextBox1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStrip iconsToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView1;
@@ -728,8 +722,6 @@
         private System.Windows.Forms.ToolStripButton openFileButton;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.ToolStripButton newFileButton;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toggleCode;
         private System.Windows.Forms.WebBrowser HTMLEditor;
         private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
@@ -737,7 +729,7 @@
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip editToolStrip;
         private System.Windows.Forms.ToolStripButton boldButton;
         private System.Windows.Forms.ToolStripButton italicButton;
         private System.Windows.Forms.ToolStripButton underlineButton;
@@ -762,6 +754,12 @@
         private System.Windows.Forms.ToolStripButton tableButton;
         private System.Windows.Forms.ToolStripButton mathButton;
         private System.Windows.Forms.TabControl filesTabControl;
+        private System.Windows.Forms.MenuStrip menuBar;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newDocumentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
     }
 
 

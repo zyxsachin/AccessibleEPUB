@@ -62,12 +62,23 @@ namespace AccessibleEPUB
             InitializeComponent();
             Xpcom.Initialize("Firefox");
             filesTabControl.Padding = new System.Drawing.Point(21, 3);
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            HTMLEditor.DocumentText = @"<html><body></body></html>"; //This will get our HTML editor ready, inserting common HTML blocks into the document
+            //iconsToolStrip.Visible = false;
+            //editToolStrip.Visible = false;
+            //menuBar.Visible = false;
+            //editToolStrip.Visible = true;
+            //iconsToolStrip.Visible = true;
+            //menuBar.Visible = true;
+            iconsToolStrip.SendToBack();
+            editToolStrip.SendToBack();
+            menuBar.Dock = DockStyle.Top;
 
+            HTMLEditor.DocumentText = @"<html><body></body></html>"; //This will get our HTML editor ready, inserting common HTML blocks into the document
 
             doc = HTMLEditor.Document.DomDocument as IHTMLDocument2;
 
@@ -870,6 +881,7 @@ namespace AccessibleEPUB
 
         private void Form1_Shown(object sender, EventArgs e)
         {
+
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
             ss.cssText = @"html *
 {
@@ -1245,6 +1257,22 @@ body {
             {
                 makeItalic();
             }
+        }
+
+        private void newDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeFile(sender, e);
+            newSingleFile();
+        }
+
+        private void openFileToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            openFile(sender, e);
+        }
+
+        private void closeFileToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            closeFile(sender, e);
         }
     }
 
