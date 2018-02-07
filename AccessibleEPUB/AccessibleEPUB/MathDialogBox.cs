@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Windows.Controls;
 using System.Diagnostics;
+using System.Net;
 
 
 using mshtml;
@@ -113,22 +114,61 @@ namespace AccessibleEPUB
             //Console.WriteLine(mathResult);
             mathResult = mathResult.Substring(0, mathResult.LastIndexOf(split2) + split2.Length);
 
+            bool encodeMode = false;
+      
+            StringBuilder sb = new StringBuilder("");
+            for (int i = 0; i < mathResult.Length; i++)
+            {
+                string toAdd = "";
+                if (mathResult[i] == '>')
+                {
+                    encodeMode = true;
+                    toAdd = ">";
+                }
+                else if (mathResult[i] == '<')
+                {
+                    encodeMode = false;
+                    toAdd = "<";
+                } 
+                else
+                {
+                    toAdd = WebUtility.HtmlEncode(mathResult[i]+"");
+                }
+                sb.Append(toAdd);
+                //Console.WriteLine(mathResult[i] + "     " + WebUtility.HtmlEncode(mathResult[i] + ""));
+            }
+
+
+
+            string mathFinalResult = sb.ToString();
+            //Console.WriteLine(mathFinalResult);
+
             string mathHeader = @"
             <div role=""math"" class=""math"">
-                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + svgFile +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">";
-            string mathEnd = @"
-                </math>
-            </div>";
-            
-            this.Hide();
+                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + svgFile +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "\n" + "\t<mstyle>\n";
+            string mathEnd = "\n</mstyle>\n</math>\n";
+
+
+            doc.body.innerHTML += (@"
+    <!--RemoveThis-->
+    <img class=""toRemove"" title=""" + titleTextBox.Text + @""" 
+        src =""" + svgFile + @""" alt =""" + inputTextBox.Text + @""" //>
+    <!--RemoveEnd-->
+");
+
+            string divEnd = "\n</div>\n";
+            doc.body.innerHTML += divEnd;
+
+
             //dynamic r = doc.selection.createRange();
             //r.pasteHTML(mathHeader + mathResult + mathEnd);
-            doc.body.innerHTML += mathHeader + mathResult + mathEnd;
-            doc.body.innerHTML += (@"
-	<img class=""toRemove"" title=""" + titleTextBox.Text + @""" 
-        src =""" + svgFile + @""" alt =""" + inputTextBox.Text + @""" />
- 
-");
+            doc.body.innerHTML += mathHeader + mathFinalResult + mathEnd;
+
+            string altTextParagraph = "<p class=\"transparent\">" + inputTextBox.Text + "</p>\n";
+
+            doc.body.innerHTML += altTextParagraph;
+            this.Hide();
+
             Directory.SetCurrentDirectory(currentDic);
 
             //doc.body.innerText += math;

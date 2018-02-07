@@ -56,6 +56,7 @@
             this.iconsToolStrip = new System.Windows.Forms.ToolStrip();
             this.newFileButton = new System.Windows.Forms.ToolStripButton();
             this.openFileButton = new System.Windows.Forms.ToolStripButton();
+            this.saveButton = new System.Windows.Forms.ToolStripButton();
             this.toggleCode = new System.Windows.Forms.ToolStripButton();
             this.editToolStrip = new System.Windows.Forms.ToolStrip();
             this.boldButton = new System.Windows.Forms.ToolStripButton();
@@ -207,7 +208,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.TabControl1);
             this.splitContainer2.Panel2Collapsed = true;
             this.splitContainer2.Size = new System.Drawing.Size(1696, 923);
-            this.splitContainer2.SplitterDistance = 600;
+            this.splitContainer2.SplitterDistance = 1000;
             this.splitContainer2.TabIndex = 0;
             // 
             // filesTabControl
@@ -233,6 +234,7 @@
             this.HTMLEditor.ScriptErrorsSuppressed = true;
             this.HTMLEditor.Size = new System.Drawing.Size(1696, 923);
             this.HTMLEditor.TabIndex = 0;
+            this.HTMLEditor.Visible = false;
             // 
             // TabControl1
             // 
@@ -365,6 +367,7 @@
             this.iconsToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileButton,
             this.openFileButton,
+            this.saveButton,
             this.toggleCode});
             this.iconsToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.iconsToolStrip.Location = new System.Drawing.Point(0, 28);
@@ -392,6 +395,17 @@
             this.openFileButton.Size = new System.Drawing.Size(38, 38);
             this.openFileButton.Text = "openFileButton";
             this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(38, 38);
+            this.saveButton.Text = "saveButton";
+            this.saveButton.ToolTipText = "Save Button";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // toggleCode
             // 
@@ -760,6 +774,7 @@
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton saveButton;
     }
 
 

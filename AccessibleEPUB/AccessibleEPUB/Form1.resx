@@ -123,6 +123,9 @@
   <metadata name="iconsToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 17</value>
   </metadata>
+  <metadata name="editToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>605, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="newFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -141,6 +144,14 @@
         6fjbfwBXD8iY0t8AEQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="saveButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABoSURBVDhPY/j27dt/SjDYAO2CNf8ZgueQhEF64AZgU0AM
+        xjDgw/uPROHhbACpeJAagM3PyBhZLW0NQOeji4Mw3IDi+ccwNKDz0cVBGG4AsiHoCpE1I4uDMNgAEIAZ
+        AsIgRch8/PjbfwCHZu6f2U/urwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="toggleCode.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -150,9 +161,6 @@
         HAw3gBIMzZPkAgYGADNeuw744i1hAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="editToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>605, 17</value>
-  </metadata>
   <data name="boldButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -193,8 +201,8 @@
         cy6/+y+98NF/EJtYDNXOwPD169drH758RTHAyckJL0YxAARAAmS7AASmXXwLNqDj9BuQpDwoHAhhqFaw
         FzpBXnj24ev/95+//v/+/bsyVIo4AHKOzbqnYBdMvvAWw6m4MFQ7xIA7b7787z/39n/x4VdgSWwBh4xR
         DAB6Yc/mOx/ALngO9AbMBkIYqh0RAyCcsf8lTAHBgIRqB7oAyVQYRlFACLz59PV/9oGXYBfMuvQOwzBc
-        GKod4oWVN96DDVh+/T1YElvAIWMMAy6/+AyOAVgsEIOh2lEDEeQCYKy0owcYNgzVDjZg47Wbt/9eB2Ig
-        e+u7d+/4oVIEAAMDAKdyZLl6/VxDAAAAAElFTkSuQmCC
+        GKod4oWVN96DDVh+/T1YElvAIWMMAy6/+AyOAVgsEIOh2lEDEeQCYKy0owcYNgzVDjZg46Wr1/9eBmIg
+        e+u7d+/4oVIEAAMDAKJ6ZKHrvu1YAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="unorderedListButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

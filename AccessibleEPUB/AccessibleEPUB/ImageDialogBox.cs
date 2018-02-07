@@ -8,17 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using mshtml;
+using System.IO;
 
 namespace AccessibleEPUB
 {
     public partial class ImageDialogBox : Form
     {
         IHTMLDocument2 doc;
+        string imageFolderPath;
 
-        public ImageDialogBox(IHTMLDocument2 mainWindowDoc)
+
+        public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip)
         {
             InitializeComponent();
             doc = mainWindowDoc;
+            imageFolderPath = ip;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -29,18 +33,29 @@ namespace AccessibleEPUB
 
         private void addImageButton_Click(object sender, EventArgs e)
         {
+            if (!Directory.Exists(imageFolderPath))
+            {
+                Directory.CreateDirectory(imageFolderPath);
+            }
+
+            string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(imageLocationTextBox.Text));
+
+            System.IO.File.Copy(imageLocationTextBox.Text, imagePath);
+
             dynamic r = doc.selection.createRange();
             //r.pasteHTML
-                doc.body.innerHTML+=(@"
-<figure>
+
+                doc.body.innerHTML+=(@"<figure>
 	<img title=""" + titleTextBox.Text + @""" 
-        src =""" + imageLocationTextBox.Text + @""" alt =""" + altTextTextBox.Text + @""" />
+        src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + @""">
   <p class=""transparent"" >
    " + altTextTextBox.Text + @"
   </p>
 	<figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption>
 </figure>
 ");
+
+            //src =""" + imageLocationTextBox.Text + @""" alt =""" + altTextTextBox.Text + @""">
             this.Hide();
         }
 

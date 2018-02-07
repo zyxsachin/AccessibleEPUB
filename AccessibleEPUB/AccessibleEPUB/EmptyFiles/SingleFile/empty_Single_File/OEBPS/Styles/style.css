@@ -12,6 +12,10 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
   display:inline;
 }
 
+.toRemove {
+  display:none;
+}
+
 .visible {
   display:inline; 
 }
@@ -79,6 +83,7 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 
 .visible table {
   font-size:12px;
+  border: 1px solid black;
 }
 
 .visible .transparent {
@@ -127,6 +132,7 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 
 .impaired table {
   font-size:16px;
+  border: 1px solid black;
 }
 
 .impaired .transparent {
@@ -163,6 +169,9 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 
 }
 
+.blind table {
+  border: 1px solid black;
+}
 
 .blind object {
   max-width : 100%; 
