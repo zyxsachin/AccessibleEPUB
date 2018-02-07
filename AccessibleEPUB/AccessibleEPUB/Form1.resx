@@ -123,9 +123,6 @@
   <metadata name="iconsToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 17</value>
   </metadata>
-  <metadata name="editToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>605, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="newFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -161,6 +158,9 @@
         HAw3gBIMzZPkAgYGADNeuw744i1hAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="editToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>605, 17</value>
+  </metadata>
   <data name="boldButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -201,8 +201,8 @@
         cy6/+y+98NF/EJtYDNXOwPD169drH758RTHAyckJL0YxAARAAmS7AASmXXwLNqDj9BuQpDwoHAhhqFaw
         FzpBXnj24ev/95+//v/+/bsyVIo4AHKOzbqnYBdMvvAWw6m4MFQ7xIA7b7787z/39n/x4VdgSWwBh4xR
         DAB6Yc/mOx/ALngO9AbMBkIYqh0RAyCcsf8lTAHBgIRqB7oAyVQYRlFACLz59PV/9oGXYBfMuvQOwzBc
-        GKod4oWVN96DDVh+/T1YElvAIWMMAy6/+AyOAVgsEIOh2lEDEeQCYKy0owcYNgzVDjZg46Wr1/9eBmIg
-        e+u7d+/4oVIEAAMDAKJ6ZKHrvu1YAAAAAElFTkSuQmCC
+        GKod4oWVN96DDVh+/T1YElvAIWMMAy6/+AyOAVgsEIOh2lEDEeQCYKy0owcYNgzVDjZg48Ur1/5eAmIg
+        e+u7d+/4oVIEAAMDAKE8ZJtUb8WgAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="unorderedListButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

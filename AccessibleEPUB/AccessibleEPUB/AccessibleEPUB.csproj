@@ -43,6 +43,10 @@
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPubMetadataEditor, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SimilarPrograms\epub-metadata-editor-master\epub-metadata-editor-master\epubmetadataeditor\bin\Release\EPubMetadataEditor.exe</HintPath>
+    </Reference>
     <Reference Include="Geckofx-Core, Version=45.0.33.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
       <HintPath>..\packages\Geckofx45.45.0.33\lib\net45\Geckofx-Core.dll</HintPath>
       <Private>True</Private>
@@ -64,10 +68,6 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="SgmlReaderDll, Version=1.8.14.0, Culture=neutral, PublicKeyToken=46b2db9ca481831b, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xml.SgmlReader.1.8.14\lib\net45\SgmlReaderDll.dll</HintPath>
       <Private>True</Private>
@@ -115,11 +115,11 @@
     <Compile Include="MathDialogBox.designer.cs">
       <DependentUpon>MathDialogBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="newFileDialog.cs">
+    <Compile Include="NewFileDialogBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newFileDialog.Designer.cs">
-      <DependentUpon>newFileDialog.cs</DependentUpon>
+    <Compile Include="NewFileDialogBox.Designer.cs">
+      <DependentUpon>NewFileDialogBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,8 +138,8 @@
     <EmbeddedResource Include="MathDialogBox.resx">
       <DependentUpon>MathDialogBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newFileDialog.resx">
-      <DependentUpon>newFileDialog.cs</DependentUpon>
+    <EmbeddedResource Include="NewFileDialogBox.resx">
+      <DependentUpon>NewFileDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

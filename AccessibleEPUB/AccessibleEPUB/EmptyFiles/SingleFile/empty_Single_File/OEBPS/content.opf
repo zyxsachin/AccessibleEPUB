@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package version="3.0" unique-identifier="BookId" prefix="rendition: http://www.idpf.org/vocab/rendition/#" xmlns="http://www.idpf.org/2007/opf">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/">
-    <dc:identifier id="BookId">urn:uuid:347d18e3-a784-45d2-8330-ff683326bcc1</dc:identifier>
+    <dc:title></dc:title>
+    <dc:creator></dc:creator>
     <dc:language>en</dc:language>
-    <dc:title>TEst</dc:title>
-    <dc:subject/>
-    <meta refines="#t1" property="title-type">main</meta>
-    <dc:creator>
-    </dc:creator>
-    <dc:identifier>AccessibleEPUB</dc:identifier>
     <meta property="dcterms:modified">2018-02-07T15:04:09Z</meta>
   </metadata>
   <manifest>

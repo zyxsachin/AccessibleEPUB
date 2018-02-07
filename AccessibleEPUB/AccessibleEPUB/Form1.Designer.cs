@@ -258,7 +258,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(120, 94);
+            this.tabPage1.Size = new System.Drawing.Size(88, 71);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Blind";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -281,7 +281,7 @@
             this.geckoWebBrowser1.Location = new System.Drawing.Point(3, 2);
             this.geckoWebBrowser1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.geckoWebBrowser1.Name = "geckoWebBrowser1";
-            this.geckoWebBrowser1.Size = new System.Drawing.Size(114, 90);
+            this.geckoWebBrowser1.Size = new System.Drawing.Size(82, 67);
             this.geckoWebBrowser1.TabIndex = 0;
             this.geckoWebBrowser1.UseHttpActivityObserver = false;
             // 
@@ -291,7 +291,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(120, 94);
+            this.tabPage2.Size = new System.Drawing.Size(88, 71);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Visually Impaired";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -302,7 +302,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(120, 94);
+            this.tabPage3.Size = new System.Drawing.Size(88, 71);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "No visual impairment";
             this.tabPage3.UseVisualStyleBackColor = true;

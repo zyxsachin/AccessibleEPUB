@@ -17,7 +17,6 @@ using mshtml;
 using Gecko;
 using IPrompt;
 
-using ScintillaNET;
 using ICSharpCode.AvalonEdit;
 
 using Microsoft.Win32;
@@ -33,7 +32,7 @@ namespace AccessibleEPUB
     public partial class Form1 : Form
     {
 
-        ScintillaNET.Scintilla TextArea;
+        //ScintillaNET.Scintilla TextArea;
         ICSharpCode.AvalonEdit.TextEditor codeArea;
 
         string initialPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
@@ -41,10 +40,23 @@ namespace AccessibleEPUB
         Dictionary<string, string> headings;
         string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
+        enum fileMode
+        {
+            singleFileCss=1,
+            singleFileJs=2,
+            onlyVis=3,
+            onlyBli=4,
+            onlyImp=5,
+            none=6
+        }
 
+        int mode;
         string target;
         string targetFolder;
         bool containsFile = false;
+
+        string title;
+        string author;
 
         string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
        Environment.OSVersion.Platform == PlatformID.MacOSX)
@@ -60,6 +72,7 @@ namespace AccessibleEPUB
 
         string epubFolderName;
 
+        
 
         List<string> openTabs = new List<string>();
         List<ICSharpCode.AvalonEdit.TextEditor> openTextEditors = new List<ICSharpCode.AvalonEdit.TextEditor>();
@@ -510,7 +523,7 @@ namespace AccessibleEPUB
             HTMLEditor.Visible = true;
             closeFile(sender, e);
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
+            
             tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
             DirectoryInfo accEpubFolder = Directory.CreateDirectory(tempPath + "AccessibleEPUB");
             //string accEpubFolderName = accEpubFolder.Name;
@@ -581,6 +594,7 @@ namespace AccessibleEPUB
                 //treeView1.Nodes.Clear();
                 //richTextBox1.Clear();
                 //geckoWebBrowser1.Navigate("");
+               
                 epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(openFileDialog1.FileName));
                 target = openFileDialog1.FileName;
                 File.Copy(openFileDialog1.FileName, epubFileName, true);
@@ -623,47 +637,70 @@ namespace AccessibleEPUB
 
 
             }
-            initializeHTMLeditor();
+            else
+            {
+                return;
+            }
+
+            if (File.Exists(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml")))
+            {
+                contentFileName = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml");
+            }
+            else
+            {
+                mode = (int)fileMode.none;
+                string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+                string firstItem = "<itemref idref=\"";
+                int firstIndex = metadata.IndexOf(firstItem) + firstItem.Length;
+                string sub = metadata.Substring(firstIndex);
+                int endIndex = sub.IndexOf("\"");
+                string itemName = sub.Substring(0, endIndex);
+                contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), itemName);
+            }
+            //initializeHTMLeditor();
+            geckoWebBrowser1.Navigate(contentFile);
             htmlToWysiwyg();
+            splitContainer1.Panel1Collapsed = false;
+            splitContainer1.Panel1.Show();
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
 
         }
 
-        private void InitColors()
-        {
+        //private void InitColors()
+        //{
 
-            TextArea.SetSelectionBackColor(true, IntToColor(0x000000));
-            TextArea.SetSelectionForeColor(true, IntToColor(0xFFFFFF));
+        //    TextArea.SetSelectionBackColor(true, IntToColor(0x000000));
+        //    TextArea.SetSelectionForeColor(true, IntToColor(0xFFFFFF));
 
-        }
+        //}
 
-        private void InitSyntaxColoring()
-        {
+        //private void InitSyntaxColoring()
+        //{
 
-            // Configure the default style
-            TextArea.StyleResetDefault();
-            TextArea.Styles[Style.Default].Font = "Consolas";
-            TextArea.Styles[Style.Default].Size = 10;
-            TextArea.Styles[Style.Default].BackColor = IntToColor(0xFFFFFF);
-            TextArea.Styles[Style.Default].ForeColor = IntToColor(0x000000);
-            TextArea.StyleClearAll();
+        //    // Configure the default style
+        //    TextArea.StyleResetDefault();
+        //    TextArea.Styles[Style.Default].Font = "Consolas";
+        //    TextArea.Styles[Style.Default].Size = 10;
+        //    TextArea.Styles[Style.Default].BackColor = IntToColor(0xFFFFFF);
+        //    TextArea.Styles[Style.Default].ForeColor = IntToColor(0x000000);
+        //    TextArea.StyleClearAll();
 
-            TextArea.Styles[Style.Html.Number].ForeColor = IntToColor(0xFFFF00);
-            TextArea.Styles[Style.Html.Tag].ForeColor = Color.Purple;
-            TextArea.Styles[Style.Html.TagEnd].ForeColor = Color.Blue;
-            //TextArea.Styles[Style.Html.TagUnknown].ForeColor = Color.Green;
-            TextArea.Styles[Style.Html.Other].ForeColor = Color.Orange;
-            TextArea.Styles[Style.Html.Attribute].ForeColor = Color.Red;
-            TextArea.Styles[Style.Html.Comment].ForeColor = Color.Green;
+        //    TextArea.Styles[Style.Html.Number].ForeColor = IntToColor(0xFFFF00);
+        //    TextArea.Styles[Style.Html.Tag].ForeColor = Color.Purple;
+        //    TextArea.Styles[Style.Html.TagEnd].ForeColor = Color.Blue;
+        //    //TextArea.Styles[Style.Html.TagUnknown].ForeColor = Color.Green;
+        //    TextArea.Styles[Style.Html.Other].ForeColor = Color.Orange;
+        //    TextArea.Styles[Style.Html.Attribute].ForeColor = Color.Red;
+        //    TextArea.Styles[Style.Html.Comment].ForeColor = Color.Green;
 
-            TextArea.Lexer = Lexer.Html;
+        //    TextArea.Lexer = Lexer.Html;
 
 
-            TextArea.SetKeywords(0, "class extends implements import interface new case do while else if for in switch throw get set function var try catch finally while with default break continue delete return each const namespace package include use is as instanceof typeof author copy default deprecated eventType example exampleText exception haxe inheritDoc internal link mtasc mxmlc param private return see serial serialData serialField since throws usage version langversion playerversion productversion dynamic private public partial static intrinsic internal native override protected AS3 final super this arguments null Infinity NaN undefined true false abstract as base bool break by byte case catch char checked class const continue decimal default delegate do double descending explicit event extern else enum false finally fixed float for foreach from goto group if implicit in int interface internal into is lock long new null namespace object operator out override orderby params private protected public readonly ref return switch struct sbyte sealed short sizeof stackalloc static string select this throw true try typeof uint ulong unchecked unsafe ushort using var virtual volatile void while where yield");
-            TextArea.SetKeywords(1, "void Null ArgumentError arguments Array Boolean Class Date DefinitionError Error EvalError Function int Math Namespace Number Object RangeError ReferenceError RegExp SecurityError String SyntaxError TypeError uint XML XMLList Boolean Byte Char DateTime Decimal Double Int16 Int32 Int64 IntPtr SByte Single UInt16 UInt32 UInt64 UIntPtr Void Path File System Windows Forms ScintillaNET");
+        //    TextArea.SetKeywords(0, "class extends implements import interface new case do while else if for in switch throw get set function var try catch finally while with default break continue delete return each const namespace package include use is as instanceof typeof author copy default deprecated eventType example exampleText exception haxe inheritDoc internal link mtasc mxmlc param private return see serial serialData serialField since throws usage version langversion playerversion productversion dynamic private public partial static intrinsic internal native override protected AS3 final super this arguments null Infinity NaN undefined true false abstract as base bool break by byte case catch char checked class const continue decimal default delegate do double descending explicit event extern else enum false finally fixed float for foreach from goto group if implicit in int interface internal into is lock long new null namespace object operator out override orderby params private protected public readonly ref return switch struct sbyte sealed short sizeof stackalloc static string select this throw true try typeof uint ulong unchecked unsafe ushort using var virtual volatile void while where yield");
+        //    TextArea.SetKeywords(1, "void Null ArgumentError arguments Array Boolean Class Date DefinitionError Error EvalError Function int Math Namespace Number Object RangeError ReferenceError RegExp SecurityError String SyntaxError TypeError uint XML XMLList Boolean Byte Char DateTime Decimal Double Int16 Int32 Int64 IntPtr SByte Single UInt16 UInt32 UInt64 UIntPtr Void Path File System Windows Forms ScintillaNET");
 
-        }
+        //}
 
         #region Utils
 
@@ -703,7 +740,9 @@ namespace AccessibleEPUB
             filesTabControl.TabPages.Clear();
             treeView1.Nodes.Clear();
             openTabs.Clear();
-
+            openTextEditors.Clear();
+            tabsToTextEditors.Clear();
+            HTMLEditor.Document.Body.InnerHtml = "";
             geckoWebBrowser1.Navigate("about:blank");
             splitContainer2.Panel1Collapsed = false;
             splitContainer2.Panel1.Show();
@@ -717,21 +756,36 @@ namespace AccessibleEPUB
         private void newFileButton_Click(object sender, EventArgs e)
         {
             closeFile(sender, e);
+
             newSingleFile();
+
+        }
+
+        public void setMode(int modeNew)
+        {
+            mode = modeNew;
+        }
+
+        public void setAuthor(string authorNew)
+        {
+            author = authorNew;
+        }
+
+        public void setTitle(string titleNew)
+        {
+            title = titleNew;
         }
 
 
 
-        private void newSingleFile()
+
+        public void newSingleFile()
         {
-            containsFile = true;
-            HTMLEditor.Visible = true;
-            
-            splitContainer2.Panel2Collapsed = false;
-            splitContainer2.Panel2.Show();
+
+            contentFileName = "Content.xhtml";
+
             tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
-            splitContainer1.Panel1Collapsed = false;
-            splitContainer1.Panel1.Show();
+
 
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
@@ -748,64 +802,137 @@ namespace AccessibleEPUB
             {
                 File.Delete(saveFileDialog1.FileName);
             }
+            NewFileDialogBox nfd = new NewFileDialogBox(this);
+            nfd.ShowDialog();
+
+          
+            containsFile = true;
+            HTMLEditor.Visible = true;
+            splitContainer1.Panel1Collapsed = false;
+            splitContainer1.Panel1.Show();
+            splitContainer2.Panel2Collapsed = false;
+            splitContainer2.Panel2.Show();
+
             target = saveFileDialog1.FileName;
             targetFolder = Path.GetDirectoryName(target);
 
             
             DirectoryDelete(accEpubFolderName);
             
-            //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
+            if (mode == (int) fileMode.singleFileCss)
+            {
 
-            File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.zip", accEpubFolderName + "\\empty_Single_File.zip", true);
+    
+                //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
+
+                File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.zip", accEpubFolderName + "\\empty_Single_File.zip", true);
             
 
-            //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", targetFolder);
+                //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", targetFolder);
 
-            File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.epub", target, true);
+                File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.epub", target, true);
 
-            //System.IO.Compression.ZipFile.CreateFromDirectory(targetFolder + "\\empty_Single_File", targetFolder + "\\empty_Single_File.zip");
-
-
-            //File.Move(targetFolder + "\\empty_Single_File.zip", target);
+                //System.IO.Compression.ZipFile.CreateFromDirectory(targetFolder + "\\empty_Single_File", targetFolder + "\\empty_Single_File.zip");
 
 
-            //Directory.Move(targetFolder + "\\empty_Single_File", targetFolder + "\\" + Path.GetFileName(target));
-
-            //File.Copy(initialPath + "\\EmptyFiles\\empty_Single_File.zip", targetFolder);
-            //File.Move(targetFolder + "\\empty_Single_File.zip", target)
-
-            //target = accEpubFolderName + "\\" + IInputBox.Show("What should be the name of the EPUB file?", "New File Name" ).ToString();
-            //System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", accEpubFolderName + "\\" + Path.GetFileName(target));
-            //Directory.Move(accEpubFolderName + "\\empty_Single_File", accEpubFolderName + Path.GetFileName(target));
-
-            string epubFileName;       // Formerly tempFile
-            string fileName = "";      // Formerly tempFile2
-            string zipFileName = "";     // Formerly tempFile3 
+                //File.Move(targetFolder + "\\empty_Single_File.zip", target);
 
 
+                //Directory.Move(targetFolder + "\\empty_Single_File", targetFolder + "\\" + Path.GetFileName(target));
 
-            ////treeView1.Nodes.Clear();
-            ////richTextBox1.Clear();
-            ////geckoWebBrowser1.Navigate("");
-            epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(target));
+                //File.Copy(initialPath + "\\EmptyFiles\\empty_Single_File.zip", targetFolder);
+                //File.Move(targetFolder + "\\empty_Single_File.zip", target)
+
+                //target = accEpubFolderName + "\\" + IInputBox.Show("What should be the name of the EPUB file?", "New File Name" ).ToString();
+                //System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", accEpubFolderName + "\\" + Path.GetFileName(target));
+                //Directory.Move(accEpubFolderName + "\\empty_Single_File", accEpubFolderName + Path.GetFileName(target));
+
+                string epubFileName;       // Formerly tempFile
+                string fileName = "";      // Formerly tempFile2
+                string zipFileName = "";     // Formerly tempFile3 
 
 
 
-            if (epubFileName.Contains('.'))
-            {
-                fileName = epubFileName.Substring(0, epubFileName.LastIndexOf('.'));
-                epubFolderName = fileName;
+                ////treeView1.Nodes.Clear();
+                ////richTextBox1.Clear();
+                ////geckoWebBrowser1.Navigate("");
+                epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(target));
+
+
+
+                if (epubFileName.Contains('.'))
+                {
+                    fileName = epubFileName.Substring(0, epubFileName.LastIndexOf('.'));
+                    epubFolderName = fileName;
+                }
+
+                contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), contentFileName);
+
+
+                System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", fileName);
+
+
+                zipFileName = fileName + ".zip";
+
+                File.Delete(accEpubFolderName + "\\empty_Single_File.zip");
             }
+            else if (mode == (int)fileMode.singleFileJs)
+            {
+                string setPath = Path.Combine(Path.Combine(Path.Combine("", "EmptyFiles"), "JsVersionChanger"), "emptyJsFile");
 
-            contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), contentFileName);
+                //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
+
+                File.Copy(Path.Combine(initialPath, setPath + ".zip"), accEpubFolderName + "\\empty_Single_File.zip", true);
 
 
-            System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", fileName);
+                //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", targetFolder);
+
+                File.Copy(Path.Combine(initialPath, setPath + ".epub"), target, true);
+
+                //System.IO.Compression.ZipFile.CreateFromDirectory(targetFolder + "\\empty_Single_File", targetFolder + "\\empty_Single_File.zip");
 
 
-            zipFileName = fileName + ".zip";
+                //File.Move(targetFolder + "\\empty_Single_File.zip", target);
 
-            File.Delete(accEpubFolderName + "\\empty_Single_File.zip");
+
+                //Directory.Move(targetFolder + "\\empty_Single_File", targetFolder + "\\" + Path.GetFileName(target));
+
+                //File.Copy(initialPath + "\\EmptyFiles\\empty_Single_File.zip", targetFolder);
+                //File.Move(targetFolder + "\\empty_Single_File.zip", target)
+
+                //target = accEpubFolderName + "\\" + IInputBox.Show("What should be the name of the EPUB file?", "New File Name" ).ToString();
+                //System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", accEpubFolderName + "\\" + Path.GetFileName(target));
+                //Directory.Move(accEpubFolderName + "\\empty_Single_File", accEpubFolderName + Path.GetFileName(target));
+
+                string epubFileName;       // Formerly tempFile
+                string fileName = "";      // Formerly tempFile2
+                string zipFileName = "";     // Formerly tempFile3 
+
+
+
+                ////treeView1.Nodes.Clear();
+                ////richTextBox1.Clear();
+                ////geckoWebBrowser1.Navigate("");
+                epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(target));
+
+
+
+                if (epubFileName.Contains('.'))
+                {
+                    fileName = epubFileName.Substring(0, epubFileName.LastIndexOf('.'));
+                    epubFolderName = fileName;
+                }
+
+                contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), contentFileName);
+
+
+                System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", fileName);
+
+
+                zipFileName = fileName + ".zip";
+
+                File.Delete(accEpubFolderName + "\\empty_Single_File.zip");
+            }
 
             //using (File.Create(epubFileName)) ;
             //using (File.Create(tempFile2)) ;
@@ -816,7 +943,7 @@ namespace AccessibleEPUB
             /*FolderBrowserDialog dialog = new FolderBrowserDialog();
             if (dialog.ShowDialog() != DialogResult.OK) { return; }
             dialog.SelectedPath = tempFolder; */
-            this.treeView1.Nodes.Add(TraverseDirectory(fileName));
+            this.treeView1.Nodes.Add(TraverseDirectory(epubFolderName));
 
             //this.treeView1.CollapseAll();
             //foreach (TreeNode node in this.treeView1.Nodes)
@@ -831,9 +958,30 @@ namespace AccessibleEPUB
 
             //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
 
+            string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+            string titleStart = "<dc:title>";
+            string titleEnd = "</dc:title>";
+            string creatorStart = "<dc:creator>";
+            string creatorEnd = "</dc:creator>";
+
+            int titleStartIndex = metadata.IndexOf(titleStart);
+            int titleEndIndex = metadata.IndexOf(titleEnd);
+            int creatorStartIndex = metadata.IndexOf(creatorStart);
+            int creatorEndIndex = metadata.IndexOf(creatorEnd);
+
+            string first = metadata.Substring(0, titleStartIndex + titleStart.Length);
+            string second = metadata.Substring(titleEndIndex, creatorStartIndex + creatorStart.Length - titleEndIndex);
+            string third = metadata.Substring(creatorEndIndex);
+
+            string newMetaData = first + title + second + author + third;
+            File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), newMetaData);
+
+
             geckoWebBrowser1.Navigate(contentFile);
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
+            splitContainer1.Panel1Collapsed = false;
+            splitContainer1.Panel1.Show();
 
         }
 
@@ -961,7 +1109,7 @@ namespace AccessibleEPUB
             {
                 if (ex is DirectoryNotFoundException || ex is FileNotFoundException)
                 {
-                    MessageBox.Show("Error Message", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Problem initializing HTML editor", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }
@@ -973,6 +1121,7 @@ namespace AccessibleEPUB
             //newContent = contentBody.Substring(0, contentBody.IndexOf(startOfContent) + startOfContent.Length) + "\n";
 
             //Console.WriteLine(newContent);
+            
             newContent = newContent + imp + body + impEnd +
                 bli + body + bliEnd +
                 vis + body + visEnd + "</body>\n</html>\n";
@@ -984,28 +1133,31 @@ namespace AccessibleEPUB
 
             string fileLocation = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text");
 
-            System.IO.File.WriteAllText(Path.Combine(fileLocation, "Content.xhtml"), newContent);
+            System.IO.File.WriteAllText(contentFile, newContent);
 
             //Console.WriteLine(contentBody);
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            string zipFileName = epubFolderName + ".zip";
-            ZipFile.CreateFromDirectory(epubFolderName, zipFileName);
+            saveFile();
+        }
 
-            File.Copy(zipFileName, target, true);
-            File.Delete(zipFileName);
+        private void saveFile()
+        {
+
             if (filesTabControl.Visible == false)
             {
                 wysiwygToHtml();
             }
-            else 
+            else
             {
-                foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
-                {
-                    ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
-                }
+                htmlToWysiwyg();
+
+                //foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
+                //{
+                //    ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
+                //}
 
                 //foreach (TabPage tp in filesTabControl.TabPages)
                 //{
@@ -1017,11 +1169,18 @@ namespace AccessibleEPUB
                 //            System.IO.File.WriteAllText(tp.Name, ca.Text);
                 //        }
                 //    }
-                    
+
                 //}
                 //string fileLocation = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text");
 
             }
+            string zipFileName = epubFolderName + ".zip";
+            File.Delete(zipFileName);
+            ZipFile.CreateFromDirectory(epubFolderName, zipFileName);
+
+            File.Copy(zipFileName, target, true);
+            File.Delete(zipFileName);
+           
 
             geckoWebBrowser1.Reload();
             this.treeView1.Nodes.Clear();
@@ -1053,7 +1212,7 @@ namespace AccessibleEPUB
                 splitContainer1.Panel1Collapsed = false;
                 splitContainer1.Panel1.Show();
                 wysiwygToHtml();
-
+                
             }
         }
 
@@ -1063,20 +1222,52 @@ namespace AccessibleEPUB
             string start = "<!--StartOfVisibleSection-->";
             string end = "<!--EndOfVisibleSection-->";
 
+            foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
+            {
+                ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
+            }
+
             string bodyStart = "<body>";
             string bodyEnd = "</body>";
 
             bool singleFileMode = true;
-
-            string body = File.ReadAllText(contentFile);
-
-            body = body.Replace(Path.Combine("..",""), Path.Combine(epubFolderName, "OEBPS"));
-
-
-            if (!body.Contains(start) || !body.Contains(end))
+            bool contentFileExists = true;
+            string body = "";
+            if (File.Exists(contentFile))
             {
+                body = File.ReadAllText(contentFile);
+
+                body = body.Replace(Path.Combine("..", ""), Path.Combine(epubFolderName, "OEBPS"));
+
+
+                if (!body.Contains(start))
+                {
+                    if (!body.Contains(end))
+                    {
+                        singleFileMode = false;
+                    }
+                }
+            }
+            else
+            {
+                contentFileExists = false;
                 singleFileMode = false;
             }
+
+            //if (contentFileExists == false)
+            //{
+            //    string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+            //    string firstItem = "<itemref idref=\"";
+            //    int firstIndex = metadata.IndexOf(firstItem) + firstItem.Length;
+            //    string sub = metadata.Substring(firstIndex);
+            //    int endIndex = sub.IndexOf("\"");
+            //    string itemName = sub.Substring(0, endIndex);
+            //    contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), itemName);
+            //    body = File.ReadAllText(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), itemName));
+            //    body = body.Replace(Path.Combine("..", ""), Path.Combine(epubFolderName, "OEBPS"));
+
+            //}
+           
             if (singleFileMode)
             {
                 int startIndex = body.IndexOf(start);
@@ -1098,8 +1289,8 @@ namespace AccessibleEPUB
                 {
                     return;
                 }
-                
-                HTMLEditor.Document.Body.InnerHtml = body.Substring(startIndex + bodyStart.Length, endIndex - startIndex + bodyStart.Length);
+
+                HTMLEditor.Document.Body.InnerHtml = body.Substring(startIndex, endIndex - startIndex + bodyEnd.Length);
             }
            
 
@@ -1122,16 +1313,12 @@ namespace AccessibleEPUB
             {
                 if (ex is DirectoryNotFoundException || ex is FileNotFoundException)
                 {
-                    MessageBox.Show("Error Message", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Problem converting from WYSIWYG to HTML", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }
 
-            //System.IO.File.WriteAllText(Path.Combine(textFolder, "ContentBla.txt"), contentBody);
-
-            //System.IO.File.WriteAllText(Path.Combine(textFolder, "Content.txt"), body);
-            //System.IO.File.WriteAllText(Path.Combine(textFolder, "haha.txt"), contentBody.Substring(0, contentBody.IndexOf(imp) + imp.Length));
-            newContent = contentBody.Substring(0, contentBody.IndexOf(startOfContent) + startOfContent.Length) + "\n";
+            body = body.Replace(Path.Combine(epubFolderName, "OEBPS"), "..");
 
 
             string annoStart = "<annotation encoding=\"application/x-tex\">";
@@ -1145,21 +1332,57 @@ namespace AccessibleEPUB
                 body = body.Replace(body.Substring(start, end - start), "");
             }
 
-            string imagesFolder = getImageFolder();
-            body = body.Replace(Path.Combine(epubFolderName, "OEBPS"), "..");
+            if (mode == (int)fileMode.singleFileCss) { 
 
-            string mstyleImpaired = "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
-            string bodyImpaired = body.Replace("<mstyle>", mstyleImpaired); ;
+                //System.IO.File.WriteAllText(Path.Combine(textFolder, "ContentBla.txt"), contentBody);
 
-            //Console.WriteLine(newContent);
-            newContent = newContent + imp + bodyImpaired + impEnd +
-                bli + body + bliEnd +
-                vis + body + visEnd + "</body>\n</html>\n";
-            //newContent = contentBody.Substring(0, contentBody.IndexOf(bodyTag) + bodyTag.Length);
-            //newContent = newContent +
-            //    imp + body + impEnd +
-            //    bli + body + bliEnd +
-            //    vis + body + visEnd + contentBody.Substring(contentBody.IndexOf(bodyEnd) + bodyEnd.Length);
+                //System.IO.File.WriteAllText(Path.Combine(textFolder, "Content.txt"), body);
+                //System.IO.File.WriteAllText(Path.Combine(textFolder, "haha.txt"), contentBody.Substring(0, contentBody.IndexOf(imp) + imp.Length));
+                newContent = contentBody.Substring(0, contentBody.IndexOf(startOfContent) + startOfContent.Length) + "\n";
+
+
+
+                string imagesFolder = getImageFolder();
+            
+
+                string mstyleImpaired = "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
+                string bodyImpaired = body.Replace("<mstyle>", mstyleImpaired); ;
+
+                //Console.WriteLine(newContent);
+                newContent = newContent + imp + bodyImpaired + impEnd +
+                    bli + body + bliEnd +
+                    vis + body + visEnd + "</body>\n</html>\n";
+                //newContent = contentBody.Substring(0, contentBody.IndexOf(bodyTag) + bodyTag.Length);
+                //newContent = newContent +
+                //    imp + body + impEnd +
+                //    bli + body + bliEnd +
+                //    vis + body + visEnd + contentBody.Substring(contentBody.IndexOf(bodyEnd) + bodyEnd.Length);
+
+            }
+            else if (mode == (int)fileMode.singleFileJs)
+            {
+                string bodyStart = "<body epub:type=\"bodymatter\" onload=\"storageCSS();\">";
+                string bodyEnd = "</body>";
+                int first = contentBody.IndexOf(bodyStart);
+                string header = contentBody.Substring(0, first + bodyStart.Length);
+
+                int end = contentBody.IndexOf(bodyEnd);
+
+                string closer = contentBody.Substring(end);
+                newContent = header + body + closer;
+            }
+            else
+            {
+                string bodyStart = "<body>";
+                string bodyEnd = "</body>";
+                int first = contentBody.IndexOf(bodyStart);
+                string header = contentBody.Substring(0, first + bodyStart.Length);
+
+                int end = contentBody.IndexOf(bodyEnd);
+
+                string closer = contentBody.Substring(end);
+                newContent = header + body + closer;
+            }
 
 
             //newContent = HtmlParser.Tidy(newContent).ToString();
@@ -1225,9 +1448,14 @@ namespace AccessibleEPUB
 
             string fileLocation = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text");
 
-            System.IO.File.WriteAllText(Path.Combine(fileLocation, "Content.xhtml"), newContent);
+            System.IO.File.WriteAllText(contentFile, newContent);
 
             //Console.WriteLine(contentBody);
+        }
+
+        private void saveToEpub()
+        {
+
         }
 
         private void addFilesToMeta()
@@ -1240,7 +1468,7 @@ namespace AccessibleEPUB
 
             int startManiIndex = content.IndexOf(startManifest);
             int endManiIndex = content.IndexOf(endManifest);
-
+            
             string defaultText = @"
                 <item id=""ncx"" href=""toc.ncx"" media-type=""application/x-dtbncx+xml""/>
                 <item id=""Content.xhtml"" href=""Text/Content.xhtml"" media-type=""application/xhtml+xml""/>
@@ -1255,7 +1483,7 @@ namespace AccessibleEPUB
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-
+          
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
             ss.cssText = @"html *
 {
@@ -1507,7 +1735,7 @@ body {
 
         private void insertMath()
         {
-            MathDialogBox mdb = new MathDialogBox(doc);
+            MathDialogBox mdb = new MathDialogBox(doc, getImageFolder());
             mdb.ShowDialog();
         }
 
@@ -1656,6 +1884,7 @@ body {
         {
             return Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Images");
         }
+
 
     }
 

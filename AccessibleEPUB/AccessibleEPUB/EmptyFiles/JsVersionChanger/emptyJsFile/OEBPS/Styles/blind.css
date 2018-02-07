@@ -1,0 +1,83 @@
+figure {
+	padding: 2px;
+	max-width : 95%;
+
+	
+}
+
+figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+}
+
+img {
+	max-width : 100%;
+}
+
+object {
+  max-width : 100%; 
+  
+}
+
+math {
+  max-width : 100%;
+	display:none;
+}
+
+.math {
+  	display:none;
+}
+
+
+body {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+figure {
+	padding: 2px;
+	max-width : 95%;
+
+	
+}
+
+figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+}
+
+img {
+	max-width : 100%;
+	display:none;
+
+}
+
+
+object {
+  max-width : 100%; 
+}
+
+math {
+  max-width : 100%;
+	display:none;
+}
+
+.transparent {
+  display: inline;
+  color: initial;
+}
+
+.toRemove {
+  display: none; 
+}
+
+
+
+body {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+

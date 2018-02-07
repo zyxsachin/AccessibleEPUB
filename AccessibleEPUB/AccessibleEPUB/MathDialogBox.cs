@@ -27,6 +27,8 @@ namespace AccessibleEPUB
         private string svgFile;
         //private string pngFile;
 
+        string imageFolderPath;
+
 
 
         string initialPath = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
@@ -34,13 +36,14 @@ namespace AccessibleEPUB
 
 
 
-        public MathDialogBox(IHTMLDocument2 mainWindowDoc)
+        public MathDialogBox(IHTMLDocument2 mainWindowDoc, string ip)
         {
             InitializeComponent();
             doc = mainWindowDoc;
 
             host.Dock = DockStyle.Fill;
             host.Child = formula;
+            imageFolderPath = ip;
 
         }
 
@@ -76,7 +79,7 @@ namespace AccessibleEPUB
             
             saveSVG();
             Directory.SetCurrentDirectory(pandoc);
-            Console.WriteLine(svgFile);
+            //Console.WriteLine(svgFile);
             var proc = new Process
             {
                 StartInfo = new ProcessStartInfo
@@ -143,16 +146,25 @@ namespace AccessibleEPUB
             string mathFinalResult = sb.ToString();
             //Console.WriteLine(mathFinalResult);
 
+            if (!Directory.Exists(imageFolderPath))
+            {
+                Directory.CreateDirectory(imageFolderPath);
+            }
+
+            string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(svgFile));
+
+            System.IO.File.Copy(svgFile, imagePath);
+
             string mathHeader = @"
             <div role=""math"" class=""math"">
-                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + svgFile +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "\n" + "\t<mstyle>\n";
+                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "\n" + "\t<mstyle>\n";
             string mathEnd = "\n</mstyle>\n</math>\n";
 
 
             doc.body.innerHTML += (@"
     <!--RemoveThis-->
     <img class=""toRemove"" title=""" + titleTextBox.Text + @""" 
-        src =""" + svgFile + @""" alt =""" + inputTextBox.Text + @""" //>
+        src =""" + imagePath + @""" alt =""" + inputTextBox.Text + @""" //>
     <!--RemoveEnd-->
 ");
 
