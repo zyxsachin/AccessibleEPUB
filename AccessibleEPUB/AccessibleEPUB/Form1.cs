@@ -1145,7 +1145,10 @@ namespace AccessibleEPUB
 
         private void saveFile()
         {
-
+            if (containsFile == false)
+            {
+                return;
+            }
             if (filesTabControl.Visible == false)
             {
                 wysiwygToHtml();
@@ -1207,6 +1210,7 @@ namespace AccessibleEPUB
             else
             {
                 filesTabControl.Focus();
+                
                 //splitContainer1.Panel1Collapsed = true;
                 //splitContainer1.Panel1.Hide();
                 splitContainer1.Panel1Collapsed = false;
@@ -1227,7 +1231,7 @@ namespace AccessibleEPUB
                 ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
             }
 
-            string bodyStart = "<body>";
+            string bodyStart = "<body";
             string bodyEnd = "</body>";
 
             bool singleFileMode = true;
@@ -1236,9 +1240,9 @@ namespace AccessibleEPUB
             if (File.Exists(contentFile))
             {
                 body = File.ReadAllText(contentFile);
-
+                Console.WriteLine(body);
                 body = body.Replace(Path.Combine("..", ""), Path.Combine(epubFolderName, "OEBPS"));
-
+                Console.WriteLine(body);
 
                 if (!body.Contains(start))
                 {
@@ -1284,6 +1288,7 @@ namespace AccessibleEPUB
             {
                 int startIndex = body.IndexOf(bodyStart);
                 int endIndex = body.IndexOf(bodyEnd);
+                
 
                 if (body.IndexOf(vis) >= startIndex)
                 {
@@ -1301,7 +1306,7 @@ namespace AccessibleEPUB
         private void wysiwygToHtml()
         {
             string body = doc.body.innerHTML;
-
+            Console.WriteLine(body);
             string newContent = "";
             string contentBody = "";
             string textFolder = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"));
@@ -1359,27 +1364,54 @@ namespace AccessibleEPUB
                 //    vis + body + visEnd + contentBody.Substring(contentBody.IndexOf(bodyEnd) + bodyEnd.Length);
 
             }
-            else if (mode == (int)fileMode.singleFileJs)
-            {
-                string bodyStart = "<body epub:type=\"bodymatter\" onload=\"storageCSS();\">";
-                string bodyEnd = "</body>";
-                int first = contentBody.IndexOf(bodyStart);
-                string header = contentBody.Substring(0, first + bodyStart.Length);
+            //else if (mode == (int)fileMode.singleFileJs)
+            //{
+            //    string bodyStart = "<body epub:type=\"bodymatter\" onload=\"storageCSS();\">";
+            //    string bodyEnd = "</body>";
+            //    int first = contentBody.IndexOf(bodyStart);
+            //    string header = contentBody.Substring(0, first + bodyStart.Length);
 
-                int end = contentBody.IndexOf(bodyEnd);
+            //    int end = contentBody.IndexOf(bodyEnd);
 
-                string closer = contentBody.Substring(end);
-                newContent = header + body + closer;
-            }
+            //    string closer = contentBody.Substring(end);
+            //    newContent = header + body + closer;
+            //}
             else
             {
-                string bodyStart = "<body>";
+   
+                string bodyStart = "<body";
                 string bodyEnd = "</body>";
                 int first = contentBody.IndexOf(bodyStart);
-                string header = contentBody.Substring(0, first + bodyStart.Length);
 
                 int end = contentBody.IndexOf(bodyEnd);
 
+                int bracketTerminateIndex = 0;
+                bool endMode = true;
+                for (int i = 1; i < end - first; i++)
+                {
+                    
+                    if (contentBody[first + i] == '<')
+                    {
+                        endMode = false;
+                    }
+
+                    if (contentBody[first + i] == '>')
+                    {
+
+                        if (endMode == false)
+                        {
+                            endMode = true;
+                        }
+                        else
+                        {
+                            bracketTerminateIndex = i;
+                            Console.WriteLine("Bracket end set : " + bracketTerminateIndex);
+                        }
+                    }
+                }
+
+                string header = contentBody.Substring(0, first + bracketTerminateIndex + 1);
+                Console.WriteLine(header);
                 string closer = contentBody.Substring(end);
                 newContent = header + body + closer;
             }
@@ -1615,21 +1647,37 @@ body {
 
         private void makeBold()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("Bold", false, null);
         }
 
         private void makeItalic()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("Italic", false, null);
         }
 
         private void makeUnderline()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("Underline", false, null);
         }
 
         private void makeStrikethrough()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("StrikeThrough", false, null);
         }
 
@@ -1637,17 +1685,29 @@ body {
 
         private void insertOrderedList()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("InsertOrderedList", false, null);
         }
 
         private void insertUnorderedList()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("InsertUnorderedList", false, null);
 
         }
 
         private void changeFormat()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             string format;
 
             if (headings.TryGetValue(formatComboBox.SelectedItem.ToString(), out format))
@@ -1660,37 +1720,65 @@ body {
 
         private void indent()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("Indent", false, null);
         }
 
         private void outdent()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("Outdent", false, null);
         }
 
         private void justifyLeft()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("JustifyLeft", false, null);
         }
 
         private void justifyCenter()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("JustifyCenter", false, null);
         }
 
         private void justifyRight()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("JustifyRight", false, null);
         }
 
         private void justify()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("JustifyFull", false, null);
         }
 
 
         private void changeFont()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("FontName", false, fontComboBox.SelectedItem.ToString());
             //ss.cssText = "html * {	font-family: 'Arial', Helvetica, sans-serif !important; }";
             //ss.cssText = "html * {	font-family: '" + fontComboBox.SelectedItem.ToString() + "', Helvetica, sans-serif !important; }";
@@ -1699,6 +1787,10 @@ body {
 
         private void changeFontColor()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             Color col = new Color();
             ColorDialog MyDialog = new ColorDialog();
             // Keeps the user from selecting a custom color.
@@ -1717,24 +1809,40 @@ body {
 
         private void changeFontSize()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             HTMLEditor.Document.ExecCommand("FontSize", false, fontSizeComboBox.SelectedItem.ToString());
         }
 
 
         private void insertImage()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder());
             idb.ShowDialog();
         }
 
         private void insertTable()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             TableDialogBox tdb = new TableDialogBox(doc);
             tdb.ShowDialog();
         }
 
         private void insertMath()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             MathDialogBox mdb = new MathDialogBox(doc, getImageFolder());
             mdb.ShowDialog();
         }
@@ -1885,6 +1993,75 @@ body {
             return Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Images");
         }
 
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            makeBold();
+        }
+
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            makeItalic(); 
+        }
+
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            makeUnderline();
+        }
+
+        private void justifyLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            justifyLeft();
+        }
+
+        private void centerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            justifyCenter();
+        }
+
+        private void justifyRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            justifyRight();
+        }
+
+        private void justifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            justify();
+        }
+
+        private void indentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            indent();
+        }
+
+        private void outdentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            outdent();
+        }
+
+        private void numberedListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+        }
+
+        private void bulletListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertUnorderedList();
+        }
+
+        private void insertImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertImage();
+        }
+
+        private void insertTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertTable();
+        }
+
+        private void insertMathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertMath();
+        }
 
     }
 
