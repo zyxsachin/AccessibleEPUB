@@ -28,6 +28,15 @@ math {
   max-width : 100%;
 }
 
+.math {
+    	display:initial; 
+}
+
+.mathImpaired {
+  	display:none;
+}
+
+
 table {
   font-size:12px;
 }

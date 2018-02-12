@@ -158,6 +158,12 @@ namespace AccessibleEPUB
             string mathHeader = @"
             <div role=""math"" class=""math"">
                 <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "\n" + "\t<mstyle>\n";
+
+            string mathHeaderImpaired = @"
+            <div role=""math"" class=""mathImpaired"">
+                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "\n" + "\t<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">\n";
+
+
             string mathEnd = "\n</mstyle>\n</math>\n";
 
 
@@ -171,10 +177,13 @@ namespace AccessibleEPUB
             string divEnd = "\n</div>\n";
             doc.body.innerHTML += divEnd;
 
+           
 
             //dynamic r = doc.selection.createRange();
             //r.pasteHTML(mathHeader + mathResult + mathEnd);
             doc.body.innerHTML += mathHeader + mathFinalResult + mathEnd;
+
+            doc.body.innerHTML += mathHeaderImpaired + mathFinalResult + mathEnd;
 
             string altTextParagraph = "<p class=\"transparent\">" + inputTextBox.Text + "</p>\n";
 

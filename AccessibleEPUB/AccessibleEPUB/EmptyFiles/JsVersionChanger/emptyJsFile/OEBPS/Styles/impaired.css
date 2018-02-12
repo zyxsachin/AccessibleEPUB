@@ -31,6 +31,16 @@ math {
   max-width : 100%;
 }
 
+.math {
+    display:none; 
+}
+
+.mathImpaired {
+  	max-width : 100%;
+  	display:initial;
+}
+
+
 table {
   font-size:16px;
 }

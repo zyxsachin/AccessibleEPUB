@@ -21,8 +21,8 @@ using ICSharpCode.AvalonEdit;
 
 using Microsoft.Win32;
 
-
-
+using GlobalHotKey;
+using System.Windows.Input;
 
 
 
@@ -55,6 +55,9 @@ namespace AccessibleEPUB
         string targetFolder;
         bool containsFile = false;
 
+        string currentTab = null;
+        string lastTab = null;
+
         string title;
         string author;
 
@@ -81,14 +84,21 @@ namespace AccessibleEPUB
 
         string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB");
 
+        GlobalHotKey.HotKeyManager hkm = new GlobalHotKey.HotKeyManager();
+
+       
+
         public Form1()
         {
             InitializeComponent();
             Xpcom.Initialize("Firefox");
             filesTabControl.Padding = new System.Drawing.Point(21, 3);
-
-
+            var hotKey = hkm.Register(System.Windows.Input.Key.S, System.Windows.Input.ModifierKeys.Control);
+            hkm.KeyPressed += keyPressSave;
         }
+
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -136,7 +146,8 @@ namespace AccessibleEPUB
                 if (Key.GetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe") == null)
                     Key.SetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe", RegVal, RegistryValueKind.DWord);
 
-            Console.WriteLine(RegVal);
+ 
+
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
@@ -174,8 +185,9 @@ namespace AccessibleEPUB
 
         private TreeNode TraverseDirectory(string path)
         {
-            int index = path.LastIndexOf('\\');
-            string rhs = path.Substring(index + 1);
+            //int index = path.LastIndexOf('\\');
+            string rhs = Path.GetFileName(path);
+            //string rhs = path.Substring(index + 1);
 
             TreeNode result = new TreeNode(path);
 
@@ -193,8 +205,9 @@ namespace AccessibleEPUB
 
             foreach (var file in Directory.GetFiles(path))
             {
-                int index2 = file.ToString().LastIndexOf('\\');
-                string rhs2 = file.ToString().Substring(index2 + 1);
+                //int index2 = file.ToString().LastIndexOf('\\');
+                //string rhs2 = file.ToString().Substring(index2 + 1);
+                string rhs2 = Path.GetFileName(file.ToString());
                 var r = result.Nodes.Add(file);
                 r.Text = rhs2;
                 //r.Text = path;
@@ -245,38 +258,56 @@ namespace AccessibleEPUB
                 return;
             }
 
+            treeView1.SelectedNode = null;
+            //if (filesTabControl.Visible == false)
+            //{
+            //    openTab(absPath);
+            //    return;
+            //}
+
             if (openTabs == null || openTabs.Contains(fileName) == false)
             {
-                TabPage myTabPage = new TabPage(e.Node.Text);
-                myTabPage.Name = fileName;
-                filesTabControl.TabPages.Add(myTabPage);
 
-                //RichTextBox rtb = new RichTextBox();
+                if ((!fileName.EndsWith(".svg")) && (!fileName.EndsWith(".jpg")) && (!fileName.EndsWith(".png")))
+                {
+                    TabPage myTabPage = new TabPage(e.Node.Text);
+                    myTabPage.Name = fileName;
+                    filesTabControl.TabPages.Add(myTabPage);
 
-                System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
-                host.Dock = DockStyle.Fill;
+                    //RichTextBox rtb = new RichTextBox();
 
-                codeArea = new ICSharpCode.AvalonEdit.TextEditor();
+                    System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
+                    host.Dock = DockStyle.Fill;
 
-               
+                    codeArea = new ICSharpCode.AvalonEdit.TextEditor();
 
-                host.Child = codeArea;
-                myTabPage.Controls.Add(host);
 
-                
 
-                //myTabPage.Controls.Add(rtb);
+                    host.Child = codeArea;
+                    myTabPage.Controls.Add(host);
 
-                //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
-                openTabs.Add(fileName);
 
-                openTextEditors.Add(codeArea);
 
-                tabsToTextEditors.Add(fileName, codeArea);
+                    //myTabPage.Controls.Add(rtb);
 
-                filesTabControl.SelectedTab = myTabPage;
+                    //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
+                    openTabs.Add(fileName);
+
+                    openTextEditors.Add(codeArea);
+
+                    tabsToTextEditors.Add(fileName, codeArea);
+
+                    filesTabControl.SelectedTab = myTabPage;
+
+                    lastTab = currentTab;
+                    currentTab = fileName;
+                }
+
+            
 
                 openTab(absPath);
+
+
                   
 
                 //if (e.Node.Text.EndsWith(".xhtml") || e.Node.Text.EndsWith(".html"))
@@ -366,6 +397,8 @@ namespace AccessibleEPUB
                     if (tab.Name == fileName)
                     {
                         filesTabControl.SelectedTab = tab;
+                        lastTab = currentTab;
+                        currentTab = fileName;
                         openTab(absPath);
                     }
                 }
@@ -381,33 +414,154 @@ namespace AccessibleEPUB
             //richTextBox1.Text = geckoWebBrowser1.Text;
         }
 
+        private void createManifest()
+        {
+            string searchFolder = Path.Combine(epubFolderName, "OEBPS");
+            string manifestTagOpen = "<manifest>";
+            string manifestTagClose = "</manifest>";
+
+            string manifestContent = "";
+
+            string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+
+            int firstIndex = metadata.IndexOf(manifestTagOpen);
+            int endIndex = metadata.IndexOf(manifestTagClose);
+
+            string manifestHead = metadata.Substring(0, firstIndex);
+            string manifestEnd = metadata.Substring(endIndex + manifestTagClose.Length);
+
+            
+         
+
+            manifestContent = loopManifest(manifestContent, searchFolder);
+            //foreach (var subdirectory in Directory.GetDirectories(searchFolder))
+            //{
+            //    //Uri uri = new Uri(subdirectory);
+            //    //string lastSegment = uri.Segments.Last();
+
+
+            string manifest = manifestHead + manifestTagOpen + "\n" + manifestContent + manifestTagClose + manifestEnd;
+
+            File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), manifest);
+
+
+        }
+
+        private string loopManifest(string manifestContentParameter, string searchFolder)
+        {
+            string initialFolder = Path.Combine(epubFolderName, "OEBPS");
+            string manifestContent = manifestContentParameter;
+            string navFileName = "nav.xhtml";
+
+            foreach (var subdirectory in Directory.GetDirectories(searchFolder))
+            {
+                //Uri uri = new Uri(subdirectory);
+                //string lastSegment = uri.Segments.Last();
+                manifestContent = loopManifest(manifestContent, subdirectory.ToString());
+
+
+
+            }
+
+
+            foreach (var file in Directory.GetFiles(searchFolder))
+            {
+                //int index2 = file.ToString().LastIndexOf('\\');
+                //string rhs2 = file.ToString().Substring(index2 + 1);
+
+                string fullFileName = file.ToString();
+                string shortFileName = Path.GetFileName(file.ToString());
+                string mediaType = "";
+                // <item id="navid" href="Text/nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+
+                if (fullFileName.EndsWith(".xhtml"))
+                {
+                    mediaType = "application/xhtml+xml";
+                }
+                else if (fullFileName.EndsWith(".css"))
+                {
+                    mediaType = "text/css";
+                }
+                else if (fullFileName.EndsWith(".js"))
+                {
+                    mediaType = "application/javascript";
+                }
+                else if (fullFileName.EndsWith(".svg"))
+                {
+                    mediaType = "image/svg+xml";
+                }
+                else if (fullFileName.EndsWith(".jpg"))
+                {
+                    mediaType = "image/jpeg";
+                }
+                else if (fullFileName.EndsWith(".png"))
+                {
+                    mediaType = "image/png";
+                }
+                else if (fullFileName.EndsWith(".ncx"))
+                {
+                    mediaType = "application/x-dtbncx+xml";
+                }
+
+
+                if (shortFileName == navFileName)
+                {
+                    manifestContent += "\t<item id=\"navid\" href=\"" + fullFileName.Substring(initialFolder.Length + 1) + "\" media-type=\"" + mediaType + "\" properties=\"nav\"/>\n";
+                }
+                else if (!fullFileName.EndsWith(".opf"))
+                {
+                    manifestContent += "\t<item id=\"" + shortFileName + "\" href=\"" + fullFileName.Substring(initialFolder.Length + 1) + "\" media-type=\"" + mediaType + "\"/>\n";
+                }
+
+                //r.Text = searchFolder;
+
+            }
+
+
+            return manifestContent;
+        }
+
+
         private void openTab(string absPath)
         {
             if (absPath.EndsWith(".xhtml") || absPath.EndsWith(".html"))
             {
+       
+                contentFile = absPath;
                 geckoWebBrowser1.Navigate(absPath);
-                splitContainer2.Panel1Collapsed = false;
-                splitContainer2.Panel1.Show();
 
-                splitContainer2.Panel2Collapsed = false;
-                splitContainer2.Panel2.Show();
+       
+                //splitContainer2.Panel1Collapsed = false;
+                //splitContainer2.Panel1.Show();
+
+                //splitContainer2.Panel2Collapsed = false;
+                //splitContainer2.Panel2.Show();
                 //rtb.Text = File.ReadAllText(absPath);
 
+                //if (filesTabControl.Visible == true)
+                //{
 
                 codeArea.Load(absPath);
                 //codeArea.Text = File.ReadAllText(absPath);
                 codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("HTML");
+
+                //}
+
+                //else
+                //{
+                htmlToWysiwyg();
+                //}
 
             }
 
             else if (absPath.EndsWith(".svg") || absPath.EndsWith(".jpg") || absPath.EndsWith(".png"))
             {
                 geckoWebBrowser1.Navigate(absPath);
-                splitContainer2.Panel1Collapsed = true;
-                splitContainer2.Panel1.Hide();
+                //splitContainer2.Panel1Collapsed = true;
+                //splitContainer2.Panel1.Hide();
 
-                splitContainer2.Panel2Collapsed = false;
-                splitContainer2.Panel2.Show();
+                //splitContainer2.Panel2Collapsed = false;
+                //splitContainer2.Panel2.Show();
 
  
 
@@ -421,11 +575,11 @@ namespace AccessibleEPUB
             else if (absPath.EndsWith(".css"))
             {
 
-                splitContainer2.Panel1Collapsed = false;
-                splitContainer2.Panel1.Show();
+                //splitContainer2.Panel1Collapsed = false;
+                //splitContainer2.Panel1.Show();
 
-                splitContainer2.Panel2Collapsed = true;
-                splitContainer2.Panel2.Hide();
+                ////splitContainer2.Panel2Collapsed = true;
+                ////splitContainer2.Panel2.Hide();
 
                 codeArea.Load(absPath);
                 //codeArea.Text = File.ReadAllText(absPath);
@@ -438,11 +592,11 @@ namespace AccessibleEPUB
             else if (absPath.EndsWith(".js"))
             {
 
-                splitContainer2.Panel1Collapsed = false;
-                splitContainer2.Panel1.Show();
+                //splitContainer2.Panel1Collapsed = false;
+                //splitContainer2.Panel1.Show();
 
-                splitContainer2.Panel2Collapsed = true;
-                splitContainer2.Panel2.Hide();
+                ////splitContainer2.Panel2Collapsed = true;
+                ////splitContainer2.Panel2.Hide();
 
                 codeArea.Load(absPath);
                 //codeArea.Text = File.ReadAllText(absPath);
@@ -467,11 +621,11 @@ namespace AccessibleEPUB
             else 
             {
 
-                splitContainer2.Panel1Collapsed = false;
-                splitContainer2.Panel1.Show();
+                //splitContainer2.Panel1Collapsed = false;
+                //splitContainer2.Panel1.Show();
 
-                splitContainer2.Panel2Collapsed = true;
-                splitContainer2.Panel2.Hide();
+                //splitContainer2.Panel2Collapsed = true;
+                //splitContainer2.Panel2.Hide();
 
                 codeArea.Load(absPath);
                 //codeArea.Text = File.ReadAllText(absPath);
@@ -604,7 +758,7 @@ namespace AccessibleEPUB
                 {
                     fileName = epubFileName.Substring(0, epubFileName.LastIndexOf('.'));
                     epubFolderName = fileName;
-                    contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), contentFileName);
+                    //contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), contentFileName);
                 }
 
 
@@ -635,6 +789,7 @@ namespace AccessibleEPUB
 
                 //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
 
+                
 
             }
             else
@@ -644,7 +799,7 @@ namespace AccessibleEPUB
 
             if (File.Exists(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml")))
             {
-                contentFileName = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml");
+                contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml");
             }
             else
             {
@@ -660,11 +815,45 @@ namespace AccessibleEPUB
             //initializeHTMLeditor();
             geckoWebBrowser1.Navigate(contentFile);
             htmlToWysiwyg();
+            
             splitContainer1.Panel1Collapsed = false;
             splitContainer1.Panel1.Show();
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
 
+            TabPage myTabPage = new TabPage(Path.GetFileName(contentFile));
+
+            string tabPageName = contentFile.Substring(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(contentFile)))).Length + 1);
+            //Console.WriteLine(contentFile.Substring(Path.GetDirectoryName(Path.GetDirectoryName(contentFile)).Length));
+            myTabPage.Name = tabPageName;
+            filesTabControl.TabPages.Add(myTabPage);
+
+            //RichTextBox rtb = new RichTextBox();
+
+            System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
+            host.Dock = DockStyle.Fill;
+
+            codeArea = new ICSharpCode.AvalonEdit.TextEditor();
+            
+           
+
+            host.Child = codeArea;
+            myTabPage.Controls.Add(host);
+
+
+            //myTabPage.Controls.Add(rtb);
+
+            //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
+            openTabs.Add(tabPageName);
+
+            openTextEditors.Add(codeArea);
+
+            tabsToTextEditors.Add(tabPageName, codeArea);
+
+            filesTabControl.SelectedTab = myTabPage;
+            currentTab = tabPageName;
+            openTab(contentFile);
+            //openTab(contentFile);
         }
 
         //private void InitColors()
@@ -1080,8 +1269,13 @@ namespace AccessibleEPUB
         {
             if (filesTabControl.TabPages.Count >= 1)
             {
+                filesTabControl.SelectedTab = e.TabPage;
+
                 string absPath = tempFolder + "\\" + e.TabPage.Name;
+                openTab(absPath);
             }
+
+
         }
 
 
@@ -1094,49 +1288,49 @@ namespace AccessibleEPUB
         string vis = "<div id=\"visible\" class=\"visible\">\n<!--StartOfVisibleSection-->\n";
         string visEnd = "<!--EndOfVisibleSection-->\n</div>\n";
 
-        private void initializeHTMLeditor()
-        {
-            string body = doc.body.innerHTML;
-            string newContent = "";
-            string contentBody = "";
-            string textFolder = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"));
-            try
-            {
-                contentBody = System.IO.File.ReadAllText(contentFile);
+        //private void initializeHTMLeditor()
+        //{
+        //    string body = doc.body.innerHTML;
+        //    string newContent = "";
+        //    string contentBody = "";
+        //    string textFolder = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"));
+        //    try
+        //    {
+        //        contentBody = System.IO.File.ReadAllText(contentFile);
 
-            }
-            catch (Exception ex)
-            {
-                if (ex is DirectoryNotFoundException || ex is FileNotFoundException)
-                {
-                    MessageBox.Show("Problem initializing HTML editor", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ex is DirectoryNotFoundException || ex is FileNotFoundException)
+        //        {
+        //            MessageBox.Show("Problem initializing HTML editor", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //        }
 
-            }
+        //    }
 
-            string bodyTag = "<body>";
-            string bodyEnd = "</body>";
-            //System.IO.File.WriteAllText(Path.Combine(textFolder, "Content.txt"), body);
-            //System.IO.File.WriteAllText(Path.Combine(textFolder, "haha.txt"), contentBody.Substring(0, contentBody.IndexOf(imp) + imp.Length));
-            //newContent = contentBody.Substring(0, contentBody.IndexOf(startOfContent) + startOfContent.Length) + "\n";
+        //    string bodyTag = "<body>";
+        //    string bodyEnd = "</body>";
+        //    //System.IO.File.WriteAllText(Path.Combine(textFolder, "Content.txt"), body);
+        //    //System.IO.File.WriteAllText(Path.Combine(textFolder, "haha.txt"), contentBody.Substring(0, contentBody.IndexOf(imp) + imp.Length));
+        //    //newContent = contentBody.Substring(0, contentBody.IndexOf(startOfContent) + startOfContent.Length) + "\n";
 
-            //Console.WriteLine(newContent);
+
             
-            newContent = newContent + imp + body + impEnd +
-                bli + body + bliEnd +
-                vis + body + visEnd + "</body>\n</html>\n";
-            //newContent = contentBody.Substring(0, contentBody.IndexOf(bodyTag) + bodyTag.Length);
-            //newContent = newContent +
-            //    imp + body + impEnd +
-            //    bli + body + bliEnd +
-            //    vis + body + visEnd + contentBody.Substring(contentBody.IndexOf(bodyEnd) + bodyEnd.Length);
+        //    newContent = newContent + imp + body + impEnd +
+        //        bli + body + bliEnd +
+        //        vis + body + visEnd + "</body>\n</html>\n";
+        //    //newContent = contentBody.Substring(0, contentBody.IndexOf(bodyTag) + bodyTag.Length);
+        //    //newContent = newContent +
+        //    //    imp + body + impEnd +
+        //    //    bli + body + bliEnd +
+        //    //    vis + body + visEnd + contentBody.Substring(contentBody.IndexOf(bodyEnd) + bodyEnd.Length);
 
-            string fileLocation = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text");
+        //    string fileLocation = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text");
 
-            System.IO.File.WriteAllText(contentFile, newContent);
+        //    System.IO.File.WriteAllText(contentFile, newContent);
 
-            //Console.WriteLine(contentBody);
-        }
+
+        //}
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -1177,6 +1371,7 @@ namespace AccessibleEPUB
                 //string fileLocation = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text");
 
             }
+
             string zipFileName = epubFolderName + ".zip";
             File.Delete(zipFileName);
             ZipFile.CreateFromDirectory(epubFolderName, zipFileName);
@@ -1188,7 +1383,7 @@ namespace AccessibleEPUB
             geckoWebBrowser1.Reload();
             this.treeView1.Nodes.Clear();
             this.treeView1.Nodes.Add(TraverseDirectory(epubFolderName));
-
+            createManifest();
         }
 
 
@@ -1204,6 +1399,8 @@ namespace AccessibleEPUB
             {
                 splitContainer1.Panel1Collapsed = false;
                 splitContainer1.Panel1.Show();
+                splitContainer2.Panel2Collapsed = false;
+                splitContainer2.Panel2.Show();
                 HTMLEditor.Focus();
                 htmlToWysiwyg();
             }
@@ -1228,7 +1425,12 @@ namespace AccessibleEPUB
 
             foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
             {
-                ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
+                //if (ca.Key == lastTab)
+                //{
+                //    ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
+                //}
+                //ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
+                //File.WriteAllText(Path.Combine(accEpubFolderName, ca.Key), ca.Value.Document.Text);
             }
 
             string bodyStart = "<body";
@@ -1240,9 +1442,8 @@ namespace AccessibleEPUB
             if (File.Exists(contentFile))
             {
                 body = File.ReadAllText(contentFile);
-                Console.WriteLine(body);
+
                 body = body.Replace(Path.Combine("..", ""), Path.Combine(epubFolderName, "OEBPS"));
-                Console.WriteLine(body);
 
                 if (!body.Contains(start))
                 {
@@ -1281,7 +1482,6 @@ namespace AccessibleEPUB
                 {
                     return;
                 }
-                //Console.WriteLine(body.Substring(startIndex + start.Length, endIndex - startIndex - start.Length));
                 HTMLEditor.Document.Body.InnerHtml = body.Substring(startIndex + start.Length, endIndex - startIndex - start.Length);
             }
             else
@@ -1289,11 +1489,6 @@ namespace AccessibleEPUB
                 int startIndex = body.IndexOf(bodyStart);
                 int endIndex = body.IndexOf(bodyEnd);
                 
-
-                if (body.IndexOf(vis) >= startIndex)
-                {
-                    return;
-                }
 
                 HTMLEditor.Document.Body.InnerHtml = body.Substring(startIndex, endIndex - startIndex + bodyEnd.Length);
             }
@@ -1306,9 +1501,11 @@ namespace AccessibleEPUB
         private void wysiwygToHtml()
         {
             string body = doc.body.innerHTML;
-            Console.WriteLine(body);
+
+
             string newContent = "";
             string contentBody = "";
+
             string textFolder = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"));
             try
             {
@@ -1337,7 +1534,8 @@ namespace AccessibleEPUB
                 body = body.Replace(body.Substring(start, end - start), "");
             }
 
-            if (mode == (int)fileMode.singleFileCss) { 
+            if ((contentFile == Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml") 
+                && (mode == (int)fileMode.singleFileCss))) { 
 
                 //System.IO.File.WriteAllText(Path.Combine(textFolder, "ContentBla.txt"), contentBody);
 
@@ -1350,11 +1548,10 @@ namespace AccessibleEPUB
                 string imagesFolder = getImageFolder();
             
 
-                string mstyleImpaired = "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
-                string bodyImpaired = body.Replace("<mstyle>", mstyleImpaired); ;
+                //string mstyleImpaired = "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
+                //string bodyImpaired = body.Replace("<mstyle>", mstyleImpaired); ;
 
-                //Console.WriteLine(newContent);
-                newContent = newContent + imp + bodyImpaired + impEnd +
+                newContent = newContent + imp + body + impEnd +
                     bli + body + bliEnd +
                     vis + body + visEnd + "</body>\n</html>\n";
                 //newContent = contentBody.Substring(0, contentBody.IndexOf(bodyTag) + bodyTag.Length);
@@ -1405,13 +1602,11 @@ namespace AccessibleEPUB
                         else
                         {
                             bracketTerminateIndex = i;
-                            Console.WriteLine("Bracket end set : " + bracketTerminateIndex);
                         }
                     }
                 }
 
                 string header = contentBody.Substring(0, first + bracketTerminateIndex + 1);
-                Console.WriteLine(header);
                 string closer = contentBody.Substring(end);
                 newContent = header + body + closer;
             }
@@ -1441,7 +1636,6 @@ namespace AccessibleEPUB
 
 
             //newContent = tm.Save();
-            //Console.WriteLine(newContent);
 
             //HtmlAgilityPack.HtmlDocument hap = new HtmlAgilityPack.HtmlDocument();
             //hap.LoadHtml(newContent);
@@ -1472,9 +1666,8 @@ namespace AccessibleEPUB
             //hap.LoadHtml(newContent);
             //hap.OptionOutputAsXml = true;
             //newContent = hap.ParsedText;
-            //Console.WriteLine(xdoc.InnerXml);
 
-
+            
 
 
 
@@ -1482,7 +1675,13 @@ namespace AccessibleEPUB
 
             System.IO.File.WriteAllText(contentFile, newContent);
 
-            //Console.WriteLine(contentBody);
+
+            foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
+            {
+                ca.Value.Load(Path.Combine(accEpubFolderName, ca.Key));
+            }
+
+            
         }
 
         private void saveToEpub()
@@ -1567,6 +1766,13 @@ body {
 }
 
 .math {
+
+    display:none;
+    visibility:hidden;
+
+}
+
+.mathImpaired {
 
     display:none;
     visibility:hidden;
@@ -1952,7 +2158,7 @@ body {
             insertMath();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.B)
             {
@@ -1969,6 +2175,14 @@ body {
             else if (e.Control && e.KeyCode == Keys.I)
             {
                 makeItalic();
+            }
+        }
+
+        private void keyPressSave(object sender, KeyPressedEventArgs e)
+        {
+            if (e.HotKey.Key == Key.S)
+            {
+                saveFile();
             }
         }
 
@@ -2063,6 +2277,42 @@ body {
             insertMath();
         }
 
+        private void togglePreviewButton_Click(object sender, EventArgs e)
+        {
+            if (splitContainer2.Panel2Collapsed == true)
+            {
+                splitContainer2.Panel2Collapsed = false;
+                splitContainer2.Panel2.Show();
+            }
+
+            else if (splitContainer2.Panel2Collapsed == false)
+            {
+                splitContainer2.Panel2Collapsed = true;
+                splitContainer2.Panel2.Hide();
+            }
+
+
+            //splitContainer2.Panel1Collapsed = false;
+            //splitContainer2.Panel1.Show();
+
+            //splitContainer2.Panel2Collapsed = false;
+            //splitContainer2.Panel2.Show();
+        }
+
+        private void toggleEditorButton_Click(object sender, EventArgs e)
+        {
+            if (splitContainer2.Panel1Collapsed == true)
+            {
+                splitContainer2.Panel1Collapsed = false;
+                splitContainer2.Panel1.Show();
+            }
+
+            else if (splitContainer2.Panel2Collapsed == false)
+            {
+                splitContainer2.Panel1Collapsed = true;
+                splitContainer2.Panel1.Hide();
+            }
+        }
     }
 
 

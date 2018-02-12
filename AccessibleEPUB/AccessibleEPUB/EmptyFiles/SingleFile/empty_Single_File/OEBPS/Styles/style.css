@@ -86,6 +86,14 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
   border: 1px solid black;
 }
 
+.visible .math {
+    max-width : 100%;
+}
+
+.visible .mathImpaired {
+    display:none;
+}
+
 .visible .transparent {
   display: none;
   color: transparent;
@@ -133,6 +141,14 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 .impaired table {
   font-size:16px;
   border: 1px solid black;
+}
+
+.impaired .math {
+  	display:none;
+}
+
+.impaired .mathImpaired {
+    max-width : 100%;
 }
 
 .impaired .transparent {
@@ -189,6 +205,10 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 
 .blind .math {
 	display:none;
+}
+
+.blind .mathImpaired {
+    display:none;
 }
 
 

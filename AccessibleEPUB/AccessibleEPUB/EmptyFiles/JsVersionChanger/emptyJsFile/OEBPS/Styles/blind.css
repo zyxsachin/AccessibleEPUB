@@ -28,6 +28,11 @@ math {
   	display:none;
 }
 
+.mathImpaired {
+    display:none;
+}
+
+
 
 body {
 	width: 100%;
