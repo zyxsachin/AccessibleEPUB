@@ -189,6 +189,9 @@ namespace AccessibleEPUB
 
             doc.body.innerHTML += WebUtility.HtmlDecode(tableHTML);
 
+            this.Hide();
+            this.Dispose();
+
 
             //dynamic r = doc.selection.createRange();
             //r.pasteHTML(WebUtility.HtmlDecode(tableHTML));
@@ -254,13 +257,13 @@ namespace AccessibleEPUB
     </tr>
 </tbody>
 </table>
-*/
+*/          
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Dispose();
+            this.Dispose();
         }
     }
 }

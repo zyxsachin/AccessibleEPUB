@@ -188,9 +188,11 @@ namespace AccessibleEPUB
             string altTextParagraph = "<p class=\"transparent\">" + inputTextBox.Text + "</p>\n";
 
             doc.body.innerHTML += altTextParagraph;
-            this.Hide();
 
             Directory.SetCurrentDirectory(currentDic);
+
+            this.Hide();
+            this.Dispose();
 
             //doc.body.innerText += math;
             //formula.HorizontalAlignment
@@ -444,7 +446,7 @@ namespace AccessibleEPUB
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Dispose();
+            this.Dispose();
         }
     }
 }

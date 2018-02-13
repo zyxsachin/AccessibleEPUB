@@ -57,6 +57,7 @@ namespace AccessibleEPUB
 
             //src =""" + imageLocationTextBox.Text + @""" alt =""" + altTextTextBox.Text + @""">
             this.Hide();
+            this.Dispose();
         }
 
         private void chooseImageButton_Click(object sender, EventArgs e)

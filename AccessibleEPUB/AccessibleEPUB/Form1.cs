@@ -816,8 +816,8 @@ namespace AccessibleEPUB
             geckoWebBrowser1.Navigate(contentFile);
             htmlToWysiwyg();
             
-            splitContainer1.Panel1Collapsed = false;
-            splitContainer1.Panel1.Show();
+            //splitContainer1.Panel1Collapsed = false;
+            //splitContainer1.Panel1.Show();
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
 
@@ -2311,6 +2311,21 @@ body {
             {
                 splitContainer2.Panel1Collapsed = true;
                 splitContainer2.Panel1.Hide();
+            }
+        }
+
+        private void toggleFileExplorerButton_Click(object sender, EventArgs e)
+        {
+            if (splitContainer1.Panel1Collapsed == true)
+            {
+                splitContainer1.Panel1Collapsed = false;
+                splitContainer1.Panel1.Show();
+            }
+
+            else if (splitContainer1.Panel2Collapsed == false)
+            {
+                splitContainer1.Panel1Collapsed = true;
+                splitContainer1.Panel1.Hide();
             }
         }
     }
