@@ -35,6 +35,7 @@ namespace AccessibleEPUB
             form = f;
             initLanguageList();
             singleFileJsRadioButton.Select();
+
         }
 
         private void singleFileCssButton_Click(object sender, EventArgs e)
@@ -141,6 +142,7 @@ namespace AccessibleEPUB
         {
             languageComboBox.SelectedItem = Settings.Default.DefaultLanguage;
             authorTextBox.Text = Settings.Default.DefaultAuthor;
+            titleTextBox.Focus();
         }
     }
 }

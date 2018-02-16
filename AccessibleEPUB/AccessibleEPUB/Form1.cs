@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Windows.Threading;
+
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -45,12 +47,12 @@ namespace AccessibleEPUB
 
         enum fileMode
         {
-            singleFileCss=1,
-            singleFileJs=2,
-            onlyVis=3,
-            onlyBli=4,
-            onlyImp=5,
-            none=6
+            singleFileCss = 1,
+            singleFileJs = 2,
+            onlyVis = 3,
+            onlyBli = 4,
+            onlyImp = 5,
+            none = 6
         }
 
         int mode;
@@ -83,12 +85,12 @@ namespace AccessibleEPUB
 
         string impairedContentFile;
         string blindContentFile;
-        
+
         string contentFileName = "Content.xhtml";
 
         string epubFolderName;
 
-        
+
 
         List<string> openTabs = new List<string>();
         List<ICSharpCode.AvalonEdit.TextEditor> openTextEditors = new List<ICSharpCode.AvalonEdit.TextEditor>();
@@ -99,7 +101,7 @@ namespace AccessibleEPUB
 
         GlobalHotKey.HotKeyManager hkm = new GlobalHotKey.HotKeyManager();
 
-       
+
 
         public Form1()
         {
@@ -127,7 +129,7 @@ namespace AccessibleEPUB
             editToolStrip.SendToBack();
             menuBar.Dock = DockStyle.Top;
 
-           
+
 
             HTMLEditor.DocumentText = @"<html><body></body></html>"; //This will get our HTML editor ready, inserting common HTML blocks into the document
 
@@ -161,8 +163,9 @@ namespace AccessibleEPUB
                 if (Key.GetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe") == null)
                     Key.SetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe", RegVal, RegistryValueKind.DWord);
 
- 
 
+            int halfWidth = splitContainer2.Width / 2;
+            splitContainer2.SplitterDistance = halfWidth;
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
@@ -266,10 +269,11 @@ namespace AccessibleEPUB
             //    geckoWebBrowser1.ViewSource();
             //}
 
-            string absPath = tempFolder + "\\" + e.Node.FullPath;
+            string absPath = Path.Combine(tempFolder, e.Node.FullPath);
             string fileName = e.Node.FullPath;
             FileAttributes attr = File.GetAttributes(absPath);
-            if (attr.HasFlag(FileAttributes.Directory)) {
+            if (attr.HasFlag(FileAttributes.Directory))
+            {
                 return;
             }
 
@@ -318,12 +322,12 @@ namespace AccessibleEPUB
                     currentTab = fileName;
                 }
 
-            
+
 
                 openTab(absPath);
 
 
-                  
+
 
                 //if (e.Node.Text.EndsWith(".xhtml") || e.Node.Text.EndsWith(".html"))
                 //{
@@ -445,8 +449,8 @@ namespace AccessibleEPUB
             string manifestHead = metadata.Substring(0, firstIndex);
             string manifestEnd = metadata.Substring(endIndex + manifestTagClose.Length);
 
-            
-         
+
+
 
             manifestContent = loopManifest(manifestContent, searchFolder);
             //foreach (var subdirectory in Directory.GetDirectories(searchFolder))
@@ -674,7 +678,7 @@ namespace AccessibleEPUB
 
             //}
 
-            else 
+            else
             {
 
                 //splitContainer2.Panel1Collapsed = false;
@@ -731,63 +735,7 @@ namespace AccessibleEPUB
 
         private void openFile(object sender, EventArgs e)
         {
-            containsFile = true;
            
-            closeFile(sender, e);
-            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            
-            tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
-            DirectoryInfo accEpubFolder = Directory.CreateDirectory(tempPath + "AccessibleEPUB");
-
-            //string accEpubFolderName = accEpubFolder.Name;
-
-            System.IO.DirectoryInfo di = new DirectoryInfo(tempFolder);
-
-            foreach (FileInfo file in di.GetFiles())
-            {
-                file.Delete();
-            }
-            foreach (DirectoryInfo dir in di.GetDirectories())
-            {
-                bool isInUse = false;
-                do
-                {
-                    try
-                    {
-                        isInUse = false;
-                        dir.Delete(true);
-                    }
-                    catch (IOException excep)
-                    {
-                        isInUse = true;
-                        MessageBox.Show("Folder in use. Please leave and then press OK.", "Folder in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                } while (isInUse);
-
-            }
-
-
-
-            while (di.GetDirectories().Length != 0 || di.GetFiles().Length != 0)
-            {
-                var result = MessageBox.Show("Could not delete all files in temp folder", "Error Title", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
-                if (result == DialogResult.Retry)
-                {
-                    foreach (FileInfo file in di.GetFiles())
-                    {
-                        file.Delete();
-                    }
-                    foreach (DirectoryInfo dir in di.GetDirectories())
-                    {
-                        dir.Delete(true);
-                    }
-                }
-                else
-                {
-                    return;
-                }
-            }
-
 
             System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             openFileDialog1.InitialDirectory = homePath;
@@ -801,10 +749,84 @@ namespace AccessibleEPUB
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+
+                containsFile = true;
+
+                closeFile(sender, e);
+                string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                //tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
+                DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
+
+                if (Directory.Exists(accEpubFolderName))
+                {
+                    Console.WriteLine("HAHAHAHA");
+                }
+
+                //string accEpubFolderName = accEpubFolder.Name;
+
+                System.IO.DirectoryInfo di = new DirectoryInfo(accEpubFolderName);
+
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+
+                int count = 0;
+
+                foreach (DirectoryInfo dir in di.GetDirectories())
+                {
+                    bool isInUse = false;
+                    do
+                    {
+                        try
+                        {
+                            isInUse = false;
+                            dir.Delete(true);
+                        }
+                        catch (IOException excep)
+                        {
+                            count++;
+                            if (count == 3)
+                            {
+                                MessageBox.Show("Temp folder is still in use. After pressing OK, the file opening process will stop.", "Folder still in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return;
+                            }
+                            isInUse = true;
+                            MessageBox.Show("Folder in use. Please leave and then press OK.", "Folder in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    } while (isInUse);
+
+                }
+
+
+
+                while (di.GetDirectories().Length != 0 || di.GetFiles().Length != 0)
+                {
+                    var result = MessageBox.Show("Could not delete all files in temp folder", "Error Title", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
+                    if (result == DialogResult.Retry)
+                    {
+                        foreach (FileInfo file in di.GetFiles())
+                        {
+                            file.Delete();
+                        }
+                        foreach (DirectoryInfo dir in di.GetDirectories())
+                        {
+                            dir.Delete(true);
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
+
+
                 //treeView1.Nodes.Clear();
                 //richTextBox1.Clear();
                 //geckoWebBrowser1.Navigate("");
-               
+
                 epubFileName = Path.Combine(accEpubFolderName, Path.GetFileName(openFileDialog1.FileName));
                 target = openFileDialog1.FileName;
                 File.Copy(openFileDialog1.FileName, epubFileName, true);
@@ -837,14 +859,14 @@ namespace AccessibleEPUB
                 //    node.Collapse();
                 //}
 
-               
+
 
                 //webBrowser1.Navigate(tempFile2 + "\\OEBPS\\Text\\Content.xhtml");
                 //richTextBox1.Text = webBrowser1.DocumentText;
 
                 //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
 
-                
+
 
             }
             else
@@ -878,7 +900,8 @@ namespace AccessibleEPUB
             {
                 mode = (int)fileMode.singleFileCss;
             }
-            else if (File.Exists(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Misc"), "script.js"))) {
+            else if (File.Exists(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Misc"), "script.js")))
+            {
                 mode = (int)fileMode.singleFileJs;
             }
             else
@@ -887,7 +910,7 @@ namespace AccessibleEPUB
             }
 
             if (mode == (int)fileMode.singleFileCss)
-            {             
+            {
                 TabControl1.Visible = false;
                 geckoWebBrowser4.Visible = true;
             }
@@ -952,8 +975,8 @@ namespace AccessibleEPUB
             host.Dock = DockStyle.Fill;
 
             codeArea = new ICSharpCode.AvalonEdit.TextEditor();
-            
-           
+
+
 
             host.Child = codeArea;
             myTabPage.Controls.Add(host);
@@ -1006,7 +1029,7 @@ namespace AccessibleEPUB
         //    TextArea.Lexer = Lexer.Html;
 
 
-   
+
         //}
 
         #region Utils
@@ -1039,7 +1062,7 @@ namespace AccessibleEPUB
         private void closeFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeFile(sender, e);
-           
+
         }
 
         private void closeFile(object sender, EventArgs e)
@@ -1062,7 +1085,7 @@ namespace AccessibleEPUB
 
         }
 
- 
+
         private void newFileButton_Click(object sender, EventArgs e)
         {
             closeFile(sender, e);
@@ -1108,7 +1131,7 @@ namespace AccessibleEPUB
 
             contentFileName = "Content.xhtml";
 
-            tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
+            //tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
 
 
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -1122,7 +1145,7 @@ namespace AccessibleEPUB
                 return;
             }
 
-          
+
 
             NewFileDialogBox nfd = new NewFileDialogBox(this);
             nfd.ShowDialog();
@@ -1148,21 +1171,65 @@ namespace AccessibleEPUB
             targetFolder = Path.GetDirectoryName(target);
 
 
-            
-            DirectoryDelete(accEpubFolderName);
-            
-            if (mode == (int) fileMode.singleFileCss)
+            Console.WriteLine(accEpubFolderName);
+            //DirectoryDelete(accEpubFolderName);
+
+            DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
+
+            if (Directory.Exists(accEpubFolderName))
+            {
+                Console.WriteLine("HAHAHAHA");
+            }
+
+            //string accEpubFolderName = accEpubFolder.Name;
+
+            System.IO.DirectoryInfo di = new DirectoryInfo(accEpubFolderName);
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+
+            int count = 0;
+
+            foreach (DirectoryInfo dir in di.GetDirectories())
+            {
+                bool isInUse = false;
+                do
+                {
+                    try
+                    {
+                        isInUse = false;
+                        dir.Delete(true);
+                    }
+                    catch (IOException excep)
+                    {
+                        count++;
+                        if (count == 3)
+                        {
+                            MessageBox.Show("Temp folder is still in use. After pressing OK, the file opening process will stop.", "Folder still in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+                        isInUse = true;
+                        MessageBox.Show("Folder in use. Please leave and then press OK.", "Folder in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                } while (isInUse);
+
+            }
+
+            if (mode == (int)fileMode.singleFileCss)
             {
 
-    
-                //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
 
-                File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.zip", accEpubFolderName + "\\empty_Single_File.zip", true);
-            
+                //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
+                string emptySingleFileZip = Path.Combine("EmptyFiles", "SingleFile", "empty_Single_File.zip");
+                string emptySingleFileEpub = Path.Combine("EmptyFiles", "SingleFile", "empty_Single_File.epub");
+                File.Copy(Path.Combine(initialPath, emptySingleFileZip), Path.Combine(accEpubFolderName, "empty_Single_File.zip"), true);
+
 
                 //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", targetFolder);
 
-                File.Copy(initialPath + "\\EmptyFiles\\SingleFile\\empty_Single_File.epub", target, true);
+                File.Copy(Path.Combine(initialPath, emptySingleFileEpub), target, true);
 
                 //System.IO.Compression.ZipFile.CreateFromDirectory(targetFolder + "\\empty_Single_File", targetFolder + "\\empty_Single_File.zip");
 
@@ -1201,12 +1268,12 @@ namespace AccessibleEPUB
                 contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), contentFileName);
 
 
-                System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", fileName);
+                System.IO.Compression.ZipFile.ExtractToDirectory(Path.Combine(accEpubFolderName, "empty_Single_File.zip"), fileName);
 
 
                 zipFileName = fileName + ".zip";
 
-                File.Delete(accEpubFolderName + "\\empty_Single_File.zip");
+                File.Delete(Path.Combine(accEpubFolderName + "empty_Single_File.zip"));
             }
             else if (mode == (int)fileMode.singleFileJs)
             {
@@ -1214,7 +1281,7 @@ namespace AccessibleEPUB
 
                 //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
 
-                File.Copy(Path.Combine(initialPath, setPath + ".zip"), accEpubFolderName + "\\empty_Single_File.zip", true);
+                File.Copy(Path.Combine(initialPath, setPath + ".zip"), Path.Combine(accEpubFolderName, "empty_Single_File.zip"), true);
 
 
                 //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", targetFolder);
@@ -1258,12 +1325,12 @@ namespace AccessibleEPUB
                 contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), contentFileName);
 
 
-                System.IO.Compression.ZipFile.ExtractToDirectory(accEpubFolderName + "\\empty_Single_File.zip", fileName);
+                System.IO.Compression.ZipFile.ExtractToDirectory(Path.Combine(accEpubFolderName, "empty_Single_File.zip"), fileName);
 
 
                 zipFileName = fileName + ".zip";
 
-                File.Delete(accEpubFolderName + "\\empty_Single_File.zip");
+                File.Delete(Path.Combine(accEpubFolderName, "empty_Single_File.zip"));
             }
 
             if (mode == (int)fileMode.singleFileCss)
@@ -1411,8 +1478,8 @@ namespace AccessibleEPUB
 
 
 
-           string newMetaData = first + tagsList[0].Item3 + second + tagsList[2].Item3 + third + tagsList[4].Item3 + 
-                fourth + tagsList[6].Item3 + fifth + tagsList[8].Item3 + sixth + tagsList[10].Item3 + seventh;
+            string newMetaData = first + tagsList[0].Item3 + second + tagsList[2].Item3 + third + tagsList[4].Item3 +
+                 fourth + tagsList[6].Item3 + fifth + tagsList[8].Item3 + sixth + tagsList[10].Item3 + seventh;
 
             File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), newMetaData);
 
@@ -1451,9 +1518,11 @@ namespace AccessibleEPUB
 
         private static void DirectoryDelete(string path)
         {
-              
+
             System.IO.DirectoryInfo di = new DirectoryInfo(path);
             bool isInUse = false;
+            int count = 0;
+
             do
             {
                 try
@@ -1465,12 +1534,18 @@ namespace AccessibleEPUB
                     }
                     foreach (DirectoryInfo dir in di.GetDirectories())
                     {
-                         dir.Delete(true);
-                   
+                        dir.Delete(true);
+
                     }
                 }
                 catch (IOException excep)
                 {
+                    count++;
+                    if (count == 3)
+                    {
+                        MessageBox.Show("Temp folder is still in use. After pressing OK, the file opening process will stop.", "Folder still in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
                     isInUse = true;
                     MessageBox.Show("Folder in use. Please leave and then press OK.", "Folder in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -1522,20 +1597,20 @@ namespace AccessibleEPUB
             FileInfo[] files = dir.GetFiles();
             foreach (FileInfo file in files)
             {
-                string temppath = Path.Combine(destDirName, file.Name);
-                //file.CopyTo(temppath, false);
-                file.CopyTo(temppath, true);
+                string temp = Path.Combine(destDirName, file.Name);
+                //file.CopyTo(temp, false);
+                file.CopyTo(temp, true);
 
             }
 
             // If copying subdirectories, copy them and their contents to new location.
-           
+
             foreach (DirectoryInfo subdir in dirs)
             {
-                string temppath = Path.Combine(destDirName, subdir.Name);
-                DirectoryCopy(subdir.FullName, temppath);
+                string temp = Path.Combine(destDirName, subdir.Name);
+                DirectoryCopy(subdir.FullName, temp);
             }
-            
+
         }
 
         private void filesTabControl_Selected(object sender, TabControlEventArgs e)
@@ -1544,7 +1619,7 @@ namespace AccessibleEPUB
             {
                 filesTabControl.SelectedTab = e.TabPage;
 
-                string absPath = tempFolder + "\\" + e.TabPage.Name;
+                string absPath = Path.Combine(tempFolder, e.TabPage.Name);
                 openTab(absPath);
             }
 
@@ -1588,7 +1663,7 @@ namespace AccessibleEPUB
         //    //newContent = contentBody.Substring(0, contentBody.IndexOf(startOfContent) + startOfContent.Length) + "\n";
 
 
-            
+
         //    newContent = newContent + imp + body + impEnd +
         //        bli + body + bliEnd +
         //        vis + body + visEnd + "</body>\n</html>\n";
@@ -1665,7 +1740,7 @@ namespace AccessibleEPUB
             File.Copy(zipFileName, target, true);
             File.Delete(zipFileName);
 
-       
+
 
             this.treeView1.Nodes.Clear();
             this.treeView1.Nodes.Add(TraverseDirectory(epubFolderName));
@@ -1700,7 +1775,7 @@ namespace AccessibleEPUB
 
         private void toggleCode_Click(object sender, EventArgs e)
         {
-           if (containsFile == false)
+            if (containsFile == false)
             {
                 return;
             }
@@ -1718,13 +1793,13 @@ namespace AccessibleEPUB
             else
             {
                 filesTabControl.Focus();
-                
+
                 //splitContainer1.Panel1Collapsed = true;
                 //splitContainer1.Panel1.Hide();
                 //splitContainer1.Panel1Collapsed = false;
                 //splitContainer1.Panel1.Show();
                 wysiwygToHtml();
-                
+
             }
         }
 
@@ -1783,7 +1858,7 @@ namespace AccessibleEPUB
             //    body = body.Replace(Path.Combine("..", ""), Path.Combine(epubFolderName, "OEBPS"));
 
             //}
-           
+
             if (singleFileMode)
             {
                 int startIndex = body.IndexOf(start);
@@ -1799,11 +1874,11 @@ namespace AccessibleEPUB
             {
                 int startIndex = body.IndexOf(bodyStart);
                 int endIndex = body.IndexOf(bodyEnd);
-                
+
 
                 HTMLEditor.Document.Body.InnerHtml = body.Substring(startIndex, endIndex - startIndex + bodyEnd.Length);
             }
-           
+
 
 
 
@@ -1849,8 +1924,9 @@ namespace AccessibleEPUB
                 body = body.Replace(body.Substring(start, end - start), "");
             }
 
-            if ((contentFile == Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml") 
-                && (mode == (int)fileMode.singleFileCss))) { 
+            if ((contentFile == Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml")
+                && (mode == (int)fileMode.singleFileCss)))
+            {
 
                 //System.IO.File.WriteAllText(Path.Combine(textFolder, "ContentBla.txt"), contentBody);
 
@@ -1861,7 +1937,7 @@ namespace AccessibleEPUB
 
 
                 string imagesFolder = getImageFolder();
-            
+
 
                 //string mstyleImpaired = "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
                 //string bodyImpaired = body.Replace("<mstyle>", mstyleImpaired); ;
@@ -1890,7 +1966,7 @@ namespace AccessibleEPUB
             //}
             else
             {
-   
+
                 string bodyStart = "<body";
                 string bodyEnd = "</body>";
                 int first = contentBody.IndexOf(bodyStart);
@@ -1901,7 +1977,7 @@ namespace AccessibleEPUB
                 bool endMode = true;
                 for (int i = 1; i < end - first; i++)
                 {
-                    
+
                     if (contentBody[first + i] == '<')
                     {
                         endMode = false;
@@ -1971,9 +2047,9 @@ namespace AccessibleEPUB
             sgmlReader.InputStream = tr;
 
             // create document
-            
+
             System.Xml.XmlDocument xdoc = new System.Xml.XmlDocument();
-            
+
             xdoc.CreateXmlDeclaration("1.0", "UTF-8", null);
 
             xdoc.PreserveWhitespace = true;
@@ -1981,13 +2057,13 @@ namespace AccessibleEPUB
 
             xdoc.Load(sgmlReader);
             newContent = xdoc.InnerXml;
-       
-            newContent = newContent.Replace(" />", "/>");
-          
-            newContent = xmlDecl + docType + newContent;
-            
 
-    
+            newContent = newContent.Replace(" />", "/>");
+
+            newContent = xmlDecl + docType + newContent;
+
+
+
             //HtmlAgilityPack.HtmlDocument hap = new HtmlAgilityPack.HtmlDocument();
             //hap.LoadHtml(newContent);
             //hap.OptionOutputAsXml = true;
@@ -2007,7 +2083,7 @@ namespace AccessibleEPUB
                 ca.Value.Load(Path.Combine(accEpubFolderName, ca.Key));
             }
 
-            
+
         }
 
         private void saveToEpub()
@@ -2025,22 +2101,22 @@ namespace AccessibleEPUB
 
             int startManiIndex = content.IndexOf(startManifest);
             int endManiIndex = content.IndexOf(endManifest);
-            
+
             string defaultText = @"
                 <item id=""ncx"" href=""toc.ncx"" media-type=""application/x-dtbncx+xml""/>
                 <item id=""Content.xhtml"" href=""Text/Content.xhtml"" media-type=""application/xhtml+xml""/>
 ";
-                
-          //< item id = "Content.xhtml" href = "Text/Content.xhtml" media - type = "application/xhtml+xml" />
-           
-          //     < item id = "style.css" href = "Styles/style.css" media - type = "text/css" />
-                
-          //          < item id = "navid" href = "Text/nav.xhtml" media - type = "application/xhtml+xml" properties = "nav" /> "
+
+            //< item id = "Content.xhtml" href = "Text/Content.xhtml" media - type = "application/xhtml+xml" />
+
+            //     < item id = "style.css" href = "Styles/style.css" media - type = "text/css" />
+
+            //          < item id = "navid" href = "Text/nav.xhtml" media - type = "application/xhtml+xml" properties = "nav" /> "
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-          
+
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
             ss.cssText = @"html *
 {
@@ -2113,7 +2189,7 @@ body {
             //splitContainer1.Panel1Collapsed = true;
             //splitContainer1.Panel1.Hide();
 
-            HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyDown);
+            //HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyDown);
 
             HTMLEditor.Document.Body.DoubleClick += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyDoubleClick);
 
@@ -2122,6 +2198,23 @@ body {
             InitHeadingsList();
             InitFontList();
             InitFontSizeList();
+
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += new System.EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            // 'Raise event
+          if (containsFile == true)
+            {
+                refreshBrowsers();
+                HTMLEditor.Document.Focus();
+            }
+
         }
 
         private void HTMLEditorBodyDoubleClick(object sender, System.Windows.Forms.HtmlElementEventArgs e)
@@ -2291,19 +2384,21 @@ body {
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet14) + "CSS End");
 
 
-            geckoWebBrowser1.Reload();
+            //geckoWebBrowser1.Reload();
+            geckoWebBrowser1.Navigate(contentFile);
             geckoWebBrowser2.Navigate(impairedContentFile);
             geckoWebBrowser3.Navigate(blindContentFile);
-            geckoWebBrowser4.Reload();
+            //geckoWebBrowser4.Reload();
+            geckoWebBrowser4.Navigate(contentFile);
 
         }
 
         private void HTMLEditorBodyKeyDown(object sender, System.Windows.Forms.HtmlElementEventArgs e)
         {
-            
-            refreshBrowsers();
 
-            HTMLEditor.Document.Focus();
+            //refreshBrowsers();
+
+            //HTMLEditor.Document.Focus();
 
         }
 
@@ -2760,7 +2855,7 @@ body {
 
         private void italicToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            makeItalic(); 
+            makeItalic();
         }
 
         private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2884,7 +2979,7 @@ body {
             HTMLEditor.Document.ExecCommand("Undo", false, null);
         }
 
-       
+
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (containsFile == false)
@@ -2956,9 +3051,9 @@ body {
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    
+
                 }
-                else if(dialogResult == DialogResult.Cancel)
+                else if (dialogResult == DialogResult.Cancel)
                 {
                     e.Cancel = true;
                 }
@@ -2979,6 +3074,17 @@ body {
         {
             SettingsDialogBox sdb = new SettingsDialogBox();
             sdb.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+           
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFile();
         }
     }
 
