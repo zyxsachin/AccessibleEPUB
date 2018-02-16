@@ -31,19 +31,23 @@ namespace AccessibleEPUB
 
 
 
-        string initialPath = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
-        string ip = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+        //string initialPath = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
+        string initialPath = Directory.GetCurrentDirectory();
+        //string ip = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+        string ip = Environment.CurrentDirectory.ToString();
 
 
-
-        public MathDialogBox(IHTMLDocument2 mainWindowDoc, string ip)
+        public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath)
         {
             InitializeComponent();
             doc = mainWindowDoc;
 
             host.Dock = DockStyle.Fill;
             host.Child = formula;
-            imageFolderPath = ip;
+            imageFolderPath = imagePath;
+
+            Console.WriteLine("initialPath: " + initialPath);
+            Console.WriteLine("ip:" + imagePath);
 
         }
 
@@ -153,43 +157,72 @@ namespace AccessibleEPUB
 
             string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(svgFile));
 
-            System.IO.File.Copy(svgFile, imagePath);
+            try { 
+                System.IO.File.Copy(svgFile, imagePath);
+            }
+            catch (IOException ie)
+            {
+                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Formula with same title already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    System.IO.File.Copy(svgFile, imagePath, true);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
 
-            string mathHeader = @"
-            <div role=""math"" class=""math"">
-                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "\n" + "\t<mstyle>\n";
+            string formulaToAdd = "";
 
-            string mathHeaderImpaired = @"
-            <div role=""math"" class=""mathImpaired"">
-                <math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "\n" + "\t<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">\n";
+            formulaToAdd += "\n<figure>";
 
 
-            string mathEnd = "\n</mstyle>\n</math>\n";
+            string mathHeader = @"<div role=""math"" class=""math""><math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle>";
+
+            string mathHeaderImpaired = @"<div role=""math"" class=""mathImpaired""><math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
 
 
-            doc.body.innerHTML += (@"
-    <!--RemoveThis-->
-    <img class=""toRemove"" title=""" + titleTextBox.Text + @""" 
-        src =""" + imagePath + @""" alt =""" + inputTextBox.Text + @""" //>
-    <!--RemoveEnd-->
-");
+            string mathEnd = "</mstyle></math>";
 
-            string divEnd = "\n</div>\n";
-            doc.body.innerHTML += divEnd;
+
+            formulaToAdd += "" + (@"<!--RemoveThis--><img class=""toRemove"" title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + inputTextBox.Text + @""" //><!--RemoveEnd-->");
+
+            string divEnd = "</div>";
+            //formulaToAdd += divEnd;
+
+
+
+            dynamic currentLocation = doc.selection.createRange();
+            //r.pasteHTML(mathHeader + mathResult + mathEnd);
+            formulaToAdd += mathHeader + mathFinalResult + mathEnd + divEnd;
+
+            formulaToAdd += mathHeaderImpaired + mathFinalResult + mathEnd + divEnd;
+
+            string altTextParagraph = "<p class=\"transparent\">$" + inputTextBox.Text + "$</p>";
+
+            formulaToAdd += altTextParagraph + "</figure>\n"; ;
+
+            //doc.body.innerHTML += formulaToAdd;
 
            
+            currentLocation.pasteHTML(WebUtility.HtmlDecode(formulaToAdd));
 
-            //dynamic r = doc.selection.createRange();
-            //r.pasteHTML(mathHeader + mathResult + mathEnd);
-            doc.body.innerHTML += mathHeader + mathFinalResult + mathEnd;
-
-            doc.body.innerHTML += mathHeaderImpaired + mathFinalResult + mathEnd;
-
-            string altTextParagraph = "<p class=\"transparent\">" + inputTextBox.Text + "</p>\n";
-
-            doc.body.innerHTML += altTextParagraph;
+            //doc.body.innerHTML += "</figure>\n";
 
             Directory.SetCurrentDirectory(currentDic);
+
+
+            //doc.body.innerHTML = doc.body.innerHTML.Replace("<br>", "");
+            //doc.body.innerHTML = doc.body.innerHTML.Replace("<BR>", "");
+            //doc.body.innerHTML = doc.body.innerHTML.Replace("<p></p>", "");
+            //doc.body.innerHTML = doc.body.innerHTML.Replace("<P></P>", "");
+            //doc.body.innerHTML = doc.body.innerHTML.Replace("&nbsp;", "");
+
+            //doc.body.innerHTML = "<br>" + doc.body.innerHTML;
+            //doc.body.innerHTML = doc.body.innerHTML + "<br>";
+            //doc.body.innerHTML = doc.body.innerHTML.Replace("<figure>", "<br><figure>");
+            //doc.body.innerHTML = doc.body.innerHTML.Replace("</figure>", "</figure><br>");
 
             this.Hide();
             this.Dispose();
@@ -335,6 +368,12 @@ namespace AccessibleEPUB
         private void saveSVG()
         {
             string imagesFolder = Path.Combine(ip, "images");
+
+            if (!File.Exists(imagesFolder))
+            {
+                Directory.CreateDirectory(imagesFolder);
+            }
+
             string currentDic = Directory.GetCurrentDirectory();
 
             System.IO.DirectoryInfo di = new DirectoryInfo(imagesFolder);

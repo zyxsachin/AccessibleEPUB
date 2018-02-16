@@ -41,12 +41,15 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.filesTabControl = new System.Windows.Forms.TabControl();
             this.HTMLEditor = new System.Windows.Forms.WebBrowser();
+            this.geckoWebBrowser4 = new Gecko.GeckoWebBrowser();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.geckoWebBrowser1 = new Gecko.GeckoWebBrowser();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.geckoWebBrowser2 = new Gecko.GeckoWebBrowser();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.geckoWebBrowser3 = new Gecko.GeckoWebBrowser();
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,6 +112,23 @@
             this.tableButton = new System.Windows.Forms.ToolStripButton();
             this.mathButton = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -122,6 +142,8 @@
             this.splitContainer2.SuspendLayout();
             this.TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.iconsToolStrip.SuspendLayout();
             this.editToolStrip.SuspendLayout();
@@ -232,6 +254,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.geckoWebBrowser4);
             this.splitContainer2.Panel2.Controls.Add(this.TabControl1);
             this.splitContainer2.Panel2Collapsed = true;
             this.splitContainer2.Size = new System.Drawing.Size(1893, 943);
@@ -264,6 +287,17 @@
             this.HTMLEditor.TabIndex = 0;
             this.HTMLEditor.Visible = false;
             // 
+            // geckoWebBrowser4
+            // 
+            this.geckoWebBrowser4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.geckoWebBrowser4.FrameEventsPropagateToMainWindow = false;
+            this.geckoWebBrowser4.Location = new System.Drawing.Point(0, 0);
+            this.geckoWebBrowser4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.geckoWebBrowser4.Name = "geckoWebBrowser4";
+            this.geckoWebBrowser4.Size = new System.Drawing.Size(96, 100);
+            this.geckoWebBrowser4.TabIndex = 13;
+            this.geckoWebBrowser4.UseHttpActivityObserver = false;
+            // 
             // TabControl1
             // 
             this.TabControl1.Controls.Add(this.tabPage1);
@@ -286,9 +320,9 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(941, 914);
+            this.tabPage1.Size = new System.Drawing.Size(88, 71);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Blind";
+            this.tabPage1.Text = "Normal";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // elementHost1
@@ -309,12 +343,13 @@
             this.geckoWebBrowser1.Location = new System.Drawing.Point(3, 2);
             this.geckoWebBrowser1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.geckoWebBrowser1.Name = "geckoWebBrowser1";
-            this.geckoWebBrowser1.Size = new System.Drawing.Size(935, 910);
+            this.geckoWebBrowser1.Size = new System.Drawing.Size(82, 67);
             this.geckoWebBrowser1.TabIndex = 0;
             this.geckoWebBrowser1.UseHttpActivityObserver = false;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.geckoWebBrowser2);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
@@ -324,16 +359,39 @@
             this.tabPage2.Text = "Visually Impaired";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // geckoWebBrowser2
+            // 
+            this.geckoWebBrowser2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.geckoWebBrowser2.FrameEventsPropagateToMainWindow = false;
+            this.geckoWebBrowser2.Location = new System.Drawing.Point(3, 2);
+            this.geckoWebBrowser2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.geckoWebBrowser2.Name = "geckoWebBrowser2";
+            this.geckoWebBrowser2.Size = new System.Drawing.Size(82, 67);
+            this.geckoWebBrowser2.TabIndex = 1;
+            this.geckoWebBrowser2.UseHttpActivityObserver = false;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.geckoWebBrowser3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Size = new System.Drawing.Size(88, 71);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "No visual impairment";
+            this.tabPage3.Text = "Blind";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // geckoWebBrowser3
+            // 
+            this.geckoWebBrowser3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.geckoWebBrowser3.FrameEventsPropagateToMainWindow = false;
+            this.geckoWebBrowser3.Location = new System.Drawing.Point(3, 2);
+            this.geckoWebBrowser3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.geckoWebBrowser3.Name = "geckoWebBrowser3";
+            this.geckoWebBrowser3.Size = new System.Drawing.Size(82, 67);
+            this.geckoWebBrowser3.TabIndex = 1;
+            this.geckoWebBrowser3.UseHttpActivityObserver = false;
             // 
             // menuBar
             // 
@@ -343,7 +401,9 @@
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.formatToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.toolsToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
@@ -357,7 +417,9 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newDocumentToolStripMenuItem,
             this.openFileToolStripMenuItem,
-            this.closeFileToolStripMenuItem});
+            this.closeFileToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
@@ -388,6 +450,16 @@
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoToolStripMenuItem,
+            this.redoToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.cutToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.findToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.editToolStripMenuItem.Text = "Edit";
@@ -923,6 +995,114 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewHelpToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // viewHelpToolStripMenuItem
+            // 
+            this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.viewHelpToolStripMenuItem.Text = "View Help";
+            this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.redoToolStripMenuItem.Text = "Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(178, 6);
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(178, 6);
+            // 
+            // findToolStripMenuItem
+            // 
+            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.findToolStripMenuItem.Text = "Find";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(245, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -937,6 +1117,7 @@
             this.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.Text = "Accessible EPUB";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -955,6 +1136,8 @@
             this.splitContainer2.ResumeLayout(false);
             this.TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.iconsToolStrip.ResumeLayout(false);
@@ -1045,6 +1228,26 @@
         private System.Windows.Forms.ToolStripMenuItem toggleEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toggleFileViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toggleFileExplorerButton;
+        private Gecko.GeckoWebBrowser geckoWebBrowser2;
+        private Gecko.GeckoWebBrowser geckoWebBrowser3;
+        private Gecko.GeckoWebBrowser geckoWebBrowser4;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 
 

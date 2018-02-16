@@ -15,6 +15,7 @@ namespace AccessibleEPUB
         string title;
         string author;
         int mode;
+        string publisher;
 
         enum fileMode
         {
@@ -32,6 +33,8 @@ namespace AccessibleEPUB
         {
             InitializeComponent();
             form = f;
+            initLanguageList();
+            singleFileJsRadioButton.Select();
         }
 
         private void singleFileCssButton_Click(object sender, EventArgs e)
@@ -89,5 +92,55 @@ namespace AccessibleEPUB
             return author;
         }
 
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            form.setNewFileCorrect(false);
+            this.Hide();
+            this.Dispose();
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            if (titleTextBox.Text != "" && authorTextBox.Text != "")
+            {
+                if (singleFileJsRadioButton.Checked == true)
+                {
+                    mode = (int)fileMode.singleFileJs;
+                }
+                else if (singleFileCssRadioButton.Checked == true)
+                {
+                    mode = (int)fileMode.singleFileCss;
+                }
+             
+                title = titleTextBox.Text;
+                author = authorTextBox.Text;
+                publisher = publisherTextBox.Text;
+
+                form.setAuthor(author);
+                form.setTitle(title);
+                form.setMode(mode);
+                form.setLanguage(languageComboBox.SelectedItem.ToString());
+                form.setNewFileCorrect(true);
+                form.setPublisher(publisher);
+
+                this.Dispose();
+                this.Hide();
+
+            }
+        }
+
+        private void initLanguageList()
+        {
+            languageComboBox.Items.Add("English");
+            languageComboBox.Items.Add("German");
+
+            //languageComboBox.SelectedItem = "English";
+        }
+
+        private void NewFileDialogBox_Shown(object sender, EventArgs e)
+        {
+            languageComboBox.SelectedItem = Settings.Default.DefaultLanguage;
+            authorTextBox.Text = Settings.Default.DefaultAuthor;
+        }
     }
 }

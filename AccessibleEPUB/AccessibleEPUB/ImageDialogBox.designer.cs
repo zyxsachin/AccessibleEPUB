@@ -40,6 +40,8 @@
             this.addImageButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.chooseImageButton = new System.Windows.Forms.Button();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.typeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // imageLocationLabel
@@ -58,7 +60,7 @@
             this.imageLocationTextBox.Location = new System.Drawing.Point(16, 76);
             this.imageLocationTextBox.Name = "imageLocationTextBox";
             this.imageLocationTextBox.Size = new System.Drawing.Size(714, 30);
-            this.imageLocationTextBox.TabIndex = 4;
+            this.imageLocationTextBox.TabIndex = 1;
             // 
             // titleTextBox
             // 
@@ -66,7 +68,7 @@
             this.titleTextBox.Location = new System.Drawing.Point(16, 176);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(744, 30);
-            this.titleTextBox.TabIndex = 6;
+            this.titleTextBox.TabIndex = 3;
             // 
             // titleLabel
             // 
@@ -84,7 +86,7 @@
             this.altTextTextBox.Location = new System.Drawing.Point(16, 276);
             this.altTextTextBox.Name = "altTextTextBox";
             this.altTextTextBox.Size = new System.Drawing.Size(744, 30);
-            this.altTextTextBox.TabIndex = 8;
+            this.altTextTextBox.TabIndex = 4;
             // 
             // altTextLabel
             // 
@@ -112,26 +114,26 @@
             this.captionTextBox.Location = new System.Drawing.Point(16, 376);
             this.captionTextBox.Name = "captionTextBox";
             this.captionTextBox.Size = new System.Drawing.Size(744, 30);
-            this.captionTextBox.TabIndex = 10;
+            this.captionTextBox.TabIndex = 5;
             // 
             // addImageButton
             // 
             this.addImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addImageButton.Location = new System.Drawing.Point(181, 431);
+            this.addImageButton.Location = new System.Drawing.Point(404, 542);
             this.addImageButton.Name = "addImageButton";
             this.addImageButton.Size = new System.Drawing.Size(166, 48);
-            this.addImageButton.TabIndex = 11;
-            this.addImageButton.Text = "OK";
+            this.addImageButton.TabIndex = 7;
+            this.addImageButton.Text = "Insert Image";
             this.addImageButton.UseVisualStyleBackColor = true;
             this.addImageButton.Click += new System.EventHandler(this.addImageButton_Click);
             // 
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(436, 431);
+            this.cancelButton.Location = new System.Drawing.Point(594, 542);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(166, 48);
-            this.cancelButton.TabIndex = 12;
+            this.cancelButton.TabIndex = 8;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -143,15 +145,36 @@
             this.chooseImageButton.Location = new System.Drawing.Point(730, 76);
             this.chooseImageButton.Name = "chooseImageButton";
             this.chooseImageButton.Size = new System.Drawing.Size(30, 30);
-            this.chooseImageButton.TabIndex = 13;
+            this.chooseImageButton.TabIndex = 2;
             this.chooseImageButton.UseVisualStyleBackColor = true;
             this.chooseImageButton.Click += new System.EventHandler(this.chooseImageButton_Click);
+            // 
+            // typeComboBox
+            // 
+            this.typeComboBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Location = new System.Drawing.Point(16, 478);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(199, 31);
+            this.typeComboBox.TabIndex = 6;
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeLabel.Location = new System.Drawing.Point(12, 436);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(53, 23);
+            this.typeLabel.TabIndex = 15;
+            this.typeLabel.Text = "Type";
             // 
             // ImageDialogBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 501);
+            this.ClientSize = new System.Drawing.Size(817, 615);
+            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.chooseImageButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addImageButton);
@@ -183,5 +206,7 @@
         private System.Windows.Forms.Button addImageButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button chooseImageButton;
+        private System.Windows.Forms.ComboBox typeComboBox;
+        private System.Windows.Forms.Label typeLabel;
     }
 }

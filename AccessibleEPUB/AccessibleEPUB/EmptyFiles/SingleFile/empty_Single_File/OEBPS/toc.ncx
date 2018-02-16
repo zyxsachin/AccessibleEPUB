@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN"
+ "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd"><ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
   <head>
-    <meta content="urn:uuid:347d18e3-a784-45d2-8330-ff683326bcc1" name="dtb:uid"/>
+    <meta content="ID:UNKNOWN" name="dtb:uid"/>
     <meta content="0" name="dtb:depth"/>
     <meta content="0" name="dtb:totalPageCount"/>
     <meta content="0" name="dtb:maxPageNumber"/>

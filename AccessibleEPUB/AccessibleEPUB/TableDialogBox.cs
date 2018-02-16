@@ -29,6 +29,8 @@ namespace AccessibleEPUB
             doc = mainWindowDoc;
         }
 
+
+
         private DataGridView CopyDataGridView(DataGridView dgv_org)
         {
             DataGridView dgv_copy = new DataGridView();
@@ -187,14 +189,16 @@ namespace AccessibleEPUB
 
             tableHTML += @"</TBODY> </TABLE>";
 
-            doc.body.innerHTML += WebUtility.HtmlDecode(tableHTML);
+            dynamic currentLocation = doc.selection.createRange();
+            currentLocation.pasteHTML(WebUtility.HtmlDecode(tableHTML));
+
+            //doc.body.innerHTML += WebUtility.HtmlDecode(tableHTML);
 
             this.Hide();
             this.Dispose();
 
 
-            //dynamic r = doc.selection.createRange();
-            //r.pasteHTML(WebUtility.HtmlDecode(tableHTML));
+            
             //doc.body.innerText = tableHTML;
 
             /*
@@ -264,6 +268,21 @@ namespace AccessibleEPUB
         {
             this.Hide();
             this.Dispose();
+        }
+
+        private void rowTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //adjustTable();
+        }
+
+        private void columnTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //adjustTable();
+        }
+
+        private void TableDialogBox_Shown(object sender, EventArgs e)
+        {
+            adjustTable();
         }
     }
 }
