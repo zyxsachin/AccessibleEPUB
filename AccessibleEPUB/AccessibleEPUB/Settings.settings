@@ -3,13 +3,19 @@
   <Profiles />
   <Settings>
     <Setting Name="ProgramLanguage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">English</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DefaultLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)">English</Value>
     </Setting>
     <Setting Name="DefaultAuthor" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DefaultPublisher" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DefaultEpubFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">singleFileJs</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -14,6 +14,9 @@ using System.IO;
 using System.IO.Compression;
 using System.Net;
 
+using System.Globalization;
+using System.Threading;
+
 using mshtml;
 
 using Gecko;
@@ -34,7 +37,7 @@ namespace AccessibleEPUB
 
     public partial class Form1 : Form
     {
-
+        
         //ScintillaNET.Scintilla TextArea;
         ICSharpCode.AvalonEdit.TextEditor codeArea;
 
@@ -69,7 +72,15 @@ namespace AccessibleEPUB
         string publisher;
         bool newFileCorrect;
 
+        bool refresh = true;
+
+        string tempFolderStillInUseLong = "Temp folder is still in use. After pressing OK, the file opening process will stop.";
+        string tempFolderStillInUse = "Folder still in use";
+        string tempFolderInUseLong = "Folder in use. Please leave and then press OK.";
+        string tempFolderInUse = "Folder in use";
+
         bool fileEdited = false;
+        bool fileNotSaved = false;
 
         string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
        Environment.OSVersion.Platform == PlatformID.MacOSX)
@@ -105,6 +116,8 @@ namespace AccessibleEPUB
 
         public Form1()
         {
+         
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             InitializeComponent();
             Xpcom.Initialize("Firefox");
             filesTabControl.Padding = new System.Drawing.Point(21, 3);
@@ -112,6 +125,9 @@ namespace AccessibleEPUB
             //var globalReload = hkm.Register(System.Windows.Input.Key.None, System.Windows.Input.ModifierKeys.None);
 
             hkm.KeyPressed += keyPressSave;
+            
+            
+
         }
 
 
@@ -749,10 +765,9 @@ namespace AccessibleEPUB
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                closeFile(sender, e);
 
                 containsFile = true;
-
-                closeFile(sender, e);
                 string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 //tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
@@ -892,6 +907,9 @@ namespace AccessibleEPUB
                 contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), itemName);
             }
 
+
+            determineLanguage();
+
             string body = File.ReadAllText(contentFile);
 
             string imp = "<div style=\"padding:none\" id=\"impaired\" class=\"impaired\">\n<!--StartOfImpairedSection-->\n";
@@ -914,11 +932,18 @@ namespace AccessibleEPUB
                 TabControl1.Visible = false;
                 geckoWebBrowser4.Visible = true;
             }
-            else
+            else if (mode == (int) fileMode.singleFileJs)
             {
                 TabControl1.Visible = true;
                 geckoWebBrowser4.Visible = false;
             }
+            else
+            {
+                TabControl1.Visible = false;
+                geckoWebBrowser4.Visible = true;
+            }
+
+     
 
             //initializeHTMLeditor();
 
@@ -961,6 +986,8 @@ namespace AccessibleEPUB
             //splitContainer1.Panel1.Show();
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
+
+            splashScreenPanel.Visible = false;
 
             TabPage myTabPage = new TabPage(Path.GetFileName(contentFile));
 
@@ -1072,6 +1099,9 @@ namespace AccessibleEPUB
             openTabs.Clear();
             openTextEditors.Clear();
             tabsToTextEditors.Clear();
+
+            containsFile = false;
+
             HTMLEditor.Document.Body.InnerHtml = "";
             geckoWebBrowser1.Navigate("about:blank");
             geckoWebBrowser2.Navigate("about:blank");
@@ -1083,6 +1113,8 @@ namespace AccessibleEPUB
             splitContainer2.Panel2Collapsed = true;
             splitContainer2.Panel2.Hide();
 
+            splashScreenPanel.Visible = true;
+            splashScreenPanel.BringToFront();
         }
 
 
@@ -1167,6 +1199,9 @@ namespace AccessibleEPUB
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
 
+            splashScreenPanel.Visible = false;
+ 
+
             target = saveFileDialog1.FileName;
             targetFolder = Path.GetDirectoryName(target);
 
@@ -1192,6 +1227,8 @@ namespace AccessibleEPUB
 
             int count = 0;
 
+
+
             foreach (DirectoryInfo dir in di.GetDirectories())
             {
                 bool isInUse = false;
@@ -1207,11 +1244,11 @@ namespace AccessibleEPUB
                         count++;
                         if (count == 3)
                         {
-                            MessageBox.Show("Temp folder is still in use. After pressing OK, the file opening process will stop.", "Folder still in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show(tempFolderStillInUseLong, tempFolderStillInUse, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             return;
                         }
                         isInUse = true;
-                        MessageBox.Show("Folder in use. Please leave and then press OK.", "Folder in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(tempFolderInUseLong, tempFolderInUse, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 } while (isInUse);
 
@@ -1418,10 +1455,10 @@ namespace AccessibleEPUB
             //Console.WriteLine(language);
             switch (language)
             {
-                case "English":
+                case "en":
                     languageShort = "en";
                     break;
-                case "German":
+                case "de":
                     languageShort = "de";
                     break;
                 default:
@@ -1516,7 +1553,20 @@ namespace AccessibleEPUB
             HTMLEditor.Focus();
         }
 
-        private static void DirectoryDelete(string path)
+        private void determineLanguage()
+        {
+            string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+
+            string languageStart = "<dc:language>";
+            string languageEnd = "</dc:language>";
+
+            int languageStartIndex = metadata.IndexOf(languageStart);
+            int languageEndIndex = metadata.IndexOf(languageEnd);
+
+            language = metadata.Substring(languageStartIndex + languageStart.Length, languageEndIndex - languageStartIndex - languageStart.Length);
+        }
+
+        private void DirectoryDelete(string path)
         {
 
             System.IO.DirectoryInfo di = new DirectoryInfo(path);
@@ -1543,11 +1593,11 @@ namespace AccessibleEPUB
                     count++;
                     if (count == 3)
                     {
-                        MessageBox.Show("Temp folder is still in use. After pressing OK, the file opening process will stop.", "Folder still in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(tempFolderStillInUseLong, tempFolderStillInUse, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                     isInUse = true;
-                    MessageBox.Show("Folder in use. Please leave and then press OK.", "Folder in use", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(tempFolderInUseLong, tempFolderInUse, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             } while (isInUse);
             //foreach (System.IO.FileInfo file in directory.GetFiles()) file.Delete();
@@ -1769,7 +1819,7 @@ namespace AccessibleEPUB
             //geckoWebBrowser3.Reload();
             geckoWebBrowser4.Reload();
 
-            fileEdited = true;
+            fileNotSaved = false;
         }
 
 
@@ -2189,9 +2239,9 @@ body {
             //splitContainer1.Panel1Collapsed = true;
             //splitContainer1.Panel1.Hide();
 
-            //HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyDown);
+            HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyDown);
 
-            HTMLEditor.Document.Body.DoubleClick += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyDoubleClick);
+
 
             //HTMLEditor.Document.ExecCommand("FontName", false, "Arial");
 
@@ -2209,21 +2259,14 @@ body {
         void timer_Tick(object sender, EventArgs e)
         {
             // 'Raise event
-          if (containsFile == true)
+          if (containsFile == true && fileEdited == true)
             {
                 refreshBrowsers();
-                HTMLEditor.Document.Focus();
+                //HTMLEditor.Document.Focus();
             }
 
         }
 
-        private void HTMLEditorBodyDoubleClick(object sender, System.Windows.Forms.HtmlElementEventArgs e)
-        {
-            foreach (var a in HTMLEditor.Document.GetElementsByTagName("img"))
-            {
-                Console.WriteLine(a.ToString());
-            }
-        }
 
         private void refreshBrowsers()
         {
@@ -2231,7 +2274,17 @@ body {
             //GeckoStyleSheet styleSheet12 = geckoWebBrowser1.Document.StyleSheets.First();
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet12) + "CSS End");
 
-            fileEdited = false;
+
+            if (refresh == false)
+            {
+                return;
+            }
+
+            if (fileEdited == false)
+            {
+                return;
+            }
+
 
             wysiwygToHtml();
 
@@ -2383,19 +2436,28 @@ body {
             //GeckoStyleSheet styleSheet14 = geckoWebBrowser1.Document.StyleSheets.First();
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet14) + "CSS End");
 
+        
 
             //geckoWebBrowser1.Reload();
+            //geckoWebBrowser2.Reload();
+            //geckoWebBrowser3.Reload();
+            //geckoWebBrowser4.Reload();
+
+          
             geckoWebBrowser1.Navigate(contentFile);
             geckoWebBrowser2.Navigate(impairedContentFile);
             geckoWebBrowser3.Navigate(blindContentFile);
-            //geckoWebBrowser4.Reload();
             geckoWebBrowser4.Navigate(contentFile);
+            
 
+
+            fileEdited = false;
         }
 
         private void HTMLEditorBodyKeyDown(object sender, System.Windows.Forms.HtmlElementEventArgs e)
         {
-
+            fileEdited = true;
+            fileNotSaved = true;
             //refreshBrowsers();
 
             //HTMLEditor.Document.Focus();
@@ -2486,6 +2548,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("Bold", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void makeItalic()
@@ -2495,6 +2559,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("Italic", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void makeUnderline()
@@ -2504,6 +2570,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("Underline", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void makeStrikethrough()
@@ -2513,6 +2581,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("StrikeThrough", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
 
@@ -2524,6 +2594,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("InsertOrderedList", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void insertUnorderedList()
@@ -2533,6 +2605,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("InsertUnorderedList", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
 
         }
 
@@ -2550,6 +2624,8 @@ body {
             }
 
             HTMLEditor.Document.Focus();
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void indent()
@@ -2559,6 +2635,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("Indent", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void outdent()
@@ -2568,6 +2646,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("Outdent", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void justifyLeft()
@@ -2577,6 +2657,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("JustifyLeft", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void justifyCenter()
@@ -2586,6 +2668,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("JustifyCenter", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void justifyRight()
@@ -2595,6 +2679,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("JustifyRight", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void justify()
@@ -2604,6 +2690,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("JustifyFull", false, null);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
 
@@ -2614,6 +2702,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("FontName", false, fontComboBox.SelectedItem.ToString());
+            fileEdited = true;
+            fileNotSaved = true;
             //ss.cssText = "html * {	font-family: 'Arial', Helvetica, sans-serif !important; }";
             //ss.cssText = "html * {	font-family: '" + fontComboBox.SelectedItem.ToString() + "', Helvetica, sans-serif !important; }";
         }
@@ -2639,6 +2729,8 @@ body {
 
             string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.R, col.G, col.B);
             HTMLEditor.Document.ExecCommand("ForeColor", false, colorstr);
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
         private void changeFontSize()
@@ -2648,6 +2740,8 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("FontSize", false, fontSizeComboBox.SelectedItem.ToString());
+            fileEdited = true;
+            fileNotSaved = true;
         }
 
 
@@ -2657,10 +2751,14 @@ body {
             {
                 return;
             }
-            ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder());
+            ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder(), language);
             idb.ShowDialog();
 
+            fileEdited = true;
+            fileNotSaved = true;
+
             refreshBrowsers();
+
         }
 
         private void insertTable()
@@ -2671,6 +2769,9 @@ body {
             }
             TableDialogBox tdb = new TableDialogBox(doc);
             tdb.ShowDialog();
+
+            fileEdited = true;
+            fileNotSaved = true;
 
             refreshBrowsers();
         }
@@ -2683,6 +2784,9 @@ body {
             }
             MathDialogBox mdb = new MathDialogBox(doc, getImageFolder());
             mdb.ShowDialog();
+
+            fileEdited = true;
+            fileNotSaved = true;
 
             refreshBrowsers();
         }
@@ -2794,22 +2898,22 @@ body {
 
         private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.B)
-            {
-                makeBold();
-            }
-            else if (e.Control && e.KeyCode == Keys.I)
-            {
-                makeItalic();
-            }
-            else if (e.Control && e.KeyCode == Keys.U)
-            {
-                makeUnderline();
-            }
-            else if (e.Control && e.KeyCode == Keys.I)
-            {
-                makeItalic();
-            }
+            //if (e.Control && e.KeyCode == Keys.B)
+            //{
+            //    makeBold();
+            //}
+            //else if (e.Control && e.KeyCode == Keys.I)
+            //{
+            //    makeItalic();
+            //}
+            //else if (e.Control && e.KeyCode == Keys.U)
+            //{
+            //    makeUnderline();
+            //}
+            //else if (e.Control && e.KeyCode == Keys.I)
+            //{
+            //    makeItalic();
+            //}
 
 
         }
@@ -2852,7 +2956,7 @@ body {
         {
             makeBold();
         }
-
+        
         private void italicToolStripMenuItem_Click(object sender, EventArgs e)
         {
             makeItalic();
@@ -3042,7 +3146,7 @@ body {
                 return;
             }
 
-            if (fileEdited == false)
+            if (fileNotSaved == true)
             {
                 DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Save the file before exiting?", "Save changes", MessageBoxButtons.YesNoCancel);
                 if (dialogResult == DialogResult.Yes)
@@ -3085,6 +3189,59 @@ body {
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFile();
+        }
+
+        private void strikethroughToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            makeStrikethrough();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            saveFileDialog1.Filter = "EPUB|*.epub";
+            saveFileDialog1.Title = "Create a new EPUB File";
+            saveFileDialog1.InitialDirectory = homePath;
+            saveFileDialog1.ShowDialog();
+
+            if (saveFileDialog1.FileName == "")
+            {
+                return;
+            }
+
+            if (saveFileDialog1.CheckFileExists)
+            {
+                File.Delete(saveFileDialog1.FileName);
+            }
+
+
+            target = saveFileDialog1.FileName;
+
+            saveFile();
+        }
+
+        private void newFileSplashButton_Click(object sender, EventArgs e)
+        {
+            newSingleFile();
+        }
+
+        private void openFileSplashButton_Click(object sender, EventArgs e)
+        {
+            openFile(sender, e);
+        }
+
+        private void playPauseRefreshButton_Click(object sender, EventArgs e)
+        {
+            refresh = !refresh;
+
+            if (refresh == true)
+            {
+                playPauseRefreshButton.Image = Properties.Resources.Pause_16x_24;
+            } 
+            else if (refresh == false)
+            {
+                playPauseRefreshButton.Image = Properties.Resources.PlaybackPreview_16x_24;
+            }
         }
     }
 

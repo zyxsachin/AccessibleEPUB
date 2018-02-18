@@ -46,133 +46,80 @@
             // 
             // imageLocationLabel
             // 
-            this.imageLocationLabel.AutoSize = true;
-            this.imageLocationLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageLocationLabel.Location = new System.Drawing.Point(12, 35);
+            resources.ApplyResources(this.imageLocationLabel, "imageLocationLabel");
             this.imageLocationLabel.Name = "imageLocationLabel";
-            this.imageLocationLabel.Size = new System.Drawing.Size(166, 23);
-            this.imageLocationLabel.TabIndex = 0;
-            this.imageLocationLabel.Text = "Location of image";
             // 
             // imageLocationTextBox
             // 
-            this.imageLocationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageLocationTextBox.Location = new System.Drawing.Point(16, 76);
+            resources.ApplyResources(this.imageLocationTextBox, "imageLocationTextBox");
             this.imageLocationTextBox.Name = "imageLocationTextBox";
-            this.imageLocationTextBox.Size = new System.Drawing.Size(714, 30);
-            this.imageLocationTextBox.TabIndex = 1;
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(16, 176);
+            resources.ApplyResources(this.titleTextBox, "titleTextBox");
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(744, 30);
-            this.titleTextBox.TabIndex = 3;
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(12, 135);
+            resources.ApplyResources(this.titleLabel, "titleLabel");
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(46, 23);
-            this.titleLabel.TabIndex = 5;
-            this.titleLabel.Text = "Title";
             // 
             // altTextTextBox
             // 
-            this.altTextTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altTextTextBox.Location = new System.Drawing.Point(16, 276);
+            resources.ApplyResources(this.altTextTextBox, "altTextTextBox");
             this.altTextTextBox.Name = "altTextTextBox";
-            this.altTextTextBox.Size = new System.Drawing.Size(744, 30);
-            this.altTextTextBox.TabIndex = 4;
             // 
             // altTextLabel
             // 
-            this.altTextLabel.AutoSize = true;
-            this.altTextLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altTextLabel.Location = new System.Drawing.Point(12, 235);
+            resources.ApplyResources(this.altTextLabel, "altTextLabel");
             this.altTextLabel.Name = "altTextLabel";
-            this.altTextLabel.Size = new System.Drawing.Size(144, 23);
-            this.altTextLabel.TabIndex = 7;
-            this.altTextLabel.Text = "Alternative Text";
             // 
             // captionLabel
             // 
-            this.captionLabel.AutoSize = true;
-            this.captionLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.captionLabel.Location = new System.Drawing.Point(12, 335);
+            resources.ApplyResources(this.captionLabel, "captionLabel");
             this.captionLabel.Name = "captionLabel";
-            this.captionLabel.Size = new System.Drawing.Size(77, 23);
-            this.captionLabel.TabIndex = 9;
-            this.captionLabel.Text = "Caption";
             // 
             // captionTextBox
             // 
-            this.captionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.captionTextBox.Location = new System.Drawing.Point(16, 376);
+            resources.ApplyResources(this.captionTextBox, "captionTextBox");
             this.captionTextBox.Name = "captionTextBox";
-            this.captionTextBox.Size = new System.Drawing.Size(744, 30);
-            this.captionTextBox.TabIndex = 5;
             // 
             // addImageButton
             // 
-            this.addImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addImageButton.Location = new System.Drawing.Point(404, 542);
+            resources.ApplyResources(this.addImageButton, "addImageButton");
             this.addImageButton.Name = "addImageButton";
-            this.addImageButton.Size = new System.Drawing.Size(166, 48);
-            this.addImageButton.TabIndex = 7;
-            this.addImageButton.Text = "Insert Image";
             this.addImageButton.UseVisualStyleBackColor = true;
             this.addImageButton.Click += new System.EventHandler(this.addImageButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(594, 542);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(166, 48);
-            this.cancelButton.TabIndex = 8;
-            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // chooseImageButton
             // 
-            this.chooseImageButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseImageButton.BackgroundImage")));
-            this.chooseImageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chooseImageButton.Location = new System.Drawing.Point(730, 76);
+            resources.ApplyResources(this.chooseImageButton, "chooseImageButton");
             this.chooseImageButton.Name = "chooseImageButton";
-            this.chooseImageButton.Size = new System.Drawing.Size(30, 30);
-            this.chooseImageButton.TabIndex = 2;
             this.chooseImageButton.UseVisualStyleBackColor = true;
             this.chooseImageButton.Click += new System.EventHandler(this.chooseImageButton_Click);
             // 
             // typeComboBox
             // 
-            this.typeComboBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.typeComboBox, "typeComboBox");
             this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(16, 478);
             this.typeComboBox.Name = "typeComboBox";
-            this.typeComboBox.Size = new System.Drawing.Size(199, 31);
-            this.typeComboBox.TabIndex = 6;
             // 
             // typeLabel
             // 
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeLabel.Location = new System.Drawing.Point(12, 436);
+            resources.ApplyResources(this.typeLabel, "typeLabel");
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(53, 23);
-            this.typeLabel.TabIndex = 15;
-            this.typeLabel.Text = "Type";
             // 
             // ImageDialogBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 615);
             this.Controls.Add(this.typeLabel);
             this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.chooseImageButton);
@@ -187,7 +134,6 @@
             this.Controls.Add(this.imageLocationTextBox);
             this.Controls.Add(this.imageLocationLabel);
             this.Name = "ImageDialogBox";
-            this.Text = "Choose Image";
             this.ResumeLayout(false);
             this.PerformLayout();
 

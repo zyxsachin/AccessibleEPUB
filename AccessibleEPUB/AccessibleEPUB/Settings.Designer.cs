@@ -25,7 +25,7 @@ namespace AccessibleEPUB {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("English")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ProgramLanguage {
             get {
                 return ((string)(this["ProgramLanguage"]));
@@ -56,6 +56,30 @@ namespace AccessibleEPUB {
             }
             set {
                 this["DefaultAuthor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultPublisher {
+            get {
+                return ((string)(this["DefaultPublisher"]));
+            }
+            set {
+                this["DefaultPublisher"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("singleFileJs")]
+        public string DefaultEpubFormat {
+            get {
+                return ((string)(this["DefaultEpubFormat"]));
+            }
+            set {
+                this["DefaultEpubFormat"] = value;
             }
         }
     }

@@ -117,7 +117,369 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;captionLabel.Name" xml:space="preserve">
+    <value>captionLabel</value>
+  </data>
+  <data name="&gt;&gt;chooseImageButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 48</value>
+  </data>
+  <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="typeComboBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>594, 542</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="captionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="typeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;addImageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;altTextLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 135</value>
+  </data>
+  <data name="chooseImageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ImageDialogBox</value>
+  </data>
+  <data name="altTextTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 276</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chooseImageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="&gt;&gt;addImageButton.Name" xml:space="preserve">
+    <value>addImageButton</value>
+  </data>
+  <data name="&gt;&gt;chooseImageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="altTextTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>744, 30</value>
+  </data>
+  <data name="addImageButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="altTextLabel.Text" xml:space="preserve">
+    <value>Alternative Text</value>
+  </data>
+  <data name="imageLocationTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 76</value>
+  </data>
+  <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="typeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 478</value>
+  </data>
+  <data name="altTextLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 235</value>
+  </data>
+  <data name="imageLocationTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Name" xml:space="preserve">
+    <value>captionTextBox</value>
+  </data>
+  <data name="captionLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="imageLocationLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="altTextLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="imageLocationLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="altTextTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="addImageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 48</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;chooseImageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>744, 30</value>
+  </data>
+  <data name="&gt;&gt;imageLocationTextBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 23</value>
+  </data>
+  <data name="altTextLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 23</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.Name" xml:space="preserve">
+    <value>typeComboBox</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="typeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 436</value>
+  </data>
+  <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 176</value>
+  </data>
+  <data name="altTextLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="imageLocationLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
+    <value>titleLabel</value>
+  </data>
+  <data name="chooseImageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>730, 76</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="captionLabel.Text" xml:space="preserve">
+    <value>Caption</value>
+  </data>
+  <data name="&gt;&gt;imageLocationTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="addImageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;addImageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="imageLocationTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 30</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.Name" xml:space="preserve">
+    <value>altTextTextBox</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="typeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageLocationTextBox.Name" xml:space="preserve">
+    <value>imageLocationTextBox</value>
+  </data>
+  <data name="typeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;altTextLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.Name" xml:space="preserve">
+    <value>imageLocationLabel</value>
+  </data>
+  <data name="titleLabel.Text" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="imageLocationLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 23</value>
+  </data>
+  <data name="addImageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>404, 542</value>
+  </data>
+  <data name="captionTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>744, 30</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="captionTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="typeLabel.Text" xml:space="preserve">
+    <value>Tag Type</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="addImageButton.Text" xml:space="preserve">
+    <value>Insert Image</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="altTextLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;imageLocationTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="captionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 335</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Choose Image</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="typeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="altTextTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="imageLocationLabel.Text" xml:space="preserve">
+    <value>Location of image</value>
+  </data>
+  <data name="chooseImageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Name" xml:space="preserve">
+    <value>titleTextBox</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chooseImageButton.Name" xml:space="preserve">
+    <value>chooseImageButton</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Name" xml:space="preserve">
+    <value>typeLabel</value>
+  </data>
+  <data name="typeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 31</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="titleLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>817, 615</value>
+  </data>
+  <data name="&gt;&gt;addImageButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="typeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 23</value>
+  </data>
+  <data name="&gt;&gt;altTextLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;altTextLabel.Name" xml:space="preserve">
+    <value>altTextLabel</value>
+  </data>
+  <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="imageLocationTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="captionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 376</value>
+  </data>
   <data name="chooseImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -129,4 +491,10 @@
         EvMH7hzdlDzjmN0AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="imageLocationLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 35</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

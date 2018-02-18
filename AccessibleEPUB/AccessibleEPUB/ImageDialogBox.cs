@@ -18,19 +18,25 @@ namespace AccessibleEPUB
         IHTMLDocument2 doc;
         string imageFolderPath;
 
+        string tag = "";
 
-        public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip)
+        string docLanguage = "";
+
+
+        public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl)
         {
             InitializeComponent();
             doc = mainWindowDoc;
             imageFolderPath = ip;
+            docLanguage = dl;
+
             initTypeList();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Dispose();
+            this.Dispose();
         }
 
         private void addImageButton_Click(object sender, EventArgs e)
@@ -62,7 +68,20 @@ namespace AccessibleEPUB
             dynamic currentLocation = doc.selection.createRange();
             //r.pasteHTML
 
-                currentLocation.pasteHTML(WebUtility.HtmlDecode("\n" + @"<figure><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + @"""><p class=""transparent"">" + altTextTextBox.Text + @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption></figure>" + "\n"));
+            string tagEnd = "";
+            tag = typeComboBox.Text;
+            if (typeComboBox.Text == "None")
+            {
+                tag = "";
+            }
+            else
+            {
+                tag = "&lt;" + tag + "&gt;";
+                tagEnd = "&lt;/" + tag + "&gt;";
+            }
+
+            currentLocation.pasteHTML("\n" + @"<figure><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + @"""><p class=""transparent"">" +
+                tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption></figure>" + "\n");
 
 
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<br>", "");
@@ -100,9 +119,22 @@ namespace AccessibleEPUB
 
         private void initTypeList()
         {
-            typeComboBox.Items.Add("Image");
-            typeComboBox.Items.Add("Graph");
-            typeComboBox.Items.Add("Math");
+            //typeComboBox.Items.Add("None");
+            //typeComboBox.Items.Add("Image");
+            //typeComboBox.Items.Add("Graph");
+            //typeComboBox.Items.Add("Math");
+
+            string[] tagTypesEng = { "None", "Image", "Graph", "Math" };
+            string[] tagTypesGer = { "Kein", "Bild", "Graph", "Mathematik" };
+            Console.WriteLine("LANGUAGE: " + docLanguage);
+            if (docLanguage == "en")
+            {
+                typeComboBox.Items.AddRange(tagTypesEng);
+            }
+            else if (docLanguage == "de")
+            {
+                typeComboBox.Items.AddRange(tagTypesGer);
+            }
 
             typeComboBox.SelectedIndex = 0;
         }

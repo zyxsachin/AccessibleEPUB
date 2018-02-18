@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewFileDialogBox));
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
@@ -46,140 +47,88 @@
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(39, 78);
+            resources.ApplyResources(this.titleTextBox, "titleTextBox");
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(727, 30);
-            this.titleTextBox.TabIndex = 2;
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(35, 41);
+            resources.ApplyResources(this.titleLabel, "titleLabel");
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(46, 23);
-            this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "Title";
             // 
             // authorLabel
             // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorLabel.Location = new System.Drawing.Point(35, 129);
+            resources.ApplyResources(this.authorLabel, "authorLabel");
             this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(67, 23);
-            this.authorLabel.TabIndex = 3;
-            this.authorLabel.Text = "Author";
             // 
             // authorTextBox
             // 
-            this.authorTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorTextBox.Location = new System.Drawing.Point(39, 166);
+            resources.ApplyResources(this.authorTextBox, "authorTextBox");
             this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(727, 30);
-            this.authorTextBox.TabIndex = 4;
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.singleFileCssRadioButton);
             this.groupBox1.Controls.Add(this.singleFileJsRadioButton);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(39, 419);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(727, 91);
-            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Choose File Format";
             // 
             // singleFileCssRadioButton
             // 
-            this.singleFileCssRadioButton.AutoSize = true;
-            this.singleFileCssRadioButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.singleFileCssRadioButton.Location = new System.Drawing.Point(295, 42);
+            resources.ApplyResources(this.singleFileCssRadioButton, "singleFileCssRadioButton");
             this.singleFileCssRadioButton.Name = "singleFileCssRadioButton";
-            this.singleFileCssRadioButton.Size = new System.Drawing.Size(181, 27);
-            this.singleFileCssRadioButton.TabIndex = 2;
             this.singleFileCssRadioButton.TabStop = true;
-            this.singleFileCssRadioButton.Text = "Single File (CSS)";
             this.singleFileCssRadioButton.UseVisualStyleBackColor = true;
             // 
             // singleFileJsRadioButton
             // 
-            this.singleFileJsRadioButton.AutoSize = true;
-            this.singleFileJsRadioButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.singleFileJsRadioButton.Location = new System.Drawing.Point(6, 42);
+            resources.ApplyResources(this.singleFileJsRadioButton, "singleFileJsRadioButton");
             this.singleFileJsRadioButton.Name = "singleFileJsRadioButton";
-            this.singleFileJsRadioButton.Size = new System.Drawing.Size(233, 27);
-            this.singleFileJsRadioButton.TabIndex = 1;
             this.singleFileJsRadioButton.TabStop = true;
-            this.singleFileJsRadioButton.Text = "Single File (JavaScript)";
             this.singleFileJsRadioButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
-            this.cancelButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(546, 538);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(220, 65);
-            this.cancelButton.TabIndex = 11;
-            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // okButton
             // 
-            this.okButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.okButton.Location = new System.Drawing.Point(301, 538);
+            resources.ApplyResources(this.okButton, "okButton");
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(220, 65);
-            this.okButton.TabIndex = 10;
-            this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // publisherLabel
             // 
-            this.publisherLabel.AutoSize = true;
-            this.publisherLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherLabel.Location = new System.Drawing.Point(35, 217);
+            resources.ApplyResources(this.publisherLabel, "publisherLabel");
             this.publisherLabel.Name = "publisherLabel";
-            this.publisherLabel.Size = new System.Drawing.Size(90, 23);
-            this.publisherLabel.TabIndex = 5;
-            this.publisherLabel.Text = "Publisher";
             // 
             // publisherTextBox
             // 
-            this.publisherTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherTextBox.Location = new System.Drawing.Point(39, 254);
+            resources.ApplyResources(this.publisherTextBox, "publisherTextBox");
             this.publisherTextBox.Name = "publisherTextBox";
-            this.publisherTextBox.Size = new System.Drawing.Size(727, 30);
-            this.publisherTextBox.TabIndex = 6;
             // 
             // languageComboBox
             // 
-            this.languageComboBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.languageComboBox, "languageComboBox");
             this.languageComboBox.FormattingEnabled = true;
-            this.languageComboBox.Location = new System.Drawing.Point(39, 341);
+            this.languageComboBox.Items.AddRange(new object[] {
+            resources.GetString("languageComboBox.Items"),
+            resources.GetString("languageComboBox.Items1")});
             this.languageComboBox.Name = "languageComboBox";
-            this.languageComboBox.Size = new System.Drawing.Size(150, 31);
-            this.languageComboBox.TabIndex = 8;
             // 
             // languageLabel
             // 
-            this.languageLabel.AutoSize = true;
-            this.languageLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel.Location = new System.Drawing.Point(35, 303);
+            resources.ApplyResources(this.languageLabel, "languageLabel");
             this.languageLabel.Name = "languageLabel";
-            this.languageLabel.Size = new System.Drawing.Size(96, 23);
-            this.languageLabel.TabIndex = 7;
-            this.languageLabel.Text = "Language";
             // 
             // NewFileDialogBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 628);
             this.Controls.Add(this.languageLabel);
             this.Controls.Add(this.languageComboBox);
             this.Controls.Add(this.publisherLabel);
@@ -192,7 +141,6 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.titleTextBox);
             this.Name = "NewFileDialogBox";
-            this.Text = "NewFileDialogBox";
             this.Shown += new System.EventHandler(this.NewFileDialogBox_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

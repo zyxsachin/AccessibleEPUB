@@ -14,6 +14,10 @@ using System.Windows.Controls;
 using System.Diagnostics;
 using System.Net;
 
+using System.Globalization;
+using System.Threading;
+
+
 
 using mshtml;
 
@@ -39,7 +43,9 @@ namespace AccessibleEPUB
 
         public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             InitializeComponent();
+
             doc = mainWindowDoc;
 
             host.Dock = DockStyle.Fill;

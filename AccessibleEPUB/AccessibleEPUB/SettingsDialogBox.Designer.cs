@@ -28,108 +28,189 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.authorTextBox = new System.Windows.Forms.TextBox();
-            this.authorLabel = new System.Windows.Forms.Label();
-            this.languageLabel = new System.Windows.Forms.Label();
-            this.languageComboBox = new System.Windows.Forms.ComboBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDialogBox));
+            this.panel1 = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.programLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.programLanguageLabel = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.singleFileCssRadioButton = new System.Windows.Forms.RadioButton();
+            this.singleFileJsRadioButton = new System.Windows.Forms.RadioButton();
+            this.publisherTexbox = new System.Windows.Forms.TextBox();
+            this.publisherLabel = new System.Windows.Forms.Label();
+            this.languageComboBox = new System.Windows.Forms.ComboBox();
+            this.languageLabel = new System.Windows.Forms.Label();
+            this.authorTextBox = new System.Windows.Forms.TextBox();
+            this.authorLabel = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // authorTextBox
+            // panel1
             // 
-            this.authorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorTextBox.Location = new System.Drawing.Point(26, 57);
-            this.authorTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(559, 26);
-            this.authorTextBox.TabIndex = 6;
-            // 
-            // authorLabel
-            // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorLabel.Location = new System.Drawing.Point(22, 24);
-            this.authorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(53, 18);
-            this.authorLabel.TabIndex = 7;
-            this.authorLabel.Text = "Author";
-            // 
-            // languageLabel
-            // 
-            this.languageLabel.AutoSize = true;
-            this.languageLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel.Location = new System.Drawing.Point(22, 106);
-            this.languageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.languageLabel.Name = "languageLabel";
-            this.languageLabel.Size = new System.Drawing.Size(78, 18);
-            this.languageLabel.TabIndex = 9;
-            this.languageLabel.Text = "Language";
-            // 
-            // languageComboBox
-            // 
-            this.languageComboBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageComboBox.FormattingEnabled = true;
-            this.languageComboBox.Location = new System.Drawing.Point(26, 140);
-            this.languageComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.languageComboBox.Name = "languageComboBox";
-            this.languageComboBox.Size = new System.Drawing.Size(114, 26);
-            this.languageComboBox.TabIndex = 10;
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.cancelButton);
+            this.panel1.Controls.Add(this.saveButton);
+            this.panel1.Name = "panel1";
             // 
             // cancelButton
             // 
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(531, 190);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(124, 39);
-            this.cancelButton.TabIndex = 12;
-            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // saveButton
             // 
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(388, 190);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.saveButton, "saveButton");
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(124, 39);
-            this.saveButton.TabIndex = 11;
-            this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // tabControl1
+            // 
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.programLanguageComboBox);
+            this.tabPage1.Controls.Add(this.programLanguageLabel);
+            this.tabPage1.Name = "tabPage1";
+            // 
+            // programLanguageComboBox
+            // 
+            resources.ApplyResources(this.programLanguageComboBox, "programLanguageComboBox");
+            this.programLanguageComboBox.FormattingEnabled = true;
+            this.programLanguageComboBox.Items.AddRange(new object[] {
+            resources.GetString("programLanguageComboBox.Items"),
+            resources.GetString("programLanguageComboBox.Items1")});
+            this.programLanguageComboBox.Name = "programLanguageComboBox";
+            // 
+            // programLanguageLabel
+            // 
+            resources.ApplyResources(this.programLanguageLabel, "programLanguageLabel");
+            this.programLanguageLabel.Name = "programLanguageLabel";
+            // 
+            // tabPage2
+            // 
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.publisherTexbox);
+            this.tabPage2.Controls.Add(this.publisherLabel);
+            this.tabPage2.Controls.Add(this.languageComboBox);
+            this.tabPage2.Controls.Add(this.languageLabel);
+            this.tabPage2.Controls.Add(this.authorTextBox);
+            this.tabPage2.Controls.Add(this.authorLabel);
+            this.tabPage2.Name = "tabPage2";
+            // 
+            // groupBox1
+            // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.singleFileCssRadioButton);
+            this.groupBox1.Controls.Add(this.singleFileJsRadioButton);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // singleFileCssRadioButton
+            // 
+            resources.ApplyResources(this.singleFileCssRadioButton, "singleFileCssRadioButton");
+            this.singleFileCssRadioButton.Name = "singleFileCssRadioButton";
+            this.singleFileCssRadioButton.TabStop = true;
+            this.singleFileCssRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // singleFileJsRadioButton
+            // 
+            resources.ApplyResources(this.singleFileJsRadioButton, "singleFileJsRadioButton");
+            this.singleFileJsRadioButton.Name = "singleFileJsRadioButton";
+            this.singleFileJsRadioButton.TabStop = true;
+            this.singleFileJsRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // publisherTexbox
+            // 
+            resources.ApplyResources(this.publisherTexbox, "publisherTexbox");
+            this.publisherTexbox.Name = "publisherTexbox";
+            // 
+            // publisherLabel
+            // 
+            resources.ApplyResources(this.publisherLabel, "publisherLabel");
+            this.publisherLabel.Name = "publisherLabel";
+            // 
+            // languageComboBox
+            // 
+            resources.ApplyResources(this.languageComboBox, "languageComboBox");
+            this.languageComboBox.FormattingEnabled = true;
+            this.languageComboBox.Items.AddRange(new object[] {
+            resources.GetString("languageComboBox.Items"),
+            resources.GetString("languageComboBox.Items1")});
+            this.languageComboBox.Name = "languageComboBox";
+            // 
+            // languageLabel
+            // 
+            resources.ApplyResources(this.languageLabel, "languageLabel");
+            this.languageLabel.Name = "languageLabel";
+            // 
+            // authorTextBox
+            // 
+            resources.ApplyResources(this.authorTextBox, "authorTextBox");
+            this.authorTextBox.Name = "authorTextBox";
+            // 
+            // authorLabel
+            // 
+            resources.ApplyResources(this.authorLabel, "authorLabel");
+            this.authorLabel.Name = "authorLabel";
+            // 
             // SettingsDialogBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(694, 261);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.languageComboBox);
-            this.Controls.Add(this.languageLabel);
-            this.Controls.Add(this.authorTextBox);
-            this.Controls.Add(this.authorLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.panel1);
             this.Name = "SettingsDialogBox";
-            this.Text = "SettingsDialogBox";
             this.Shown += new System.EventHandler(this.SettingsDialogBox_Shown);
+            this.panel1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox authorTextBox;
-        private System.Windows.Forms.Label authorLabel;
-        private System.Windows.Forms.Label languageLabel;
-        private System.Windows.Forms.ComboBox languageComboBox;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ComboBox languageComboBox;
+        private System.Windows.Forms.Label languageLabel;
+        private System.Windows.Forms.TextBox authorTextBox;
+        private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.TextBox publisherTexbox;
+        private System.Windows.Forms.Label publisherLabel;
+        private System.Windows.Forms.ComboBox programLanguageComboBox;
+        private System.Windows.Forms.Label programLanguageLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton singleFileCssRadioButton;
+        private System.Windows.Forms.RadioButton singleFileJsRadioButton;
     }
 }

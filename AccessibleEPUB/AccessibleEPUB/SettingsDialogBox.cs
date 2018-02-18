@@ -12,6 +12,13 @@ namespace AccessibleEPUB
 {
     public partial class SettingsDialogBox : Form
     {
+
+        string defaultEnglishString = "English";
+        string defaultGermanString = "German";
+
+        string englishString;
+        string germanString;
+
         public SettingsDialogBox()
         {
             InitializeComponent();
@@ -22,16 +29,60 @@ namespace AccessibleEPUB
 
         private void initLanguageList()
         {
-            languageComboBox.Items.Add("English");
-            languageComboBox.Items.Add("German");
+            //languageComboBox.Items.Add(englishString);
+            //languageComboBox.Items.Add(germanString);
+
+
+            //programLanguageComboBox.Items.Add(englishString);
+            //programLanguageComboBox.Items.Add(germanString);
+
+
 
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Settings.Default.DefaultLanguage = languageComboBox.SelectedItem.ToString();
+            //Settings.Default.DefaultLanguage = languageComboBox.SelectedItem.ToString();
             Settings.Default.DefaultAuthor = authorTextBox.Text;
+            Settings.Default.DefaultPublisher = publisherTexbox.Text;
+
+            string newLanguage = ""; ;
+
+            if (languageComboBox.SelectedIndex == 0)
+            {
+                Settings.Default.DefaultLanguage = defaultEnglishString;
+            }
+            else if (languageComboBox.SelectedIndex == 1)
+            {
+                Settings.Default.DefaultLanguage = defaultGermanString;
+            }
+
+            if (programLanguageComboBox.SelectedIndex == 0)
+            {
+                newLanguage = "";
+                Settings.Default.ProgramLanguage = newLanguage;
+            }
+            else if (programLanguageComboBox.SelectedIndex == 1)
+            {
+                newLanguage = "de-DE";
+                Settings.Default.ProgramLanguage = newLanguage;
+            }
+
+
+            if (singleFileJsRadioButton.Checked == true)
+            {
+                Settings.Default.DefaultEpubFormat = "singleFileJs";
+            }
+            else if (singleFileCssRadioButton.Checked == true)
+            {
+                Settings.Default.DefaultEpubFormat = "singleFileCss";
+            }
+
+
+
             Settings.Default.Save();
+
+
             this.Hide();
             this.Dispose();
         }
@@ -45,8 +96,50 @@ namespace AccessibleEPUB
 
         private void SettingsDialogBox_Shown(object sender, EventArgs e)
         {
-            languageComboBox.SelectedItem = Settings.Default.DefaultLanguage;
+            //languageComboBox.SelectedItem = Settings.Default.DefaultLanguage;
             authorTextBox.Text = Settings.Default.DefaultAuthor;
-        }  
+            publisherTexbox.Text = Settings.Default.DefaultPublisher;
+
+
+
+
+
+            if (Settings.Default.DefaultLanguage == defaultEnglishString)
+            {
+                languageComboBox.SelectedIndex = 0;
+            }
+            else if (Settings.Default.DefaultLanguage == defaultGermanString)
+            {
+                languageComboBox.SelectedIndex = 1;
+            }
+
+            if (Settings.Default.ProgramLanguage == "")
+            {
+               programLanguageComboBox.SelectedIndex = 0;
+            }
+            else if (Settings.Default.ProgramLanguage == "de-DE")
+            {
+                programLanguageComboBox.SelectedIndex = 1;
+            }
+
+           
+
+            if (Settings.Default.DefaultEpubFormat == "singleFileJs")
+            {
+                singleFileJsRadioButton.Checked = true;
+            }
+            else if (Settings.Default.DefaultEpubFormat == "singleFileCss")
+            {
+                singleFileCssRadioButton.Checked = true;
+            }
+            else
+            {
+                singleFileJsRadioButton.Checked = true;
+            }
+
+
+        }
+
+
     }
 }

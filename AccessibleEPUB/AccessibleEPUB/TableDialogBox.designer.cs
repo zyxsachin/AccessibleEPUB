@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableDialogBox));
             this.rowsLabel = new System.Windows.Forms.Label();
             this.columnLabel = new System.Windows.Forms.Label();
             this.rowTextBox = new System.Windows.Forms.TextBox();
@@ -42,110 +43,66 @@
             // 
             // rowsLabel
             // 
-            this.rowsLabel.AutoSize = true;
-            this.rowsLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rowsLabel.Location = new System.Drawing.Point(45, 23);
+            resources.ApplyResources(this.rowsLabel, "rowsLabel");
             this.rowsLabel.Name = "rowsLabel";
-            this.rowsLabel.Size = new System.Drawing.Size(60, 23);
-            this.rowsLabel.TabIndex = 0;
-            this.rowsLabel.Text = "Rows";
             // 
             // columnLabel
             // 
-            this.columnLabel.AutoSize = true;
-            this.columnLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.columnLabel.Location = new System.Drawing.Point(225, 23);
+            resources.ApplyResources(this.columnLabel, "columnLabel");
             this.columnLabel.Name = "columnLabel";
-            this.columnLabel.Size = new System.Drawing.Size(75, 23);
-            this.columnLabel.TabIndex = 1;
-            this.columnLabel.Text = "Column";
             // 
             // rowTextBox
             // 
-            this.rowTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rowTextBox.Location = new System.Drawing.Point(49, 72);
+            resources.ApplyResources(this.rowTextBox, "rowTextBox");
             this.rowTextBox.Name = "rowTextBox";
-            this.rowTextBox.Size = new System.Drawing.Size(60, 30);
-            this.rowTextBox.TabIndex = 0;
-            this.rowTextBox.Text = "2";
             this.rowTextBox.TextChanged += new System.EventHandler(this.rowTextBox_TextChanged);
             // 
             // columnTextBox
             // 
-            this.columnTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.columnTextBox.Location = new System.Drawing.Point(229, 72);
+            resources.ApplyResources(this.columnTextBox, "columnTextBox");
             this.columnTextBox.Name = "columnTextBox";
-            this.columnTextBox.Size = new System.Drawing.Size(60, 30);
-            this.columnTextBox.TabIndex = 1;
-            this.columnTextBox.Text = "2";
             this.columnTextBox.TextChanged += new System.EventHandler(this.columnTextBox_TextChanged);
             // 
             // tablePanel
             // 
-            this.tablePanel.AutoSize = true;
-            this.tablePanel.Location = new System.Drawing.Point(49, 229);
+            resources.ApplyResources(this.tablePanel, "tablePanel");
             this.tablePanel.Name = "tablePanel";
-            this.tablePanel.Size = new System.Drawing.Size(790, 210);
-            this.tablePanel.TabIndex = 4;
             // 
             // insertTableButton
             // 
-            this.insertTableButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertTableButton.Location = new System.Drawing.Point(515, 146);
+            resources.ApplyResources(this.insertTableButton, "insertTableButton");
             this.insertTableButton.Name = "insertTableButton";
-            this.insertTableButton.Size = new System.Drawing.Size(136, 53);
-            this.insertTableButton.TabIndex = 4;
-            this.insertTableButton.Text = "Insert Table";
             this.insertTableButton.UseVisualStyleBackColor = true;
             this.insertTableButton.Click += new System.EventHandler(this.insertTableButton_Click);
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(409, 72);
+            resources.ApplyResources(this.titleTextBox, "titleTextBox");
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(430, 30);
-            this.titleTextBox.TabIndex = 3;
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(405, 23);
+            resources.ApplyResources(this.titleLabel, "titleLabel");
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(46, 23);
-            this.titleLabel.TabIndex = 9;
-            this.titleLabel.Text = "Title";
             // 
             // cancelButton
             // 
-            this.cancelButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(703, 146);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(136, 53);
-            this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // adjustTableButton
             // 
-            this.adjustTableButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adjustTableButton.Location = new System.Drawing.Point(164, 146);
+            resources.ApplyResources(this.adjustTableButton, "adjustTableButton");
             this.adjustTableButton.Name = "adjustTableButton";
-            this.adjustTableButton.Size = new System.Drawing.Size(136, 53);
-            this.adjustTableButton.TabIndex = 2;
-            this.adjustTableButton.Text = "Adjust Table";
             this.adjustTableButton.UseVisualStyleBackColor = true;
             this.adjustTableButton.Click += new System.EventHandler(this.adjustTableButton_Click);
             // 
             // TableDialogBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(890, 488);
             this.Controls.Add(this.adjustTableButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.titleTextBox);
@@ -157,7 +114,6 @@
             this.Controls.Add(this.columnLabel);
             this.Controls.Add(this.rowsLabel);
             this.Name = "TableDialogBox";
-            this.Text = "TableDialogBox";
             this.Shown += new System.EventHandler(this.TableDialogBox_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

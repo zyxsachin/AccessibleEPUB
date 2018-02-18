@@ -174,14 +174,26 @@
     <Compile Include="TableDialogBox.designer.cs">
       <DependentUpon>TableDialogBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.de.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageDialogBox.de.resx">
+      <DependentUpon>ImageDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImageDialogBox.resx">
       <DependentUpon>ImageDialogBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MathDialogBox.de.resx">
+      <DependentUpon>MathDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MathDialogBox.resx">
       <DependentUpon>MathDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewFileDialogBox.de.resx">
+      <DependentUpon>NewFileDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewFileDialogBox.resx">
       <DependentUpon>NewFileDialogBox.cs</DependentUpon>
@@ -196,8 +208,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingsDialogBox.de.resx">
+      <DependentUpon>SettingsDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingsDialogBox.resx">
       <DependentUpon>SettingsDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableDialogBox.de.resx">
+      <DependentUpon>TableDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TableDialogBox.resx">
       <DependentUpon>TableDialogBox.cs</DependentUpon>
@@ -346,10 +364,11 @@
     <Content Include="pandoc-2.1\result.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Pause_16x_24.bmp" />
+    <Content Include="Resources\PlaybackPreview_16x_24.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="REGSRVCLib">

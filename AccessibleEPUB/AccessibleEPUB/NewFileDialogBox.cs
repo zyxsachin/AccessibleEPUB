@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Globalization;
+using System.Threading;
+
 namespace AccessibleEPUB
 {
     public partial class NewFileDialogBox : Form
@@ -16,6 +19,13 @@ namespace AccessibleEPUB
         string author;
         int mode;
         string publisher;
+
+
+        string defaultEnglishString = "English";
+        string defaultGermanString = "German";
+
+        string englishString;
+        string germanString;
 
         enum fileMode
         {
@@ -31,9 +41,11 @@ namespace AccessibleEPUB
 
         public NewFileDialogBox(Form1 f)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
+
             InitializeComponent();
             form = f;
-            initLanguageList();
+            //initLanguageList();
             singleFileJsRadioButton.Select();
 
         }
@@ -112,7 +124,7 @@ namespace AccessibleEPUB
                 {
                     mode = (int)fileMode.singleFileCss;
                 }
-             
+
                 title = titleTextBox.Text;
                 author = authorTextBox.Text;
                 publisher = publisherTextBox.Text;
@@ -120,29 +132,63 @@ namespace AccessibleEPUB
                 form.setAuthor(author);
                 form.setTitle(title);
                 form.setMode(mode);
-                form.setLanguage(languageComboBox.SelectedItem.ToString());
+
+                if (languageComboBox.SelectedItem.ToString() == englishString)
+                {
+                    form.setLanguage("en");
+                }
+                else if (languageComboBox.SelectedItem.ToString() == germanString)
+                {
+                    form.setLanguage("de");
+                }
+
                 form.setNewFileCorrect(true);
                 form.setPublisher(publisher);
 
                 this.Dispose();
                 this.Hide();
 
+                
             }
         }
 
         private void initLanguageList()
         {
-            languageComboBox.Items.Add("English");
-            languageComboBox.Items.Add("German");
+            //languageComboBox.Items.Add(englishString);
+            //languageComboBox.Items.Add(germanString);
 
             //languageComboBox.SelectedItem = "English";
         }
 
         private void NewFileDialogBox_Shown(object sender, EventArgs e)
         {
-            languageComboBox.SelectedItem = Settings.Default.DefaultLanguage;
+            if (Settings.Default.DefaultLanguage == defaultEnglishString)
+            {
+                languageComboBox.SelectedIndex = 0;
+            }
+            else if (Settings.Default.DefaultLanguage == defaultGermanString)
+            {
+                languageComboBox.SelectedIndex = 1;
+            }
+
+
             authorTextBox.Text = Settings.Default.DefaultAuthor;
-            titleTextBox.Focus();
+            publisherTextBox.Text = Settings.Default.DefaultPublisher;
+
+            if (Settings.Default.DefaultEpubFormat == "singleFileJs")
+            {
+                singleFileJsRadioButton.Checked = true;
+            }
+            else if (Settings.Default.DefaultEpubFormat == "singleFileCss")
+            {
+                singleFileCssRadioButton.Checked = true;
+            }
+            else
+            {
+                singleFileJsRadioButton.Checked = true;
+            }
+
+                titleTextBox.Focus();
         }
     }
 }
