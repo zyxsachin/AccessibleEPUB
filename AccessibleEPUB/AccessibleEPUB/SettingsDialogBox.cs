@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Globalization;
+using System.Threading;
+
 namespace AccessibleEPUB
 {
     public partial class SettingsDialogBox : Form
@@ -21,6 +24,8 @@ namespace AccessibleEPUB
 
         public SettingsDialogBox()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
+
             InitializeComponent();
 
             initLanguageList();

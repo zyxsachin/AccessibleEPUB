@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Net;
+using System.Globalization;
+using System.Threading;
 
 
 using mshtml;
@@ -25,6 +27,8 @@ namespace AccessibleEPUB
 
         public TableDialogBox(IHTMLDocument2 mainWindowDoc)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
+
             InitializeComponent();
             doc = mainWindowDoc;
         }

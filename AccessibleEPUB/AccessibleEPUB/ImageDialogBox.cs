@@ -11,6 +11,9 @@ using mshtml;
 using System.IO;
 using System.Net;
 
+using System.Globalization;
+using System.Threading;
+
 namespace AccessibleEPUB
 {
     public partial class ImageDialogBox : Form
@@ -25,6 +28,7 @@ namespace AccessibleEPUB
 
         public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             InitializeComponent();
             doc = mainWindowDoc;
             imageFolderPath = ip;
