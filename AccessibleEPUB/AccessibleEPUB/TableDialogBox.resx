@@ -126,10 +126,14 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="rowsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 23</value>
+    <value>34, 19</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rowsLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="rowsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 23</value>
+    <value>47, 18</value>
   </data>
   <data name="rowsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -156,10 +160,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="columnLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 23</value>
+    <value>169, 19</value>
+  </data>
+  <data name="columnLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="columnLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>61, 18</value>
   </data>
   <data name="columnLabel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -183,10 +190,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="rowTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 72</value>
+    <value>37, 58</value>
+  </data>
+  <data name="rowTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="rowTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 30</value>
+    <value>46, 26</value>
   </data>
   <data name="rowTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -210,10 +220,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="columnTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 72</value>
+    <value>172, 58</value>
+  </data>
+  <data name="columnTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="columnTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 30</value>
+    <value>46, 26</value>
   </data>
   <data name="columnTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -237,10 +250,13 @@
     <value>True</value>
   </data>
   <data name="tablePanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 229</value>
+    <value>37, 186</value>
+  </data>
+  <data name="tablePanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="tablePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>790, 210</value>
+    <value>592, 171</value>
   </data>
   <data name="tablePanel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -261,10 +277,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="insertTableButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>457, 146</value>
+    <value>343, 119</value>
+  </data>
+  <data name="insertTableButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="insertTableButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 53</value>
+    <value>146, 43</value>
   </data>
   <data name="insertTableButton.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -288,10 +307,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>409, 72</value>
+    <value>307, 58</value>
+  </data>
+  <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 30</value>
+    <value>324, 26</value>
   </data>
   <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -315,16 +337,19 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>405, 23</value>
+    <value>304, 19</value>
+  </data>
+  <data name="titleLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 23</value>
+    <value>105, 18</value>
   </data>
   <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="titleLabel.Text" xml:space="preserve">
-    <value>Title</value>
+    <value>Title (optional)</value>
   </data>
   <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
     <value>titleLabel</value>
@@ -342,10 +367,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>703, 146</value>
+    <value>527, 119</value>
+  </data>
+  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 53</value>
+    <value>102, 43</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -369,10 +397,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="adjustTableButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 146</value>
+    <value>75, 119</value>
+  </data>
+  <data name="adjustTableButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="adjustTableButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 53</value>
+    <value>150, 43</value>
   </data>
   <data name="adjustTableButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -396,7 +427,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -405,7 +436,10 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>890, 488</value>
+    <value>668, 396</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Insert Table</value>

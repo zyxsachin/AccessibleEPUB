@@ -104,6 +104,7 @@ namespace AccessibleEPUB
 
         string epubFolderName;
 
+        DateTime lastSave;
 
 
         List<string> openTabs = new List<string>();
@@ -114,6 +115,13 @@ namespace AccessibleEPUB
         string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB");
 
         GlobalHotKey.HotKeyManager hkm = new GlobalHotKey.HotKeyManager();
+
+
+
+        string origWordCountLabel;
+        string origCharacterCountLabel;
+        string origDocumentLanguageLabel;
+        string origLastSavedLabel;
 
 
 
@@ -128,6 +136,16 @@ namespace AccessibleEPUB
             //var globalReload = hkm.Register(System.Windows.Input.Key.None, System.Windows.Input.ModifierKeys.None);
 
             hkm.KeyPressed += keyPressSave;
+
+            origWordCountLabel = wordCountLabel.Text;
+            origCharacterCountLabel = characterCountLabel.Text;
+
+            origDocumentLanguageLabel = documentLanguageLabel.Text;
+
+            versionLabel.Text += String.Format("{0}.{1}",
+                 Version.Major.ToString(), Version.Minor.ToString());
+
+            origLastSavedLabel = lastSavedLabel.Text;
         }
 
 
@@ -185,6 +203,11 @@ namespace AccessibleEPUB
 
             int halfWidth = splitContainer2.Width / 2;
             splitContainer2.SplitterDistance = halfWidth;
+
+            //versionLabel.Alignment = ToolStripItemAlignment.Right;
+            versionToolStrip.Location = new Point(toolStripContainer1.BottomToolStripPanel.Width - versionToolStrip.Width, versionToolStrip.Location.Y);
+
+            languageToolStrip.Location = new Point(toolStripContainer1.BottomToolStripPanel.Width / 2 - languageToolStrip.Width / 2, languageToolStrip.Location.Y);
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
@@ -752,6 +775,8 @@ namespace AccessibleEPUB
 
         //}
 
+
+
         private void openFile(object sender, EventArgs e)
         {
            
@@ -979,7 +1004,7 @@ namespace AccessibleEPUB
                 geckoWebBrowser3.Document.Head.Style.CssText = File.ReadAllText(blindCss);
             }
 
-
+            showToolStrips();
             //splitContainer1.Panel1Collapsed = false;
             //splitContainer1.Panel1.Show();
             splitContainer2.Panel2Collapsed = false;
@@ -1023,6 +1048,9 @@ namespace AccessibleEPUB
             HTMLEditor.Focus();
 
             this.Text = Path.GetFileName(target) + " - " + accessibleEpubFormText;
+
+            documentLanguageLabel.Text = origDocumentLanguageLabel + language;
+
             //openTab(contentFile);
         }
 
@@ -1091,7 +1119,14 @@ namespace AccessibleEPUB
             splashScreenPanel.Visible = true;
             splashScreenPanel.BringToFront();
 
+            hideToolStrips();
+
             this.Text = accessibleEpubFormText;
+
+            wordCountLabel.Text = origWordCountLabel;
+            characterCountLabel.Text = origCharacterCountLabel;
+
+            documentLanguageLabel.Text = origDocumentLanguageLabel;
         }
 
 
@@ -1528,9 +1563,13 @@ namespace AccessibleEPUB
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
 
+            showToolStrips();
+
             HTMLEditor.Focus();
 
             this.Text = Path.GetFileName(target) + " - " + accessibleEpubFormText;
+
+            documentLanguageLabel.Text = origDocumentLanguageLabel + language;
         }
 
         private void determineLanguage()
@@ -1801,6 +1840,9 @@ namespace AccessibleEPUB
             geckoWebBrowser4.Reload();
 
             fileNotSaved = false;
+
+            lastSave = DateTime.UtcNow;
+          
         }
 
 
@@ -2443,7 +2485,46 @@ body {
 
             //HTMLEditor.Document.Focus();
 
+            if (containsFile == true)
+            {
+                var text = HTMLEditor.Document.Body.InnerText.Trim();
+                int wordCount = 0, index = 0;
+
+                while (index < text.Length)
+                {
+                    // check if current char is part of a word
+                    while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                        index++;
+
+                    wordCount++;
+
+                    // skip whitespace until next word
+                    while (index < text.Length && char.IsWhiteSpace(text[index]))
+                        index++;
+                }
+
+
+
+                wordCountLabel.Text = origWordCountLabel + wordCount;
+
+                characterCountLabel.Text = origCharacterCountLabel + text.Length;
+            }
+
+            DateTime time = DateTime.UtcNow;
+
+            if (lastSave.Year == time.Year)
+            {
+                TimeSpan span = time.Subtract(lastSave);
+
+
+                lastSavedLabel.Text = origLastSavedLabel + span.Minutes + " Min";
+            }
+
+          
+            
         }
+
+        
 
         private void SetCssText(string cssText, GeckoStyleSheet gss)
         {
@@ -3226,6 +3307,23 @@ body {
             }
         }
 
+        private void toggleRefreshPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            refresh = !refresh;
+
+            if (refresh == true)
+            {
+                playPauseRefreshButton.Image = Properties.Resources.Pause_16x_24;
+                toggleRefreshPreviewToolStripMenuItem.Image = Properties.Resources.Pause_16x;
+            }
+            else if (refresh == false)
+            {
+                playPauseRefreshButton.Image = Properties.Resources.PlaybackPreview_16x_24;
+                toggleRefreshPreviewToolStripMenuItem.Image = Properties.Resources.PlaybackPreview_16x;
+            }
+        }
+    }
+
 
         private static Version version = new Version(Application.ProductVersion);
 
@@ -3236,6 +3334,30 @@ body {
                 return version;
             }
         }
+
+        private void showToolStrips()
+        {
+            editToolStrip.Visible = true;
+            toggleCodeButton.Visible = true;
+            toggleEditorButton.Visible = true;
+            toggleFileExplorerButton.Visible = true;
+            togglePreviewButton.Visible = true;
+            playPauseRefreshButton.Visible = true;
+            toggleToolStripSeparator.Visible = true;
+        }
+
+        private void hideToolStrips()
+        {
+            editToolStrip.Visible = false;
+            toggleCodeButton.Visible = false;
+            toggleEditorButton.Visible = false;
+            toggleFileExplorerButton.Visible = false;
+            togglePreviewButton.Visible = false;
+            playPauseRefreshButton.Visible = false;
+            toggleToolStripSeparator.Visible = false;
+        }
+
+       
     }
 
 

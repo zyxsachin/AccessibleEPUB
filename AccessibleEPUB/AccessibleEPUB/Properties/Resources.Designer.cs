@@ -63,6 +63,26 @@ namespace AccessibleEPUB.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NewCatalog_16x {
+            get {
+                object obj = ResourceManager.GetObject("NewCatalog_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pause_16x {
+            get {
+                object obj = ResourceManager.GetObject("Pause_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pause_16x_24 {
             get {
                 object obj = ResourceManager.GetObject("Pause_16x_24", resourceCulture);
@@ -73,9 +93,29 @@ namespace AccessibleEPUB.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PlaybackPreview_16x {
+            get {
+                object obj = ResourceManager.GetObject("PlaybackPreview_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PlaybackPreview_16x_24 {
             get {
                 object obj = ResourceManager.GetObject("PlaybackPreview_16x_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextOutdent_16x {
+            get {
+                object obj = ResourceManager.GetObject("TextOutdent_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

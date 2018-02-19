@@ -55,13 +55,13 @@
             // 
             resources.ApplyResources(this.rowTextBox, "rowTextBox");
             this.rowTextBox.Name = "rowTextBox";
-            this.rowTextBox.TextChanged += new System.EventHandler(this.rowTextBox_TextChanged);
+            this.rowTextBox.Leave += new System.EventHandler(this.rowTextBox_Leave);
             // 
             // columnTextBox
             // 
             resources.ApplyResources(this.columnTextBox, "columnTextBox");
             this.columnTextBox.Name = "columnTextBox";
-            this.columnTextBox.TextChanged += new System.EventHandler(this.columnTextBox_TextChanged);
+            this.columnTextBox.Leave += new System.EventHandler(this.columnTextBox_Leave);
             // 
             // tablePanel
             // 

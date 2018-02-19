@@ -376,7 +376,11 @@
     <Content Include="pandoc-2.1\result.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\TextOutdent_16x.png" />
+    <None Include="Resources\NewCatalog_16x.png" />
+    <None Include="Resources\Pause_16x.png" />
     <Content Include="Resources\Pause_16x_24.bmp" />
+    <None Include="Resources\PlaybackPreview_16x.png" />
     <Content Include="Resources\PlaybackPreview_16x_24.bmp" />
   </ItemGroup>
   <ItemGroup>

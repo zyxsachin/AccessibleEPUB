@@ -147,8 +147,10 @@ namespace AccessibleEPUB
 
                 this.Dispose();
                 this.Hide();
-
-                
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Not all required fields are filled out.", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

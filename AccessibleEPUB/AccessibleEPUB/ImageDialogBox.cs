@@ -45,6 +45,21 @@ namespace AccessibleEPUB
 
         private void addImageButton_Click(object sender, EventArgs e)
         {
+            if (imageLocationTextBox.Text == "")
+            {
+                System.Windows.Forms.MessageBox.Show("The image path is empty.", "Empty image path", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } 
+            
+            if (titleTextBox.Text == "")
+            {
+                System.Windows.Forms.MessageBox.Show("The title is empty.", "Empty title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            if (altTextTextBox.Text == "")
+            {
+                System.Windows.Forms.MessageBox.Show("The alternative text is empty.", "Empty alternative text", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             if (!Directory.Exists(imageFolderPath))
             {
                 Directory.CreateDirectory(imageFolderPath);

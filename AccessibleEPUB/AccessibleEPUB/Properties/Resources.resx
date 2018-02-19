@@ -121,7 +121,19 @@
   <data name="Pause_16x_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pause_16x_24.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NewCatalog_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewCatalog_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pause_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PlaybackPreview_16x_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlaybackPreview_16x_24.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextOutdent_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TextOutdent_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlaybackPreview_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlaybackPreview_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

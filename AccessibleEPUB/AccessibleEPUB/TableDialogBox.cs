@@ -274,17 +274,17 @@ namespace AccessibleEPUB
             this.Dispose();
         }
 
-        private void rowTextBox_TextChanged(object sender, EventArgs e)
-        {
-            //adjustTable();
-        }
-
-        private void columnTextBox_TextChanged(object sender, EventArgs e)
-        {
-            //adjustTable();
-        }
-
         private void TableDialogBox_Shown(object sender, EventArgs e)
+        {
+            adjustTable();
+        }
+
+        private void rowTextBox_Leave(object sender, EventArgs e)
+        {
+            adjustTable();
+        }
+
+        private void columnTextBox_Leave(object sender, EventArgs e)
         {
             adjustTable();
         }

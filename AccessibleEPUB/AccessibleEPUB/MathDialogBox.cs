@@ -78,11 +78,11 @@ namespace AccessibleEPUB
                 return;
             }
 
-            if (titleTextBox.Text == "")
-            {
-                System.Windows.Forms.MessageBox.Show("Please enter a title.", "Missing title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            //if (titleTextBox.Text == "")
+            //{
+            //    System.Windows.Forms.MessageBox.Show("Please enter a title.", "Missing title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
 
             System.IO.File.WriteAllText(Path.Combine(pandoc, "accEpub.txt"), "$" + inputTextBox.Text + "$");
             
