@@ -130,7 +130,9 @@ namespace AccessibleEPUB
 
             string[] tagTypesEng = { "None", "Image", "Graph", "Math" };
             string[] tagTypesGer = { "Kein", "Bild", "Graph", "Mathematik" };
-            Console.WriteLine("LANGUAGE: " + docLanguage);
+
+            Console.WriteLine("LANGUAGE:" + docLanguage);
+
             if (docLanguage == "en")
             {
                 typeComboBox.Items.AddRange(tagTypesEng);
@@ -138,6 +140,10 @@ namespace AccessibleEPUB
             else if (docLanguage == "de")
             {
                 typeComboBox.Items.AddRange(tagTypesGer);
+            }
+            else
+            {
+                typeComboBox.Items.AddRange(tagTypesEng);
             }
 
             typeComboBox.SelectedIndex = 0;

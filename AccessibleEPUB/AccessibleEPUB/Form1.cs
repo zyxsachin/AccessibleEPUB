@@ -32,6 +32,9 @@ using System.Windows.Input;
 
 
 
+
+
+
 namespace AccessibleEPUB
 {
 
@@ -47,7 +50,7 @@ namespace AccessibleEPUB
         private IHTMLDocument2 doc;
         Dictionary<string, string> headings;
         string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
+        string accessibleEpubFormText = "Accessible EPUB";
         enum fileMode
         {
             singleFileCss = 1,
@@ -125,10 +128,10 @@ namespace AccessibleEPUB
             //var globalReload = hkm.Register(System.Windows.Input.Key.None, System.Windows.Input.ModifierKeys.None);
 
             hkm.KeyPressed += keyPressSave;
-            
-            
-
         }
+
+
+      
 
 
 
@@ -773,11 +776,6 @@ namespace AccessibleEPUB
                 //tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
                 DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
 
-                if (Directory.Exists(accEpubFolderName))
-                {
-                    Console.WriteLine("HAHAHAHA");
-                }
-
                 //string accEpubFolderName = accEpubFolder.Name;
 
                 System.IO.DirectoryInfo di = new DirectoryInfo(accEpubFolderName);
@@ -1023,6 +1021,8 @@ namespace AccessibleEPUB
             openTab(contentFile);
 
             HTMLEditor.Focus();
+
+            this.Text = Path.GetFileName(target) + " - " + accessibleEpubFormText;
             //openTab(contentFile);
         }
 
@@ -1059,32 +1059,7 @@ namespace AccessibleEPUB
 
         //}
 
-        #region Utils
-
-        public static Color IntToColor(int rgb)
-        {
-            return Color.FromArgb(255, (byte)(rgb >> 16), (byte)(rgb >> 8), (byte)rgb);
-        }
-
-        public void InvokeIfNeeded(Action action)
-        {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(action);
-            }
-            else
-            {
-                action.Invoke();
-            }
-        }
-
-
-        #endregion
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void closeFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1115,7 +1090,10 @@ namespace AccessibleEPUB
 
             splashScreenPanel.Visible = true;
             splashScreenPanel.BringToFront();
+
+            this.Text = accessibleEpubFormText;
         }
+
 
 
         private void newFileButton_Click(object sender, EventArgs e)
@@ -1182,6 +1160,8 @@ namespace AccessibleEPUB
             NewFileDialogBox nfd = new NewFileDialogBox(this);
             nfd.ShowDialog();
 
+
+
             if (newFileCorrect == false)
             {
                 return;
@@ -1206,16 +1186,12 @@ namespace AccessibleEPUB
             targetFolder = Path.GetDirectoryName(target);
 
 
-            Console.WriteLine(accEpubFolderName);
+            
             //DirectoryDelete(accEpubFolderName);
 
             DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
 
-            if (Directory.Exists(accEpubFolderName))
-            {
-                Console.WriteLine("HAHAHAHA");
-            }
-
+       
             //string accEpubFolderName = accEpubFolder.Name;
 
             System.IO.DirectoryInfo di = new DirectoryInfo(accEpubFolderName);
@@ -1409,6 +1385,7 @@ namespace AccessibleEPUB
 
             //richTextBox1.LoadFile(tempFile2 + "\\OEBPS\\Styles\\style.css");
 
+
             string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
 
             string titleStart = "<dc:title>";
@@ -1452,7 +1429,7 @@ namespace AccessibleEPUB
             int timeEndIndex = metadata.IndexOf(timeEnd);
 
             string languageShort;
-            //Console.WriteLine(language);
+            Console.WriteLine("languageSHORT:" + language);
             switch (language)
             {
                 case "en":
@@ -1542,6 +1519,7 @@ namespace AccessibleEPUB
             File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
 
 
+            determineLanguage();
 
             geckoWebBrowser1.Navigate(contentFile);
             geckoWebBrowser2.Navigate(impairedContentFile);
@@ -1551,6 +1529,8 @@ namespace AccessibleEPUB
             splitContainer2.Panel2.Show();
 
             HTMLEditor.Focus();
+
+            this.Text = Path.GetFileName(target) + " - " + accessibleEpubFormText;
         }
 
         private void determineLanguage()
@@ -1562,8 +1542,9 @@ namespace AccessibleEPUB
 
             int languageStartIndex = metadata.IndexOf(languageStart);
             int languageEndIndex = metadata.IndexOf(languageEnd);
-
+            
             language = metadata.Substring(languageStartIndex + languageStart.Length, languageEndIndex - languageStartIndex - languageStart.Length);
+            Console.WriteLine("DETERMINED LANGUAGE: " + language);
         }
 
         private void DirectoryDelete(string path)
@@ -2170,7 +2151,7 @@ namespace AccessibleEPUB
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
             ss.cssText = @"html *
 {
-	font-family: ""Arial"", Helvetica, sans-serif !important;
+	/*font-family: ""Arial"", Helvetica, sans-serif !important;*/
 
 }
         p {
@@ -2701,7 +2682,7 @@ body {
             {
                 return;
             }
-            HTMLEditor.Document.ExecCommand("FontName", false, fontComboBox.SelectedItem.ToString());
+            //HTMLEditor.Document.ExecCommand("FontName", false, fontComboBox.SelectedItem.ToString());
             fileEdited = true;
             fileNotSaved = true;
             //ss.cssText = "html * {	font-family: 'Arial', Helvetica, sans-serif !important; }";
@@ -3171,7 +3152,8 @@ body {
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Path.Combine(initialPath, "About.html"));
+            AboutDialogBox abd = new AboutDialogBox();
+            abd.ShowDialog();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3241,6 +3223,17 @@ body {
             else if (refresh == false)
             {
                 playPauseRefreshButton.Image = Properties.Resources.PlaybackPreview_16x_24;
+            }
+        }
+
+
+        private static Version version = new Version(Application.ProductVersion);
+
+        public static Version Version
+        {
+            get
+            {
+                return version;
             }
         }
     }

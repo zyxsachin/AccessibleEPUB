@@ -55,9 +55,9 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.cancelButton);
             this.panel1.Controls.Add(this.saveButton);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // cancelButton
@@ -76,22 +76,23 @@
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.programLanguageComboBox);
             this.tabPage1.Controls.Add(this.programLanguageLabel);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             // 
             // programLanguageComboBox
             // 
+            this.programLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.programLanguageComboBox, "programLanguageComboBox");
             this.programLanguageComboBox.FormattingEnabled = true;
             this.programLanguageComboBox.Items.AddRange(new object[] {
@@ -106,7 +107,6 @@
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.publisherTexbox);
@@ -115,13 +115,14 @@
             this.tabPage2.Controls.Add(this.languageLabel);
             this.tabPage2.Controls.Add(this.authorTextBox);
             this.tabPage2.Controls.Add(this.authorLabel);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.singleFileCssRadioButton);
             this.groupBox1.Controls.Add(this.singleFileJsRadioButton);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -151,6 +152,7 @@
             // 
             // languageComboBox
             // 
+            this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.languageComboBox, "languageComboBox");
             this.languageComboBox.FormattingEnabled = true;
             this.languageComboBox.Items.AddRange(new object[] {

@@ -133,11 +133,11 @@ namespace AccessibleEPUB
                 form.setTitle(title);
                 form.setMode(mode);
 
-                if (languageComboBox.SelectedItem.ToString() == englishString)
+                if (languageComboBox.SelectedIndex == 0)
                 {
                     form.setLanguage("en");
                 }
-                else if (languageComboBox.SelectedItem.ToString() == germanString)
+                else if (languageComboBox.SelectedIndex == 1)
                 {
                     form.setLanguage("de");
                 }
@@ -188,7 +188,7 @@ namespace AccessibleEPUB
                 singleFileJsRadioButton.Checked = true;
             }
 
-                titleTextBox.Focus();
+            titleTextBox.Focus();
         }
     }
 }

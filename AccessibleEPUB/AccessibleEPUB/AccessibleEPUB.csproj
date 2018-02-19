@@ -129,6 +129,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutDialogBox.Designer.cs">
+      <DependentUpon>AboutDialogBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,12 @@
     <Compile Include="TableDialogBox.designer.cs">
       <DependentUpon>TableDialogBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutDialogBox.de.resx">
+      <DependentUpon>AboutDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutDialogBox.resx">
+      <DependentUpon>AboutDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.de.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

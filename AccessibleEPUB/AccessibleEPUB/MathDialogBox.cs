@@ -52,8 +52,7 @@ namespace AccessibleEPUB
             host.Child = formula;
             imageFolderPath = imagePath;
 
-            Console.WriteLine("initialPath: " + initialPath);
-            Console.WriteLine("ip:" + imagePath);
+            
 
         }
 
@@ -422,7 +421,7 @@ namespace AccessibleEPUB
             var svgFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".svg");
             svgFile = svgFilename;
             //pngFile = pngFilename;
-            Console.WriteLine(svgFile);
+
             //using (var stream = new FileStream(pngFilename, FileMode.Create))
             //{
                

@@ -1,6 +1,6 @@
 
 h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
-  font-family: "Arial", Helvetica, sans-serif;
+  /*font-family: "Arial", Helvetica, sans-serif;*/
 }
 
 .versionChanger *{
@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 
 
 .visible * {
-  font-family: "Times New Roman", Times, serif;
+  /*font-family: "Times New Roman", Times, serif;*/
 }
 
 .visible p {
