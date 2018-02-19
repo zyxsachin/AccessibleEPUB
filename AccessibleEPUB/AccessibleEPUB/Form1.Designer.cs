@@ -89,7 +89,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.indentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outdentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.togglePreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -525,8 +524,7 @@
             this.justifyToolStripMenuItem,
             this.toolStripSeparator6,
             this.indentToolStripMenuItem,
-            this.outdentToolStripMenuItem,
-            this.toolStripSeparator7});
+            this.outdentToolStripMenuItem});
             this.formatToolStripMenuItem.Name = "formatToolStripMenuItem";
             resources.ApplyResources(this.formatToolStripMenuItem, "formatToolStripMenuItem");
             // 
@@ -599,11 +597,6 @@
             this.outdentToolStripMenuItem.Name = "outdentToolStripMenuItem";
             resources.ApplyResources(this.outdentToolStripMenuItem, "outdentToolStripMenuItem");
             this.outdentToolStripMenuItem.Click += new System.EventHandler(this.outdentToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
             // 
             // viewToolStripMenuItem
             // 
@@ -1074,7 +1067,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem indentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem outdentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton togglePreviewButton;
         private System.Windows.Forms.ToolStripButton toggleEditorButton;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
