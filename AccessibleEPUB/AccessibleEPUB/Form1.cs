@@ -16,6 +16,7 @@ using System.Net;
 
 using System.Globalization;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 using mshtml;
 
@@ -146,6 +147,8 @@ namespace AccessibleEPUB
                  Version.Major.ToString(), Version.Minor.ToString());
 
             origLastSavedLabel = lastSavedLabel.Text;
+
+           
         }
 
 
@@ -1497,6 +1500,7 @@ namespace AccessibleEPUB
             tagsList.Add(new Tuple<int, string, string>(timeStartIndex, timeStart, time));
             tagsList.Add(new Tuple<int, string, string>(timeEndIndex, timeEnd, ""));
 
+    
 
             //SortedDictionary<int, string> tagsList = new SortedDictionary<int, string>();
             //tagsList.Add(titleStartIndex, titleStart);
@@ -1529,6 +1533,12 @@ namespace AccessibleEPUB
 
             string newMetaData = first + tagsList[0].Item3 + second + tagsList[2].Item3 + third + tagsList[4].Item3 +
                  fourth + tagsList[6].Item3 + fifth + tagsList[8].Item3 + sixth + tagsList[10].Item3 + seventh;
+
+            if (publisher == "")
+            {
+                newMetaData = newMetaData.Replace(publisherStart, "");
+                newMetaData = newMetaData.Replace(publisherEnd, "");
+            }
 
             File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), newMetaData);
 
@@ -1692,8 +1702,57 @@ namespace AccessibleEPUB
                 string absPath = Path.Combine(tempFolder, e.TabPage.Name);
                 openTab(absPath);
             }
+        }
 
+        private void generateTableOfContents()
+        {
+            string bodyContent = HTMLEditor.Document.Body.InnerHtml.ToLower();
 
+            string h1Regex = "<h[1-6][^>]*?>(?<TagText>.*?)</h[1-6]>";
+            string hRegex = "<h[1-6]";
+
+            
+            MatchCollection mc = Regex.Matches(bodyContent, h1Regex, RegexOptions.Singleline);
+
+            MatchCollection mc1 = Regex.Matches(bodyContent, hRegex, RegexOptions.Singleline);
+
+            List<Tuple<string, string, string>> headersList = new List<Tuple<string, string, string>>();
+
+            List<Tuple<string, string>> oldNew = new List<Tuple<string, string>>();
+
+            int h1Count = Regex.Matches(bodyContent, h1Regex).Count;
+            foreach (Match m in mc)
+            {
+                headersList.Add(new Tuple<string, string,string>(m.Value, m.Value.Substring(1, 2), m.Groups["TagText"].Value));
+            }
+
+            for (int i = 0; i < headersList.Count; i++)
+            {
+                string newString = headersList[i].Item1.Replace(headersList[i].Item1.Substring(0, 3), headersList[i].Item1.Substring(0, 3)
+                    + " id=\"toc_" + i + "\"");
+
+                oldNew.Add(new Tuple<string, string>(headersList[i].Item1, newString));
+
+            }
+
+            foreach (var entry in oldNew)
+            {
+                bodyContent = bodyContent.Replace(entry.Item1, entry.Item2);
+            }
+
+            foreach (Tuple<string, string,string> t in headersList)
+            {
+                //Console.WriteLine(t.Item1 + ": " + t.Item2);
+            }
+
+            foreach (Match a in mc1)
+            {
+                //Console.WriteLine(a.Value);
+            }
+            //Console.WriteLine(h1Count);
+
+            Console.WriteLine(bodyContent);
+ 
         }
 
 
@@ -2262,7 +2321,9 @@ body {
             //splitContainer1.Panel1Collapsed = true;
             //splitContainer1.Panel1.Hide();
 
-            HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyDown);
+            HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyUp);
+
+        
 
 
 
@@ -2347,8 +2408,6 @@ body {
 
                 File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
                 File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
-
-
 
 
 
@@ -2477,8 +2536,11 @@ body {
             fileEdited = false;
         }
 
-        private void HTMLEditorBodyKeyDown(object sender, System.Windows.Forms.HtmlElementEventArgs e)
+
+        private void HTMLEditorBodyKeyUp(object sender, System.Windows.Forms.HtmlElementEventArgs e)
         {
+          
+
             fileEdited = true;
             fileNotSaved = true;
             //refreshBrowsers();
@@ -3322,7 +3384,7 @@ body {
                 toggleRefreshPreviewToolStripMenuItem.Image = Properties.Resources.PlaybackPreview_16x;
             }
         }
-    }
+    
 
 
         private static Version version = new Version(Application.ProductVersion);
@@ -3357,7 +3419,25 @@ body {
             toggleToolStripSeparator.Visible = false;
         }
 
-       
+        private void HTMLEditor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                e.IsInputKey = true;
+                indent();
+            }
+            else if (e.KeyCode == Keys.Shift && e.KeyCode == Keys.Tab)
+            {
+
+                e.IsInputKey = true;
+                outdent();
+
+
+            }
+
+            
+              
+        }
     }
 
 

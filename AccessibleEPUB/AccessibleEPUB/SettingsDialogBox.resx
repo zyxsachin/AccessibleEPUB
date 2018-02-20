@@ -117,21 +117,72 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
+    <value>saveButton</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 460</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 98</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>616, 21</value>
+    <value>821, 26</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 39</value>
+    <value>165, 48</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
@@ -154,13 +205,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 21</value>
+    <value>631, 26</value>
   </data>
   <data name="saveButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 39</value>
+    <value>165, 48</value>
   </data>
   <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -180,54 +231,6 @@
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 373</value>
-  </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>761, 80</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="programLanguageComboBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="programLanguageComboBox.Items" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="programLanguageComboBox.Items1" xml:space="preserve">
-    <value>German</value>
-  </data>
-  <data name="programLanguageComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 51</value>
-  </data>
-  <data name="programLanguageComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="programLanguageComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 26</value>
-  </data>
-  <data name="programLanguageComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
   <data name="&gt;&gt;programLanguageComboBox.Name" xml:space="preserve">
     <value>programLanguageComboBox</value>
   </data>
@@ -239,27 +242,6 @@
   </data>
   <data name="&gt;&gt;programLanguageComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="programLanguageLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="programLanguageLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="programLanguageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 19</value>
-  </data>
-  <data name="programLanguageLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="programLanguageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 18</value>
-  </data>
-  <data name="programLanguageLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="programLanguageLabel.Text" xml:space="preserve">
-    <value>Language</value>
   </data>
   <data name="&gt;&gt;programLanguageLabel.Name" xml:space="preserve">
     <value>programLanguageLabel</value>
@@ -274,16 +256,16 @@
     <value>1</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 28</value>
   </data>
   <data name="tabPage1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>753, 344</value>
+    <value>1007, 428</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -303,29 +285,41 @@
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="singleFileCssRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;singleFileCssPictureBox.Name" xml:space="preserve">
+    <value>singleFileCssPictureBox</value>
   </data>
-  <data name="singleFileCssRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
+  <data name="&gt;&gt;singleFileCssPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="singleFileCssRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;singleFileCssPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="singleFileCssRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>221, 34</value>
+  <data name="&gt;&gt;singleFileCssPictureBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="singleFileCssRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Name" xml:space="preserve">
+    <value>singleFIleJsPictureBox</value>
   </data>
-  <data name="singleFileCssRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 22</value>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="singleFileCssRadioButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;singleFIleJsPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Name" xml:space="preserve">
+    <value>chooseFileFormatPictureBox</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="singleFileCssRadioButton.Text" xml:space="preserve">
-    <value>EPUB (CSS)</value>
   </data>
   <data name="&gt;&gt;singleFileCssRadioButton.Name" xml:space="preserve">
     <value>singleFileCssRadioButton</value>
@@ -337,31 +331,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;singleFileCssRadioButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="singleFileJsRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="singleFileJsRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="singleFileJsRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="singleFileJsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="singleFileJsRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="singleFileJsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 22</value>
-  </data>
-  <data name="singleFileJsRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="singleFileJsRadioButton.Text" xml:space="preserve">
-    <value>EPUB (JavaScript)</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;singleFileJsRadioButton.Name" xml:space="preserve">
     <value>singleFileJsRadioButton</value>
@@ -373,28 +343,31 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;singleFileJsRadioButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 258</value>
+    <value>27, 318</value>
   </data>
   <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>545, 74</value>
+    <value>727, 91</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Choose File Format</value>
+  </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -412,13 +385,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="publisherTexbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 137</value>
+    <value>27, 169</value>
   </data>
   <data name="publisherTexbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="publisherTexbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 26</value>
+    <value>744, 30</value>
   </data>
   <data name="publisherTexbox.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -442,13 +415,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="publisherLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 103</value>
-  </data>
-  <data name="publisherLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>23, 127</value>
   </data>
   <data name="publisherLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 18</value>
+    <value>90, 23</value>
   </data>
   <data name="publisherLabel.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -478,13 +448,13 @@
     <value>German</value>
   </data>
   <data name="languageComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 219</value>
+    <value>27, 270</value>
   </data>
   <data name="languageComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="languageComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 26</value>
+    <value>151, 31</value>
   </data>
   <data name="languageComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -508,19 +478,22 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="languageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 184</value>
-  </data>
-  <data name="languageLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>23, 226</value>
   </data>
   <data name="languageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 18</value>
+    <value>96, 23</value>
   </data>
   <data name="languageLabel.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
   <data name="languageLabel.Text" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <metadata name="settingsDialogToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="languageLabel.ToolTip" xml:space="preserve">
+    <value>Document language</value>
   </data>
   <data name="&gt;&gt;languageLabel.Name" xml:space="preserve">
     <value>languageLabel</value>
@@ -538,13 +511,13 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="authorTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 51</value>
+    <value>27, 63</value>
   </data>
   <data name="authorTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="authorTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 26</value>
+    <value>744, 30</value>
   </data>
   <data name="authorTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -568,13 +541,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="authorLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 19</value>
-  </data>
-  <data name="authorLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>23, 23</value>
   </data>
   <data name="authorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 18</value>
+    <value>67, 23</value>
   </data>
   <data name="authorLabel.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -595,16 +565,16 @@
     <value>6</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 28</value>
   </data>
   <data name="tabPage2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>753, 344</value>
+    <value>1007, 428</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -634,10 +604,10 @@
     <value>0, 0</value>
   </data>
   <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>761, 373</value>
+    <value>1015, 460</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -654,11 +624,275 @@
   <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="programLanguageComboBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="programLanguageComboBox.Items" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="programLanguageComboBox.Items1" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="programLanguageComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 63</value>
+  </data>
+  <data name="programLanguageComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="programLanguageComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 31</value>
+  </data>
+  <data name="programLanguageComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;programLanguageComboBox.Name" xml:space="preserve">
+    <value>programLanguageComboBox</value>
+  </data>
+  <data name="&gt;&gt;programLanguageComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;programLanguageComboBox.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;programLanguageComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="settingsDialogToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="programLanguageLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="programLanguageLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="programLanguageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="programLanguageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 23</value>
+  </data>
+  <data name="programLanguageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="programLanguageLabel.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="programLanguageLabel.ToolTip" xml:space="preserve">
+    <value>Program language</value>
+  </data>
+  <data name="&gt;&gt;programLanguageLabel.Name" xml:space="preserve">
+    <value>programLanguageLabel</value>
+  </data>
+  <data name="&gt;&gt;programLanguageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;programLanguageLabel.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;programLanguageLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="singleFileCssRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="singleFileCssRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="singleFileCssRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="singleFileCssRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>384, 42</value>
+  </data>
+  <data name="singleFileCssRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="singleFileCssRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 27</value>
+  </data>
+  <data name="singleFileCssRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="singleFileCssRadioButton.Text" xml:space="preserve">
+    <value>EPUB (CSS)</value>
+  </data>
+  <data name="singleFileCssRadioButton.ToolTip" xml:space="preserve">
+    <value>EPUB switching mechanism is handled with CSS. It is currently only supported partially by Readium</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.Name" xml:space="preserve">
+    <value>singleFileCssRadioButton</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="singleFileJsRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="singleFileJsRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="singleFileJsRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="singleFileJsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 42</value>
+  </data>
+  <data name="singleFileJsRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="singleFileJsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 27</value>
+  </data>
+  <data name="singleFileJsRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="singleFileJsRadioButton.Text" xml:space="preserve">
+    <value>Standard - EPUB (JavaScript)</value>
+  </data>
+  <data name="singleFileJsRadioButton.ToolTip" xml:space="preserve">
+    <value>EPUB switching mechanism is handled with JavaScript. Can be read with Calibre EBook reader</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.Name" xml:space="preserve">
+    <value>singleFileJsRadioButton</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAD8SURBVDhPpZM9CsJAEIVzAi9gYWVnm8o7eQQPkk6MYOMl
+        tJBcwNJA/EEMCoIkGJRxv7iBuMmKmgcDuzPvPXYmE8dEkiSuCk9FqCLTwZmcq2lVqGJLhb8+XWW4jKU/
+        20lnHOXBmRw1OHC17AUtDvzVWbqTjQzmsSz2iRzTex6cyVGDA/fNRF18Cr3pVoJDKjZQg6NN/ELs8jTc
+        TXF7FOVRBhy4uh0XA4/+eKIJcrY8GrQYhAyJPr8FXDRoMciYNMMyYXsBXDRoPxrUzQCYBtYWbAZmC9Yh
+        2gzMITb7jHoXahfpcnvkUYBaZZGAujRbZaBN/vuZylDFH35nx3kCLcERbFXgox8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>202, 0</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.ToolTip" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Name" xml:space="preserve">
+    <value>chooseFileFormatPictureBox</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="singleFIleJsPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="singleFIleJsPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="singleFIleJsPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="singleFIleJsPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>305, 45</value>
+  </data>
+  <data name="singleFIleJsPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="singleFIleJsPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="singleFIleJsPictureBox.ToolTip" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Name" xml:space="preserve">
+    <value>singleFIleJsPictureBox</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="singleFileCssPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="singleFileCssPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="singleFileCssPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="singleFileCssPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>533, 45</value>
+  </data>
+  <data name="singleFileCssPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="singleFileCssPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="singleFileCssPictureBox.ToolTip" xml:space="preserve">
+    <value>EPUB switching mechanism is handled with CSS. It is currently only supported partially by Readium</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.Name" xml:space="preserve">
+    <value>singleFileCssPictureBox</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -667,13 +901,19 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>761, 453</value>
+    <value>1015, 558</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;settingsDialogToolTip.Name" xml:space="preserve">
+    <value>settingsDialogToolTip</value>
+  </data>
+  <data name="&gt;&gt;settingsDialogToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SettingsDialogBox</value>

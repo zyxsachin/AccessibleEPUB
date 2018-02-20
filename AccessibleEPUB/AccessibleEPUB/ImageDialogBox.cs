@@ -48,16 +48,24 @@ namespace AccessibleEPUB
             if (imageLocationTextBox.Text == "")
             {
                 System.Windows.Forms.MessageBox.Show("The image path is empty.", "Empty image path", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             } 
+            else if (File.Exists(imageLocationTextBox.Text) == false)
+            {
+                System.Windows.Forms.MessageBox.Show("Image doesn't exist.", "Image doesn't exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             
             if (titleTextBox.Text == "")
             {
                 System.Windows.Forms.MessageBox.Show("The title is empty.", "Empty title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
 
             if (altTextTextBox.Text == "")
             {
                 System.Windows.Forms.MessageBox.Show("The alternative text is empty.", "Empty alternative text", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
 
             if (!Directory.Exists(imageFolderPath))
@@ -99,7 +107,47 @@ namespace AccessibleEPUB
                 tagEnd = "&lt;/" + tag + "&gt;";
             }
 
-            currentLocation.pasteHTML("\n" + @"<figure><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + @"""><p class=""transparent"">" +
+            string heightTag = "";
+            string widthTag = "";
+
+            int height = 0;
+            int width = 0;
+
+
+            if (heightTextBox.Text == "")
+            {
+
+            }
+            else if (Int32.TryParse(heightTextBox.Text, out height))
+            {
+                heightTag = " height=\"" + height + "px\" ";
+            } 
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Invalid height entry.", "Invalid height", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+            if (widthTextBox.Text == "")
+            {
+
+            }
+            else if (Int32.TryParse(widthTextBox.Text, out width))
+            {
+                widthTag = " width=\"" + width + "px\" ";
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Invalid width entry.", "Invalid width", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+
+
+
+            currentLocation.pasteHTML("\n" + @"<figure><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
                 tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption></figure>" + "\n");
 
 

@@ -202,6 +202,7 @@
             // 
             resources.ApplyResources(this.countToolStrip, "countToolStrip");
             this.countToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.countToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.countToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wordCountLabel,
             this.toolStripSeparator7,
@@ -227,6 +228,7 @@
             // 
             resources.ApplyResources(this.languageToolStrip, "languageToolStrip");
             this.languageToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.languageToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.languageToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.documentLanguageLabel});
             this.languageToolStrip.Name = "languageToolStrip";
@@ -240,6 +242,7 @@
             // 
             resources.ApplyResources(this.versionToolStrip, "versionToolStrip");
             this.versionToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.versionToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.versionToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lastSavedLabel,
             this.versionLabel});
@@ -330,6 +333,7 @@
             resources.ApplyResources(this.HTMLEditor, "HTMLEditor");
             this.HTMLEditor.Name = "HTMLEditor";
             this.HTMLEditor.ScriptErrorsSuppressed = true;
+            this.HTMLEditor.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.HTMLEditor_PreviewKeyDown);
             // 
             // geckoWebBrowser4
             // 
@@ -583,11 +587,13 @@
             // 
             resources.ApplyResources(this.numberedListToolStripMenuItem, "numberedListToolStripMenuItem");
             this.numberedListToolStripMenuItem.Name = "numberedListToolStripMenuItem";
+            this.numberedListToolStripMenuItem.Click += new System.EventHandler(this.numberedListToolStripMenuItem_Click);
             // 
             // bulletListToolStripMenuItem
             // 
             resources.ApplyResources(this.bulletListToolStripMenuItem, "bulletListToolStripMenuItem");
             this.bulletListToolStripMenuItem.Name = "bulletListToolStripMenuItem";
+            this.bulletListToolStripMenuItem.Click += new System.EventHandler(this.bulletListToolStripMenuItem_Click);
             // 
             // formatToolStripMenuItem
             // 
@@ -692,21 +698,25 @@
             // 
             resources.ApplyResources(this.togglePreviewToolStripMenuItem, "togglePreviewToolStripMenuItem");
             this.togglePreviewToolStripMenuItem.Name = "togglePreviewToolStripMenuItem";
+            this.togglePreviewToolStripMenuItem.Click += new System.EventHandler(this.togglePreviewButton_Click);
             // 
             // toggleEditorToolStripMenuItem
             // 
             resources.ApplyResources(this.toggleEditorToolStripMenuItem, "toggleEditorToolStripMenuItem");
             this.toggleEditorToolStripMenuItem.Name = "toggleEditorToolStripMenuItem";
+            this.toggleEditorToolStripMenuItem.Click += new System.EventHandler(this.toggleEditorButton_Click);
             // 
             // toggleCodeEditorToolStripMenuItem
             // 
             resources.ApplyResources(this.toggleCodeEditorToolStripMenuItem, "toggleCodeEditorToolStripMenuItem");
             this.toggleCodeEditorToolStripMenuItem.Name = "toggleCodeEditorToolStripMenuItem";
+            this.toggleCodeEditorToolStripMenuItem.Click += new System.EventHandler(this.toggleCode_Click);
             // 
             // toggleFileViewToolStripMenuItem
             // 
             resources.ApplyResources(this.toggleFileViewToolStripMenuItem, "toggleFileViewToolStripMenuItem");
             this.toggleFileViewToolStripMenuItem.Name = "toggleFileViewToolStripMenuItem";
+            this.toggleFileViewToolStripMenuItem.Click += new System.EventHandler(this.toggleFileExplorerButton_Click);
             // 
             // toggleRefreshPreviewToolStripMenuItem
             // 
@@ -799,24 +809,28 @@
             this.togglePreviewButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.togglePreviewButton, "togglePreviewButton");
             this.togglePreviewButton.Name = "togglePreviewButton";
+            this.togglePreviewButton.Click += new System.EventHandler(this.togglePreviewButton_Click);
             // 
             // toggleEditorButton
             // 
             this.toggleEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toggleEditorButton, "toggleEditorButton");
             this.toggleEditorButton.Name = "toggleEditorButton";
+            this.toggleEditorButton.Click += new System.EventHandler(this.toggleEditorButton_Click);
             // 
             // toggleCodeButton
             // 
             this.toggleCodeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toggleCodeButton, "toggleCodeButton");
             this.toggleCodeButton.Name = "toggleCodeButton";
+            this.toggleCodeButton.Click += new System.EventHandler(this.toggleCode_Click);
             // 
             // toggleFileExplorerButton
             // 
             this.toggleFileExplorerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toggleFileExplorerButton, "toggleFileExplorerButton");
             this.toggleFileExplorerButton.Name = "toggleFileExplorerButton";
+            this.toggleFileExplorerButton.Click += new System.EventHandler(this.toggleFileExplorerButton_Click);
             // 
             // playPauseRefreshButton
             // 
@@ -824,6 +838,7 @@
             this.playPauseRefreshButton.Image = global::AccessibleEPUB.Properties.Resources.Pause_16x_24;
             resources.ApplyResources(this.playPauseRefreshButton, "playPauseRefreshButton");
             this.playPauseRefreshButton.Name = "playPauseRefreshButton";
+            this.playPauseRefreshButton.Click += new System.EventHandler(this.playPauseRefreshButton_Click);
             // 
             // editToolStrip
             // 

@@ -117,31 +117,381 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="singleFileJsRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;languageLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 437</value>
+  <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
   </data>
-  <data name="titleLabel.Text" xml:space="preserve">
-    <value>Title</value>
+  <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 78</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>727, 30</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Name" xml:space="preserve">
+    <value>titleTextBox</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="titleLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 41</value>
+  </data>
+  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 23</value>
+  </data>
+  <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="titleLabel.Text" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <metadata name="newFileDialogToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="titleLabel.ToolTip" xml:space="preserve">
+    <value>Title of the EPUB document as read by the EBook reader</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
+    <value>titleLabel</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="authorLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="authorLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="authorLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 129</value>
+  </data>
+  <data name="authorLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 23</value>
+  </data>
+  <data name="authorLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="authorLabel.Text" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="&gt;&gt;authorLabel.Name" xml:space="preserve">
+    <value>authorLabel</value>
+  </data>
+  <data name="&gt;&gt;authorLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;authorLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;authorLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="authorTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="authorTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 166</value>
+  </data>
+  <data name="authorTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="authorTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>727, 30</value>
+  </data>
+  <data name="authorTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;authorTextBox.Name" xml:space="preserve">
+    <value>authorTextBox</value>
+  </data>
+  <data name="&gt;&gt;authorTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;authorTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;authorTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="singleFileCssPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="singleFileCssPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="singleFileCssPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="singleFileCssPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 45</value>
+  </data>
+  <data name="singleFileCssPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="singleFileCssPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="singleFileCssPictureBox.ToolTip" xml:space="preserve">
+    <value>EPUB switching mechanism is handled with CSS. It is currently only supported partially by Readium</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.Name" xml:space="preserve">
+    <value>singleFileCssPictureBox</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssPictureBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="singleFileCssRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="singleFileCssRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="singleFileCssRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 42</value>
+  </data>
+  <data name="singleFileCssRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="singleFileCssRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 27</value>
+  </data>
+  <data name="singleFileCssRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="singleFileCssRadioButton.Text" xml:space="preserve">
+    <value>EPUB (CSS)</value>
+  </data>
+  <data name="singleFileCssRadioButton.ToolTip" xml:space="preserve">
+    <value>EPUB switching mechanism is handled with CSS. It is currently only supported partially by Readium</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.Name" xml:space="preserve">
+    <value>singleFileCssRadioButton</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFileCssRadioButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="singleFIleJsPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="singleFIleJsPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="singleFIleJsPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="singleFIleJsPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>305, 45</value>
+  </data>
+  <data name="singleFIleJsPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="singleFIleJsPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="singleFIleJsPictureBox.ToolTip" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Name" xml:space="preserve">
+    <value>singleFIleJsPictureBox</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFIleJsPictureBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 0</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.ToolTip" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Name" xml:space="preserve">
+    <value>chooseFileFormatPictureBox</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;chooseFileFormatPictureBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="singleFileJsRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="singleFileJsRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="singleFileJsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 42</value>
+  </data>
+  <data name="singleFileJsRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="singleFileJsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 27</value>
+  </data>
+  <data name="singleFileJsRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="singleFileJsRadioButton.Text" xml:space="preserve">
+    <value>Standard - EPUB (JavaScript)</value>
+  </data>
+  <data name="singleFileJsRadioButton.ToolTip" xml:space="preserve">
+    <value>EPUB switching mechanism is handled with JavaScript. Can be read with Calibre EBook reader</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.Name" xml:space="preserve">
+    <value>singleFileJsRadioButton</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;singleFileJsRadioButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 418</value>
+  </data>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>727, 91</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Choose File Format</value>
+  </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works
+</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
   <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="publisherLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 18</value>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="languageComboBox.Items1" xml:space="preserve">
-    <value>German</value>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>547, 538</value>
+  </data>
+  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 65</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
     <value>$this</value>
@@ -149,401 +499,187 @@
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;singleFileJsRadioButton.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 26</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="publisherLabel.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="okButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
-  <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 33</value>
+  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>301, 538</value>
   </data>
   <data name="okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
-    <value>titleLabel</value>
-  </data>
-  <data name="languageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 18</value>
-  </data>
-  <data name="&gt;&gt;languageComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 18</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="languageComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="publisherTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 206</value>
-  </data>
-  <data name="singleFileCssRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;authorLabel.Name" xml:space="preserve">
-    <value>authorLabel</value>
-  </data>
-  <data name="languageLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;singleFileCssRadioButton.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;publisherLabel.Name" xml:space="preserve">
-    <value>publisherLabel</value>
+  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 65</value>
   </data>
   <data name="okButton.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>New File</value>
-  </data>
-  <data name="authorLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;singleFileJsRadioButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;singleFileCssRadioButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="languageComboBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="authorLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="&gt;&gt;publisherTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="singleFileCssRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Name" xml:space="preserve">
-    <value>titleTextBox</value>
-  </data>
-  <data name="authorTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 135</value>
-  </data>
   <data name="okButton.Text" xml:space="preserve">
     <value>OK</value>
-  </data>
-  <data name="&gt;&gt;languageLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;singleFileCssRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="publisherLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 176</value>
-  </data>
-  <data name="authorTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="publisherTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="authorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 18</value>
-  </data>
-  <data name="&gt;&gt;authorLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;authorLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;authorTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="authorLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="publisherLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="authorLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 105</value>
-  </data>
-  <data name="singleFileCssRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;publisherTextBox.Name" xml:space="preserve">
-    <value>publisherTextBox</value>
-  </data>
-  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="authorLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;languageLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="publisherTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="titleLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="&gt;&gt;languageComboBox.Name" xml:space="preserve">
-    <value>languageComboBox</value>
-  </data>
-  <data name="publisherLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="authorTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
   </data>
   <data name="&gt;&gt;okButton.Name" xml:space="preserve">
     <value>okButton</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="languageLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;publisherTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="languageLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
+  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 53</value>
-  </data>
   <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="singleFileCssRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 22</value>
-  </data>
-  <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 340</value>
-  </data>
-  <data name="publisherTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 26</value>
-  </data>
-  <data name="authorLabel.Text" xml:space="preserve">
-    <value>Author</value>
-  </data>
-  <data name="singleFileJsRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="singleFileJsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
-  </data>
-  <data name="singleFileJsRadioButton.Text" xml:space="preserve">
-    <value>Standard - EPUB (JavaScript)</value>
-  </data>
-  <data name="&gt;&gt;languageComboBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;publisherLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="publisherLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;authorLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;authorTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>628, 510</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>NewFileDialogBox</value>
-  </data>
-  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 437</value>
-  </data>
-  <data name="&gt;&gt;singleFileJsRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;languageLabel.Name" xml:space="preserve">
-    <value>languageLabel</value>
-  </data>
-  <data name="&gt;&gt;singleFileCssRadioButton.Name" xml:space="preserve">
-    <value>singleFileCssRadioButton</value>
-  </data>
-  <data name="okButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="publisherLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="publisherLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 217</value>
   </data>
-  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 53</value>
+  <data name="publisherLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 23</value>
   </data>
-  <data name="singleFileJsRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="languageComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="languageComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 277</value>
-  </data>
-  <data name="titleLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="&gt;&gt;publisherLabel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="publisherLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="publisherLabel.Text" xml:space="preserve">
     <value>Publisher (optional)</value>
   </data>
-  <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 63</value>
+  <data name="publisherLabel.ToolTip" xml:space="preserve">
+    <value>Publisher/Organization/Institution</value>
   </data>
-  <data name="publisherTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;publisherLabel.Name" xml:space="preserve">
+    <value>publisherLabel</value>
   </data>
-  <data name="languageComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 26</value>
+  <data name="&gt;&gt;publisherLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="languageLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="languageComboBox.Items" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="&gt;&gt;authorTextBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="authorTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 26</value>
-  </data>
-  <data name="&gt;&gt;publisherTextBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;publisherLabel.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="languageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 246</value>
-  </data>
-  <data name="singleFileJsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 22</value>
-  </data>
-  <data name="languageLabel.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="&gt;&gt;singleFileJsRadioButton.Name" xml:space="preserve">
-    <value>singleFileJsRadioButton</value>
-  </data>
-  <data name="singleFileCssRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>269, 34</value>
-  </data>
-  <data name="authorTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Choose File Format</value>
-  </data>
-  <data name="&gt;&gt;authorTextBox.Name" xml:space="preserve">
-    <value>authorTextBox</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
-    <value>cancelButton</value>
-  </data>
-  <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>545, 74</value>
-  </data>
-  <data name="singleFileCssRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="singleFileCssRadioButton.Text" xml:space="preserve">
-    <value>EPUB (CSS)</value>
-  </data>
-  <data name="&gt;&gt;languageComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;publisherLabel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="singleFileJsRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="publisherTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
-  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="publisherTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 254</value>
+  </data>
+  <data name="publisherTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="publisherTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>727, 30</value>
+  </data>
+  <data name="publisherTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;publisherTextBox.Name" xml:space="preserve">
+    <value>publisherTextBox</value>
+  </data>
+  <data name="&gt;&gt;publisherTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;publisherTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;publisherTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="languageComboBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
-  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="languageComboBox.Items" xml:space="preserve">
+    <value>English</value>
   </data>
-  <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="languageComboBox.Items1" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="languageComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 341</value>
+  </data>
+  <data name="languageComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="languageComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 31</value>
+  </data>
+  <data name="languageComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;languageComboBox.Name" xml:space="preserve">
+    <value>languageComboBox</value>
+  </data>
+  <data name="&gt;&gt;languageComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;languageComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;languageComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="languageLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="languageLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
-  <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="languageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 303</value>
+  </data>
+  <data name="languageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 23</value>
+  </data>
+  <data name="languageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="languageLabel.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="languageLabel.ToolTip" xml:space="preserve">
+    <value>Document language</value>
+  </data>
+  <data name="&gt;&gt;languageLabel.Name" xml:space="preserve">
+    <value>languageLabel</value>
+  </data>
+  <data name="&gt;&gt;languageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;languageLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;languageLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>837, 628</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>New File</value>
+  </data>
+  <data name="&gt;&gt;newFileDialogToolTip.Name" xml:space="preserve">
+    <value>newFileDialogToolTip</value>
+  </data>
+  <data name="&gt;&gt;newFileDialogToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>NewFileDialogBox</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

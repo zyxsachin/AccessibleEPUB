@@ -42,6 +42,10 @@
             this.chooseImageButton = new System.Windows.Forms.Button();
             this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.typeLabel = new System.Windows.Forms.Label();
+            this.widthLabel = new System.Windows.Forms.Label();
+            this.heightLabel = new System.Windows.Forms.Label();
+            this.widthTextBox = new System.Windows.Forms.TextBox();
+            this.heightTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // imageLocationLabel
@@ -116,10 +120,34 @@
             resources.ApplyResources(this.typeLabel, "typeLabel");
             this.typeLabel.Name = "typeLabel";
             // 
+            // widthLabel
+            // 
+            resources.ApplyResources(this.widthLabel, "widthLabel");
+            this.widthLabel.Name = "widthLabel";
+            // 
+            // heightLabel
+            // 
+            resources.ApplyResources(this.heightLabel, "heightLabel");
+            this.heightLabel.Name = "heightLabel";
+            // 
+            // widthTextBox
+            // 
+            resources.ApplyResources(this.widthTextBox, "widthTextBox");
+            this.widthTextBox.Name = "widthTextBox";
+            // 
+            // heightTextBox
+            // 
+            resources.ApplyResources(this.heightTextBox, "heightTextBox");
+            this.heightTextBox.Name = "heightTextBox";
+            // 
             // ImageDialogBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.heightTextBox);
+            this.Controls.Add(this.widthTextBox);
+            this.Controls.Add(this.heightLabel);
+            this.Controls.Add(this.widthLabel);
             this.Controls.Add(this.typeLabel);
             this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.chooseImageButton);
@@ -154,5 +182,9 @@
         private System.Windows.Forms.Button chooseImageButton;
         private System.Windows.Forms.ComboBox typeComboBox;
         private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label widthLabel;
+        private System.Windows.Forms.Label heightLabel;
+        private System.Windows.Forms.TextBox widthTextBox;
+        private System.Windows.Forms.TextBox heightTextBox;
     }
 }

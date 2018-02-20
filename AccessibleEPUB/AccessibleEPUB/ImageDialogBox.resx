@@ -126,14 +126,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="imageLocationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 28</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="imageLocationLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>12, 34</value>
   </data>
   <data name="imageLocationLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 18</value>
+    <value>166, 23</value>
   </data>
   <data name="imageLocationLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -151,19 +147,20 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imageLocationLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>16</value>
   </data>
   <data name="imageLocationTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="imageLocationTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 62</value>
+    <value>16, 76</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="imageLocationTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="imageLocationTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 26</value>
+    <value>713, 30</value>
   </data>
   <data name="imageLocationTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -178,19 +175,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imageLocationTextBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>15</value>
   </data>
   <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 143</value>
+    <value>16, 176</value>
   </data>
   <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 26</value>
+    <value>744, 30</value>
   </data>
   <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -205,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>13</value>
   </data>
   <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -214,13 +211,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 110</value>
-  </data>
-  <data name="titleLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>12, 135</value>
   </data>
   <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 18</value>
+    <value>46, 23</value>
   </data>
   <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -238,19 +232,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>14</value>
   </data>
   <data name="altTextTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="altTextTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 224</value>
+    <value>16, 276</value>
   </data>
   <data name="altTextTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="altTextTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 26</value>
+    <value>744, 30</value>
   </data>
   <data name="altTextTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -265,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;altTextTextBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="altTextLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -274,13 +268,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="altTextLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 191</value>
-  </data>
-  <data name="altTextLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>12, 235</value>
   </data>
   <data name="altTextLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 18</value>
+    <value>144, 23</value>
   </data>
   <data name="altTextLabel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -298,7 +289,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;altTextLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
   <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -307,13 +298,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="captionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 272</value>
-  </data>
-  <data name="captionLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>12, 335</value>
   </data>
   <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 18</value>
+    <value>165, 23</value>
   </data>
   <data name="captionLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -331,19 +319,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="captionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 306</value>
+    <value>16, 377</value>
   </data>
   <data name="captionTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="captionTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 26</value>
+    <value>744, 30</value>
   </data>
   <data name="captionTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -358,19 +346,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="addImageButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="addImageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 440</value>
+    <value>404, 599</value>
   </data>
   <data name="addImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="addImageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 39</value>
+    <value>165, 48</value>
   </data>
   <data name="addImageButton.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -388,19 +376,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;addImageButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>446, 440</value>
+    <value>595, 599</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 39</value>
+    <value>165, 48</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -418,7 +406,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="chooseImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -435,13 +423,13 @@
     <value>Stretch</value>
   </data>
   <data name="chooseImageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>548, 62</value>
+    <value>731, 76</value>
   </data>
   <data name="chooseImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="chooseImageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 24</value>
+    <value>29, 30</value>
   </data>
   <data name="chooseImageButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -456,19 +444,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chooseImageButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="typeComboBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
   <data name="typeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 388</value>
+    <value>16, 478</value>
   </data>
   <data name="typeComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="typeComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 26</value>
+    <value>199, 31</value>
   </data>
   <data name="typeComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -483,7 +471,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;typeComboBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="typeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -492,13 +480,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="typeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 354</value>
-  </data>
-  <data name="typeLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>12, 436</value>
   </data>
   <data name="typeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 18</value>
+    <value>91, 23</value>
   </data>
   <data name="typeLabel.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -516,19 +501,139 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;typeLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="widthLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="widthLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="widthLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="widthLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 436</value>
+  </data>
+  <data name="widthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="widthLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="widthLabel.Text" xml:space="preserve">
+    <value>Width (px)</value>
+  </data>
+  <data name="&gt;&gt;widthLabel.Name" xml:space="preserve">
+    <value>widthLabel</value>
+  </data>
+  <data name="&gt;&gt;widthLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;widthLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;widthLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="heightLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="heightLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="heightLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="heightLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 436</value>
+  </data>
+  <data name="heightLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 23</value>
+  </data>
+  <data name="heightLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="heightLabel.Text" xml:space="preserve">
+    <value>Height (px)</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.Name" xml:space="preserve">
+    <value>heightLabel</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="widthTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="widthTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>404, 477</value>
+  </data>
+  <data name="widthTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="widthTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 30</value>
+  </data>
+  <data name="widthTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;widthTextBox.Name" xml:space="preserve">
+    <value>widthTextBox</value>
+  </data>
+  <data name="&gt;&gt;widthTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;widthTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;widthTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="heightTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="heightTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>595, 478</value>
+  </data>
+  <data name="heightTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="heightTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 30</value>
+  </data>
+  <data name="heightTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;heightTextBox.Name" xml:space="preserve">
+    <value>heightTextBox</value>
+  </data>
+  <data name="&gt;&gt;heightTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;heightTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;heightTextBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>613, 500</value>
+    <value>817, 679</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Choose Image</value>
