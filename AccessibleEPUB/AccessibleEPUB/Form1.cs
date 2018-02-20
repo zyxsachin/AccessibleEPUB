@@ -31,6 +31,8 @@ using Microsoft.Win32;
 using GlobalHotKey;
 using System.Windows.Input;
 
+using Ionic;
+
 
 
 
@@ -41,7 +43,7 @@ namespace AccessibleEPUB
 
     public partial class Form1 : Form
     {
-        
+       
         //ScintillaNET.Scintilla TextArea;
         ICSharpCode.AvalonEdit.TextEditor codeArea;
 
@@ -313,8 +315,8 @@ namespace AccessibleEPUB
             //    richTextBox1.Text = innerHtml;
             //    geckoWebBrowser1.ViewSource();
             //}
-
-            string absPath = Path.Combine(tempFolder, e.Node.FullPath);
+            Console.WriteLine("TEMPFOLDER: " + accEpubFolderName);
+            string absPath = Path.Combine(accEpubFolderName, e.Node.FullPath);
             string fileName = e.Node.FullPath;
             FileAttributes attr = File.GetAttributes(absPath);
             if (attr.HasFlag(FileAttributes.Directory))
@@ -516,6 +518,7 @@ namespace AccessibleEPUB
             string initialFolder = Path.Combine(epubFolderName, "OEBPS");
             string manifestContent = manifestContentParameter;
             string navFileName = "nav.xhtml";
+            string tocNcxFileName = "toc.ncx";
 
             foreach (var subdirectory in Directory.GetDirectories(searchFolder))
             {
@@ -567,14 +570,21 @@ namespace AccessibleEPUB
                     mediaType = "application/x-dtbncx+xml";
                 }
 
+                //Console.WriteLine(fullFileName.Substring(initialFolder.Length + 1));
+                string manifestFileName = fullFileName.Substring(initialFolder.Length + 1).Replace("\\","/");
 
                 if (shortFileName == navFileName)
                 {
-                    manifestContent += "\t<item id=\"navid\" href=\"" + fullFileName.Substring(initialFolder.Length + 1) + "\" media-type=\"" + mediaType + "\" properties=\"nav\"/>\n";
+                    manifestContent += "\t<item id=\"navid\" href=\"" + manifestFileName + "\" media-type=\"" + mediaType + "\" properties=\"nav\"/>\n";
+                }          
+                else if (shortFileName == tocNcxFileName)
+                {
+                    //<item id="toc.ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+                    manifestContent += "\t<item id=\"ncx\" href=\"" + manifestFileName + "\" media-type=\"" + "application/x-dtbncx+xml" + "\"/>\n";
                 }
                 else if (!fullFileName.EndsWith(".opf"))
                 {
-                    manifestContent += "\t<item id=\"" + shortFileName + "\" href=\"" + fullFileName.Substring(initialFolder.Length + 1) + "\" media-type=\"" + mediaType + "\"/>\n";
+                    manifestContent += "\t<item id=\"" + shortFileName + "\" href=\"" + manifestFileName + "\" media-type=\"" + mediaType + "\"/>\n";
                 }
 
                 //r.Text = searchFolder;
@@ -1438,8 +1448,8 @@ namespace AccessibleEPUB
             string publisherStart = "<dc:publisher>";
             string publisherEnd = "</dc:publisher>";
 
-            string identifierStart = "<dc:identifier>";
-            string identifierEnd = "</dc:identifier>";
+            //string identifierStart = "<dc:identifier>";
+            //string identifierEnd = "</dc:identifier>";
 
             string timeStart = "<meta property=\"dcterms:modified\">";
             string timeEnd = "</meta>";
@@ -1460,8 +1470,8 @@ namespace AccessibleEPUB
             int publisherStartIndex = metadata.IndexOf(publisherStart);
             int publisherEndIndex = metadata.IndexOf(publisherEnd);
 
-            int identifierStartIndex = metadata.IndexOf(identifierStart);
-            int identifierEndIndex = metadata.IndexOf(identifierEnd);
+            //int identifierStartIndex = metadata.IndexOf(identifierStart);
+            //int identifierEndIndex = metadata.IndexOf(identifierEnd);
 
             int timeStartIndex = metadata.IndexOf(timeStart);
             int timeEndIndex = metadata.IndexOf(timeEnd);
@@ -1494,8 +1504,8 @@ namespace AccessibleEPUB
             tagsList.Add(new Tuple<int, string, string>(languageEndIndex, languageEnd, ""));
             tagsList.Add(new Tuple<int, string, string>(publisherStartIndex, publisherStart, publisher));
             tagsList.Add(new Tuple<int, string, string>(publisherEndIndex, publisherEnd, ""));
-            tagsList.Add(new Tuple<int, string, string>(identifierStartIndex, identifierStart, identifier));
-            tagsList.Add(new Tuple<int, string, string>(identifierEndIndex, identifierEnd, ""));
+            //tagsList.Add(new Tuple<int, string, string>(identifierStartIndex, identifierStart, identifier));
+            //tagsList.Add(new Tuple<int, string, string>(identifierEndIndex, identifierEnd, ""));
 
             tagsList.Add(new Tuple<int, string, string>(timeStartIndex, timeStart, time));
             tagsList.Add(new Tuple<int, string, string>(timeEndIndex, timeEnd, ""));
@@ -1520,8 +1530,9 @@ namespace AccessibleEPUB
             string third = metadata.Substring(tagsList[3].Item1, tagsList[4].Item1 + tagsList[4].Item2.Length - tagsList[3].Item1);
             string fourth = metadata.Substring(tagsList[5].Item1, tagsList[6].Item1 + tagsList[6].Item2.Length - tagsList[5].Item1);
             string fifth = metadata.Substring(tagsList[7].Item1, tagsList[8].Item1 + tagsList[8].Item2.Length - tagsList[7].Item1);
-            string sixth = metadata.Substring(tagsList[9].Item1, tagsList[10].Item1 + tagsList[10].Item2.Length - tagsList[9].Item1);
-            string seventh = metadata.Substring(tagsList[11].Item1);
+            string sixth = metadata.Substring(tagsList[9].Item1);
+            //string sixth = metadata.Substring(tagsList[9].Item1, tagsList[10].Item1 + tagsList[10].Item2.Length - tagsList[9].Item1);
+            //string seventh = metadata.Substring(tagsList[11].Item1);
 
 
             //string first = metadata.Substring(0, titleStartIndex + titleStart.Length);
@@ -1532,7 +1543,12 @@ namespace AccessibleEPUB
 
 
             string newMetaData = first + tagsList[0].Item3 + second + tagsList[2].Item3 + third + tagsList[4].Item3 +
-                 fourth + tagsList[6].Item3 + fifth + tagsList[8].Item3 + sixth + tagsList[10].Item3 + seventh;
+                 fourth + tagsList[6].Item3 + fifth + tagsList[8].Item3 + sixth;
+            //+ tagsList[10].Item3 + seventh;
+
+            Guid uuid = Guid.NewGuid();
+
+            newMetaData = newMetaData.Replace("BookIdentificationNumber", uuid.ToString());
 
             if (publisher == "")
             {
@@ -1699,7 +1715,7 @@ namespace AccessibleEPUB
             {
                 filesTabControl.SelectedTab = e.TabPage;
 
-                string absPath = Path.Combine(tempFolder, e.TabPage.Name);
+                string absPath = Path.Combine(accEpubFolderName, e.TabPage.Name);
                 openTab(absPath);
             }
         }
@@ -1814,6 +1830,65 @@ namespace AccessibleEPUB
             saveFile();
         }
 
+        private void createEpubZip(string source, string dest)
+        {
+      
+
+            // Creating ZIP file and writing mimetype
+            using (Ionic.Zip.ZipOutputStream zs = new Ionic.Zip.ZipOutputStream(dest))
+            {
+                var o = zs.PutNextEntry("mimetype");
+                o.CompressionLevel = Ionic.Zlib.CompressionLevel.None;
+
+                byte[] mimetype = System.Text.Encoding.ASCII.GetBytes("application/epub+zip");
+                zs.Write(mimetype, 0, mimetype.Length);
+            }
+
+            // Adding META-INF and OEPBS folders including files     
+            using (Ionic.Zip.ZipFile zip = new Ionic.Zip.ZipFile(dest))
+            {
+                zip.AddDirectory(Path.Combine(source, "META-INF"), "META-INF");
+                zip.AddDirectory(Path.Combine(source, "OEBPS"), "OEBPS");
+                zip.Save();
+            }
+        }
+
+        //private void Zipup(string source, string destination)
+        //{
+         
+        //    using (FileStream fs = File.Open(destination, FileMode.Create, FileAccess.ReadWrite))
+        //    {
+        //        using (var output = new Ionic.Zip.ZipOutputStream(fs))
+        //        {
+        //            var e = output.PutNextEntry("mimetype");
+        //            e.CompressionLevel = Ionic.Zlib.CompressionLevel.None;
+
+        //            byte[] buffer = System.Text.Encoding.ASCII.GetBytes("application/epub+zip");
+        //            output.Write(buffer, 0, buffer.Length);
+
+        //            output.PutNextEntry("META-INF/container.xml");
+        //            WriteExistingFile(output, "META-INF/container.xml");
+        //            output.PutNextEntry("OPS/");  // another directory
+        //            output.PutNextEntry("OPS/whatever.xhtml");
+        //            WriteExistingFile(output, "OPS/whatever.xhtml");
+        //            // ...
+        //        }
+        //    }
+        //}
+
+        //private void WriteExistingFile(Stream output, string filename)
+        //{
+        //    using (FileStream fs = File.Open(fileName, FileMode.Read))
+        //    {
+        //        int n = -1;
+        //        byte[] buffer = new byte[2048];
+        //        while ((n = fs.Read(buffer, 0, buffer.Length)) > 0)
+        //        {
+        //            output.Write(buffer, 0, n);
+        //        }
+        //    }
+        //}
+
         private void saveFile()
         {
             if (containsFile == false)
@@ -1864,7 +1939,9 @@ namespace AccessibleEPUB
 
             string zipFileName = epubFolderName + ".zip";
             File.Delete(zipFileName);
-            ZipFile.CreateFromDirectory(epubFolderName, zipFileName);
+
+            createEpubZip(epubFolderName, zipFileName);
+            //ZipFile.CreateFromDirectory(epubFolderName, zipFileName);
 
             File.Copy(zipFileName, target, true);
             File.Delete(zipFileName);
