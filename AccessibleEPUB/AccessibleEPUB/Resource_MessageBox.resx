@@ -117,32 +117,124 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="insertFormulaButton.Text" xml:space="preserve">
-    <value>Formel einfügen</value>
+  <data name="conversionContent" xml:space="preserve">
+    <value>Problem converting from WYSIWYG to HTML</value>
   </data>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>Abbrechen</value>
+  <data name="conversionTitle" xml:space="preserve">
+    <value>Conversion problem</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="formulaLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 23</value>
+  <data name="emptyAltTextContent" xml:space="preserve">
+    <value>The alternative text is empty.</value>
   </data>
-  <data name="formulaLabel.Text" xml:space="preserve">
-    <value>Latex Code eingeben</value>
+  <data name="emptyAltTextTitle" xml:space="preserve">
+    <value>Empty alternative text</value>
   </data>
-  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 23</value>
+  <data name="emptyTitleContent" xml:space="preserve">
+    <value>The title is empty.</value>
   </data>
-  <data name="titleLabel.Text" xml:space="preserve">
-    <value>Titel</value>
+  <data name="emptyTitleTitle" xml:space="preserve">
+    <value>Empty title</value>
   </data>
-  <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 23</value>
+  <data name="formulaOverwriteContent" xml:space="preserve">
+    <value>Formula with same title already exists in the document. Should the file be overwritten?</value>
   </data>
-  <data name="captionLabel.Text" xml:space="preserve">
-    <value>Bildunterschrift (optional)</value>
+  <data name="formulaOverwriteTitle" xml:space="preserve">
+    <value>Overwrite file</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Mathematik einfügen</value>
+  <data name="imageOverwriteContent" xml:space="preserve">
+    <value>Image with same name already exists in the document. Should the file be overwritten?</value>
+  </data>
+  <data name="imageOverwriteTitle" xml:space="preserve">
+    <value>Overwrite file</value>
+  </data>
+  <data name="imagePathContent" xml:space="preserve">
+    <value>Image doesn't exist.</value>
+  </data>
+  <data name="imagePathTitle" xml:space="preserve">
+    <value>Image doesn't exist</value>
+  </data>
+  <data name="invalidFormulaContent" xml:space="preserve">
+    <value>The entered formula is invalid.</value>
+  </data>
+  <data name="invalidFormulaTitle" xml:space="preserve">
+    <value>Invalid formula</value>
+  </data>
+  <data name="invalidHeightContent" xml:space="preserve">
+    <value>Invalid height entry.</value>
+  </data>
+  <data name="invalidHeightTitle" xml:space="preserve">
+    <value>Invalid height</value>
+  </data>
+  <data name="invalidWidthContent" xml:space="preserve">
+    <value>Invalid width entry.</value>
+  </data>
+  <data name="invalidWidthTitle" xml:space="preserve">
+    <value>Invalid width</value>
+  </data>
+  <data name="noFormulaContent" xml:space="preserve">
+    <value>No input was entered.</value>
+  </data>
+  <data name="noFormulaTitle" xml:space="preserve">
+    <value>Missing formula</value>
+  </data>
+  <data name="notAllFieldsContent" xml:space="preserve">
+    <value>Not all required fields are filled out.</value>
+  </data>
+  <data name="notAllFieldsTitle" xml:space="preserve">
+    <value>Empty fields</value>
+  </data>
+  <data name="notDeleteTempContent" xml:space="preserve">
+    <value>Could not delete all files in temp folder.</value>
+  </data>
+  <data name="notDeleteTempTitle" xml:space="preserve">
+    <value>Unable to delete files in temp folder</value>
+  </data>
+  <data name="parseInputContent" xml:space="preserve">
+    <value>An error occurred while parsing the given input:</value>
+  </data>
+  <data name="parseInputTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="probReadContContent" xml:space="preserve">
+    <value>Problem reading Content.xhtml</value>
+  </data>
+  <data name="probReadContTitle" xml:space="preserve">
+    <value>Error reading Content.xhtml</value>
+  </data>
+  <data name="probReadNavContent" xml:space="preserve">
+    <value>Problem reading nav.xhtml</value>
+  </data>
+  <data name="probReadNavTitle" xml:space="preserve">
+    <value>Error reading nav.xhtml</value>
+  </data>
+  <data name="saveLeavingContent" xml:space="preserve">
+    <value>Save the file before exiting?</value>
+  </data>
+  <data name="saveLeavingTitle" xml:space="preserve">
+    <value>Save change</value>
+  </data>
+  <data name="tempInUseContent" xml:space="preserve">
+    <value>Folder in use. Please leave and then press OK.</value>
+  </data>
+  <data name="tempInUseLongContent" xml:space="preserve">
+    <value>Temp folder is still in use. After pressing OK, the file opening process will stop.</value>
+  </data>
+  <data name="tempInUseLongTitle" xml:space="preserve">
+    <value>Folder still in use</value>
+  </data>
+  <data name="tempInUseTitle" xml:space="preserve">
+    <value>Folder in use</value>
+  </data>
+  <data name="tocAccEpubContent" xml:space="preserve">
+    <value>Table of Contents can only be generated if file was created in Accessible EPUB.</value>
+  </data>
+  <data name="tocAccEpubTitle" xml:space="preserve">
+    <value>Table of contents error</value>
+  </data>
+  <data name="tocJsContent" xml:space="preserve">
+    <value>Table of contents only supported in JavaScript Mode.</value>
+  </data>
+  <data name="tocJsTitle" xml:space="preserve">
+    <value>Table of contents error</value>
   </data>
 </root>

@@ -37,6 +37,8 @@
             this.formulaLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.captionLabel = new System.Windows.Forms.Label();
+            this.captionTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,8 +63,8 @@
             // 
             // host
             // 
-            resources.ApplyResources(this.host, "host");
             this.host.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.host, "host");
             this.host.Name = "host";
             this.host.TabStop = false;
             this.host.Child = null;
@@ -89,11 +91,23 @@
             resources.ApplyResources(this.titleTextBox, "titleTextBox");
             this.titleTextBox.Name = "titleTextBox";
             // 
+            // captionLabel
+            // 
+            resources.ApplyResources(this.captionLabel, "captionLabel");
+            this.captionLabel.Name = "captionLabel";
+            // 
+            // captionTextBox
+            // 
+            resources.ApplyResources(this.captionTextBox, "captionTextBox");
+            this.captionTextBox.Name = "captionTextBox";
+            // 
             // MathDialogBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.captionTextBox);
+            this.Controls.Add(this.captionLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.formulaLabel);
@@ -119,5 +133,7 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.Integration.ElementHost host;
+        private System.Windows.Forms.Label captionLabel;
+        private System.Windows.Forms.TextBox captionTextBox;
     }
 }

@@ -62,7 +62,7 @@ namespace AccessibleEPUB
         {
             if (formula.HasError)
             {
-                System.Windows.Forms.MessageBox.Show("The entered formula is invalid.", "Invalid formula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.invalidFormulaContent, Resource_MessageBox.invalidFormulaTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -74,9 +74,36 @@ namespace AccessibleEPUB
 
             if (inputTextBox.Text == "")
             {
-                System.Windows.Forms.MessageBox.Show("No input was entered.", "Missing formula", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.noFormulaContent, Resource_MessageBox.noFormulaTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+
+            string title;
+            string titleTag;
+            if (!(titleTextBox.Text == ""))
+            {
+                title = titleTextBox.Text;
+                titleTag = @""" title=""" + titleTextBox.Text + " \"";
+            }
+            else
+            {
+                title = Path.GetFileNameWithoutExtension(Path.GetRandomFileName());
+                titleTag = "";
+            }
+
+            string caption;
+            string captionTag;
+
+            if (!(captionTextBox.Text == "")) {
+                caption = captionTextBox.Text;
+                captionTag = "<figcaption style=\"text-align:left\">\n" + caption + @"</figcaption>";
+            }
+            else
+            {
+                captionTag = "";
+            }
+           
 
             //if (titleTextBox.Text == "")
             //{
@@ -85,8 +112,20 @@ namespace AccessibleEPUB
             //}
 
             System.IO.File.WriteAllText(Path.Combine(pandoc, "accEpub.txt"), "$" + inputTextBox.Text + "$");
-            
-            saveSVG();
+
+            //string imagesFolder = Path.Combine(imageFolderPath, "images");
+            string imagesFolder = imageFolderPath;
+
+            if (!Directory.Exists(imageFolderPath))
+            {
+                Directory.CreateDirectory(imageFolderPath);
+            }
+
+            string imagePath = Path.Combine(imagesFolder, title + ".svg");
+            svgFile = imagePath;
+
+            saveSVG(inputTextBox.Text, svgFile, title);
+                   imagePath = svgFile;
             Directory.SetCurrentDirectory(pandoc);
             //Console.WriteLine(svgFile);
             var proc = new Process
@@ -155,43 +194,63 @@ namespace AccessibleEPUB
             string mathFinalResult = sb.ToString();
             //Console.WriteLine(mathFinalResult);
 
-            if (!Directory.Exists(imageFolderPath))
-            {
-                Directory.CreateDirectory(imageFolderPath);
-            }
+            //if (!Directory.Exists(imageFolderPath))
+            //{
+            //    Directory.CreateDirectory(imageFolderPath);
+            //}
 
-            string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(svgFile));
+            //string imagesFolder = Path.Combine(imageFolderPath, "images");
+            //string imagePath = Path.Combine(imagesFolder, title + ".svg");
 
-            try { 
-                System.IO.File.Copy(svgFile, imagePath);
-            }
-            catch (IOException ie)
-            {
-                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Formula with same title already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    System.IO.File.Copy(svgFile, imagePath, true);
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    return;
-                }
-            }
+            //if (File.Exists(imagePath))
+            //{
+            //    DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Formula with same title already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        System.IO.File.Copy(svgFile, imagePath, true);
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        return;
+            //    }
+            //}
 
+            //svgFile = imagePath;
+
+
+
+            //string imagePath = Path.Combine(imagesFolder, Path.GetFileName(svgFile));
+
+            //try { 
+            //    System.IO.File.Copy(svgFile, imagePath);
+            //}
+            //catch (IOException ie)
+            //{
+            //    DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Formula with same title already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        System.IO.File.Copy(svgFile, imagePath, true);
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        return;
+            //    }
+            //}
+     
             string formulaToAdd = "";
 
             formulaToAdd += "\n<figure>";
 
+            // titleTag = @""" title=""" + titleTextBox.Text
+            string mathHeader = @"<div role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle>";
 
-            string mathHeader = @"<div role=""math"" class=""math""><math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle>";
-
-            string mathHeaderImpaired = @"<div role=""math"" class=""mathImpaired""><math  xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + @""" title=""" + titleTextBox.Text + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
+            string mathHeaderImpaired = @"<div role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
 
 
             string mathEnd = "</mstyle></math>";
 
 
-            formulaToAdd += "" + (@"<!--RemoveThis--><img class=""toRemove"" title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + inputTextBox.Text + @""" //><!--RemoveEnd-->");
+            formulaToAdd += "" + (@"<!--RemoveThis--><img class=""toRemove"" " + titleTag + @"src =""" + imagePath + @""" alt =""" + inputTextBox.Text + @""" //><!--RemoveEnd-->");
 
             string divEnd = "</div>";
             //formulaToAdd += divEnd;
@@ -206,12 +265,12 @@ namespace AccessibleEPUB
 
             string altTextParagraph = "<p class=\"transparent\">$" + inputTextBox.Text + "$</p>";
 
-            formulaToAdd += altTextParagraph + "</figure>\n"; ;
+            formulaToAdd += altTextParagraph + captionTag + "</figure>\n"; ;
 
             //doc.body.innerHTML += formulaToAdd;
 
            
-            currentLocation.pasteHTML(WebUtility.HtmlDecode(formulaToAdd));
+            currentLocation.pasteHTML(formulaToAdd);
 
             //doc.body.innerHTML += "</figure>\n";
 
@@ -321,10 +380,12 @@ namespace AccessibleEPUB
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show("An error occurred while parsing the given input:" + Environment.NewLine +
+                //System.Windows.MessageBox.Show("An error occurred while parsing the given input:" + Environment.NewLine +
+                //    Environment.NewLine + ex.Message, "Accessible EPUB", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.MessageBox.Show(Resource_MessageBox.parseInputContent + Environment.NewLine +
                     Environment.NewLine + ex.Message, "Accessible EPUB", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
+
             return formula;
         }
 
@@ -370,15 +431,15 @@ namespace AccessibleEPUB
             }
         }
 
-        private void saveSVG()
+        private void saveSVG(string input, string filePath, string title)
         {
-            string imagesFolder = Path.Combine(ip, "images");
-
+            //string imagesFolder = Path.Combine(imageFolderPath, "images");
+            string imagesFolder = imageFolderPath;
             if (!File.Exists(imagesFolder))
             {
                 Directory.CreateDirectory(imagesFolder);
             }
-
+            Console.WriteLine(filePath);
             string currentDic = Directory.GetCurrentDirectory();
 
             System.IO.DirectoryInfo di = new DirectoryInfo(imagesFolder);
@@ -412,14 +473,39 @@ namespace AccessibleEPUB
             //}
             Directory.SetCurrentDirectory(imagesFolder);
 
-            
-            WpfMath.TexFormula formula = ParseFormula(inputTextBox.Text);
+            if (!Directory.Exists(imageFolderPath))
+            {
+                Directory.CreateDirectory(imageFolderPath);
+            }
+
+            //string imagesFolder = Path.Combine(imageFolderPath, "images");
+            string imagePath = Path.Combine(imagesFolder, title + ".svg");
+
+            if (File.Exists(imagePath))
+            {
+                //DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Formula with same title already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show(Resource_MessageBox.formulaOverwriteContent , Resource_MessageBox.formulaOverwriteTitle, MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //System.IO.File.Copy(svgFile, imagePath, true);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            svgFile = imagePath;
+
+
+
+            WpfMath.TexFormula formula = ParseFormula(input);
             if (formula == null) return;
             var renderer = formula.GetRenderer(WpfMath.TexStyle.Display, this.formula.Scale, "Arial");
             // Open stream
             //var pngFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".png");
-            var svgFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".svg");
-            svgFile = svgFilename;
+            //var svgFilename = Path.Combine(imagesFolder, titleTextBox.Text + ".svg");
+            //svgFile = svgFilename;
             //pngFile = pngFilename;
 
             //using (var stream = new FileStream(pngFilename, FileMode.Create))
@@ -441,7 +527,7 @@ namespace AccessibleEPUB
 
             //}
 
-            using (var stream = new FileStream(svgFilename, FileMode.Create))
+            using (var stream = new FileStream(svgFile, FileMode.Create))
             {
 
                 var geometry = renderer.RenderToGeometry(0, 0);

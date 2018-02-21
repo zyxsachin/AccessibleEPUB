@@ -67,6 +67,7 @@
             // 
             resources.ApplyResources(this.tablePanel, "tablePanel");
             this.tablePanel.Name = "tablePanel";
+            this.tablePanel.TabStop = true;
             // 
             // insertTableButton
             // 

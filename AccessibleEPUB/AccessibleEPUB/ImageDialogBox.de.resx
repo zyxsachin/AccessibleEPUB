@@ -134,10 +134,10 @@
     <value>Alternativtext</value>
   </data>
   <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 23</value>
+    <value>227, 23</value>
   </data>
   <data name="captionLabel.Text" xml:space="preserve">
-    <value>Bildunterschrift</value>
+    <value>Bildunterschrift (optional)</value>
   </data>
   <data name="addImageButton.Text" xml:space="preserve">
     <value>Bild einfügen</value>
@@ -161,6 +161,18 @@
   </data>
   <data name="typeLabel.Text" xml:space="preserve">
     <value>Tag-Typ</value>
+  </data>
+  <data name="widthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 23</value>
+  </data>
+  <data name="widthLabel.Text" xml:space="preserve">
+    <value>Breite (px)</value>
+  </data>
+  <data name="heightLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 23</value>
+  </data>
+  <data name="heightLabel.Text" xml:space="preserve">
+    <value>Höhe (px)</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Bild einfügen</value>

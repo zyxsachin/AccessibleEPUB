@@ -24,11 +24,12 @@ namespace AccessibleEPUB
         string tag = "";
 
         string docLanguage = "";
-
+        CultureInfo currentCI;
 
         public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
+            currentCI = Thread.CurrentThread.CurrentUICulture;
             InitializeComponent();
             doc = mainWindowDoc;
             imageFolderPath = ip;
@@ -47,24 +48,28 @@ namespace AccessibleEPUB
         {
             if (imageLocationTextBox.Text == "")
             {
-                System.Windows.Forms.MessageBox.Show("The image path is empty.", "Empty image path", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //System.Windows.Forms.MessageBox.Show("The image path is empty.", "Empty image path", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.imagePathContent, Resource_MessageBox.imagePathTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             } 
             else if (File.Exists(imageLocationTextBox.Text) == false)
             {
-                System.Windows.Forms.MessageBox.Show("Image doesn't exist.", "Image doesn't exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //System.Windows.Forms.MessageBox.Show("Image doesn't exist.", "Image doesn't exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.imagePathContent, Resource_MessageBox.imagePathTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             
             if (titleTextBox.Text == "")
             {
-                System.Windows.Forms.MessageBox.Show("The title is empty.", "Empty title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //System.Windows.Forms.MessageBox.Show("The title is empty.", "Empty title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.emptyTitleContent, Resource_MessageBox.emptyTitleTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             if (altTextTextBox.Text == "")
             {
-                System.Windows.Forms.MessageBox.Show("The alternative text is empty.", "Empty alternative text", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //System.Windows.Forms.MessageBox.Show("The alternative text is empty.", "Empty alternative text", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.emptyAltTextContent, Resource_MessageBox.emptyAltTextTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -81,7 +86,8 @@ namespace AccessibleEPUB
             } 
             catch (IOException ie)
             {
-                DialogResult dialogResult = MessageBox.Show("Image with same name already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
+                //DialogResult dialogResult = MessageBox.Show("Image with same name already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show(Resource_MessageBox.imageOverwriteContent, Resource_MessageBox.imageOverwriteTitle, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     System.IO.File.Copy(imageLocationTextBox.Text, imagePath, true);
@@ -124,7 +130,8 @@ namespace AccessibleEPUB
             } 
             else
             {
-                System.Windows.Forms.MessageBox.Show("Invalid height entry.", "Invalid height", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //System.Windows.Forms.MessageBox.Show("Invalid height entry.", "Invalid height", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.invalidHeightContent, Resource_MessageBox.invalidHeightTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -139,7 +146,7 @@ namespace AccessibleEPUB
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Invalid width entry.", "Invalid width", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.invalidWidthContent, Resource_MessageBox.invalidWidthTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 

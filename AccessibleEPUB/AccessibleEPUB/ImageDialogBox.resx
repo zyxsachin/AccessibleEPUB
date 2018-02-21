@@ -361,7 +361,7 @@
     <value>165, 48</value>
   </data>
   <data name="addImageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="addImageButton.Text" xml:space="preserve">
     <value>Insert Image</value>
@@ -391,7 +391,7 @@
     <value>165, 48</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -582,7 +582,7 @@
     <value>96, 30</value>
   </data>
   <data name="widthTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;widthTextBox.Name" xml:space="preserve">
     <value>widthTextBox</value>
@@ -609,7 +609,7 @@
     <value>96, 30</value>
   </data>
   <data name="heightTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;heightTextBox.Name" xml:space="preserve">
     <value>heightTextBox</value>
