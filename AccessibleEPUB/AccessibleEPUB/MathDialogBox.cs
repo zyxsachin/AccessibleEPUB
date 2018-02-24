@@ -78,7 +78,7 @@ namespace AccessibleEPUB
                 return;
             }
 
-
+            
             string title;
             string titleTag;
             if (!(titleTextBox.Text == ""))
@@ -88,7 +88,10 @@ namespace AccessibleEPUB
             }
             else
             {
-                title = Path.GetFileNameWithoutExtension(Path.GetRandomFileName());
+                do
+                {
+                    title = Path.GetFileNameWithoutExtension(Path.GetRandomFileName());
+                } while (File.Exists(Path.Combine(imageFolderPath, title + ".svg")));                            
                 titleTag = "";
             }
 
@@ -125,7 +128,7 @@ namespace AccessibleEPUB
             svgFile = imagePath;
 
             saveSVG(inputTextBox.Text, svgFile, title);
-                   imagePath = svgFile;
+            imagePath = svgFile;
             Directory.SetCurrentDirectory(pandoc);
             //Console.WriteLine(svgFile);
             var proc = new Process

@@ -35,7 +35,10 @@
             this.authorLabel = new System.Windows.Forms.Label();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.singleFileCssPictureBox = new System.Windows.Forms.PictureBox();
             this.singleFileCssRadioButton = new System.Windows.Forms.RadioButton();
+            this.singleFIleJsPictureBox = new System.Windows.Forms.PictureBox();
+            this.chooseFileFormatPictureBox = new System.Windows.Forms.PictureBox();
             this.singleFileJsRadioButton = new System.Windows.Forms.RadioButton();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
@@ -44,9 +47,6 @@
             this.languageComboBox = new System.Windows.Forms.ComboBox();
             this.languageLabel = new System.Windows.Forms.Label();
             this.newFileDialogToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.singleFileCssPictureBox = new System.Windows.Forms.PictureBox();
-            this.singleFIleJsPictureBox = new System.Windows.Forms.PictureBox();
-            this.chooseFileFormatPictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.singleFileCssPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.singleFIleJsPictureBox)).BeginInit();
@@ -57,6 +57,7 @@
             // 
             resources.ApplyResources(this.titleTextBox, "titleTextBox");
             this.titleTextBox.Name = "titleTextBox";
+            this.newFileDialogToolTip.SetToolTip(this.titleTextBox, resources.GetString("titleTextBox.ToolTip"));
             // 
             // titleLabel
             // 
@@ -68,23 +69,32 @@
             // 
             resources.ApplyResources(this.authorLabel, "authorLabel");
             this.authorLabel.Name = "authorLabel";
+            this.newFileDialogToolTip.SetToolTip(this.authorLabel, resources.GetString("authorLabel.ToolTip"));
             // 
             // authorTextBox
             // 
             resources.ApplyResources(this.authorTextBox, "authorTextBox");
             this.authorTextBox.Name = "authorTextBox";
+            this.newFileDialogToolTip.SetToolTip(this.authorTextBox, resources.GetString("authorTextBox.ToolTip"));
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.singleFileCssPictureBox);
             this.groupBox1.Controls.Add(this.singleFileCssRadioButton);
             this.groupBox1.Controls.Add(this.singleFIleJsPictureBox);
             this.groupBox1.Controls.Add(this.chooseFileFormatPictureBox);
             this.groupBox1.Controls.Add(this.singleFileJsRadioButton);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.newFileDialogToolTip.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
+            // 
+            // singleFileCssPictureBox
+            // 
+            resources.ApplyResources(this.singleFileCssPictureBox, "singleFileCssPictureBox");
+            this.singleFileCssPictureBox.Name = "singleFileCssPictureBox";
+            this.singleFileCssPictureBox.TabStop = false;
+            this.newFileDialogToolTip.SetToolTip(this.singleFileCssPictureBox, resources.GetString("singleFileCssPictureBox.ToolTip"));
             // 
             // singleFileCssRadioButton
             // 
@@ -93,62 +103,6 @@
             this.singleFileCssRadioButton.TabStop = true;
             this.newFileDialogToolTip.SetToolTip(this.singleFileCssRadioButton, resources.GetString("singleFileCssRadioButton.ToolTip"));
             this.singleFileCssRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // singleFileJsRadioButton
-            // 
-            resources.ApplyResources(this.singleFileJsRadioButton, "singleFileJsRadioButton");
-            this.singleFileJsRadioButton.Name = "singleFileJsRadioButton";
-            this.singleFileJsRadioButton.TabStop = true;
-            this.newFileDialogToolTip.SetToolTip(this.singleFileJsRadioButton, resources.GetString("singleFileJsRadioButton.ToolTip"));
-            this.singleFileJsRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // cancelButton
-            // 
-            resources.ApplyResources(this.cancelButton, "cancelButton");
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // okButton
-            // 
-            resources.ApplyResources(this.okButton, "okButton");
-            this.okButton.Name = "okButton";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
-            // 
-            // publisherLabel
-            // 
-            resources.ApplyResources(this.publisherLabel, "publisherLabel");
-            this.publisherLabel.Name = "publisherLabel";
-            this.newFileDialogToolTip.SetToolTip(this.publisherLabel, resources.GetString("publisherLabel.ToolTip"));
-            // 
-            // publisherTextBox
-            // 
-            resources.ApplyResources(this.publisherTextBox, "publisherTextBox");
-            this.publisherTextBox.Name = "publisherTextBox";
-            // 
-            // languageComboBox
-            // 
-            this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.languageComboBox, "languageComboBox");
-            this.languageComboBox.FormattingEnabled = true;
-            this.languageComboBox.Items.AddRange(new object[] {
-            resources.GetString("languageComboBox.Items"),
-            resources.GetString("languageComboBox.Items1")});
-            this.languageComboBox.Name = "languageComboBox";
-            // 
-            // languageLabel
-            // 
-            resources.ApplyResources(this.languageLabel, "languageLabel");
-            this.languageLabel.Name = "languageLabel";
-            this.newFileDialogToolTip.SetToolTip(this.languageLabel, resources.GetString("languageLabel.ToolTip"));
-            // 
-            // singleFileCssPictureBox
-            // 
-            resources.ApplyResources(this.singleFileCssPictureBox, "singleFileCssPictureBox");
-            this.singleFileCssPictureBox.Name = "singleFileCssPictureBox";
-            this.singleFileCssPictureBox.TabStop = false;
-            this.newFileDialogToolTip.SetToolTip(this.singleFileCssPictureBox, resources.GetString("singleFileCssPictureBox.ToolTip"));
             // 
             // singleFIleJsPictureBox
             // 
@@ -163,6 +117,59 @@
             this.chooseFileFormatPictureBox.Name = "chooseFileFormatPictureBox";
             this.chooseFileFormatPictureBox.TabStop = false;
             this.newFileDialogToolTip.SetToolTip(this.chooseFileFormatPictureBox, resources.GetString("chooseFileFormatPictureBox.ToolTip"));
+            // 
+            // singleFileJsRadioButton
+            // 
+            resources.ApplyResources(this.singleFileJsRadioButton, "singleFileJsRadioButton");
+            this.singleFileJsRadioButton.Name = "singleFileJsRadioButton";
+            this.singleFileJsRadioButton.TabStop = true;
+            this.newFileDialogToolTip.SetToolTip(this.singleFileJsRadioButton, resources.GetString("singleFileJsRadioButton.ToolTip"));
+            this.singleFileJsRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // cancelButton
+            // 
+            resources.ApplyResources(this.cancelButton, "cancelButton");
+            this.cancelButton.Name = "cancelButton";
+            this.newFileDialogToolTip.SetToolTip(this.cancelButton, resources.GetString("cancelButton.ToolTip"));
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // okButton
+            // 
+            resources.ApplyResources(this.okButton, "okButton");
+            this.okButton.Name = "okButton";
+            this.newFileDialogToolTip.SetToolTip(this.okButton, resources.GetString("okButton.ToolTip"));
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
+            // publisherLabel
+            // 
+            resources.ApplyResources(this.publisherLabel, "publisherLabel");
+            this.publisherLabel.Name = "publisherLabel";
+            this.newFileDialogToolTip.SetToolTip(this.publisherLabel, resources.GetString("publisherLabel.ToolTip"));
+            // 
+            // publisherTextBox
+            // 
+            resources.ApplyResources(this.publisherTextBox, "publisherTextBox");
+            this.publisherTextBox.Name = "publisherTextBox";
+            this.newFileDialogToolTip.SetToolTip(this.publisherTextBox, resources.GetString("publisherTextBox.ToolTip"));
+            // 
+            // languageComboBox
+            // 
+            resources.ApplyResources(this.languageComboBox, "languageComboBox");
+            this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.languageComboBox.FormattingEnabled = true;
+            this.languageComboBox.Items.AddRange(new object[] {
+            resources.GetString("languageComboBox.Items"),
+            resources.GetString("languageComboBox.Items1")});
+            this.languageComboBox.Name = "languageComboBox";
+            this.newFileDialogToolTip.SetToolTip(this.languageComboBox, resources.GetString("languageComboBox.ToolTip"));
+            // 
+            // languageLabel
+            // 
+            resources.ApplyResources(this.languageLabel, "languageLabel");
+            this.languageLabel.Name = "languageLabel";
+            this.newFileDialogToolTip.SetToolTip(this.languageLabel, resources.GetString("languageLabel.ToolTip"));
             // 
             // NewFileDialogBox
             // 
@@ -180,6 +187,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.titleTextBox);
             this.Name = "NewFileDialogBox";
+            this.newFileDialogToolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.Shown += new System.EventHandler(this.NewFileDialogBox_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

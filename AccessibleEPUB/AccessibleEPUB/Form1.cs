@@ -319,7 +319,7 @@ namespace AccessibleEPUB
             //    richTextBox1.Text = innerHtml;
             //    geckoWebBrowser1.ViewSource();
             //}
-            Console.WriteLine("TEMPFOLDER: " + accEpubFolderName);
+    
             string absPath = Path.Combine(accEpubFolderName, e.Node.FullPath);
             string fileName = e.Node.FullPath;
             FileAttributes attr = File.GetAttributes(absPath);
@@ -328,7 +328,7 @@ namespace AccessibleEPUB
                 return;
             }
 
-            treeView1.SelectedNode = null;
+            //treeView1.SelectedNode = null;
             //if (filesTabControl.Visible == false)
             //{
             //    openTab(absPath);
@@ -650,21 +650,30 @@ namespace AccessibleEPUB
 
                 contentFile = absPath;
 
-                impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
-                blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
+                if (mode == (int)fileMode.singleFileJs && contentFile == (Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml")))
+                {
+                    impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
+                    blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
 
-                string cssString = "style.css";
-                string impCssString = "impaired.css";
-                string bliCssString = "blind.css";
+                    string cssString = "style.css";
+                    string impCssString = "impaired.css";
+                    string bliCssString = "blind.css";
 
-                string impFile = File.ReadAllText(contentFile);
-                string bliFile = impFile;
+                    string impFile = File.ReadAllText(contentFile);
+                    string bliFile = impFile;
 
-                impFile = impFile.Replace(cssString, impCssString);
-                bliFile = bliFile.Replace(cssString, bliCssString);
+                    impFile = impFile.Replace(cssString, impCssString);
+                    bliFile = bliFile.Replace(cssString, bliCssString);
 
-                File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
-                File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
+                    File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
+                    File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
+
+                    geckoWebBrowser2.Navigate(impairedContentFile);
+                    geckoWebBrowser3.Navigate(blindContentFile);
+                }
+
+
+
 
                 //if (geckoWebBrowser1.Url.ToString() == absPath)
                 //{
@@ -677,8 +686,7 @@ namespace AccessibleEPUB
                 //else
                 //{
                 geckoWebBrowser1.Navigate(contentFile);
-                geckoWebBrowser2.Navigate(impairedContentFile);
-                geckoWebBrowser3.Navigate(blindContentFile);
+               
                 geckoWebBrowser4.Navigate(contentFile);
                 //}
 
@@ -703,7 +711,23 @@ namespace AccessibleEPUB
 
                 //else
                 //{
+
+
+                //if (mode == (int)fileMode.singleFileJs)
+                //{
+                //    //if (contentFile == (Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml")))
+                //    //{
+                //        htmlToWysiwyg();
+                //    //}
+                //}
+
+                //else
+                //{
+                //    htmlToWysiwyg();
+                //}
+
                 htmlToWysiwyg();
+
                 //}
 
             }
@@ -999,7 +1023,7 @@ namespace AccessibleEPUB
             {
                 mode = (int)fileMode.singleFileCss;
             }
-            else if (File.Exists(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Misc"), "script.js")))
+            else if (File.Exists(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "VersionChanger.xhtml")))
             {
                 mode = (int)fileMode.singleFileJs;
             }
@@ -1024,29 +1048,37 @@ namespace AccessibleEPUB
                 geckoWebBrowser4.Visible = true;
             }
 
-     
+
 
             //initializeHTMLeditor();
 
-            string cssString = "style.css";
-            string impCssString = "impaired.css";
-            string bliCssString = "blind.css";
+            if (mode == (int)fileMode.singleFileJs && contentFile == (Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml")))
+            {
+                
 
-            string impFile = File.ReadAllText(contentFile);
-            string bliFile = impFile;
+                string cssString = "style.css";
+                string impCssString = "impaired.css";
+                string bliCssString = "blind.css";
 
-            impFile = impFile.Replace(cssString, impCssString);
-            bliFile = bliFile.Replace(cssString, bliCssString);
+                string impFile = File.ReadAllText(contentFile);
+                string bliFile = impFile;
 
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
+                impFile = impFile.Replace(cssString, impCssString);
+                bliFile = bliFile.Replace(cssString, bliCssString);
 
-            impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
-            blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
 
-            geckoWebBrowser1.Navigate(contentFile);
-            geckoWebBrowser2.Navigate(impairedContentFile);
-            geckoWebBrowser3.Navigate(blindContentFile);
+                impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
+                blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
+
+                geckoWebBrowser1.Navigate(contentFile);
+                geckoWebBrowser2.Navigate(impairedContentFile);
+                geckoWebBrowser3.Navigate(blindContentFile);
+            }
+
+          
+            
             geckoWebBrowser4.Navigate(contentFile);
 
             htmlToWysiwyg();
@@ -1524,7 +1556,7 @@ namespace AccessibleEPUB
             int timeEndIndex = metadata.IndexOf(timeEnd);
 
             string languageShort;
-            Console.WriteLine("languageSHORT:" + language);
+     
             switch (language)
             {
                 case "en":
@@ -1823,7 +1855,7 @@ namespace AccessibleEPUB
             if (mode != (int)fileMode.singleFileJs)
             {
                 //MessageBox.Show("Table of contents only supported in JavaScript Mode.", "Table of contents error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                MessageBox.Show(Resource_MessageBox.tocJsContent, Resource_MessageBox.tocJsTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //MessageBox.Show(Resource_MessageBox.tocJsContent, Resource_MessageBox.tocJsTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             //string oldContentFile = contentFile;
@@ -1890,6 +1922,7 @@ namespace AccessibleEPUB
             string bodyContent = contentBody.Substring(first + bracketTerminateIndex + 1, end - (first + bracketTerminateIndex + 1));
 
             string h1Regex = "<h[1-6][^>]*?>(?<TagText>.*?)</h[1-6]>";
+
             string hRegex = "<h[1-6]";
 
             
@@ -1917,9 +1950,18 @@ namespace AccessibleEPUB
                 return;
             }
 
+            string idString = " id=\"";
+            
             for (int i = 0; i < headersList.Count; i++)
             {
-                string newString = headersList[i].Item1.Replace(headersList[i].Item1.Substring(0, 3), headersList[i].Item1.Substring(0, 3)
+                string newString = headersList[i].Item1;
+                Console.WriteLine(newString);
+                Console.WriteLine(Regex.Replace(newString, " id=\"[^\\s>]*", ""));
+
+                newString = Regex.Replace(newString, " id=\"[^\\s>]*", "");
+
+
+                newString = newString.Replace(newString.Substring(0, 3), newString.Substring(0, 3)
                     + " id=\"toc_" + i + "\"");
 
                 oldNew.Add(new Tuple<string, string>(headersList[i].Item1, newString));
@@ -1931,6 +1973,12 @@ namespace AccessibleEPUB
                 bodyContent = bodyContent.Replace(entry.Item1, entry.Item2);
 
             }
+
+            Console.WriteLine(bodyContent);
+            File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml"), header + bodyContent + closer);
+
+
+
             string tocTitle = "";
 
             if (language == "de")
@@ -2099,7 +2147,7 @@ namespace AccessibleEPUB
             //string bodyContent = HTMLEditor.Document.Body.InnerHtml.ToLower();
             string navbodyContent = navheader + tocContent + navcloser;
 
-            Console.WriteLine(navheader);
+            //Console.WriteLine(navheader);
 
             File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "nav.xhtml"), navbodyContent);
 
@@ -2289,17 +2337,31 @@ namespace AccessibleEPUB
             geckoWebBrowser2.Navigate("about:blank");
             geckoWebBrowser3.Navigate("about:blank");
 
-            if (File.Exists(impairedContentFile))
-            {
-                File.Delete(impairedContentFile);
-            }
+            //contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml");
 
-            if (File.Exists(blindContentFile))
+            if (mode == (int)fileMode.singleFileJs)
             {
-                File.Delete(blindContentFile);
-            }
+                //impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
+                //blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
 
-            generateTableOfContents();
+                impairedContentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "ImpContent.xhtml");
+                blindContentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "BliContent.xhtml");
+
+
+                if (File.Exists(impairedContentFile))
+                {
+                    File.Delete(impairedContentFile);
+                }
+
+
+                if (File.Exists(blindContentFile))
+                {
+                    File.Delete(blindContentFile);
+                }
+
+                generateTableOfContents();
+            }
+        
 
             string zipFileName = epubFolderName + ".zip";
             File.Delete(zipFileName);
@@ -2320,21 +2382,29 @@ namespace AccessibleEPUB
             string impCssString = "impaired.css";
             string bliCssString = "blind.css";
 
-            string impFile = File.ReadAllText(contentFile);
-            string bliFile = impFile;
+            if (mode == (int)fileMode.singleFileJs)
+            {
+                string impFile = File.ReadAllText(contentFile);
+                string bliFile = impFile;
 
-            impFile = impFile.Replace(cssString, impCssString);
-            bliFile = bliFile.Replace(cssString, bliCssString);
+                impFile = impFile.Replace(cssString, impCssString);
+                bliFile = bliFile.Replace(cssString, bliCssString);
 
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
+                //File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
+                //File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
+
+                File.WriteAllText(impairedContentFile, impFile);
+                File.WriteAllText(blindContentFile, bliFile);
+
+                geckoWebBrowser1.Reload();
+                geckoWebBrowser2.Navigate(impairedContentFile);
+                geckoWebBrowser3.Navigate(blindContentFile);
+
+            }
 
 
-            geckoWebBrowser2.Navigate(impairedContentFile);
-            geckoWebBrowser3.Navigate(blindContentFile);
 
-
-            geckoWebBrowser1.Reload();
+            //geckoWebBrowser1.Reload();
             //geckoWebBrowser2.Reload();
             //geckoWebBrowser3.Reload();
             geckoWebBrowser4.Reload();
@@ -2459,12 +2529,24 @@ namespace AccessibleEPUB
 
         private void wysiwygToHtml()
         {
+            //if ((contentFile == (Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "nav.xhtml"))))
+            //{
+            //    return;
+            //}
+
+            //if ((contentFile == (Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "VersionChanger.xhtml"))))
+            //{
+            //    return;
+            //}
+
             string body = doc.body.innerHTML;
 
             if (body == null)
             {
                 return;
             }
+
+            Console.WriteLine(contentFile);
 
             string newContent = "";
             string contentBody = "";
@@ -2570,7 +2652,7 @@ namespace AccessibleEPUB
                         }
                     }
                 }
-
+                Console.WriteLine(contentFile);
                 string header = contentBody.Substring(0, first + bracketTerminateIndex + 1);
                 string closer = contentBody.Substring(end);
                 newContent = header + body + closer;
@@ -2814,8 +2896,13 @@ body {
 
             wysiwygToHtml();
 
+            //if (contentFile != Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml"))
+            //{
+            //    Console.WriteLine("Called");
+            //    return;
+            //}
 
-            if (mode == (int)fileMode.singleFileJs)
+            if (mode == (int)fileMode.singleFileJs && contentFile == (Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml")))
             {
 
                 //Console.WriteLine(geckoWebBrowser1.Document.Head.InnerHtml);
@@ -2960,17 +3047,20 @@ body {
             //GeckoStyleSheet styleSheet14 = geckoWebBrowser1.Document.StyleSheets.First();
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet14) + "CSS End");
 
-        
+
 
             //geckoWebBrowser1.Reload();
             //geckoWebBrowser2.Reload();
             //geckoWebBrowser3.Reload();
             //geckoWebBrowser4.Reload();
 
-          
-            geckoWebBrowser1.Navigate(contentFile);
-            geckoWebBrowser2.Navigate(impairedContentFile);
-            geckoWebBrowser3.Navigate(blindContentFile);
+            if (mode == (int)fileMode.singleFileJs)
+            {
+                geckoWebBrowser1.Navigate(contentFile);
+           
+                geckoWebBrowser2.Navigate(impairedContentFile);
+                geckoWebBrowser3.Navigate(blindContentFile);
+            }
             geckoWebBrowser4.Navigate(contentFile);
             
 

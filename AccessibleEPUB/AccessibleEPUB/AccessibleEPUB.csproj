@@ -325,9 +325,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile\META-INF\container.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

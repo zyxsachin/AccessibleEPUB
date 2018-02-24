@@ -109,8 +109,8 @@ namespace AccessibleEPUB
             }
             else
             {
-                tag = "&lt;" + tag + "&gt;";
                 tagEnd = "&lt;/" + tag + "&gt;";
+                tag = "&lt;" + tag + "&gt;";
             }
 
             string heightTag = "";
@@ -154,7 +154,7 @@ namespace AccessibleEPUB
 
 
 
-            currentLocation.pasteHTML("\n" + @"<figure><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
+            currentLocation.pasteHTML("\n" + @"<figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
                 tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption></figure>" + "\n");
 
 
@@ -216,7 +216,7 @@ namespace AccessibleEPUB
                 typeComboBox.Items.AddRange(tagTypesEng);
             }
 
-            typeComboBox.SelectedIndex = 0;
+            typeComboBox.SelectedIndex = 1;
         }
     }
 }

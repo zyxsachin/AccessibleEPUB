@@ -208,7 +208,7 @@
     <value>nav.xhtml konnte nicht gelesen werden</value>
   </data>
   <data name="saveLeavingContent" xml:space="preserve">
-    <value>Sollen die Veränderungen gespeichert werden?</value>
+    <value>Sollen die Änderungen gespeichert werden?</value>
   </data>
   <data name="saveLeavingTitle" xml:space="preserve">
     <value>Änderungen speichen</value>

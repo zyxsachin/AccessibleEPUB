@@ -122,7 +122,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="authorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 18</value>
+    <value>95, 23</value>
   </data>
   <data name="authorLabel.Text" xml:space="preserve">
     <value>Verfasser</value>
@@ -130,11 +130,59 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Dateiformat wählen</value>
   </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value>Die Formate setzen die Wandlungsmechnismen zwischen den normalen, sehgeschädigten und den blinden Version fest.</value>
+  </data>
+  <data name="singleFileCssPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="singleFileCssPictureBox.ToolTip" xml:space="preserve">
+    <value>Der Wandlungsmechanismun wird mit CSS umgesetzt. Die EPUBs können dann mit Readium gelesen werden. Dieses Format unterstützt keine Inhaltsverzeichnisse.</value>
+  </data>
+  <data name="singleFileCssRadioButton.ToolTip" xml:space="preserve">
+    <value>Der Wandlungsmechanismun wird mit CSS umgesetzt. Die EPUBs können dann mit Readium gelesen werden. Dieses Format unterstützt keine Inhaltsverzeichnisse.</value>
+  </data>
+  <data name="singleFIleJsPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="singleFIleJsPictureBox.ToolTip" xml:space="preserve">
+    <value>Der Wandlungsmechanismun wird mit JavaScript umgesetzt. Die EPUBs können dann mit dem Calibre EBook reader gelesen werden.</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="chooseFileFormatPictureBox.ToolTip" xml:space="preserve">
+    <value>Die Formate setzen die Wandlungsmechnismen zwischen den normalen, sehgeschädigten und den blinden Version fest.</value>
+  </data>
+  <data name="singleFileJsRadioButton.ToolTip" xml:space="preserve">
+    <value>Der Wandlungsmechanismun wird mit JavaScript umgesetzt. Die EPUBs können dann mit dem Calibre EBook reader gelesen werden.</value>
+  </data>
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
   <data name="publisherLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 18</value>
+    <value>154, 23</value>
   </data>
   <data name="publisherLabel.Text" xml:space="preserve">
     <value>Verlag (optional)</value>
@@ -146,10 +194,13 @@
     <value>Deutsch</value>
   </data>
   <data name="languageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 18</value>
+    <value>83, 23</value>
   </data>
   <data name="languageLabel.Text" xml:space="preserve">
     <value>Sprache</value>
+  </data>
+  <data name="languageLabel.ToolTip" xml:space="preserve">
+    <value>Dokumentsprache</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Neue Datei</value>
