@@ -86,6 +86,7 @@
     <requires type="editable">
       <file>Literature.bib</file>
       <file>Websites.bib</file>
+      <file>Accessible_EPUB.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.11)  25 JAN 2018 19:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.11)  26 FEB 2018 21:06
 entering extended mode
 **./MasterThesis.tex
 (MasterThesis.tex
@@ -1985,29 +1985,29 @@ File: english.lbx 2017/12/19 v3.10 biblatex localization (PK/JW/AB)
 (evaluation.aux) (futurework.aux) (summary.aux))
 \openout1 = `MasterThesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 154.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 154.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 155.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 155.
 
 
 ("D:\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Try loading font information for T1+aess on input line 154.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 155.
 
 
 ("D:\Programs\MiKTeX 2.9\tex\latex\ae\t1aess.fd"
@@ -2074,7 +2074,7 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box79
-Package hyperref Info: Link coloring ON on input line 154.
+Package hyperref Info: Link coloring ON on input line 155.
 ("D:\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -2083,9 +2083,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count491
 )
-LaTeX Info: Redefining \ref on input line 154.
-LaTeX Info: Redefining \pageref on input line 154.
-LaTeX Info: Redefining \nameref on input line 154.
+LaTeX Info: Redefining \ref on input line 155.
+LaTeX Info: Redefining \pageref on input line 155.
+LaTeX Info: Redefining \nameref on input line 155.
 
 (MasterThesis.out) (MasterThesis.out)
 \@outlinefile=\write7
@@ -2118,14 +2118,14 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'MasterThesis.bbl' found.
 (MasterThesis.bbl)
-Package biblatex Info: Reference section=0 on input line 154.
-Package biblatex Info: Reference segment=0 on input line 154.
+Package biblatex Info: Reference section=0 on input line 155.
+Package biblatex Info: Reference segment=0 on input line 155.
 \c__siunitx_mathsf_int=\count493
-LaTeX Font Info:    Try loading font information for U+msa on input line 154.
+LaTeX Font Info:    Try loading font information for U+msa on input line 155.
  ("D:\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 154.
+LaTeX Font Info:    Try loading font information for U+msb on input line 155.
 
 ("D:\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -2136,14 +2136,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  (titlepage.tex
 \Erstgutachter=\box80
 \Zweitgutachter=\box81
-<logos/KIT_Deckblatt.pdf, id=46, pagebox=cropbox, 597.23125pt x 845.1575pt>
+<logos/KIT_Deckblatt.pdf, id=62, pagebox=cropbox, 597.23125pt x 845.1575pt>
 File: logos/KIT_Deckblatt.pdf Graphic file (type pdf)
 <use logos/KIT_Deckblatt.pdf>
 Package pdftex.def Info: logos/KIT_Deckblatt.pdf  used on input line 16. on inp
 ut line 16.
 Package pdftex.def Info: Requested size: 597.50787pt x 845.6068pt on input line
  16.
-<logos/SZS.png, id=47, 212.29312pt x 206.27063pt>
+<logos/SZS.png, id=63, 212.29312pt x 206.27063pt>
 File: logos/SZS.png Graphic file (type png)
 <use logos/SZS.png>
 Package pdftex.def Info: logos/SZS.png  used on input line 19. on input line 19
@@ -2185,7 +2185,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.192 \cleardoublepage
+l.193 \cleardoublepage
                        [1
 
 
@@ -2195,7 +2195,7 @@ l.192 \cleardoublepage
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.192 \cleardoublepage
+l.193 \cleardoublepage
                        [2
 
 ] [1
@@ -2211,8 +2211,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 \subsection
-                {EPUB} [1
+l.23 C
+      onversely, this means that an electronic document format with no set d...
+[1
 
 
 ]) [2]
@@ -2278,42 +2279,70 @@ Chapter 7.
 
 
 ]
+LaTeX Font Info:    Font shape `T1/aess/m/it' in size <12> not available
+(Font)              Font shape `T1/aess/m/sl' tried instead on input line 237.
 
-LaTeX Warning: Empty bibliography on input line 236.
+Overfull \hbox (20.60611pt too wide) in paragraph at lines 241--241
+[]\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 EPUB 3 Changes from EPUB 2.0.1\T1/aess
+/m/n/12 . http://www.idpf.org/epub/30/spec/epub30-
+ []
 
+
+Overfull \hbox (21.69733pt too wide) in paragraph at lines 241--241
+[]\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 EPUB 3 Spec-i-fi-ca-tion\T1/aess/m/n/1
+2 . http://www.idpf.org/epub/301/spec/epub-overview.html,
+ []
+
+
+Overfull \hbox (9.12148pt too wide) in paragraph at lines 241--241
+[]\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 Un-der-stand-ing EPUB 3\T1/aess/m/n/12
+ . http://epubzone.org/epub-3-overview/understanding-
+ []
+
+
+Overfull \hbox (54.56628pt too wide) in paragraph at lines 241--241
+[]\T1/aess/m/n/12 W3C. \T1/aess/m/sl/12 Web Con-tent Ac-ces-si-bil-ity Guide-li
+nes (WCAG) 2.0\T1/aess/m/n/12 . https://www.w3.org/TR/WCAG20/,
+ []
+
+[15
+
+] [16
+
+]
 No file MasterThesis.ind.
 
 Package caption Warning: Unused \captionsetup[sub] on input line 39.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 245.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 245.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 246.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 246.
 (MasterThesis.aux (titlepage.aux) (statement.aux) (introduction.aux)
 (background.aux) (analysis.aux) (design.aux) (implementation.aux)
 (evaluation.aux) (futurework.aux) (summary.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 245.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 245.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 246.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 246.
 Package rerunfilecheck Info: File `MasterThesis.out' has not changed.
-(rerunfilecheck)             Checksum: 2FDCFE9E23F0CE003FAF5F6B3C99BC82;549.
+(rerunfilecheck)             Checksum: D16FDB0C73F622C1F43F2E8597EF84FC;825.
 Package logreq Info: Writing requests to 'MasterThesis.run.xml'.
 \openout1 = `MasterThesis.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 245.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 246.
  ) 
 Here is how much of TeX's memory you used:
- 49447 strings out of 493312
- 1100329 string characters out of 3141056
- 1443674 words of memory out of 3000000
- 52191 multiletter control sequences out of 15000+200000
+ 49668 strings out of 493312
+ 1104928 string characters out of 3141056
+ 1445010 words of memory out of 3000000
+ 52399 multiletter control sequences out of 15000+200000
  556684 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,11n,128p,10384b,1790s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 74i,12n,128p,10384b,1790s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><D:/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><D:/Programs/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmssi12.pfb>
-Output written on MasterThesis.pdf (25 pages, 120868 bytes).
+Output written on MasterThesis.pdf (27 pages, 130563 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 232 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 135 words of extra memory for PDF output out of 10000 (max. 10000000)
 

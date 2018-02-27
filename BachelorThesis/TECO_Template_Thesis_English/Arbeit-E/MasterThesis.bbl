@@ -16,5 +16,124 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global}\enddatalist
+\datalist[entry]{nty/global//global/global}
+  \entry{daisyAccessibility}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=rDC}{%
+         prefix={\relax},
+         prefixi={r\bibinitperiod},
+         family={DAISY\bibnamedelima Consortium},
+         familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DCr1}
+    \strng{fullhash}{DCr1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{note}{www.daisy.org/baseline, visited on 29.01.2018}
+    \field{title}{Baseline for Accessible EPUB3}
+  \endentry
+
+  \entry{EPUB3bp}{book}{}
+    \name{author}{2}{}{%
+      {{hash=GM}{%
+         family={Garrish},
+         familyi={G\bibinitperiod},
+         given={Matt},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gylling},
+         familyi={G\bibinitperiod},
+         given={Markus},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly}%
+    }
+    \strng{namehash}{GMGM1}
+    \strng{fullhash}{GMGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{isbn}{1449329144, 9781449329143}
+    \field{title}{EPUB 3 Best Practices}
+    \field{year}{2013}
+  \endentry
+
+  \entry{EPUB30changes}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{note}{http://www.idpf.org/epub/30/spec/epub30-changes.html, visited
+  on 29.01.2018}
+    \field{title}{EPUB 3 Changes from EPUB 2.0.1}
+  \endentry
+
+  \entry{EPUBspecs}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{note}{http://www.idpf.org/epub/301/spec/epub-overview.html, visited
+  on 29.01.2018}
+    \field{title}{EPUB 3 Specification}
+  \endentry
+
+  \entry{EPUBzone}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{note}{http://epubzone.org/epub-3-overview/understanding-epub-3,
+  visited on 29.01.2018}
+    \field{title}{Understanding EPUB 3}
+  \endentry
+
+  \entry{WCAG}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={W3C},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{note}{https://www.w3.org/TR/WCAG20/, visited on 29.01.2018}
+    \field{title}{Web Content Accessibility Guidelines (WCAG) 2.0}
+  \endentry
+\enddatalist
 \endinput
