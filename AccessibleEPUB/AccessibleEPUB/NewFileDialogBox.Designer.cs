@@ -57,7 +57,6 @@
             // 
             resources.ApplyResources(this.titleTextBox, "titleTextBox");
             this.titleTextBox.Name = "titleTextBox";
-            this.newFileDialogToolTip.SetToolTip(this.titleTextBox, resources.GetString("titleTextBox.ToolTip"));
             // 
             // titleLabel
             // 
@@ -69,13 +68,11 @@
             // 
             resources.ApplyResources(this.authorLabel, "authorLabel");
             this.authorLabel.Name = "authorLabel";
-            this.newFileDialogToolTip.SetToolTip(this.authorLabel, resources.GetString("authorLabel.ToolTip"));
             // 
             // authorTextBox
             // 
             resources.ApplyResources(this.authorTextBox, "authorTextBox");
             this.authorTextBox.Name = "authorTextBox";
-            this.newFileDialogToolTip.SetToolTip(this.authorTextBox, resources.GetString("authorTextBox.ToolTip"));
             // 
             // groupBox1
             // 
@@ -130,7 +127,6 @@
             // 
             resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.newFileDialogToolTip.SetToolTip(this.cancelButton, resources.GetString("cancelButton.ToolTip"));
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -138,7 +134,6 @@
             // 
             resources.ApplyResources(this.okButton, "okButton");
             this.okButton.Name = "okButton";
-            this.newFileDialogToolTip.SetToolTip(this.okButton, resources.GetString("okButton.ToolTip"));
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
@@ -152,7 +147,6 @@
             // 
             resources.ApplyResources(this.publisherTextBox, "publisherTextBox");
             this.publisherTextBox.Name = "publisherTextBox";
-            this.newFileDialogToolTip.SetToolTip(this.publisherTextBox, resources.GetString("publisherTextBox.ToolTip"));
             // 
             // languageComboBox
             // 
@@ -163,7 +157,6 @@
             resources.GetString("languageComboBox.Items"),
             resources.GetString("languageComboBox.Items1")});
             this.languageComboBox.Name = "languageComboBox";
-            this.newFileDialogToolTip.SetToolTip(this.languageComboBox, resources.GetString("languageComboBox.ToolTip"));
             // 
             // languageLabel
             // 
@@ -187,7 +180,6 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.titleTextBox);
             this.Name = "NewFileDialogBox";
-            this.newFileDialogToolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.Shown += new System.EventHandler(this.NewFileDialogBox_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
