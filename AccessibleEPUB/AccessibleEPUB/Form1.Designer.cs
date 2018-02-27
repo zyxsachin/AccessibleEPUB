@@ -329,7 +329,6 @@
             // HTMLEditor
             // 
             this.HTMLEditor.AllowNavigation = false;
-            this.HTMLEditor.AllowWebBrowserDrop = false;
             resources.ApplyResources(this.HTMLEditor, "HTMLEditor");
             this.HTMLEditor.Name = "HTMLEditor";
             this.HTMLEditor.ScriptErrorsSuppressed = true;

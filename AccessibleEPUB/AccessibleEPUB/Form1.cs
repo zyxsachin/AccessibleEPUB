@@ -21,6 +21,8 @@ using System.Text.RegularExpressions;
 using mshtml;
 
 using Gecko;
+using Gecko.Windows;
+
 
 using IPrompt;
 
