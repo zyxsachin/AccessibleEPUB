@@ -139,6 +139,7 @@ namespace AccessibleEPUB
          
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             InitializeComponent();
+            Xpcom.EnableProfileMonitoring = false;
             Xpcom.Initialize("Firefox");
             filesTabControl.Padding = new System.Drawing.Point(21, 3);
             var hotKey = hkm.Register(System.Windows.Input.Key.S, System.Windows.Input.ModifierKeys.Control);
