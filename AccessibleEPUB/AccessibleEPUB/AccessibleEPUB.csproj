@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -71,7 +71,8 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>AccessibleEPUB.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
@@ -259,56 +260,58 @@
     </EmbeddedResource>
     <None Include="AccessibleEPUB_TemporaryKey.pfx" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile.epub">
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile.epub">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile.zip">
+    </Content>
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile\mimetype">
+    </Content>
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile\mimetype">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\content.opf">
+    </Content>
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\content.opf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\Text\Content.xhtml">
+    </Content>
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\Text\Content.xhtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\Text\nav.xhtml">
+    </Content>
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\Text\nav.xhtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\Text\VersionChanger.xhtml">
+    </Content>
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\Text\VersionChanger.xhtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\toc.ncx">
+    </Content>
+    <Content Include="EmptyFiles\JsVersionChanger\emptyJsFile\OEBPS\toc.ncx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\SingleFile\empty_Single_File.epub">
+    </Content>
+    <Content Include="EmptyFiles\SingleFile\empty_Single_File.epub">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\SingleFile\empty_Single_File.zip">
+    </Content>
+    <Content Include="EmptyFiles\SingleFile\empty_Single_File.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\SingleFile\empty_Single_File\mimetype">
+    </Content>
+    <Content Include="EmptyFiles\SingleFile\empty_Single_File\mimetype">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\content.opf">
+    </Content>
+    <Content Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\content.opf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\Text\Content.xhtml">
+    </Content>
+    <Content Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\Text\Content.xhtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\Text\nav.xhtml">
+    </Content>
+    <Content Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\Text\nav.xhtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\toc.ncx">
+    </Content>
+    <Content Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\toc.ncx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Firefox\omni.ja" />
+    </Content>
+    <Content Include="Firefox\omni.ja">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
-    <None Include="pandoc-2.1\COPYING.rtf">
+    <Content Include="pandoc-2.1\COPYING.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -352,28 +355,72 @@
     <Content Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\Styles\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Firefox\AccessibleMarshal.dll" />
-    <Content Include="Firefox\breakpadinjector.dll" />
-    <Content Include="Firefox\d3dcompiler_47.dll" />
-    <Content Include="Firefox\freebl3.dll" />
-    <Content Include="Firefox\icudt56.dll" />
-    <Content Include="Firefox\icudt58.dll" />
-    <Content Include="Firefox\icuin56.dll" />
-    <Content Include="Firefox\icuin58.dll" />
-    <Content Include="Firefox\icuuc56.dll" />
-    <Content Include="Firefox\icuuc58.dll" />
-    <Content Include="Firefox\lgpllibs.dll" />
-    <Content Include="Firefox\libEGL.dll" />
-    <Content Include="Firefox\libGLESv2.dll" />
-    <Content Include="Firefox\mozglue.dll" />
-    <Content Include="Firefox\nss3.dll" />
-    <Content Include="Firefox\nssckbi.dll" />
-    <Content Include="Firefox\nssdbm3.dll" />
-    <Content Include="Firefox\plugin-container.exe" />
-    <Content Include="Firefox\plugin-hang-ui.exe" />
-    <Content Include="Firefox\sandboxbroker.dll" />
-    <Content Include="Firefox\softokn3.dll" />
-    <Content Include="Firefox\xul.dll" />
+    <Content Include="Firefox\AccessibleMarshal.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\breakpadinjector.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\d3dcompiler_47.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\freebl3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\icudt56.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\icudt58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\icuin56.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\icuin58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\icuuc56.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\icuuc58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\lgpllibs.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\libEGL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\libGLESv2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\mozglue.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\nss3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\nssckbi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\nssdbm3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\plugin-container.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\plugin-hang-ui.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\sandboxbroker.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\softokn3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firefox\xul.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Help.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -439,11 +486,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="EPubMetadataEditor">
       <Visible>False</Visible>
-      <ProductName>Windows Installer 4.5</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Geckofx45.45.0.33\build\Geckofx45.targets" Condition="Exists('..\packages\Geckofx45.45.0.33\build\Geckofx45.targets')" />
