@@ -24,8 +24,6 @@ using Gecko;
 using Gecko.Windows;
 
 
-using IPrompt;
-
 using ICSharpCode.AvalonEdit;
 
 using Microsoft.Win32;

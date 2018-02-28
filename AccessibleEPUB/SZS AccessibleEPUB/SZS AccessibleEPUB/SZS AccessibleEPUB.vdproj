@@ -587,7 +587,7 @@
         {
             "LaunchCondition"
             {
-                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_96C8F114E81D4118AC5B4E35DC921B57"
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_C1DE02FB173F4F65A74CCB9BE34257A8"
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
