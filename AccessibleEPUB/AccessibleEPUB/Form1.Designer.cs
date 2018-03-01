@@ -337,7 +337,6 @@
             // geckoWebBrowser4
             // 
             resources.ApplyResources(this.geckoWebBrowser4, "geckoWebBrowser4");
-            this.geckoWebBrowser4.FrameEventsPropagateToMainWindow = false;
             this.geckoWebBrowser4.Name = "geckoWebBrowser4";
             this.geckoWebBrowser4.UseHttpActivityObserver = false;
             // 
@@ -367,7 +366,6 @@
             // geckoWebBrowser1
             // 
             resources.ApplyResources(this.geckoWebBrowser1, "geckoWebBrowser1");
-            this.geckoWebBrowser1.FrameEventsPropagateToMainWindow = false;
             this.geckoWebBrowser1.Name = "geckoWebBrowser1";
             this.geckoWebBrowser1.UseHttpActivityObserver = false;
             // 
@@ -381,7 +379,6 @@
             // geckoWebBrowser2
             // 
             resources.ApplyResources(this.geckoWebBrowser2, "geckoWebBrowser2");
-            this.geckoWebBrowser2.FrameEventsPropagateToMainWindow = false;
             this.geckoWebBrowser2.Name = "geckoWebBrowser2";
             this.geckoWebBrowser2.UseHttpActivityObserver = false;
             // 
@@ -395,7 +392,6 @@
             // geckoWebBrowser3
             // 
             resources.ApplyResources(this.geckoWebBrowser3, "geckoWebBrowser3");
-            this.geckoWebBrowser3.FrameEventsPropagateToMainWindow = false;
             this.geckoWebBrowser3.Name = "geckoWebBrowser3";
             this.geckoWebBrowser3.UseHttpActivityObserver = false;
             // 
