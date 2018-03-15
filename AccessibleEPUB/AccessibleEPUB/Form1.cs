@@ -1090,9 +1090,9 @@ namespace AccessibleEPUB
                 string impairedCss = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Styles"), "impaired.css");
                 string blindCss = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Styles"), "blind.css");
 
-                geckoWebBrowser1.Document.Head.Style.CssText = File.ReadAllText(visibleCss);
-                geckoWebBrowser2.Document.Head.Style.CssText = File.ReadAllText(impairedCss);
-                geckoWebBrowser3.Document.Head.Style.CssText = File.ReadAllText(blindCss);
+                //geckoWebBrowser1.Document.Head.Style.CssText = File.ReadAllText(visibleCss);
+                //geckoWebBrowser2.Document.Head.Style.CssText = File.ReadAllText(impairedCss);
+                //geckoWebBrowser3.Document.Head.Style.CssText = File.ReadAllText(blindCss);
             }
 
             showToolStrips();
@@ -1956,8 +1956,8 @@ namespace AccessibleEPUB
             for (int i = 0; i < headersList.Count; i++)
             {
                 string newString = headersList[i].Item1;
-                Console.WriteLine(newString);
-                Console.WriteLine(Regex.Replace(newString, " id=\"[^\\s>]*", ""));
+                //Console.WriteLine(newString);
+                //Console.WriteLine(Regex.Replace(newString, " id=\"[^\\s>]*", ""));
 
                 newString = Regex.Replace(newString, " id=\"[^\\s>]*", "");
 
@@ -1975,7 +1975,7 @@ namespace AccessibleEPUB
 
             }
 
-            Console.WriteLine(bodyContent);
+            //Console.WriteLine(bodyContent);
             File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml"), header + bodyContent + closer);
 
 
@@ -2547,7 +2547,7 @@ namespace AccessibleEPUB
                 return;
             }
 
-            Console.WriteLine(contentFile);
+            //Console.WriteLine(contentFile);
 
             string newContent = "";
             string contentBody = "";
@@ -2771,6 +2771,8 @@ namespace AccessibleEPUB
             //          < item id = "navid" href = "Text/nav.xhtml" media - type = "application/xhtml+xml" properties = "nav" /> "
         }
 
+     
+
         private void Form1_Shown(object sender, EventArgs e)
         {
 
@@ -2782,6 +2784,8 @@ namespace AccessibleEPUB
         }
         p {
   font-size:16px;
+
+word-wrap: break-word;
 }
 
     figure {
@@ -2872,8 +2876,8 @@ body {
             {
                 refreshBrowsers();
                 //HTMLEditor.Document.Focus();
+                
             }
-
         }
 
 
@@ -2884,6 +2888,78 @@ body {
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet12) + "CSS End");
 
 
+
+            IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
+            ss.cssText = @"html *
+{
+	font-family: ""Arial"", Helvetica, sans-serif !important;
+
+        }
+        p {
+  font-size:16px;
+
+word-wrap: break-word;
+}
+
+    figure {
+	padding: 2px;
+	max-width : 95%;
+    border: double;
+}
+
+figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+  font-size:16px;
+}
+
+img {
+	max-width : 100%;
+}
+
+
+object {
+  max-width : 100%; 
+}
+
+math {
+  max-width : 100%;
+
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.transparent {
+  display: none;
+  color: transparent;
+}
+
+body {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.math {
+
+    display:none;
+    height:0%;
+
+}
+
+.mathImpaired {
+
+    display:none;
+    height:0%;
+}
+
+
+
+;"
+;
             if (refresh == false)
             {
                 return;
@@ -3080,9 +3156,14 @@ body {
 
             //HTMLEditor.Document.Focus();
 
+            if (HTMLEditor.Document.Body.InnerText == "")
+            {
+                return;
+            }
+
             if (containsFile == true)
             {
-                var text = HTMLEditor.Document.Body.InnerText.Trim();
+                var text = HTMLEditor.Document.Body.InnerText;
                 int wordCount = 0, index = 0;
 
                 while (index < text.Length)

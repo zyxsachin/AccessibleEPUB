@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="BookId" prefix="calibre: https://calibre-ebook.com">
+  <metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:title id="t1">Sample EPUB Document</dc:title>
+    <dc:creator id="id">Sachin Rajgopal</dc:creator>
+    <dc:identifier>calibre:2</dc:identifier>
+    <dc:identifier>uuid:9e576a4a-d98e-468f-b469-36303be1beab</dc:identifier>
+    <dc:identifier id="BookId">urn:uuid:f2f3b9dc-869c-444c-a7e9-cf55e92d889f</dc:identifier>
+    <dc:language>en</dc:language>
+    <meta refines="#t1" property="title-type">main</meta>
+    <meta refines="#t1" property="file-as">Sample EPUB Document</meta>
+    <meta content="0.9.8" name="Sigil version"/>
+    <meta property="dcterms:modified">2017-12-07T10:43:33Z</meta>
+    <meta refines="#id" scheme="marc:relators" property="role">aut</meta>
+    <meta refines="#id" property="file-as">Rajgopal, Sachin</meta>
+    <meta property="calibre:author_link_map">{"Sachin Rajgopal": ""}</meta>
+    <meta name="cover" content="OneHorn_CloseUp_USE.jpg"/>
+  </metadata>
+  <manifest>
+    <item id="navid" href="Text/nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="Section0001.xhtml" href="Text/Section0001.xhtml" media-type="application/xhtml+xml" properties="mathml mathml"/>
+    <item id="id1" href="Text/Section0002.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="RhinoPopulation.svg" href="Images/RhinoPopulation.svg" media-type="image/svg+xml"/>
+    <item id="OneHorn_CloseUp_USE.jpg" href="Images/OneHorn_CloseUp_USE.jpg" media-type="image/jpeg"/>
+    <item id="OneHorn_CloseUp_USE.svg" href="Images/OneHorn_CloseUp_USE.svg" media-type="image/svg+xml"/>
+    <item id="visible.css" href="Styles/visible.css" media-type="text/css"/>
+    <item id="impaired.css" href="Styles/impaired.css" media-type="text/css"/>
+    <item id="id2" href="Misc/script.js" media-type="application/javascript"/>
+    <item id="blind.css" href="Styles/blind.css" media-type="text/css"/>
+    <item id="style.css" href="Styles/style.css" media-type="text/css"/>
+    <item href="../Text/Master.xhtml" id="id3" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="navid"/>     
+    <itemref idref="id3"/>
+    <itemref idref="Section0001.xhtml"/>
+    <itemref idref="id1"/>
+
+  </spine>
+</package>

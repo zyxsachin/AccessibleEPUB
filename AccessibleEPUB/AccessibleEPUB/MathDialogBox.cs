@@ -40,6 +40,8 @@ namespace AccessibleEPUB
         //string ip = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
         string ip = Environment.CurrentDirectory.ToString();
 
+        string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB");
+
 
         public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath)
         {
@@ -50,9 +52,13 @@ namespace AccessibleEPUB
 
             host.Dock = DockStyle.Fill;
             host.Child = formula;
+
+            System.Windows.Media.Brush br = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+            formula.BorderBrush = br;
+            formula.BorderThickness = new Thickness(3, 3, 3, 3);
+
             imageFolderPath = imagePath;
 
-            
 
         }
 
@@ -69,6 +75,10 @@ namespace AccessibleEPUB
       
             string pandoc = Path.Combine(ip, "pandoc-2.1");
             string currentDic = Directory.GetCurrentDirectory();
+
+
+            string accFile = Path.Combine(accEpubFolderName, "accEpub.txt");
+            string formulaResult = Path.Combine(accEpubFolderName, "formulaResult.txt");
 
             Directory.SetCurrentDirectory(pandoc);
 
@@ -114,8 +124,9 @@ namespace AccessibleEPUB
             //    return;
             //}
 
-            System.IO.File.WriteAllText(Path.Combine(pandoc, "accEpub.txt"), "$" + inputTextBox.Text + "$");
 
+            System.IO.File.WriteAllText(accFile, "$" + inputTextBox.Text + "$");
+            Console.WriteLine(System.IO.File.ReadAllText(accFile));
             //string imagesFolder = Path.Combine(imageFolderPath, "images");
             string imagesFolder = imageFolderPath;
 
@@ -137,7 +148,7 @@ namespace AccessibleEPUB
                 {
                     //FileName = "pandoc", //Path.Combine(pandoc, "pandoc"),
                     FileName = @"c:\windows\system32\cmd.exe",
-                    Arguments = @"/c pandoc --mathml accEpub.txt> formulaResult.txt",
+                    Arguments = @"/c pandoc --mathml " + accFile + " > " + formulaResult,
                     //UseShellExecute = false,
                     //RedirectStandardOutput = false,
                     CreateNoWindow = true,
@@ -154,12 +165,14 @@ namespace AccessibleEPUB
             //    math += proc.StandardOutput.ReadLine();
             //    // do something with line
             //}
-            math = System.IO.File.ReadAllText("formulaResult.txt");
+            math = System.IO.File.ReadAllText(formulaResult);
             //math += proc.StandardOutput.ReadToEnd();
             
+            string result = Path.Combine(accEpubFolderName, "result.txt");
+
             //Console.WriteLine(proc.StartInfo.FileName.ToString());
             //Console.WriteLine(proc.StartInfo.Arguments.ToString());
-            System.IO.File.WriteAllText(Path.Combine(pandoc, "result.txt"), math);
+            System.IO.File.WriteAllText(result, math);
             string split = "<semantics>";
             string split2 = "</semantics>";
             string mathResult = math.Substring(math.IndexOf(split));
@@ -572,7 +585,25 @@ namespace AccessibleEPUB
 
         private void inputTextBox_TextChanged(object sender, EventArgs e)
         {
+            string lastFormula = this.formula.Formula;
+            
             this.formula.Formula = inputTextBox.Text;
+
+            if (this.formula.HasError)
+            {
+                System.Windows.Media.Brush br = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 0, 0));
+                formula.BorderBrush = br;
+                formula.BorderThickness = new Thickness(3, 3, 3, 3);                
+                this.formula.Formula = lastFormula;
+            }
+            else
+            {
+                System.Windows.Media.Brush br = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                formula.BorderBrush = br;
+                formula.BorderThickness = new Thickness(3, 3, 3, 3);
+
+               
+            }
 
         }
 

@@ -3,8 +3,12 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
   /*font-family: "Arial", Helvetica, sans-serif;*/
 }
 
-.versionChanger *{
+a {
   font-family: "Arial", Helvetica, sans-serif;
+}
+
+.versionChanger *{
+  font-family: "Arial", Helvetica, sans-serif !important;
 
 }
 
@@ -48,11 +52,12 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 
 
 .visible * {
-  /*font-family: "Times New Roman", Times, serif;*/
+  font-family: "Times New Roman", Times, serif;
 }
 
 .visible p {
   font-size:12px;
+  word-wrap: break-word;
 }
 
 .visible figure {
@@ -112,6 +117,7 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
 
 .impaired p {
   font-size:16px;
+  word-wrap: break-word;
 }
 
 .impaired figure {
@@ -166,7 +172,9 @@ h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,a,figcaption,figure {
   font-family: "Arial", Helvetica, sans-serif;
 }*/
 
-
+.blind p {
+  word-wrap: break-word;
+}
 
 .blind figure {
 	padding: 2px;

@@ -82,12 +82,16 @@ namespace AccessibleEPUB
 
             //}
             tablePanel.Controls.Remove(dgv);
+            tablePanel.Controls.Clear();
             dgv = CopyDataGridView(dgv);
-            
+            DataGridView dgv2 = CopyDataGridView(dgv);
+            dgv.Dispose();
+
+            dgv = CopyDataGridView(dgv2);
 
 
 
-            string[] r1 = new string[int.Parse(columnTextBox.Text)];
+            //string[] r1 = new string[int.Parse(columnTextBox.Text)];
 
             dgv.RowCount = int.Parse(rowTextBox.Text);
             dgv.ColumnCount = int.Parse(columnTextBox.Text);
@@ -155,30 +159,30 @@ namespace AccessibleEPUB
 
         private void insertTableButton_Click(object sender, EventArgs e)
         {
-
+     
             string tableHTML = @"<TABLE title=""" + @titleTextBox.Text + @"""><TBODY>";
 
             for (int col = 0; col < dgv.ColumnCount; col++)
             {
-                tableHTML += "\t<th>" + dgv[col, 0].Value + "</th>\n";
+                tableHTML += "\t<th>" + dgv[col, 0].Value + "</th>";
             }
-            tableHTML += "</tr>\n";
+            tableHTML += "</tr>";
 
 
             for (int row = 1; row < dgv.RowCount; row++)
             {
             
-                tableHTML += "<tr>\n";
+                tableHTML += "<tr>";
 
-                tableHTML += "\t<th>" + dgv[0, row].Value + "</th>\n";
+                tableHTML += "\t<th>" + dgv[0, row].Value + "</th>";
 
                 for (int col = 1; col < dgv.ColumnCount; col++)
                 {
 
 
-                    tableHTML += "\t<td>" + dgv[col, row].Value + "</td>\n";
+                    tableHTML += "\t<td>" + dgv[col, row].Value + "</td>";
                 }
-                tableHTML += "</tr>\n";
+                tableHTML += "</tr>";
             }
 
             //for (int row = 0; row < dgv.RowCount; row++)
@@ -191,10 +195,10 @@ namespace AccessibleEPUB
             //    tableHTML += @"</TR>";
             //}
 
-            tableHTML += @"</TBODY> </TABLE>";
-
+            tableHTML += @"</TBODY> </TABLE>" + "\n";
+            Console.WriteLine(tableHTML);
             dynamic currentLocation = doc.selection.createRange();
-            currentLocation.pasteHTML(WebUtility.HtmlDecode(tableHTML));
+            currentLocation.pasteHTML(tableHTML);
 
             //doc.body.innerHTML += WebUtility.HtmlDecode(tableHTML);
 

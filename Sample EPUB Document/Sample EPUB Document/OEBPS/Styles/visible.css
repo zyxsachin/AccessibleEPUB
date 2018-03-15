@@ -1,0 +1,89 @@
+html *
+{
+   /*font-family: Arial !important;*/
+	font-family: "Times New Roman", Times, serif !important;
+}
+
+
+
+
+
+figure {
+	padding: 2px;
+	max-width : 95%;
+
+	
+}
+
+figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+	/* word-wrap: break-word; */
+}
+
+img {
+	max-width : 100%;
+}
+
+
+
+
+
+body {
+	max-width:1000px;
+	width: 96%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+
+
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+/*@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+
+
+@media screen and (max-width: 1199px) {
+	 
+	#desktopMenu {
+		display:none;
+	}
+	#mobileMenu {
+		display:inline;
+	}
+	
+	.img {
+		float:top;
+
+		max-width: 100%
+	}
+	
+	.bLink {
+		text-align:left;
+	}
+	
+	
+}
+@media screen and (min-width: 1200px) {
+	#desktopMenu {
+		display:inline;
+	}
+	#mobileMenu {
+		display:none;
+	}
+	
+	.img {
+		float:right;
+		width : 500px;
+		max-width: 100%;
+	}
+	
+	.bLink {
+		text-align:right;
+	}
+	
+}*/

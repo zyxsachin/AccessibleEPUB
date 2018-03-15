@@ -33,16 +33,20 @@
 \usepackage{amssymb}
 %\usepackage{subfig}
 %\usepackage{subcaption}
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage{subcaption}
 %\usepackage[plainpages=true]{hyperref}
 \usepackage[space]{grffile}
 %\usepackage[numbers,sort&compress]{natbib}
 \usepackage[backend=bibtex,natbib=true,hyperref=true,doi=false,url=false]{biblatex}
+
+\usepackage{graphicx}
+
 %\usepackage{biblatex}
 % \usepackage{varioref}
-% \usepackage{verbatim}
+\usepackage{verbatim}
 \usepackage{float}    %z.B. \floatstyle{ruled}\restylefloat{figure}
+\usepackage[strings]{underscore}
 %\usepackage[hidelinks]{hyperref}
 % \usepackage{subfigure}
 % \usepackage{fancybox} % für schattierte,ovale Boxen etc.
@@ -125,6 +129,7 @@
     frame=single,
     breaklines=true,
 		basicstyle=\scriptsize,
+	 escapeinside={\%*}{*)},
     %postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
 }
 
@@ -138,10 +143,14 @@ titlepage,%
 statement,% Ist in KA Pflicht für Diplomarbeiten
 introduction,% Motivation, Zielsetzung, Gliederung
 background,% Grundlagen 
-analysis,   % Problembeschreibung (Detail) und Related Work
-design,   % Beschreibung der Problemlösung (Konzepte, allg. Architektur, ...)
-implementation,  % Beschreibung der Umsetzung/Implementierung
-evaluation,      % Nachweis und Auswertung
+%analysis,   % Problembeschreibung (Detail) und Related Work
+%design,   % Beschreibung der Problemlösung (Konzepte, allg. Architektur, ...)
+%implementation,  % Beschreibung der Umsetzung/Implementierung
+%evaluation,      % Nachweis und Auswertung
+epubDocumentStandard,
+evaluationEpubStandard,
+editor,
+evaluationEditor,
 futurework,% Future Work
 summary  % Zusammenfassung der Ergebnisse 
 }
@@ -199,15 +208,19 @@ summary  % Zusammenfassung der Ergebnisse
 \graphicspath{{images/}}
 
 \mainmatter
-\null
+%\null
 \newpage
 \pagenumbering{arabic}
 \include{introduction}  % Einleitung
 \include{background}  % Grundlagen
-\include{analysis}     % Analyse
-\include{design}     % Entwurf
-\include{implementation}    % Implementierung
-\include{evaluation}        % Evaluierung
+\include{epubDocumentStandard}
+\include{evaluationEpubStandard}
+\include{editor}
+\include{evaluationEditor}
+%\include{analysis}     % Analyse
+%\include{design}     % Entwurf
+%\include{implementation}    % Implementierung
+%\include{evaluation}        % Evaluierung
 \include{futurework}  % Future Work
 \include{summary}   % Zusammenfassung und Ausblick
 
@@ -234,6 +247,7 @@ summary  % Zusammenfassung der Ergebnisse
 %\bibliographystyle{gerplain} % abbrvnat unsrtnat
 % spezielle Zitierstile: Labels mit vier Buchstaben und Jahreszahl
 %\bibliographystyle{itmalpha}  % ausgeschriebene Vornamen der Autoren
+
 \printbibliography
 %% ++++++++++++++++++++++++++++++++++++++++++
 %% Index
@@ -243,6 +257,7 @@ summary  % Zusammenfassung der Ergebnisse
 \phantomsection
 \printindex            % Index, Stichwortverzeichnis
 }
+
 \end{document}
 %% end of file
 

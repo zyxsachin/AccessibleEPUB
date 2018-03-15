@@ -1922,8 +1922,42 @@
   <bcf:bibdata section="0">
     <bcf:datasource type="file" datatype="bibtex">Literature.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex">Websites.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex">Accessible_EPUB.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1">webaim</bcf:citekey>
+    <bcf:citekey order="2">EPUBzone</bcf:citekey>
+    <bcf:citekey order="3">EPUBzone</bcf:citekey>
+    <bcf:citekey order="4">EPUBspecs</bcf:citekey>
+    <bcf:citekey order="5">WCAG</bcf:citekey>
+    <bcf:citekey order="6">EPUB3bp</bcf:citekey>
+    <bcf:citekey order="7">EPUB30changes</bcf:citekey>
+    <bcf:citekey order="8">EPUBspecs</bcf:citekey>
+    <bcf:citekey order="9">WCAG</bcf:citekey>
+    <bcf:citekey order="10">EPUB3bp</bcf:citekey>
+    <bcf:citekey order="11">EPUB30changes</bcf:citekey>
+    <bcf:citekey order="12">EPUB3bp</bcf:citekey>
+    <bcf:citekey order="13">EPUB3bp</bcf:citekey>
+    <bcf:citekey order="14">EPUB31changes</bcf:citekey>
+    <bcf:citekey order="15">EPUB3bp</bcf:citekey>
+    <bcf:citekey order="16">daisyAccessibility</bcf:citekey>
+    <bcf:citekey order="17">wasIstDaisy</bcf:citekey>
+    <bcf:citekey order="18">EPUB30changes</bcf:citekey>
+    <bcf:citekey order="19">EPUB3bp</bcf:citekey>
+    <bcf:citekey order="20">OPSspecs</bcf:citekey>
+    <bcf:citekey order="21">EPUB3bp</bcf:citekey>
+    <bcf:citekey order="22">augenbitWiki</bcf:citekey>
+    <bcf:citekey order="23">pdfBarrierefrei</bcf:citekey>
+    <bcf:citekey order="24">augenbitWiki</bcf:citekey>
+    <bcf:citekey order="25">markdownSyntax</bcf:citekey>
+    <bcf:citekey order="26">Markdown</bcf:citekey>
+    <bcf:citekey order="27">Pandoc</bcf:citekey>
+    <bcf:citekey order="28">book4all</bcf:citekey>
+    <bcf:citekey order="29">book4all</bcf:citekey>
+    <bcf:citekey order="30">book4all</bcf:citekey>
+    <bcf:citekey order="31">enrichEPUB</bcf:citekey>
+    <bcf:citekey order="32">enrichEPUB</bcf:citekey>
+    <bcf:citekey order="33">enrichEPUB</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

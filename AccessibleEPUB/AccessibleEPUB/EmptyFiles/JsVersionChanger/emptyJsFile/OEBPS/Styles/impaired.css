@@ -5,6 +5,7 @@ html *
 
 p {
   font-size:16px;
+  word-wrap: break-word;
 }
 
 figure {

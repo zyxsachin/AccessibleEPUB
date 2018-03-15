@@ -4,10 +4,10 @@ A level-1 auxiliary file: titlepage.aux
 A level-1 auxiliary file: statement.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: background.aux
-A level-1 auxiliary file: analysis.aux
-A level-1 auxiliary file: design.aux
-A level-1 auxiliary file: implementation.aux
-A level-1 auxiliary file: evaluation.aux
+A level-1 auxiliary file: epubDocumentStandard.aux
+A level-1 auxiliary file: evaluationEpubStandard.aux
+A level-1 auxiliary file: editor.aux
+A level-1 auxiliary file: evaluationEditor.aux
 A level-1 auxiliary file: futurework.aux
 A level-1 auxiliary file: summary.aux
 Database file #1: MasterThesis-blx.bib

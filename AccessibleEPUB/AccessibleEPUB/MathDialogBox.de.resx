@@ -130,11 +130,8 @@
   <data name="formulaLabel.Text" xml:space="preserve">
     <value>Latex Code eingeben</value>
   </data>
-  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 23</value>
-  </data>
   <data name="titleLabel.Text" xml:space="preserve">
-    <value>Titel</value>
+    <value>Titel (optional)</value>
   </data>
   <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>227, 23</value>

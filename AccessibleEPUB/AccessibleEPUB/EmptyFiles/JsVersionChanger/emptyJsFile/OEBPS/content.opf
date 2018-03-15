@@ -11,14 +11,14 @@
   </metadata>
   <manifest>
     <item id="navid" href="Text/nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
-    <item id="Content.xhtml" href="Text/Content.xhtml" media-type="application/xhtml+xml" properties="mathml mathml"/>
+    <item id="Content.xhtml" href="Text/Content.xhtml" media-type="application/xhtml+xml" properties="script"/>
     <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
     <item id="visible.css" href="Styles/visible.css" media-type="text/css"/>
     <item id="impaired.css" href="Styles/impaired.css" media-type="text/css"/>
     <item id="id2" href="Misc/script.js" media-type="application/javascript"/>
     <item id="blind.css" href="Styles/blind.css" media-type="text/css"/>
     <item id="style.css" href="Styles/style.css" media-type="text/css"/>
-    <item id="VersionChanger.xhtml" href="Text/VersionChanger.xhtml" media-type="application/xhtml+xml"/>
+    <item id="VersionChanger.xhtml" href="Text/VersionChanger.xhtml" media-type="application/xhtml+xml" properties="script"/>
   </manifest>
   <spine toc="ncx">
     <itemref idref="VersionChanger.xhtml"/>
