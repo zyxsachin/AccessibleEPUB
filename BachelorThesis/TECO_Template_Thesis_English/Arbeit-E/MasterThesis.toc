@@ -15,14 +15,21 @@
 \contentsline {chapter}{\numberline {2}Related Work}{9}{chapter.2}
 \contentsline {chapter}{\numberline {3}EPUB Document Standard}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Requirements}{13}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Text}{13}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Images}{15}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Mathematical formulas}{15}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Switching between versions}{17}{subsection.3.1.4}
-\contentsline {subsubsection}{\numberline {3.1.4.1}JavaScript}{17}{subsubsection.3.1.4.1}
-\contentsline {subsubsection}{\numberline {3.1.4.2}CSS}{18}{subsubsection.3.1.4.2}
-\contentsline {chapter}{\numberline {4}Evaluation EPUB Standard}{21}{chapter.4}
-\contentsline {chapter}{\numberline {5}AccessibleEPUB Editor}{23}{chapter.5}
-\contentsline {chapter}{\numberline {6}Evaluation Editor}{25}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{27}{chapter.7}
-\contentsline {chapter}{Bibliography}{29}{section*.25}
+\contentsline {subsection}{\numberline {3.1.1}Switching between versions}{13}{subsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.1}JavaScript}{13}{subsubsection.3.1.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.2}CSS}{14}{subsubsection.3.1.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Text}{16}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Images}{16}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Mathematical formulas}{18}{subsection.3.1.4}
+\contentsline {chapter}{\numberline {4}Evaluation EPUB Standard}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Software readers}{23}{section.4.1}
+\contentsline {section}{\numberline {4.2}Hardware readers}{23}{section.4.2}
+\contentsline {section}{\numberline {4.3}Discussion: what do developers have to do?}{23}{section.4.3}
+\contentsline {chapter}{\numberline {5}AccessibleEPUB Editor}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Requirements}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}Programming language}{25}{section.5.2}
+\contentsline {section}{\numberline {5.3}Main window with editor and preview}{25}{section.5.3}
+\contentsline {subsubsection}{\numberline {5.3.0.1}HTML Editor}{25}{subsubsection.5.3.0.1}
+\contentsline {subsubsection}{\numberline {5.3.0.2}Preview browser}{27}{subsubsection.5.3.0.2}
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{29}{chapter.6}
+\contentsline {chapter}{Bibliography}{31}{section*.32}

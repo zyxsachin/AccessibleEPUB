@@ -13,7 +13,115 @@ One requirement of the new standard is that incorporates a way to switch between
 
 Switching between three versions should be simple and visible. It should not be hidden behind menus and settings and must be part of the document itself. A document of the standard must conform to EPUB 3 and not rely on external programs to switch between the versions.
 
-The specifications of each version will be compared with each important component of any document.
+The specifications of each version will be compared with each important component of a document.
+
+
+\subsection{Switching between versions}
+
+Initially the intent was to find one new standard so that EPUB documents can be accessible. Unfortunately, creating a single standard was not possible due to not all EPUB readers supporting all EPUB 3 features.
+
+\subsubsection{JavaScript}
+JavaScript is used to make websites interactive, so it was the logical option to dynamically change the versions. The coding was also quite simple and only involved replacing a single line in the CSS file with programming. This was easy to do in JavaScript, and testing the individual XHTML files in the EPUB showed that it was successful. 
+
+Shown in \ref{fig:jsStyleCss} is style.css which just imports the rules of a CSS file. The methods \lstinline|selectVisible()|, \lstinline|selectImpaired()| and \lstinline|selectBlind()| in script.js all function in the same way. To remember the version chosen, local and session storage is used. First they check if local storage is available. If it is then the method attempts to get the item \lstinline|accessibleEPUBcurrentCSS|. If it does not exist, then it is created. This item is then set with the same import line in figure \ref{fig:jsStyleCss}, only with different CSS file name for each version. If local storage is not available the same process is repeated with session storage. Local storage is preferable to session storage as changes are kept even after the program has been exited. This is not the case with session storage so the user has to set version again at the start of the program. Afterwards the method \lstinline|loadCSS()| is called which deletes the CSS rule of a XHTML file and adds the rule set by the earlier methods.
+
+The content of the XHTML file responsible for the switching mechanism, VersionChanger.xhtml, is shown in figure \ref{fig:js_switch}. It is important that both style.css and script.js are referred to, or the switchi mechanism would be unsuccessful. In the body of the XHTML document, the method \lstinline{storageCSS()} is called whenever the XHTML file is loaded, so whenever the XHTML are switched back to it from another. This method checks if local and then session storage are available. If either one is avaiable then it sets the item in the storage and calls \lstinline{loadCSS()}.
+
+\begin{figure}
+	
+	\begin{lstlisting}
+	@import url("../Styles/visible.css");
+	\end{lstlisting}
+	\caption{Contents of style.css}
+	\label{fig:jsStyleCss}
+\end{figure}
+
+\begin{figure}
+	
+	\begin{lstlisting}
+	<head>
+	<title></title>
+	<link rel="stylesheet" href="../Styles/style.css"/>
+	<script src="../Misc/script.js"></script>
+	</head>
+	
+	<body epub:type="frontmatter" onload="storageCSS();">
+	<a id="a1" href="#a1" onclick="selectVisible();">Normal</a>
+	<a id="a2" href="#a2" onclick="selectImpaired();">Visually impaired</a>
+	<a id="a3" href="#a3" onclick="selectBlind();">Blind</a>
+	</body>
+	\end{lstlisting}
+	\caption{The links in the JavaScript version}
+	\label{fig:js_switch}
+\end{figure}
+
+There are some issues with JavaScript version changer. If the software or hardware reader does not support temporary storage, the EPUB is always displayed in its default appearance. Due to this, switching with JavaScript is not a reliable option. As mentioned in chapter \ref{ch:Introduction}, JavaScript does not have to be supported by all EPUB readers. Nevertheless, the JavaScript implementation supports multiple XHTML files, because temporary storage is supported. For the same reason table of contents are also supported, as they are normally displayed in a separate file, named \lstinline|nav.xhtml|. 
+
+\subsubsection{CSS}
+The second method does not use JavaScript and uses some advanced features of CSS, introduced in CSS 3. This mainly refers to CSS selectors. Selectors allow HTML documents to have limited interactive capabilities, such as changing the appearance of a clicked element.\cite{cssSelectors}\footnote{https://www.w3schools.com/cssref/css\_selectors.asp} 
+
+Before showing how the selectors work, the format of the content file should be discussed. It is shown in figure~\ref{fig:css_switch}. Unlike the JavaScript version, the links are in the same XHTML file and are shown at the beginning of the EPUB file. In the JavaScript version, the links are on a separate page.
+
+
+\begin{figure}
+	
+	\begin{lstlisting}
+	<body>
+	<a class="versionChanger" id="a1" href="#visible">Normal</a>
+	<a class="versionChanger" id="a2" href="#impaired">Visually impaired</a>
+	<a class="versionChanger" id="a3" href="#blind">Blind</a>
+	
+	<div style="padding:none" id="impaired" class="impaired">
+	...
+	</div>
+	<div id="blind" class="blind">
+	...
+	</div>
+	<div id="visible" class="visible">
+	...
+	</div>
+	</body>
+	\end{lstlisting}
+	\caption{The links and divs in the CSS version}
+	\label{fig:css_switch}
+\end{figure}
+
+The code shown in figure~\ref{fig:css_selector} is responsible for the switching mechanism. At first only the visible version can be seen and the other two are hidden. The versions appear with the \lstinline|:target| selector, which affects the appearance of the element if it was a target of a link(\lstinline|<a> element|). If another link was clicked, then the current version becomes hidden again. However, the visible version would not become hidden, and this was a major problem. CSS selectors have limited capabilities compared to JavaScript, because they were intended to complement and not replace each other. After a bit of experimentation with various CSS selectors, the \lstinline|~| selector delivered the desired results. \lstinline|~| allows every element on the right hand side to be selected if it preceded by a left hand side element. So in the case of \lstinline|.impaired:target ~ .visible|, once the impaired link has been clicked, the visible sections becomes hidden.
+
+\begin{figure}
+	
+	\begin{lstlisting}
+	.visible {
+	display:inline; 
+	}
+	
+	.impaired:target ~ .visible {
+	display:none; 
+	}
+	
+	.blind:target ~ .visible {
+	display:none; 
+	}
+	
+	.impaired {
+	display:none; 
+	}
+	
+	.blind {
+	display:none; 
+	}
+	
+	.impaired:target{
+	display:inline; 
+	}
+	
+	.blind:target{
+	display:inline; 
+	}
+	\end{lstlisting}
+	\caption{The CSS selectors responsible for the dynamic version switching}
+	\label{fig:css_selector}
+\end{figure}
 
 \subsection{Text}
 
@@ -29,7 +137,7 @@ The visually impaired version needs to use sans-serif fonts, as seen in figure \
 
 	
 	\caption{Comparison of serif(left) and sans serif(right) fonts
-		\\$Source: https://cdncms.fonts.net/images/6bff0c2cdbbcca14/A.SerifSansPrint.jpg$}
+		\\Source: https://cdncms.fonts.net/images/6bff0c2cdbbcca14/A.SerifSansPrint.jpg}
 	\label{fig:sansSerif}
 \end{figure}
 
@@ -53,22 +161,23 @@ All images need to have alternative text to describe them and preferably have a 
 
 Images in visually impaired and normal mode will be displayed normally, but the image, caption and figure will all have a maximum length of 100\% of the screen size.
 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{figures/ImageVi.PNG}
-	\caption{Image in 'Visual impairment' mode}
-	\label{fig:image_viimp}
-\end{figure}
-
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{figures/ImageBl.PNG}
 	\caption{Image in 'Blind' mode}
 	\label{fig:image_blind}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{figures/ImageVi.PNG}
+	\caption{Image in 'Visual impairment' mode}
+	\label{fig:image_viimp}
+\end{figure}
+
+
+
+\begin{figure}[H]
 	\begin{lstlisting}
 	<figure>
 		<img title="KazirangaRhino" alt="Indian rhino standing in tall grass in Kaziranga National Park, India" src="..\Images\KazirangaRhino.png"/>
@@ -88,33 +197,35 @@ Images in visually impaired and normal mode will be displayed normally, but the 
 
 Formulas should be displayed in MathML. MathML is quite clunky and time consuming to write in, so a LaTeX to MathML converter has to be used. For the sample documents, a online converting tool was used. The input formula was the quadratic equation, which appeared in \ref{fig:quadEquaPng}.
 
-
-In the normal version the default display style is used, which uses a serif font and a combination of italicized and unitalicized letters, as shown in figure~\ref{fig:equation_normal}. Serif fonts are not suitable in the visually impaired version, so a sans serif had to be chosen. At first the font was changed in the CSS. This unfortunately resulted in the text not scaling properly, and therefore some characters were not properly spaced. The root symbol also wasn't displayed clearly. Instead the mstyle attribute of MathML had to be changed to sans serif which resulted in figure~\ref{fig:equation_viimp}. The mstyle attribute can not be changed in CSS, it has to be inserted into every math element.
-
-
-In the blind version, the text has to appear as LaTeX code. Much like the alternative text for images, it will appear as a separate paragraph enclosed in \lstinline|<p>|  tags. To signify that it is code, it has to be surrounded by \$ signs, as shown in figure~\ref{fig:equation_blind}. The math element is in a \lstinline|<div>| with CSS class "math", which is hidden in the blind version.
-
-
-\begin{figure}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=\linewidth*2/3]{figures/EquationNo.PNG 
+	\includegraphics[width=\linewidth*2/3]{figures/EquationNo.PNG}
 	\caption{Equation in 'Normal' mode}
 	\label{fig:equation_normal}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth*2/3]{figures/EquationVi.PNG}
 	\caption{Equation in 'Visual impairment' mode}
 	\label{fig:equation_viimp}
 \end{figure}
 
-\begin{figure}
+
+
+In the normal version the default display style is used, which uses a serif font and a combination of italicized and unitalicized letters, as shown in figure~\ref{fig:equation_normal}. Serif fonts are not suitable in the visually impaired version, so a sans serif had to be chosen. At first the font was changed in the CSS. This unfortunately resulted in the text not scaling properly, and therefore some characters were not properly spaced. The root symbol also wasn't displayed clearly. Instead the mstyle attribute of MathML had to be changed to sans serif which resulted in figure~\ref{fig:equation_viimp}. The mstyle attribute can not be changed in CSS, it has to be inserted into every math element.
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth*2/3]{figures/EquationBl.PNG}
 	\caption{Equation in 'Blind' mode}
 	\label{fig:equation_blind}
 \end{figure}
+
+In the blind version, the text has to appear as LaTeX code. Much like the alternative text for images, it will appear as a separate paragraph enclosed in \lstinline{<p>}  tags. To signify that it is code, it has to be surrounded by \$ signs, as shown in figure~\ref{fig:equation_blind}. The math element is in a \lstinline{<div>} with CSS class "math", which is hidden in the blind version.
+
+
+
 
 \begin{figure}
 	
@@ -185,95 +296,4 @@ In the blind version, the text has to appear as LaTeX code. Much like the altern
 		\label{fig:math_vi_code}
 \end{figure}
 
-\subsection{Switching between versions}
-
-Initially the intent was to find one new standard so that EPUB documents can be accessible. Unfortunately, creating a single standard was not possible due to not all EPUB readers supporting all EPUB 3 features.
-
-\subsubsection{JavaScript}
-JavaScript is used to make websites interactive, so it was the logical option to dynamically change the versions. The content of the XHTML file responsible for the switching mechanism, VersionChanger.xhtml, is shown in figure \ref{fig:js_switch}. 
-
-\begin{figure}
-	
-	\begin{lstlisting}
-	<head>
-		<title></title>
-		<link rel="stylesheet" href="../Styles/style.css"/>
-		<script src="../Misc/script.js"></script>
-	</head>
-	
-	<body epub:type="frontmatter" onload="storageCSS();">
-		<a id="a1" href="#a1" onclick="selectVisible();">Normal</a>
-		<a id="a2" href="#a2" onclick="selectImpaired();">Visually impaired</a>
-		<a id="a3" href="#a3" onclick="selectBlind();">Blind</a>
-	</body>
-	\end{lstlisting}
-	\caption{The links in the JavaScript version}
-	\label{fig:js_switch}
-\end{figure}
-
-The coding was also quite simple and only involved replacing a single line in the CSS file with programming. This was easy to do in JavaScript, and testing the individual XHTML files in the EPUB showed that it was successful. However, as mentioned \textcolor{red}{REPLACE}, JavaScript does not have to be supported by all EPUB readers. Furthermore, to remember the version chosen, local and session storage is used. If the reader does not support temporary storage, the EPUB is always displayed in its default appearance. Due to this, switching with JavaScript is not a reliable option. Nevertheless, the JavaScript implementation supports multiple XHTML files, because temporary storage is supported. For the same reason table of contents are also supported, as they are normally displayed in a separate file, named \lstinline|nav.xhtml|. 
-
-\subsubsection{CSS}
-The second method does not use JavaScript and uses some advanced features of CSS, introduced in CSS 3. This mainly refers to CSS selectors. Selectors allow HTML documents to have limited interactive capabilities, such as changing the appearance of a clicked element.\cite{cssSelectors} 
-
-Before showing how the selectors work, the format of the content file should be discussed. It is shown in figure~\ref{fig:css_switch}. 
-\begin{figure}
-	
-	\begin{lstlisting}
-	<body>
-		<a class="versionChanger" id="a1" href="#visible">Normal</a>
-		<a class="versionChanger" id="a2" href="#impaired">Visually impaired</a>
-		<a class="versionChanger" id="a3" href="#blind">Blind</a>
-		
-		<div style="padding:none" id="impaired" class="impaired">
-			...
-		</div>
-		<div id="blind" class="blind">
-			...
-		</div>
-		<div id="visible" class="visible">
-			...
-		</div>
-	</body>
-	\end{lstlisting}
-	\caption{The links and divs in the CSS version}
-	\label{fig:css_switch}
-\end{figure}
-
-The code shown in figure~\ref{fig:css_selector} is responsible for the switching mechanism. At first only the visible version can be seen and the other two are hidden. The versions appear with the \lstinline|:target| selector, which affects the appearance of the element if it was a target of a link(\lstinline|<a> element|). If another link was clicked, then the current version becomes hidden again. However, the visible version would not become hidden, and this was a major problem. CSS selectors have limited capabilities compared to JavaScript, because they were intended to complement and not replace each other. After a bit of experimentation with various CSS selectors, the \lstinline|~| selector delivered the desired results. \lstinline|~| allows every element on the right hand side to be selected if it preceded by a left hand side element. So in the case of \lstinline|.impaired:target ~ .visible|, once the impaired link has been clicked, the visible sections becomes hidden.
-
-\begin{figure}
-	
-	\begin{lstlisting}
-	.visible {
-		display:inline; 
-	}
-	
-	.impaired:target ~ .visible {
-		display:none; 
-	}
-	
-	.blind:target ~ .visible {
-		display:none; 
-	}
-	
-	.impaired {
-		display:none; 
-	}
-	
-	.blind {
-		display:none; 
-	}
-	
-	.impaired:target{
-		display:inline; 
-	}
-	
-	.blind:target{
-		display:inline; 
-	}
-	\end{lstlisting}
-	\caption{The CSS selectors responsible for the dynamic version switching}
-	\label{fig:css_selector}
-\end{figure}
 

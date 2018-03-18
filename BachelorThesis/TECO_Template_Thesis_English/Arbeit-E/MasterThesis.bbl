@@ -488,5 +488,23 @@
     \field{note}{https://www.w3.org/TR/WCAG20/, visited on 29.01.2018}
     \field{title}{Web Content Accessibility Guidelines (WCAG) 2.0}
   \endentry
+
+  \entry{cssSelectors}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={W3Schools},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W2}
+    \strng{fullhash}{W2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{note}{https://www.w3schools.com/cssref/css_selectors.asp, visited on
+  15.03.2018}
+    \field{title}{CSS Selectors Reference}
+  \endentry
 \enddatalist
 \endinput

@@ -12,6 +12,7 @@
 % Weitere packages: (Dokumentation dazu durch "latex <package>.dtx")
 %\usepackage{bibgerm}
 %\usepackage[backend=biber]{biblatex} 
+
 \usepackage{csquotes} 
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -58,6 +59,15 @@
 %\svnversion{$Id: diplarb.tex 53 2009-12-10 12:23:37Z bless $} % In case that you want to include version information in the footer
 %\hyphenation{if...-then...}
 %% Informationen für die PDF-Datei
+
+%\usepackage[utf8]{inputenc}
+
+%\DeclareUnicodeCharacter{252C}{\signa}%┬}
+%\DeclareUnicodeCharacter{2592}{\signb}%▒}
+
+
+
+
 \pgfplotsset{compat=newest}
 
 \hypersetup{
@@ -78,7 +88,7 @@
 % Macros, nicht unbedingt notwendig
 \input{macros}
 
- \renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
 % Print URLs not in Typewriter Font
 \def\UrlFont{\rm}
 
@@ -216,7 +226,7 @@ summary  % Zusammenfassung der Ergebnisse
 \include{epubDocumentStandard}
 \include{evaluationEpubStandard}
 \include{editor}
-\include{evaluationEditor}
+%\include{evaluationEditor}
 %\include{analysis}     % Analyse
 %\include{design}     % Entwurf
 %\include{implementation}    % Implementierung

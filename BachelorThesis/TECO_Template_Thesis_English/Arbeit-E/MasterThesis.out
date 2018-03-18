@@ -13,14 +13,21 @@
 \BOOKMARK [0][]{chapter.2}{2 Related Work}{}% 13
 \BOOKMARK [0][]{chapter.3}{3 EPUB Document Standard}{}% 14
 \BOOKMARK [1][-]{section.3.1}{3.1 Requirements}{chapter.3}% 15
-\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Text}{section.3.1}% 16
-\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Images}{section.3.1}% 17
-\BOOKMARK [2][-]{subsection.3.1.3}{3.1.3 Mathematical formulas}{section.3.1}% 18
-\BOOKMARK [2][-]{subsection.3.1.4}{3.1.4 Switching between versions}{section.3.1}% 19
-\BOOKMARK [3][-]{subsubsection.3.1.4.1}{3.1.4.1 JavaScript}{subsection.3.1.4}% 20
-\BOOKMARK [3][-]{subsubsection.3.1.4.2}{3.1.4.2 CSS}{subsection.3.1.4}% 21
+\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Switching between versions}{section.3.1}% 16
+\BOOKMARK [3][-]{subsubsection.3.1.1.1}{3.1.1.1 JavaScript}{subsection.3.1.1}% 17
+\BOOKMARK [3][-]{subsubsection.3.1.1.2}{3.1.1.2 CSS}{subsection.3.1.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Text}{section.3.1}% 19
+\BOOKMARK [2][-]{subsection.3.1.3}{3.1.3 Images}{section.3.1}% 20
+\BOOKMARK [2][-]{subsection.3.1.4}{3.1.4 Mathematical formulas}{section.3.1}% 21
 \BOOKMARK [0][]{chapter.4}{4 Evaluation EPUB Standard}{}% 22
-\BOOKMARK [0][]{chapter.5}{5 AccessibleEPUB Editor}{}% 23
-\BOOKMARK [0][]{chapter.6}{6 Evaluation Editor}{}% 24
-\BOOKMARK [0][]{chapter.7}{7 Conclusion and Future Work}{}% 25
-\BOOKMARK [0][]{section*.25}{Bibliography}{}% 26
+\BOOKMARK [1][-]{section.4.1}{4.1 Software readers}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.2}{4.2 Hardware readers}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.3}{4.3 Discussion: what do developers have to do?}{chapter.4}% 25
+\BOOKMARK [0][]{chapter.5}{5 AccessibleEPUB Editor}{}% 26
+\BOOKMARK [1][-]{section.5.1}{5.1 Requirements}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.2}{5.2 Programming language}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.3}{5.3 Main window with editor and preview}{chapter.5}% 29
+\BOOKMARK [2][-]{subsubsection.5.3.0.1}{5.3.0.1 HTML Editor}{section.5.3}% 30
+\BOOKMARK [3][-]{subsubsection.5.3.0.2}{5.3.0.2 Preview browser}{subsubsection.5.3.0.1}% 31
+\BOOKMARK [0][]{chapter.6}{6 Conclusion and Future Work}{}% 32
+\BOOKMARK [0][]{section*.32}{Bibliography}{}% 33
