@@ -3230,7 +3230,7 @@ body {
             headings = new Dictionary<string, string>();
 
             //List<Tuple<string, string>> headings = new List<Tuple<string, string>>();
-            headings.Add("Paragraph", "<p>");
+            headings.Add("Standard (Paragraph)", "<p>");
             headings.Add("Heading 1", "<h1>");
             headings.Add("Heading 2", "<h2>");
             headings.Add("Heading 3", "<h3>");
@@ -4061,6 +4061,11 @@ body {
 
             
               
+        }
+
+        private void textToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

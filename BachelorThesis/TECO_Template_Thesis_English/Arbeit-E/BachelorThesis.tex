@@ -39,9 +39,13 @@
 %\usepackage[plainpages=true]{hyperref}
 \usepackage[space]{grffile}
 %\usepackage[numbers,sort&compress]{natbib}
-\usepackage[backend=bibtex,natbib=true,hyperref=true,doi=false,url=false]{biblatex}
+\usepackage[backend=bibtex,natbib=true,hyperref=true,doi=false,url=false,style=numeric,sorting=none]{biblatex}
 
 \usepackage{graphicx}
+
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 %\usepackage{biblatex}
 % \usepackage{varioref}
@@ -164,8 +168,10 @@ evaluationEditor,
 futurework,% Future Work
 summary  % Zusammenfassung der Ergebnisse 
 }
+
 \bibliography{Literature, Websites}
 \bibliography{Accessible_EPUB}
+
 \usepgfplotslibrary{groupplots}
 \usetikzlibrary{pgfplots.groupplots}
 %\addbibresource{diplarb.bib}
@@ -258,6 +264,7 @@ summary  % Zusammenfassung der Ergebnisse
 % spezielle Zitierstile: Labels mit vier Buchstaben und Jahreszahl
 %\bibliographystyle{itmalpha}  % ausgeschriebene Vornamen der Autoren
 
+\sloppy
 \printbibliography
 %% ++++++++++++++++++++++++++++++++++++++++++
 %% Index

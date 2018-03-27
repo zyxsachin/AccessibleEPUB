@@ -85,6 +85,10 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.numberedListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bulletListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.boldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.italicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -551,7 +555,9 @@
             this.insertMathToolStripMenuItem,
             this.toolStripSeparator13,
             this.numberedListToolStripMenuItem,
-            this.bulletListToolStripMenuItem});
+            this.bulletListToolStripMenuItem,
+            this.toolStripSeparator14,
+            this.importToolStripMenuItem});
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
             resources.ApplyResources(this.insertToolStripMenuItem, "insertToolStripMenuItem");
             // 
@@ -589,6 +595,30 @@
             resources.ApplyResources(this.bulletListToolStripMenuItem, "bulletListToolStripMenuItem");
             this.bulletListToolStripMenuItem.Name = "bulletListToolStripMenuItem";
             this.bulletListToolStripMenuItem.Click += new System.EventHandler(this.bulletListToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textToolStripMenuItem,
+            this.hTMLToolStripMenuItem});
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            resources.ApplyResources(this.importToolStripMenuItem, "importToolStripMenuItem");
+            // 
+            // textToolStripMenuItem
+            // 
+            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
+            resources.ApplyResources(this.textToolStripMenuItem, "textToolStripMenuItem");
+            this.textToolStripMenuItem.Click += new System.EventHandler(this.textToolStripMenuItem_Click);
+            // 
+            // hTMLToolStripMenuItem
+            // 
+            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
+            resources.ApplyResources(this.hTMLToolStripMenuItem, "hTMLToolStripMenuItem");
             // 
             // formatToolStripMenuItem
             // 
@@ -1228,6 +1258,10 @@
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.ToolStripLabel lastSavedLabel;
         private System.Windows.Forms.ToolStripMenuItem toggleRefreshPreviewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hTMLToolStripMenuItem;
     }
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.11)  18 MAR 2018 22:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.11)  26 MAR 2018 00:22
 entering extended mode
 **./MasterThesis.tex
 (MasterThesis.tex
@@ -2146,14 +2146,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  (titlepage.tex
 \Erstgutachter=\box80
 \Zweitgutachter=\box81
-<logos/KIT_Deckblatt.pdf, id=138, pagebox=cropbox, 597.23125pt x 845.1575pt>
+<logos/KIT_Deckblatt.pdf, id=206, pagebox=cropbox, 597.23125pt x 845.1575pt>
 File: logos/KIT_Deckblatt.pdf Graphic file (type pdf)
 <use logos/KIT_Deckblatt.pdf>
 Package pdftex.def Info: logos/KIT_Deckblatt.pdf  used on input line 16. on inp
 ut line 16.
 Package pdftex.def Info: Requested size: 597.50787pt x 845.6068pt on input line
  16.
-<logos/SZS.png, id=139, 212.29312pt x 206.27063pt>
+<logos/SZS.png, id=207, 212.29312pt x 206.27063pt>
 File: logos/SZS.png Graphic file (type png)
 <use logos/SZS.png>
 Package pdftex.def Info: logos/SZS.png  used on input line 19. on input line 19
@@ -2178,16 +2178,25 @@ T_Deckblatt.pdf> <./logos/SZS.png>]) [2
 ]
 \openout2 = `statement.aux'.
 
- (statement.tex [3
+ (statement.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--10
+
+ []
+
+[3
 
 ] [4
 
 ] [5] [6
 
-]
-[7] [8
+] [7] [8
 
-]) (MasterThesis.toc)
+]) (MasterThesis.toc [9
+
+
+
+
+])
 \tf@toc=\write8
 \openout8 = `MasterThesis.toc'.
 
@@ -2196,13 +2205,8 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.212 \cleardoublepage
-                       [1
-
-
-
-
-]pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) ha
-s been already used, duplicate ignored
+                       [1]pdfTeX warning (ext4): destination with the same iden
+tifier (name{page.ii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.212 \cleardoublepage
@@ -2213,6 +2217,24 @@ l.212 \cleardoublepage
 
  (introduction.tex
 Chapter 1.
+<figures/badPDF.png, id=313, 301.125pt x 266.49562pt>
+File: figures/badPDF.png Graphic file (type png)
+<use figures/badPDF.png>
+Package pdftex.def Info: figures/badPDF.png  used on input line 37. on input li
+ne 37.
+Package pdftex.def Info: Requested size: 426.79135pt x 377.74733pt on input lin
+e 37.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Try loading font information for TS1+aess on input line 46.
+
+LaTeX Font Info:    No file TS1aess.fd. on input line 46.
+
+LaTeX Font Warning: Font shape `TS1/aess/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead
+(Font)              for symbol `textbullet' on input line 46.
+
 [1
 
 
@@ -2220,57 +2242,55 @@ Chapter 1.
 
 
 ]
-<figures/epubFolderStructure.png, id=240, 478.1865pt x 109.00725pt>
+<figures/epubFolderStructure.png, id=334, 478.1865pt x 109.00725pt>
 File: figures/epubFolderStructure.png Graphic file (type png)
 <use figures/epubFolderStructure.png>
-Package pdftex.def Info: figures/epubFolderStructure.png  used on input line 47
-. on input line 47.
+Package pdftex.def Info: figures/epubFolderStructure.png  used on input line 63
+. on input line 63.
 Package pdftex.def Info: Requested size: 426.79135pt x 97.29556pt on input line
- 47.
- [2 <./figures/epubFolderStructure.png>] [3]
-LaTeX Font Info:    Try loading font information for TS1+aess on input line 102
-.
-LaTeX Font Info:    No file TS1aess.fd. on input line 102.
+ 63.
 
+Underfull \vbox (badness 5578) has occurred while \output is active []
 
-LaTeX Font Warning: Font shape `TS1/aess/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textbullet' on input line 102.
-
-[4] [5]
-<figures/QuadraticEquation.png, id=332, 232.61906pt x 63.23625pt>
-File: figures/QuadraticEquation.png Graphic file (type png)
-<use figures/QuadraticEquation.png>
-Package pdftex.def Info: figures/QuadraticEquation.png  used on input line 196.
- on input line 196.
-Package pdftex.def Info: Requested size: 142.26378pt x 38.6744pt on input line 
-196.
-<figures/bitmapVsSvg.png, id=333, 1284.8pt x 821.0675pt>
+ [2 <./figures/badPDF.png>] [3 <./figures/epubFolderStructure.png>] [4] [5]
+<figures/bitmapVsSvg.png, id=415, 1284.8pt x 821.0675pt>
 File: figures/bitmapVsSvg.png Graphic file (type png)
 <use figures/bitmapVsSvg.png>
-Package pdftex.def Info: figures/bitmapVsSvg.png  used on input line 212. on in
-put line 212.
+Package pdftex.def Info: figures/bitmapVsSvg.png  used on input line 207. on in
+put line 207.
 Package pdftex.def Info: Requested size: 213.39568pt x 136.37234pt on input lin
-e 212.
- [6 <./figures/QuadraticEquation.png> <./figures/bitmapVsSvg.png>])
-[7]
+e 207.
+ [6 <./figures/bitmapVsSvg.png>]
+<figures/QuadraticEquation.png, id=441, 232.61906pt x 63.23625pt>
+File: figures/QuadraticEquation.png Graphic file (type png)
+<use figures/QuadraticEquation.png>
+Package pdftex.def Info: figures/QuadraticEquation.png  used on input line 240.
+ on input line 240.
+Package pdftex.def Info: Requested size: 142.26378pt x 38.6744pt on input line 
+240.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 255.
+
+[7 <./figures/QuadraticEquation.png>]) [8]
 \openout2 = `background.aux'.
 
- (background.tex [8
-
-
-
-]
+ (background.tex
 Chapter 2.
-<figures/book4all1.png, id=365, 727.21687pt x 575.14874pt>
+<figures/book4all1.png, id=478, 727.21687pt x 575.14874pt>
 File: figures/book4all1.png Graphic file (type png)
 <use figures/book4all1.png>
 Package pdftex.def Info: figures/book4all1.png  used on input line 17. on input
  line 17.
 Package pdftex.def Info: Requested size: 426.79135pt x 337.55328pt on input lin
 e 17.
-[9] [10 <./figures/book4all1.png>]
-<figures/easeOfContentAccess.png, id=384, 1207.51125pt x 637.63219pt>
+[9
+
+
+
+] [10 <./figures/book4all1.png>]
+<figures/easeOfContentAccess.png, id=496, 1207.51125pt x 637.63219pt>
 File: figures/easeOfContentAccess.png Graphic file (type png)
 <use figures/easeOfContentAccess.png>
 Package pdftex.def Info: figures/easeOfContentAccess.png  used on input line 29
@@ -2288,21 +2308,21 @@ e 29.
 ]
 Chapter 3.
 [13] [14] [15]
-<figures/sansSerif.jpg, id=484, 301.125pt x 166.6225pt>
+<figures/sansSerif.jpg, id=595, 301.125pt x 166.6225pt>
 File: figures/sansSerif.jpg Graphic file (type jpg)
 <use figures/sansSerif.jpg>
 Package pdftex.def Info: figures/sansSerif.jpg  used on input line 135. on inpu
 t line 135.
 Package pdftex.def Info: Requested size: 213.39568pt x 118.08414pt on input lin
 e 135.
-<figures/VItext.png, id=487, 623.32875pt x 299.9205pt>
+<figures/VItext.png, id=598, 623.32875pt x 299.9205pt>
 File: figures/VItext.png Graphic file (type png)
 <use figures/VItext.png>
 Package pdftex.def Info: figures/VItext.png  used on input line 147. on input l
 ine 147.
 Package pdftex.def Info: Requested size: 426.79135pt x 205.35735pt on input lin
 e 147.
-<figures/Ntext.png, id=488, 619.113pt x 178.86826pt>
+<figures/Ntext.png, id=599, 619.113pt x 178.86826pt>
 File: figures/Ntext.png Graphic file (type png)
 <use figures/Ntext.png>
 Package pdftex.def Info: figures/Ntext.png  used on input line 153. on input li
@@ -2310,14 +2330,14 @@ ne 153.
 Package pdftex.def Info: Requested size: 426.79135pt x 123.30731pt on input lin
 e 153.
  [16 <./figures/sansSerif.jpg> <./figures/VItext.png>]
-<figures/ImageBl.PNG, id=500, 522.753pt x 261.3765pt>
+<figures/ImageBl.PNG, id=611, 522.753pt x 261.3765pt>
 File: figures/ImageBl.PNG Graphic file (type png)
 <use figures/ImageBl.PNG>
 Package pdftex.def Info: figures/ImageBl.PNG  used on input line 166. on input 
 line 166.
 Package pdftex.def Info: Requested size: 426.79135pt x 213.39285pt on input lin
 e 166.
-<figures/ImageVi.PNG, id=501, 543.2295pt x 480.5955pt>
+<figures/ImageVi.PNG, id=612, 543.2295pt x 480.5955pt>
 File: figures/ImageVi.PNG Graphic file (type png)
 <use figures/ImageVi.PNG>
 Package pdftex.def Info: figures/ImageVi.PNG  used on input line 173. on input 
@@ -2328,7 +2348,7 @@ e 173.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17 <./figures/Ntext.png> <./figures/ImageBl.PNG>]
-<figures/EquationNo.PNG, id=516, 332.442pt x 210.7875pt>
+<figures/EquationNo.PNG, id=627, 332.442pt x 210.7875pt>
 File: figures/EquationNo.PNG Graphic file (type png)
 <use figures/EquationNo.PNG>
 Package pdftex.def Info: figures/EquationNo.PNG  used on input line 202. on inp
@@ -2336,14 +2356,14 @@ ut line 202.
 Package pdftex.def Info: Requested size: 284.52756pt x 180.40851pt on input lin
 e 202.
  [18 <./figures/ImageVi.PNG>]
-<figures/EquationVi.PNG, id=532, 332.442pt x 210.7875pt>
+<figures/EquationVi.PNG, id=643, 332.442pt x 210.7875pt>
 File: figures/EquationVi.PNG Graphic file (type png)
 <use figures/EquationVi.PNG>
 Package pdftex.def Info: figures/EquationVi.PNG  used on input line 209. on inp
 ut line 209.
 Package pdftex.def Info: Requested size: 284.52756pt x 180.40851pt on input lin
 e 209.
-<figures/EquationBl.PNG, id=535, 332.442pt x 210.7875pt>
+<figures/EquationBl.PNG, id=646, 332.442pt x 210.7875pt>
 File: figures/EquationBl.PNG Graphic file (type png)
 <use figures/EquationBl.PNG>
 Package pdftex.def Info: figures/EquationBl.PNG  used on input line 220. on inp
@@ -2363,62 +2383,240 @@ ationBl.PNG>] [21]
 
 ]
 Chapter 4.
-) [23]
+<figures/ExampleEPUB1.png, id=734, 551.05875pt x 698.61pt>
+File: figures/ExampleEPUB1.png Graphic file (type png)
+<use figures/ExampleEPUB1.png>
+Package pdftex.def Info: figures/ExampleEPUB1.png  used on input line 8. on inp
+ut line 8.
+Package pdftex.def Info: Requested size: 213.39568pt x 270.53801pt on input lin
+e 8.
+<figures/ExampleEPUB2.png, id=735, 557.08125pt x 700.11563pt>
+File: figures/ExampleEPUB2.png Graphic file (type png)
+<use figures/ExampleEPUB2.png>
+Package pdftex.def Info: figures/ExampleEPUB2.png  used on input line 12. on in
+put line 12.
+Package pdftex.def Info: Requested size: 213.39568pt x 268.18327pt on input lin
+e 12.
+[23 <./figures/ExampleEPUB1.png> <./figures/ExampleEPUB2.png>]
+<figures/Tolino.png, id=746, 1445.4pt x 2569.6pt>
+File: figures/Tolino.png Graphic file (type png)
+<use figures/Tolino.png>
+Package pdftex.def Info: figures/Tolino.png  used on input line 37. on input li
+ne 37.
+Package pdftex.def Info: Requested size: 142.26378pt x 252.89732pt on input lin
+e 37.
+ [24 <./figures/Tolino.png>]
+<figures/ReasilyNo1.png, id=757, 1445.4pt x 2569.6pt>
+File: figures/ReasilyNo1.png Graphic file (type png)
+<use figures/ReasilyNo1.png>
+Package pdftex.def Info: figures/ReasilyNo1.png  used on input line 49. on inpu
+t line 49.
+Package pdftex.def Info: Requested size: 213.39568pt x 379.346pt on input line 
+49.
+<figures/ReasilyNo2.png, id=758, 1445.4pt x 2569.6pt>
+File: figures/ReasilyNo2.png Graphic file (type png)
+<use figures/ReasilyNo2.png>
+Package pdftex.def Info: figures/ReasilyNo2.png  used on input line 53. on inpu
+t line 53.
+Package pdftex.def Info: Requested size: 213.39568pt x 379.346pt on input line 
+53.
+<figures/ReasilyBl.png, id=762, 1445.4pt x 2569.6pt>
+File: figures/ReasilyBl.png Graphic file (type png)
+<use figures/ReasilyBl.png>
+Package pdftex.def Info: figures/ReasilyBl.png  used on input line 79. on input
+ line 79.
+Package pdftex.def Info: Requested size: 142.26378pt x 252.89732pt on input lin
+e 79.
+ [25 <./figures/ReasilyNo1.png> <./figures/ReasilyNo2.png>]
+<figures/fbreader.png, id=771, 1445.4pt x 2569.6pt>
+File: figures/fbreader.png Graphic file (type png)
+<use figures/fbreader.png>
+Package pdftex.def Info: figures/fbreader.png  used on input line 93. on input 
+line 93.
+Package pdftex.def Info: Requested size: 142.26378pt x 252.89732pt on input lin
+e 93.
+ [26 <./figures/ReasilyBl.png> <./figures/fbreader.png>]
+<figures/ubreader.png, id=781, 1445.4pt x 2569.6pt>
+File: figures/ubreader.png Graphic file (type png)
+<use figures/ubreader.png>
+Package pdftex.def Info: figures/ubreader.png  used on input line 103. on input
+ line 103.
+Package pdftex.def Info: Requested size: 142.26378pt x 252.89732pt on input lin
+e 103.
+<figures/calibreVi.png, id=785, 1156.32pt x 620.3175pt>
+File: figures/calibreVi.png Graphic file (type png)
+<use figures/calibreVi.png>
+Package pdftex.def Info: figures/calibreVi.png  used on input line 117. on inpu
+t line 117.
+Package pdftex.def Info: Requested size: 426.79135pt x 228.95543pt on input lin
+e 117.
+ [27 <./figures/ubreader.png>]
+<figures/calibreBl.png, id=797, 1156.32pt x 620.3175pt>
+File: figures/calibreBl.png Graphic file (type png)
+<use figures/calibreBl.png>
+Package pdftex.def Info: figures/calibreBl.png  used on input line 126. on inpu
+t line 126.
+Package pdftex.def Info: Requested size: 426.79135pt x 228.95543pt on input lin
+e 126.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28 <./figures/calibreVi.png>]
+<figures/ReadiumVi.png, id=806, 1156.32pt x 620.3175pt>
+File: figures/ReadiumVi.png Graphic file (type png)
+<use figures/ReadiumVi.png>
+Package pdftex.def Info: figures/ReadiumVi.png  used on input line 135. on inpu
+t line 135.
+Package pdftex.def Info: Requested size: 426.79135pt x 228.95543pt on input lin
+e 135.
+<figures/ReadiumBl.png, id=810, 1156.32pt x 620.3175pt>
+File: figures/ReadiumBl.png Graphic file (type png)
+<use figures/ReadiumBl.png>
+Package pdftex.def Info: figures/ReadiumBl.png  used on input line 144. on inpu
+t line 144.
+Package pdftex.def Info: Requested size: 426.79135pt x 228.95543pt on input lin
+e 144.
+ [29 <./figures/calibreBl.png> <./figures/ReadiumVi.png>]
+<figures/Bluefire.png, id=823, 1156.32pt x 620.3175pt>
+File: figures/Bluefire.png Graphic file (type png)
+<use figures/Bluefire.png>
+Package pdftex.def Info: figures/Bluefire.png  used on input line 153. on input
+ line 153.
+Package pdftex.def Info: Requested size: 426.79135pt x 228.95543pt on input lin
+e 153.
+<figures/Icecream.png, id=826, 1155.1155pt x 619.113pt>
+File: figures/Icecream.png Graphic file (type png)
+<use figures/Icecream.png>
+Package pdftex.def Info: figures/Icecream.png  used on input line 161. on input
+ line 161.
+Package pdftex.def Info: Requested size: 426.79135pt x 228.74702pt on input lin
+e 161.
+
+[30 <./figures/ReadiumBl.png> <./figures/Bluefire.png>]
+<figures/Azardi.png, id=838, 1156.32pt x 620.3175pt>
+File: figures/Azardi.png Graphic file (type png)
+<use figures/Azardi.png>
+Package pdftex.def Info: figures/Azardi.png  used on input line 170. on input l
+ine 170.
+Package pdftex.def Info: Requested size: 426.79135pt x 228.95543pt on input lin
+e 170.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31 <./figures/Icecream.png>]) [32 <./figures/Azardi.png>]
 \openout2 = `editor.aux'.
 
- (editor.tex [24
+ (editor.tex
+Chapter 5.
+[33
 
 
 
 ]
-Chapter 5.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 16.
-
-<figures/formJs.png, id=631, 679.94025pt x 481.8pt>
+<figures/formJs.png, id=863, 679.94025pt x 481.8pt>
 File: figures/formJs.png Graphic file (type png)
 <use figures/formJs.png>
-Package pdftex.def Info: figures/formJs.png  used on input line 19. on input li
-ne 19.
+Package pdftex.def Info: figures/formJs.png  used on input line 24. on input li
+ne 24.
 Package pdftex.def Info: Requested size: 426.79135pt x 302.41814pt on input lin
-e 19.
-[25] [26 <./figures/formJs.png>]
-<figures/formCss.png, id=647, 679.94025pt x 481.8pt>
+e 24.
+ [34 <./figures/formJs.png>]
+<figures/formCss.png, id=875, 679.94025pt x 481.8pt>
 File: figures/formCss.png Graphic file (type png)
 <use figures/formCss.png>
-Package pdftex.def Info: figures/formCss.png  used on input line 35. on input l
-ine 35.
+Package pdftex.def Info: figures/formCss.png  used on input line 40. on input l
+ine 40.
 Package pdftex.def Info: Requested size: 426.79135pt x 302.41814pt on input lin
-e 35.
-<figures/IEmathml.png, id=650, 186.6975pt x 34.9305pt>
+e 40.
+<figures/IEmathml.png, id=878, 186.6975pt x 34.9305pt>
 File: figures/IEmathml.png Graphic file (type png)
 <use figures/IEmathml.png>
-Package pdftex.def Info: figures/IEmathml.png  used on input line 47. on input 
-line 47.
+Package pdftex.def Info: figures/IEmathml.png  used on input line 52. on input 
+line 52.
 Package pdftex.def Info: Requested size: 213.39568pt x 39.92723pt on input line
- 47.
- [27 <./figures/formCss.png>]
-<figures/pandocSigns.png, id=665, 316.18124pt x 265.59225pt>
+ 52.
+ [35] [36 <./figures/formCss.png> <./figures/IEmathml.png>]
+<figures/AccessibleEPUBequationNew.PNG, id=897, 797.98125pt x 611.886pt>
+File: figures/AccessibleEPUBequationNew.PNG Graphic file (type png)
+<use figures/AccessibleEPUBequationNew.PNG>
+Package pdftex.def Info: figures/AccessibleEPUBequationNew.PNG  used on input l
+ine 73. on input line 73.
+Package pdftex.def Info: Requested size: 426.79135pt x 327.25774pt on input lin
+e 73.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[37] [38 <./figures/AccessibleEPUBequationNew.PNG>]
+<figures/pandocSigns.png, id=919, 316.18124pt x 265.59225pt>
 File: figures/pandocSigns.png Graphic file (type png)
 <use figures/pandocSigns.png>
-Package pdftex.def Info: figures/pandocSigns.png  used on input line 58. on inp
-ut line 58.
+Package pdftex.def Info: figures/pandocSigns.png  used on input line 97. on inp
+ut line 97.
 Package pdftex.def Info: Requested size: 23.49582pt x 19.73619pt on input line 
-58.
-) [28 <./figures/IEmathml.png> <./figures/pandocSigns.png>]
+97.
+ [39 <./figures/pandocSigns.png>]
+<figures/newFileDialogBox.png, id=939, 505.28775pt x 401.70074pt>
+File: figures/newFileDialogBox.png Graphic file (type png)
+<use figures/newFileDialogBox.png>
+Package pdftex.def Info: figures/newFileDialogBox.png  used on input line 152. 
+on input line 152.
+Package pdftex.def Info: Requested size: 426.79135pt x 339.29579pt on input lin
+e 152.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/AccessibleEPUBmathSZSvi.png, id=943, 834.11626pt x 554.07pt>
+File: figures/AccessibleEPUBmathSZSvi.png Graphic file (type png)
+<use figures/AccessibleEPUBmathSZSvi.png>
+Package pdftex.def Info: figures/AccessibleEPUBmathSZSvi.png  used on input lin
+e 165. on input line 165.
+Package pdftex.def Info: Requested size: 426.79135pt x 283.50195pt on input lin
+e 165.
+[40]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/TableDialogBox.png, id=974, 537.80925pt x 316.7835pt>
+File: figures/TableDialogBox.png Graphic file (type png)
+<use figures/TableDialogBox.png>
+Package pdftex.def Info: figures/TableDialogBox.png  used on input line 184. on
+ input line 184.
+Package pdftex.def Info: Requested size: 426.79135pt x 251.4018pt on input line
+ 184.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/imageDialogBox.png, id=976, 493.24275pt x 432.4155pt>
+File: figures/imageDialogBox.png Graphic file (type png)
+<use figures/imageDialogBox.png>
+Package pdftex.def Info: figures/imageDialogBox.png  used on input line 192. on
+ input line 192.
+Package pdftex.def Info: Requested size: 426.79135pt x 374.17282pt on input lin
+e 192.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [41 <./figures/newFileDialogBox.png>] [42 <./figures/AccessibleEPUBmathSZSvi.
+png>] [43 <./figures/TableDialogBox.png> <./figures/imageDialogBox.png>]
 \openout2 = `futurework.aux'.
 
- (futurework.tex
+
+(futurework.tex [44
+
+
+
+]
 Chapter 6.
-) [29
-
-
+[45] [46]
+Chapter 7.
+) [47
 
 ]
 \openout2 = `summary.aux'.
 
- (summary.tex) [30
+ (summary.tex) [48
 
 
 
@@ -2427,50 +2625,92 @@ Chapter 6.
 LaTeX Font Info:    Font shape `T1/aess/m/it' in size <12> not available
 (Font)              Font shape `T1/aess/m/sl' tried instead on input line 261.
 
-Overfull \hbox (28.49373pt too wide) in paragraph at lines 265--265
-\T1/aess/m/sl/12 ac-ces-si-ble PDFs and word doc-u-ments)\T1/aess/m/n/12 . http
-s://www.fernuni-hagen.de/barrierefrei/pdf_-
+Underfull \hbox (badness 1917) in paragraph at lines 265--265
+[]\T1/aess/m/n/12 PDF As-so-ci-a-tion. \T1/aess/m/sl/12 PDF/UA: The ISO stan-da
+rd for uni-ver-sal ac-ces-si-bil-ity\T1/aess/m/n/12 .
  []
 
 
-Overfull \hbox (26.47403pt too wide) in paragraph at lines 265--265
+Underfull \hbox (badness 2837) in paragraph at lines 265--265
+\T1/aess/m/n/12 https://www.pdfa.org/pdfua-the-iso-standard-for-universal-acces
+sibility/, vis-ited
+ []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 265--265
+[]\T1/aess/m/n/12 Verband für Blinden-und Se-hbe-hin-derten-päd-a-gogik e. V. (
+VBS) (As-so-ci-a-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+[] \T1/aess/m/n/12 DAISY Con-sor-tium. \T1/aess/m/sl/12 AZARDI: EPUB reader for
+ Win-dows\T1/aess/m/n/12 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+\T1/aess/m/n/12 http://www.daisy.org/daisypedia/azardi-epub-reader-windows, vis
+-ited on
+ []
+
+
+Underfull \hbox (badness 6094) in paragraph at lines 265--265
+[]\T1/aess/m/n/12 University of Ha-gen. \T1/aess/m/sl/12 PDF- und Word Doku-men
+te bar-ri-ere-frei um-set-
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 265--265
+\T1/aess/m/sl/12 zen (Mak-ing ac-ces-si-ble PDFs and word doc-u-ments)\T1/aess/
+m/n/12 . https://www.fernuni-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 EPUB 3 Changes from EPUB 2.0.1\T1/aess
-/m/n/12 . http://www.idpf.org/epub/30/spec/epub30-
+/m/n/12 .
  []
 
 
-Overfull \hbox (27.56525pt too wide) in paragraph at lines 265--265
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 EPUB 3 Spec-i-fi-ca-tion\T1/aess/m/n/1
-2 . http://www.idpf.org/epub/301/spec/epub-overview.html,
+2 . http://www.idpf.org/epub/301/spec/epub-
  []
 
 
-Overfull \hbox (23.85806pt too wide) in paragraph at lines 265--265
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 EPUB 3.1 Changes from EPUB 3.0.1\T1/ae
-ss/m/n/12 . http://www.idpf.org/epub/31/spec/epub-
+ss/m/n/12 .
  []
 
-
-Overfull \hbox (20.91306pt too wide) in paragraph at lines 265--265
-\T1/aess/m/sl/12 tion\T1/aess/m/n/12 . http://www.idpf.org/epub/20/spec/OPS_-2.
-0.1_-draft.htm, vis-ited on 09.03.2018. 
- []
-
-
-Overfull \hbox (14.9894pt too wide) in paragraph at lines 265--265
-[]\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 Un-der-stand-ing EPUB 3\T1/aess/m/n/12
- . http://epubzone.org/epub-3-overview/understanding-
- []
-
-[31
+[49
 
 ]
-Overfull \hbox (60.4342pt too wide) in paragraph at lines 265--265
-[]\T1/aess/m/n/12 W3C. \T1/aess/m/sl/12 Web Con-tent Ac-ces-si-bil-ity Guide-li
-nes (WCAG) 2.0\T1/aess/m/n/12 . https://www.w3.org/TR/WCAG20/,
+Underfull \hbox (badness 1540) in paragraph at lines 265--265
+\T1/aess/m/sl/12 i-fi-ca-tion\T1/aess/m/n/12 . http://www.idpf.org/epub/20/spec
+/OPS_-2.0.1_-draft.htm, vis-ited on
  []
 
-[32]
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+[]\T1/aess/m/n/12 IDPF. \T1/aess/m/sl/12 Un-der-stand-ing EPUB 3\T1/aess/m/n/12
+ . http://epubzone.org/epub-3-
+ []
+
+
+Overfull \hbox (4.80238pt too wide) in paragraph at lines 265--265
+[]\T1/aess/m/n/12 W3C. \T1/aess/m/sl/12 MathML Fun-da-men-tals\T1/aess/m/n/12 .
+ https://www.w3.org/TR/MathML2/chapter2.html,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+[]\T1/aess/m/n/12 W3C. \T1/aess/m/sl/12 Web Con-tent Ac-ces-si-bil-ity Guide-li
+nes (WCAG) 2.0\T1/aess/m/n/12 .
+ []
+
+[50]
 No file MasterThesis.ind.
 
 Package caption Warning: Unused \captionsetup[sub] on input line 40.
@@ -2484,7 +2724,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 271.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 271.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 271.
 Package rerunfilecheck Info: File `MasterThesis.out' has not changed.
-(rerunfilecheck)             Checksum: 705D95393E03DD884F025C288B5C063F;2387.
+(rerunfilecheck)             Checksum: 0351BA1E9FD0C8A6CD11EF2FDEBD3A23;3622.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2495,13 +2735,13 @@ Package logreq Info: Writing requests to 'MasterThesis.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 271.
  ) 
 Here is how much of TeX's memory you used:
- 50414 strings out of 493312
- 1115560 string characters out of 3141056
- 1580767 words of memory out of 3000000
- 52885 multiletter control sequences out of 15000+200000
+ 50680 strings out of 493312
+ 1120713 string characters out of 3141056
+ 1623076 words of memory out of 3000000
+ 53019 multiletter control sequences out of 15000+200000
  566231 words of font info for 99 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,12n,128p,10384b,1862s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 74i,12n,128p,10384b,2414s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Sachin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 \tcrm0800.pk> <C:\Users\Sachin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
 n\ec\dpi600\tcrm1200.pk><D:/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
@@ -2513,9 +2753,9 @@ amsfonts/cm/cmss8.pfb><D:/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 ssbx10.pfb><D:/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi12.pfb><
 D:/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Programs/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on MasterThesis.pdf (42 pages, 1789707 bytes).
+Output written on MasterThesis.pdf (61 pages, 4011230 bytes).
 PDF statistics:
- 794 PDF objects out of 1000 (max. 8388607)
- 293 named destinations out of 1000 (max. 500000)
- 372 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1169 PDF objects out of 1200 (max. 8388607)
+ 425 named destinations out of 1000 (max. 500000)
+ 613 words of extra memory for PDF output out of 10000 (max. 10000000)
 

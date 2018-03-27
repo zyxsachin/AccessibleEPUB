@@ -17,6 +17,26 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{pdfua}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=AP}{%
+         family={Association},
+         familyi={A\bibinitperiod},
+         given={PDF},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AP1}
+    \strng{fullhash}{AP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+  \field{note}{https://www.pdfa.org/pdfua-the-iso-standard-for-universal-accessibility/,
+  visited on 23.03.2018}
+    \field{title}{PDF/UA: The ISO standard for universal accessibility}
+  \endentry
+
   \entry{enrichEPUB}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=BV}{%
@@ -117,7 +137,7 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{B}
     \field{sortinithash}{B}
-    \field{note}{\\http://www.augenbit.de/wiki/index.php?title=Hauptseite,
+    \field{note}{http://www.augenbit.de/wiki/index.php?title=Hauptseite,
   visited on 09.03.2018}
     \field{title}{Augenbit Wiki}
   \endentry
@@ -175,6 +195,26 @@
       {Berlin, Heidelberg}%
     }
     \field{year}{2009}
+  \endentry
+
+  \entry{daisyAZARDI}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=rDC}{%
+         prefix={\relax},
+         prefixi={r\bibinitperiod},
+         family={DAISY\bibnamedelima Consortium},
+         familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DCr1}
+    \strng{fullhash}{DCr1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{note}{http://www.daisy.org/daisypedia/azardi-epub-reader-windows,
+  visited on 25.03.2018}
+    \field{title}{AZARDI: EPUB reader for Windows}
   \endentry
 
   \entry{daisyAccessibility}{misc}{}
@@ -359,6 +399,26 @@
     \field{title}{Understanding EPUB 3}
   \endentry
 
+  \entry{dublinCore}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=IDCM}{%
+         family={Initiative},
+         familyi={I\bibinitperiod},
+         given={Dublin Core\bibnamedelima Metadata},
+         giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IDCM1}
+    \strng{fullhash}{IDCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{note}{http://dublincore.org/about/, visited on 23.03.2018}
+    \field{title}{About the Dublin Core Metadata Initiative}
+  \endentry
+
   \entry{Pandoc}{misc}{}
     \name{author}{1}{}{%
       {{hash=MJ}{%
@@ -397,6 +457,30 @@
     \field{note}{https://webaim.org/articles/laws/world/, visited on
   30.01.2018}
     \field{title}{World Laws: Introduction to Laws Throughout the World}
+  \endentry
+
+  \entry{szs}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=ST}{%
+         family={Schwarz},
+         familyi={S\bibinitperiod},
+         given={Thorsten},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Study Centre for the Visually Impaired, Karlsruhe Institute of
+  Technology}%
+    }
+    \strng{namehash}{ST1}
+    \strng{fullhash}{ST1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Lecture notes in Accessibility - Assistive Technology for
+  Visually Impaired Persons}
+    \field{year}{2017}
   \endentry
 
   \entry{markdownSyntax}{inproceedings}{}
@@ -470,6 +554,24 @@
       {Cham}%
     }
     \field{year}{2014}
+  \endentry
+
+  \entry{mathMLrec}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={W3C},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{note}{https://www.w3.org/TR/MathML2/chapter2.html, visited on
+  23.03.2018}
+    \field{title}{MathML Fundamentals}
   \endentry
 
   \entry{WCAG}{misc}{}

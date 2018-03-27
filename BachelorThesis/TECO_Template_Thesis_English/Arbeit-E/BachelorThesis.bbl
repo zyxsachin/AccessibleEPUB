@@ -1,0 +1,597 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{webaim}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=rWWAiM}{%
+         prefix={\relax WebAIM (Web Accessibility\bibnamedelima in},
+         prefixi={r\bibinitperiod\bibinitdelim W\bibinitperiod W\bibinitperiod
+  A\bibinitperiod\bibinitdelim i\bibinitperiod},
+         family={Mind)},
+         familyi={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MrWWAi1}
+    \strng{fullhash}{MrWWAi1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://webaim.org/articles/laws/world/, visited on
+  30.01.2018}
+    \field{title}{World Laws: Introduction to Laws Throughout the World}
+  \endentry
+
+  \entry{pdfua}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=AP}{%
+         family={Association},
+         familyi={A\bibinitperiod},
+         given={PDF},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AP1}
+    \strng{fullhash}{AP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{note}{https://www.pdfa.org/pdfua-the-iso-standard-for-universal-accessibility/,
+  visited on 23.03.2018}
+    \field{title}{PDF/UA: The ISO standard for universal accessibility}
+  \endentry
+
+  \entry{EPUBzone}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://epubzone.org/epub-3-overview/understanding-epub-3,
+  visited on 29.01.2018}
+    \field{title}{Understanding EPUB 3}
+  \endentry
+
+  \entry{EPUBspecs}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://www.idpf.org/epub/301/spec/epub-overview.html, visited
+  on 29.01.2018}
+    \field{title}{EPUB 3 Specification}
+  \endentry
+
+  \entry{WCAG}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={W3C},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://www.w3.org/TR/WCAG20/, visited on 29.01.2018}
+    \field{title}{Web Content Accessibility Guidelines (WCAG) 2.0}
+  \endentry
+
+  \entry{EPUB3bp}{book}{}
+    \name{author}{2}{}{%
+      {{hash=GM}{%
+         family={Garrish},
+         familyi={G\bibinitperiod},
+         given={Matt},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gylling},
+         familyi={G\bibinitperiod},
+         given={Markus},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly}%
+    }
+    \strng{namehash}{GMGM1}
+    \strng{fullhash}{GMGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{isbn}{1449329144, 9781449329143}
+    \field{title}{EPUB 3 Best Practices}
+    \field{year}{2013}
+  \endentry
+
+  \entry{EPUB30changes}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://www.idpf.org/epub/30/spec/epub30-changes.html, visited
+  on 29.01.2018}
+    \field{title}{EPUB 3 Changes from EPUB 2.0.1}
+  \endentry
+
+  \entry{EPUB31changes}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://www.idpf.org/epub/31/spec/epub-changes.html, visited on
+  09.03.2018}
+    \field{title}{EPUB 3.1 Changes from EPUB 3.0.1}
+  \endentry
+
+  \entry{daisyAccessibility}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=rDC}{%
+         prefix={\relax},
+         prefixi={r\bibinitperiod},
+         family={DAISY\bibnamedelima Consortium},
+         familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DCr1}
+    \strng{fullhash}{DCr1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{www.daisy.org/baseline, visited on 29.01.2018}
+    \field{title}{Baseline for Accessible EPUB3}
+  \endentry
+
+  \entry{wasIstDaisy}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=fBGCLftBDZ}{%
+         prefix={f{ü}r Blinde (German Central Library for\bibnamedelima the},
+         prefixi={f\bibinitperiod\bibinitdelim B\bibinitperiod G\bibinitperiod
+  C\bibinitperiod L\bibinitperiod f\bibinitperiod\bibinitdelim
+  t\bibinitperiod},
+         family={Blind)},
+         familyi={B\bibinitperiod},
+         given={Deutsche\bibnamedelima Zentralb{ü}cherei},
+         giveni={D\bibinitperiod\bibinitdelim Z\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BDZfBGCLft1}
+    \strng{fullhash}{BDZfBGCLft1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://www.dzb.de/index.php?site_id=7.8, visited on
+  09.03.2018}
+    \field{title}{Was ist DAISY? (What is DAISY?)}
+  \endentry
+
+  \entry{OPSspecs}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IDPF},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://www.idpf.org/epub/20/spec/OPS_2.0.1_draft.htm, visited
+  on 09.03.2018}
+    \field{title}{Open Publication Structure (OPS) 2.0.1 v1.0.1 Recommended
+  Specification}
+  \endentry
+
+  \entry{dublinCore}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=IDCM}{%
+         family={Initiative},
+         familyi={I\bibinitperiod},
+         given={Dublin Core\bibnamedelima Metadata},
+         giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IDCM1}
+    \strng{fullhash}{IDCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://dublincore.org/about/, visited on 23.03.2018}
+    \field{title}{About the Dublin Core Metadata Initiative}
+  \endentry
+
+  \entry{augenbitWiki}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=fBuSeVVAftfbV}{%
+         prefix={f{ü}r Blinden-und Sehbehindertenp{ä}dagogik e. V. (VBS)
+  (Association for teaching\bibnamedelima for},
+         prefixi={f\bibinitperiod\bibinitdelim B\bibinitperiod-u\bibinitperiod
+  S\bibinitperiod e\bibinitperiod V\bibinitperiod V\bibinitperiod
+  A\bibinitperiod f\bibinitperiod t\bibinitperiod\bibinitdelim
+  f\bibinitperiod},
+         family={blind},
+         familyi={b\bibinitperiod},
+         given={Verband},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=vis}{%
+         prefix={visually\bibnamedelima impaired},
+         prefixi={v\bibinitperiod\bibinitdelim i\bibinitperiod},
+         family={students)},
+         familyi={s\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{bVfBuSeVVAftfsvi1}
+    \strng{fullhash}{bVfBuSeVVAftfsvi1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://www.augenbit.de/wiki/index.php?title=Hauptseite,
+  visited on 09.03.2018}
+    \field{title}{Augenbit Wiki}
+  \endentry
+
+  \entry{pdfBarrierefrei}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=oHU}{%
+         prefix={of},
+         prefixi={o\bibinitperiod},
+         family={Hagen},
+         familyi={H\bibinitperiod},
+         given={University},
+         giveni={U\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HUo1}
+    \strng{fullhash}{HUo1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://www.fernuni-hagen.de/barrierefrei/pdf_word.shtml,
+  visited on 09.03.2018}
+    \field{title}{PDF- und Word Dokumente barrierefrei umsetzen (Making
+  accessible PDFs and word documents)}
+  \endentry
+
+  \entry{markdownSyntax}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=VJ}{%
+         family={Voegler},
+         familyi={V\bibinitperiod},
+         given={Jens},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Bornschein},
+         familyi={B\bibinitperiod},
+         given={Jens},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WG}{%
+         family={Weber},
+         familyi={W\bibinitperiod},
+         given={Gerhard},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \name{editor}{5}{}{%
+      {{hash=MK}{%
+         family={Miesenberger},
+         familyi={M\bibinitperiod},
+         given={Klaus},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=FD}{%
+         family={Fels},
+         familyi={F\bibinitperiod},
+         given={Deborah},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=AD}{%
+         family={Archambault},
+         familyi={A\bibinitperiod},
+         given={Dominique},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Pe{\v{n}}{\'a}z},
+         familyi={P\bibinitperiod},
+         given={Petr},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=ZW}{%
+         family={Zagler},
+         familyi={Z\bibinitperiod},
+         given={Wolfgang},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{VJBJWG1}
+    \strng{fullhash}{VJBJWG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Computers Helping People with Special Needs}
+    \field{isbn}{978-3-319-08596-8}
+    \field{pages}{545\bibrangedash 548}
+    \field{title}{Markdown -- A Simple Syntax for Transcription of Accessible
+  Study Materials}
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2014}
+  \endentry
+
+  \entry{Markdown}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=GJ}{%
+         family={Gruber},
+         familyi={G\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GJ1}
+    \strng{fullhash}{GJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://daringfireball.net/projects/markdown/, visited on
+  08.03.2018}
+    \field{title}{Markdown}
+  \endentry
+
+  \entry{Pandoc}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MJ}{%
+         family={MacFarlane},
+         familyi={M\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MJ1}
+    \strng{fullhash}{MJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://pandoc.org/, visited on 08.03.2018}
+    \field{title}{Pandoc document converter}
+  \endentry
+
+  \entry{book4all}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CA}{%
+         family={Calabr{\`o}},
+         familyi={C\bibinitperiod},
+         given={Antonello},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CE}{%
+         family={Contini},
+         familyi={C\bibinitperiod},
+         given={Elia},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=LB}{%
+         family={Leporini},
+         familyi={L\bibinitperiod},
+         given={Barbara},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=HA}{%
+         family={Holzinger},
+         familyi={H\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Miesenberger},
+         familyi={M\bibinitperiod},
+         given={Klaus},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{CACELB1}
+    \strng{fullhash}{CACELB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{HCI and Usability for e-Inclusion}
+    \field{isbn}{978-3-642-10308-7}
+    \field{pages}{236\bibrangedash 248}
+    \field{title}{Book4All: A Tool to Make an e-Book More Accessible to
+  Students with Vision/Visual-Impairments}
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{year}{2009}
+  \endentry
+
+  \entry{enrichEPUB}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BV}{%
+         family={Bartalesi},
+         familyi={B\bibinitperiod},
+         given={Valentina},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=LB}{%
+         family={Leporini},
+         familyi={L\bibinitperiod},
+         given={Barbara},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=AM}{%
+         family={Antona},
+         familyi={A\bibinitperiod},
+         given={Margherita},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Stephanidis},
+         familyi={S\bibinitperiod},
+         given={Constantine},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{BVLB1}
+    \strng{fullhash}{BVLB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Universal Access in Human-Computer Interaction. Access to
+  Today's Technologies}
+    \field{isbn}{978-3-319-20678-3}
+    \field{pages}{375\bibrangedash 386}
+    \field{title}{An Enriched ePub eBook for Screen Reader Users}
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{cssSelectors}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={W3Schools},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W2}
+    \strng{fullhash}{W2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://www.w3schools.com/cssref/css_selectors.asp, visited on
+  15.03.2018}
+    \field{title}{CSS Selectors Reference}
+  \endentry
+
+  \entry{daisyAZARDI}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=rDC}{%
+         prefix={\relax},
+         prefixi={r\bibinitperiod},
+         family={DAISY\bibnamedelima Consortium},
+         familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DCr1}
+    \strng{fullhash}{DCr1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://www.daisy.org/daisypedia/azardi-epub-reader-windows,
+  visited on 25.03.2018}
+    \field{title}{AZARDI: EPUB reader for Windows}
+  \endentry
+
+  \entry{EPUBprograms}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=rDC}{%
+         prefix={\relax},
+         prefixi={r\bibinitperiod},
+         family={DAISY\bibnamedelima Consortium},
+         familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DCr1}
+    \strng{fullhash}{DCr1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{http://www.daisy.org/daisypedia/tools-creating-epub-3-files,
+  visited on 29.01.2018}
+    \field{title}{\relax Tools for creating EPUB 3 files}
+  \endentry
+
+  \entry{Sigil}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=MS}{%
+         family={Markovi{ć}},
+         familyi={M\bibinitperiod},
+         given={Strahinja},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Schember},
+         familyi={S\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={Hendricks},
+         familyi={H\bibinitperiod},
+         given={Kevin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Massay},
+         familyi={M\bibinitperiod},
+         given={Doug},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MS+1}
+    \strng{fullhash}{MSSJHKMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://sigil-ebook.com/, visited on 29.01.2018}
+    \field{title}{Sigil is a multi-platform EPUB ebook editor}
+  \endentry
+
+  \entry{mathMLrec}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={W3C},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{https://www.w3.org/TR/MathML2/chapter2.html, visited on
+  23.03.2018}
+    \field{title}{MathML Fundamentals}
+  \endentry
+\enddatalist
+\endinput

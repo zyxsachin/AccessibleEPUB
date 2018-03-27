@@ -181,7 +181,7 @@ namespace AccessibleEPUB
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.InitialDirectory = documents;
-            ofd.Filter = "jpg files (*.jpg)|*.jpg|All files (*.png.*)|*.png|All files (*.gif)|*.gif|All files (*.*)|*.*";
+            ofd.Filter = "Image files (jpg, png, svg)|*.jpg;*.png;*.svg|All files (*.*)|*.*";
             ofd.RestoreDirectory = true;
 
 

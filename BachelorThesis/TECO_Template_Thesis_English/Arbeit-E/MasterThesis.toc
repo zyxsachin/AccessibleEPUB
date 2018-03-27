@@ -4,14 +4,14 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}EPUB}{2}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Changes from EPUB 2 to EPUB 3 and EPUB 3.1}{2}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}EPUB Structure}{3}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.1}Changes from EPUB 2 to EPUB 3 and EPUB 3.1}{3}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}EPUB Structure}{4}{subsection.1.2.2}
 \contentsline {subsubsection}{\numberline {1.2.2.1}Package document}{4}{subsubsection.1.2.2.1}
-\contentsline {subsubsection}{\numberline {1.2.2.2}Navigation}{5}{subsubsection.1.2.2.2}
-\contentsline {subsubsection}{\numberline {1.2.2.3}Content documents}{5}{subsubsection.1.2.2.3}
-\contentsline {subsection}{\numberline {1.2.3}Goal of this thesis}{5}{subsection.1.2.3}
-\contentsline {subsubsection}{\numberline {1.2.3.1}Document standard}{6}{subsubsection.1.2.3.1}
-\contentsline {subsubsection}{\numberline {1.2.3.2}Editor}{7}{subsubsection.1.2.3.2}
+\contentsline {subsubsection}{\numberline {1.2.2.2}Navigation}{6}{subsubsection.1.2.2.2}
+\contentsline {subsubsection}{\numberline {1.2.2.3}Content documents}{6}{subsubsection.1.2.2.3}
+\contentsline {section}{\numberline {1.3}Goal of this thesis}{7}{section.1.3}
+\contentsline {subsubsection}{\numberline {1.3.0.1}Document standard}{7}{subsubsection.1.3.0.1}
+\contentsline {subsubsection}{\numberline {1.3.0.2}Editor}{8}{subsubsection.1.3.0.2}
 \contentsline {chapter}{\numberline {2}Related Work}{9}{chapter.2}
 \contentsline {chapter}{\numberline {3}EPUB Document Standard}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Requirements}{13}{section.3.1}
@@ -22,14 +22,31 @@
 \contentsline {subsection}{\numberline {3.1.3}Images}{16}{subsection.3.1.3}
 \contentsline {subsection}{\numberline {3.1.4}Mathematical formulas}{18}{subsection.3.1.4}
 \contentsline {chapter}{\numberline {4}Evaluation EPUB Standard}{23}{chapter.4}
-\contentsline {section}{\numberline {4.1}Software readers}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}Hardware readers}{23}{section.4.2}
-\contentsline {section}{\numberline {4.3}Discussion: what do developers have to do?}{23}{section.4.3}
-\contentsline {chapter}{\numberline {5}AccessibleEPUB Editor}{25}{chapter.5}
-\contentsline {section}{\numberline {5.1}Requirements}{25}{section.5.1}
-\contentsline {section}{\numberline {5.2}Programming language}{25}{section.5.2}
-\contentsline {section}{\numberline {5.3}Main window with editor and preview}{25}{section.5.3}
-\contentsline {subsubsection}{\numberline {5.3.0.1}HTML Editor}{25}{subsubsection.5.3.0.1}
-\contentsline {subsubsection}{\numberline {5.3.0.2}Preview browser}{27}{subsubsection.5.3.0.2}
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{29}{chapter.6}
-\contentsline {chapter}{Bibliography}{31}{section*.32}
+\contentsline {section}{\numberline {4.1}Reading systems on Android}{24}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Tolino}{24}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Reasily}{25}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Gitden Reader}{26}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}FBReader}{26}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}UB Reader}{27}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}Reading systems on iOS}{27}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}iBooks}{27}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Reading systems on Windows}{28}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Calibre}{28}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Readium}{29}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Bluefire Reader}{30}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Icecream Ebook Reader}{31}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}AZARDI}{31}{subsection.4.3.5}
+\contentsline {section}{\numberline {4.4}Discussion: what do developers have to do?}{32}{section.4.4}
+\contentsline {chapter}{\numberline {5}AccessibleEPUB Editor}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Requirements}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Programming language}{33}{section.5.2}
+\contentsline {section}{\numberline {5.3}Features}{34}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Main window with editor and preview}{34}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}Editor}{34}{subsubsection.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}Preview browser}{35}{subsubsection.5.3.1.2}
+\contentsline {subsection}{\numberline {5.3.2}Inserting mathematical equations}{37}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}EPUB work behind the scenes}{40}{subsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.1}Inserting images tables}{41}{subsubsection.5.3.3.1}
+\contentsline {chapter}{\numberline {6}Future Work}{45}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusion}{47}{chapter.7}
+\contentsline {chapter}{Bibliography}{49}{section*.54}
