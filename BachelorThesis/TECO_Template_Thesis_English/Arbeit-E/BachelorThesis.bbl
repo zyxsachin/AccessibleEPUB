@@ -507,6 +507,27 @@
     \field{title}{CSS Selectors Reference}
   \endentry
 
+  \entry{lipsum}{manual}{}
+    \name{author}{1}{}{%
+      {{hash=HP}{%
+         family={Happel},
+         familyi={H\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HP1}
+    \strng{fullhash}{HP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{\LaTeX~package version 1.3}
+    \field{title}{lipsum -- Easy access to the Lorem Ipsum dummy text}
+    \verb{url}
+    \verb https://www.ctan.org/pkg/lipsum
+    \endverb
+    \field{year}{2014}
+  \endentry
+
   \entry{daisyAZARDI}{misc}{}
     \name{author}{1}{}{%
       {{hash=rDC}{%

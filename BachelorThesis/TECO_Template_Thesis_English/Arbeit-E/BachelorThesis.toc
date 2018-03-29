@@ -4,12 +4,12 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}EPUB}{1}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Changes from EPUB 2 to EPUB 3 and EPUB 3.1}{3}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.1}Changes from EPUB 2 to EPUB 3 and EPUB 3.1}{2}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}EPUB Structure}{4}{subsection.1.2.2}
-\contentsline {subsubsection}{\numberline {1.2.2.1}Package document}{4}{subsubsection.1.2.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2.1}Package document}{5}{subsubsection.1.2.2.1}
 \contentsline {subsubsection}{\numberline {1.2.2.2}Navigation}{6}{subsubsection.1.2.2.2}
 \contentsline {subsubsection}{\numberline {1.2.2.3}Content documents}{6}{subsubsection.1.2.2.3}
-\contentsline {section}{\numberline {1.3}Goals of this thesis}{7}{section.1.3}
+\contentsline {section}{\numberline {1.3}Goals of this thesis}{6}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Document standard}{7}{subsection.1.3.1}
 \contentsline {subsection}{\numberline {1.3.2}Editor}{8}{subsection.1.3.2}
 \contentsline {chapter}{\numberline {2}Related Work}{9}{chapter.2}
@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {3.1.1}Switching between versions}{13}{subsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.1.1}JavaScript}{13}{subsubsection.3.1.1.1}
 \contentsline {subsubsection}{\numberline {3.1.1.2}CSS}{14}{subsubsection.3.1.1.2}
-\contentsline {subsection}{\numberline {3.1.2}Text}{15}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Text}{16}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Images}{17}{subsection.3.1.3}
 \contentsline {subsection}{\numberline {3.1.4}Mathematical formulas}{19}{subsection.3.1.4}
 \contentsline {chapter}{\numberline {4}Evaluation EPUB Standard}{23}{chapter.4}
@@ -44,17 +44,17 @@
 \contentsline {subsubsection}{\numberline {4.3.3.4}Adobe Digital Editions}{33}{subsubsection.4.3.3.4}
 \contentsline {section}{\numberline {4.4}Discussion: what do developers have to do?}{34}{section.4.4}
 \contentsline {section}{\numberline {4.5}Conclusion}{34}{section.4.5}
-\contentsline {chapter}{\numberline {5}AccessibleEPUB Editor}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Existing EPUB editors}{35}{section.5.1}
-\contentsline {section}{\numberline {5.2}Requirements}{35}{section.5.2}
-\contentsline {section}{\numberline {5.3}Programming language}{36}{section.5.3}
-\contentsline {section}{\numberline {5.4}Features}{36}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Main window with editor and preview}{36}{subsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.1.1}Editor}{36}{subsubsection.5.4.1.1}
-\contentsline {subsubsection}{\numberline {5.4.1.2}Preview browser}{37}{subsubsection.5.4.1.2}
-\contentsline {subsection}{\numberline {5.4.2}Inserting mathematical equations}{39}{subsection.5.4.2}
-\contentsline {subsection}{\numberline {5.4.3}EPUB work behind the scenes}{42}{subsection.5.4.3}
-\contentsline {subsubsection}{\numberline {5.4.3.1}Inserting images and tables}{43}{subsubsection.5.4.3.1}
-\contentsline {chapter}{\numberline {6}Future Work}{47}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusion}{49}{chapter.7}
-\contentsline {chapter}{Bibliography}{51}{section*.58}
+\contentsline {chapter}{\numberline {5}AccessibleEPUB Editor}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Existing EPUB editors}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}Requirements}{37}{section.5.2}
+\contentsline {section}{\numberline {5.3}Programming language}{38}{section.5.3}
+\contentsline {section}{\numberline {5.4}Features}{38}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Main window with editor and preview}{38}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}Editor}{38}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}Preview browser}{39}{subsubsection.5.4.1.2}
+\contentsline {subsection}{\numberline {5.4.2}Inserting mathematical equations}{41}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}EPUB work behind the scenes}{44}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.3.1}Inserting images and tables}{45}{subsubsection.5.4.3.1}
+\contentsline {chapter}{\numberline {6}Future Work}{49}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusion}{51}{chapter.7}
+\contentsline {chapter}{Bibliography}{53}{section*.58}
