@@ -268,7 +268,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 949</value>
+    <value>191, 918</value>
   </data>
   <data name="treeView1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -484,7 +484,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 949</value>
+    <value>1389, 918</value>
   </data>
   <data name="geckoWebBrowser4.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -541,7 +541,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1206, 896</value>
+    <value>1375, 916</value>
   </data>
   <data name="geckoWebBrowser1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -568,7 +568,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1212, 900</value>
+    <value>1381, 920</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -598,7 +598,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1206, 896</value>
+    <value>1375, 916</value>
   </data>
   <data name="geckoWebBrowser2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -625,7 +625,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1212, 900</value>
+    <value>1381, 920</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -655,7 +655,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1206, 896</value>
+    <value>1375, 916</value>
   </data>
   <data name="geckoWebBrowser3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -682,7 +682,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1212, 900</value>
+    <value>1381, 920</value>
   </data>
   <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -715,7 +715,7 @@
     <value>2000, 4999</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 949</value>
+    <value>1389, 918</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1209,17 +1209,19 @@
   <data name="toolStripSeparator14.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 6</value>
   </data>
+  <data name="textToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAIFJREFUOE+VjjEOwCAIRXuoDp09nEMv0SO2XVhtvoEGFRVJXjTgf7hJEVHScNtf
+        CB3nnlkS6K1aMOHieLm5BrMQQkGMsZTMBM/9/pgSvmR0ULAEWpJ/gaoFOmAJQCPQSKhHI5BCE0N5ZOEW
+        jHAJcFq4BSNcApw1S4IRU4GHrsAPpQ9YIUnc0EPhQgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="textToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 26</value>
+    <value>111, 26</value>
   </data>
   <data name="textToolStripMenuItem.Text" xml:space="preserve">
     <value>Text</value>
-  </data>
-  <data name="hTMLToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 26</value>
-  </data>
-  <data name="hTMLToolStripMenuItem.Text" xml:space="preserve">
-    <value>HTML</value>
   </data>
   <data name="importToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 26</value>
@@ -2112,11 +2114,28 @@ Save the document</value>
   <data name="mathButton.ToolTipText" xml:space="preserve">
     <value>Insert Math</value>
   </data>
+  <data name="importTextButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAB+SURBVDhPlY5BDoAgDAR9lAfPPI6Dn1UvvWKWWFOgwNJk
+        AmnZKZuWiCTL1+YLoePcM0sCu9UKZnzxcnMNZiGEghhjKZkJ7uv5cSV6ATaoeAIryb9A1QIb8ASgEVg0
+        1KMRaKGJoT7yoAUjKAFOD1owghLgrFkSjJgKGLoCHkkvy25K/BIdNgAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="importTextButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Fuchsia</value>
+  </data>
+  <data name="importTextButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 28</value>
+  </data>
+  <data name="importTextButton.Text" xml:space="preserve">
+    <value>Import text</value>
+  </data>
   <data name="editToolStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 55</value>
   </data>
   <data name="editToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>844, 31</value>
+    <value>872, 31</value>
   </data>
   <data name="editToolStrip.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2466,12 +2485,6 @@ Save the document</value>
   <data name="&gt;&gt;textToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;hTMLToolStripMenuItem.Name" xml:space="preserve">
-    <value>hTMLToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;hTMLToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;formatToolStripMenuItem.Name" xml:space="preserve">
     <value>formatToolStripMenuItem</value>
   </data>
@@ -2806,6 +2819,12 @@ Save the document</value>
     <value>mathButton</value>
   </data>
   <data name="&gt;&gt;mathButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;importTextButton.Name" xml:space="preserve">
+    <value>importTextButton</value>
+  </data>
+  <data name="&gt;&gt;importTextButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;imageList1.Name" xml:space="preserve">

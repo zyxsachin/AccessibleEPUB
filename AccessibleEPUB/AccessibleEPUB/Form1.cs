@@ -150,8 +150,8 @@ namespace AccessibleEPUB
 
             origDocumentLanguageLabel = documentLanguageLabel.Text;
 
-            versionLabel.Text += String.Format("{0}.{1}",
-                 Version.Major.ToString(), Version.Minor.ToString());
+            versionLabel.Text += String.Format("{0}.{1}." + Version.Build.ToString(),
+                 Version.Major.ToString(), Version.Minor.ToString(), Version.MinorRevision.ToString());
 
             origLastSavedLabel = lastSavedLabel.Text;
 
@@ -4065,9 +4065,102 @@ body {
 
         private void textToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            importText(sender, e);
+        }
 
+        private void importTextButton_Click(object sender, EventArgs e)
+        {
+            importText(sender, e);
+        }
+
+        private void importText(object sender, EventArgs e)
+        {
+            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.InitialDirectory = documents;
+            ofd.Filter = "Text files (txt,text,rtf)|*.txt;*.text;*.rtf|All files (*.*)|*.*";
+            ofd.RestoreDirectory = true;
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string infile = File.ReadAllText(ofd.FileName);
+                //string outfile = "";
+                //StreamReader sr = new StreamReader(infile);
+                //StreamWriter sw = new StreamWriter(outfile, false, Encoding.Default);
+
+                //sw.WriteLine(sr.ReadToEnd());
+                //sw.Close();
+                //sr.Close();
+                //Encoding encoding = GetEncoding(ofd.FileName);
+                //Console.WriteLine(encoding);
+                //byte[] encBytes = encoding.GetBytes(infile);
+                //byte[] utf8Bytes = Encoding.Convert(encoding, Encoding.UTF8, encBytes);
+
+                //string finalString = Encoding.UTF8.GetString(utf8Bytes);
+
+                string finalString = ReplaceNonPrintableCharacters(infile, ' ');
+
+                dynamic currentLocation = doc.selection.createRange();
+                currentLocation.pasteHTML(finalString);
+
+            }
+
+            fileEdited = true;
+            fileNotSaved = true;
+
+            refreshBrowsers();
+        }
+
+        string ReplaceNonPrintableCharacters(string s, char replaceWith)
+        {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                byte b = (byte)c;
+               
+                if (c == ' ' || c == '\n' || c == '\t')
+                {
+                    result.Append(c);
+                    continue;
+                }
+
+                if (b < 32) { 
+                    Console.WriteLine(c);
+                    result.Append(replaceWith);
+                }
+                else
+                    result.Append(c);
+            }
+            return result.ToString();
+        }
+
+        /// <summary>
+        /// Determines a text file's encoding by analyzing its byte order mark (BOM).
+        /// Defaults to ASCII when detection of the text file's endianness fails.
+        /// </summary>
+        /// <param name="filename">The text file to analyze.</param>
+        /// <returns>The detected encoding.</returns>
+        public static Encoding GetEncoding(string filename)
+        {
+            // Read the BOM
+            var bom = new byte[4];
+            using (var file = new FileStream(filename, FileMode.Open, FileAccess.Read))
+            {
+                file.Read(bom, 0, 4);
+            }
+
+            // Analyze the BOM
+            if (bom[0] == 0x2b && bom[1] == 0x2f && bom[2] == 0x76) return Encoding.UTF7;
+            if (bom[0] == 0xef && bom[1] == 0xbb && bom[2] == 0xbf) return Encoding.UTF8;
+            if (bom[0] == 0xff && bom[1] == 0xfe) return Encoding.Unicode; //UTF-16LE
+            if (bom[0] == 0xfe && bom[1] == 0xff) return Encoding.BigEndianUnicode; //UTF-16BE
+            if (bom[0] == 0 && bom[1] == 0 && bom[2] == 0xfe && bom[3] == 0xff) return Encoding.UTF32;
+            return Encoding.ASCII;
         }
     }
 
+    
 
 }

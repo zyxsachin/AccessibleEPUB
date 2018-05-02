@@ -88,7 +88,6 @@
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.boldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.italicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,6 +146,7 @@
             this.imageButton = new System.Windows.Forms.ToolStripButton();
             this.tableButton = new System.Windows.Forms.ToolStripButton();
             this.mathButton = new System.Windows.Forms.ToolStripButton();
+            this.importTextButton = new System.Windows.Forms.ToolStripButton();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -604,21 +604,15 @@
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.textToolStripMenuItem,
-            this.hTMLToolStripMenuItem});
+            this.textToolStripMenuItem});
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             resources.ApplyResources(this.importToolStripMenuItem, "importToolStripMenuItem");
             // 
             // textToolStripMenuItem
             // 
-            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
             resources.ApplyResources(this.textToolStripMenuItem, "textToolStripMenuItem");
+            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
             this.textToolStripMenuItem.Click += new System.EventHandler(this.textToolStripMenuItem_Click);
-            // 
-            // hTMLToolStripMenuItem
-            // 
-            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
-            resources.ApplyResources(this.hTMLToolStripMenuItem, "hTMLToolStripMenuItem");
             // 
             // formatToolStripMenuItem
             // 
@@ -893,7 +887,8 @@
             this.toolStripSeparator4,
             this.imageButton,
             this.tableButton,
-            this.mathButton});
+            this.mathButton,
+            this.importTextButton});
             this.editToolStrip.Name = "editToolStrip";
             this.editToolStrip.Stretch = true;
             // 
@@ -1049,6 +1044,13 @@
             resources.ApplyResources(this.mathButton, "mathButton");
             this.mathButton.Name = "mathButton";
             this.mathButton.Click += new System.EventHandler(this.mathButton_Click);
+            // 
+            // importTextButton
+            // 
+            this.importTextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.importTextButton, "importTextButton");
+            this.importTextButton.Name = "importTextButton";
+            this.importTextButton.Click += new System.EventHandler(this.importTextButton_Click);
             // 
             // BottomToolStripPanel
             // 
@@ -1261,7 +1263,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hTMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton importTextButton;
     }
 
 
