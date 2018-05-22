@@ -110,6 +110,15 @@ a {
 	margin-right: auto;
 }
 
+.visible .imageImpaired {
+	display:none; 
+}
+
+.visible .imageOthers {	
+	max-width : 100%;
+	display:initial;
+}
+
 .impaired *
 {
 	font-family: "Arial", Helvetica, sans-serif !important;
@@ -167,6 +176,17 @@ a {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.impaired .imageImpaired {
+	max-width : 100%;
+	display:initial;
+}
+
+.impaired .imageOthers {	
+	display:none;
+}
+
+
 /*
 .impaired h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,td,a,figcaption,figure {
   font-family: "Arial", Helvetica, sans-serif;
@@ -194,7 +214,7 @@ a {
 }
 
 .blind table {
-  border: 1px solid black;
+-  border: 1px solid black;
 }
 
 .blind object {
@@ -227,3 +247,11 @@ a {
 	margin-right: auto;
 }
 
+.blind .imageImpaired {
+	display:none; 
+}
+
+.blind .imageOthers {	
+	max-width : 100%;
+	display:initial;
+}

@@ -56,6 +56,15 @@ figcaption {
 	max-width : 100%;
 }
 
+.imageImpaired {
+	max-width : 100%;
+  	display:initial;
+}
+
+.imageOthers {
+  display:none; 
+}
+
 img {
 	max-width : 100%;
 	display:none;

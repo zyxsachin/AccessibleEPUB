@@ -46,6 +46,9 @@
             this.heightLabel = new System.Windows.Forms.Label();
             this.widthTextBox = new System.Windows.Forms.TextBox();
             this.heightTextBox = new System.Windows.Forms.TextBox();
+            this.alternativeImageTextBox = new System.Windows.Forms.TextBox();
+            this.alternativeImageLabel = new System.Windows.Forms.Label();
+            this.chooseAlternativeImageButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // imageLocationLabel
@@ -140,10 +143,30 @@
             resources.ApplyResources(this.heightTextBox, "heightTextBox");
             this.heightTextBox.Name = "heightTextBox";
             // 
+            // alternativeImageTextBox
+            // 
+            resources.ApplyResources(this.alternativeImageTextBox, "alternativeImageTextBox");
+            this.alternativeImageTextBox.Name = "alternativeImageTextBox";
+            // 
+            // alternativeImageLabel
+            // 
+            resources.ApplyResources(this.alternativeImageLabel, "alternativeImageLabel");
+            this.alternativeImageLabel.Name = "alternativeImageLabel";
+            // 
+            // chooseAlternativeImageButton
+            // 
+            resources.ApplyResources(this.chooseAlternativeImageButton, "chooseAlternativeImageButton");
+            this.chooseAlternativeImageButton.Name = "chooseAlternativeImageButton";
+            this.chooseAlternativeImageButton.UseVisualStyleBackColor = true;
+            this.chooseAlternativeImageButton.Click += new System.EventHandler(this.chooseAlternativeImageButton_Click);
+            // 
             // ImageDialogBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chooseAlternativeImageButton);
+            this.Controls.Add(this.alternativeImageTextBox);
+            this.Controls.Add(this.alternativeImageLabel);
             this.Controls.Add(this.heightTextBox);
             this.Controls.Add(this.widthTextBox);
             this.Controls.Add(this.heightLabel);
@@ -186,5 +209,8 @@
         private System.Windows.Forms.Label heightLabel;
         private System.Windows.Forms.TextBox widthTextBox;
         private System.Windows.Forms.TextBox heightTextBox;
+        private System.Windows.Forms.TextBox alternativeImageTextBox;
+        private System.Windows.Forms.Label alternativeImageLabel;
+        private System.Windows.Forms.Button chooseAlternativeImageButton;
     }
 }

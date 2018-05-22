@@ -46,6 +46,8 @@ namespace AccessibleEPUB
 
         private void addImageButton_Click(object sender, EventArgs e)
         {
+            bool altImageExists = false;
+
             if (imageLocationTextBox.Text == "")
             {
                 //System.Windows.Forms.MessageBox.Show("The image path is empty.", "Empty image path", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -58,7 +60,19 @@ namespace AccessibleEPUB
                 System.Windows.Forms.MessageBox.Show(Resource_MessageBox.imagePathContent, Resource_MessageBox.imagePathTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
+            if (alternativeImageTextBox.Text != "")
+            {
+                altImageExists = true;
+                
+            }
+            if (File.Exists(alternativeImageTextBox.Text) == false)
+            {
+                //TODO MessageBox
+                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.imagePathContent, Resource_MessageBox.imagePathTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             if (titleTextBox.Text == "")
             {
                 //System.Windows.Forms.MessageBox.Show("The title is empty.", "Empty title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -79,6 +93,7 @@ namespace AccessibleEPUB
             }
 
             string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(imageLocationTextBox.Text));
+            string altImagePath = Path.Combine(imageFolderPath, Path.GetFileName(alternativeImageTextBox.Text));
 
             try
             {
@@ -97,7 +112,29 @@ namespace AccessibleEPUB
                     return;
                 }
             }
-           
+            if (altImageExists)
+            {
+                try
+                {
+                    System.IO.File.Copy(alternativeImageTextBox.Text, altImagePath);
+                }
+                catch (IOException ie)
+                {
+                    //DialogResult dialogResult = MessageBox.Show("Image with same name already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show(Resource_MessageBox.imageOverwriteContent, Resource_MessageBox.imageOverwriteTitle, MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        System.IO.File.Copy(alternativeImageTextBox.Text, altImagePath, true);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+            }
+          
+
+
             dynamic currentLocation = doc.selection.createRange();
             //r.pasteHTML
 
@@ -154,8 +191,11 @@ namespace AccessibleEPUB
 
 
 
-            currentLocation.pasteHTML("\n" + @"<figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
-                tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption></figure>" + "\n");
+            currentLocation.pasteHTML("\n" + @"<div class=""imageOthers""> <figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
+                tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption></figure></div>" + "\n");
+
+            currentLocation.pasteHTML("\n" + @"<div class=""imageImpaired""> <figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent"">" +
+               tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
 
 
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<br>", "");
@@ -217,6 +257,22 @@ namespace AccessibleEPUB
             }
 
             typeComboBox.SelectedIndex = 1;
+        }
+
+        private void chooseAlternativeImageButton_Click(object sender, EventArgs e)
+        {
+            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.InitialDirectory = documents;
+            ofd.Filter = "Image files (jpg, png, svg)|*.jpg;*.png;*.svg|All files (*.*)|*.*";
+            ofd.RestoreDirectory = true;
+
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                alternativeImageTextBox.Text = ofd.FileName;
+            }
         }
     }
 }

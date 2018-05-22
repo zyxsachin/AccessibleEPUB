@@ -60,3 +60,12 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.imageImpaired {
+	max-width : 100%;
+  	display:initial;
+}
+
+.imageOthers {
+  display:none; 
+}

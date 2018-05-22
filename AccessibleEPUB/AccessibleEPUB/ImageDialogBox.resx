@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imageLocationLabel.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>19</value>
   </data>
   <data name="imageLocationTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imageLocationTextBox.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>18</value>
   </data>
   <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>16</value>
   </data>
   <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -232,7 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>17</value>
   </data>
   <data name="altTextTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -259,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;altTextTextBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="altTextLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -289,7 +289,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;altTextLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>15</value>
   </data>
   <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -319,7 +319,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -346,13 +346,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="addImageButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="addImageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>404, 599</value>
+    <value>404, 630</value>
   </data>
   <data name="addImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -376,13 +376,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;addImageButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 599</value>
+    <value>595, 630</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -406,7 +406,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="chooseImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -444,7 +444,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chooseImageButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="typeComboBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
@@ -471,7 +471,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;typeComboBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="typeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -501,7 +501,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;typeLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="widthLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -534,7 +534,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;widthLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="heightLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -567,7 +567,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;heightLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="widthTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -594,7 +594,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;widthTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="heightTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -621,6 +621,107 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;heightTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="alternativeImageTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="alternativeImageTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 577</value>
+  </data>
+  <data name="alternativeImageTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="alternativeImageTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>713, 30</value>
+  </data>
+  <data name="alternativeImageTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageTextBox.Name" xml:space="preserve">
+    <value>alternativeImageTextBox</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="alternativeImageLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="alternativeImageLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="alternativeImageLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="alternativeImageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 536</value>
+  </data>
+  <data name="alternativeImageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>436, 23</value>
+  </data>
+  <data name="alternativeImageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="alternativeImageLabel.Text" xml:space="preserve">
+    <value>Alternative Image for Visually Impaired (optional)</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageLabel.Name" xml:space="preserve">
+    <value>alternativeImageLabel</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="chooseAlternativeImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAASFJREFUOE+lks9KAlEUh+8b5Bv0Bj2CzyC0Dty1b5kuoqWPEIEURLgIF4J/WtSi
+        zeimTTQSoRCViKKiMtvT/Q5eGfMOKh74cWfOOb9vzrmMiaIoayUbdGGSgobuU0E+q+deUbM9Y6vUwrIa
+        AGjk9AnAsBP4atmtAJjjE6HO46XMpyPqqY0An+jfG8C51Qo+xfvXAP33ur47sW+33ZJC+VVyd02pNdvy
+        3brR/BpgNuppIQ4AmM5X5ODkVo7OHsQcXyuEvPU8rwAgx81o8huqqfTyoT1AmIRnq8wSQON/s8sDwBR+
+        DeTw9N4BxstL1D0T/kamumq8KcSJdYLwB0gRQBEIX0oS9d5woiYHcxCdYpfggw7CvSzSuwUQ7oPTiMge
+        EvMH7hzdlDzjmN0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="chooseAlternativeImageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="chooseAlternativeImageButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chooseAlternativeImageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>731, 577</value>
+  </data>
+  <data name="chooseAlternativeImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="chooseAlternativeImageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 30</value>
+  </data>
+  <data name="chooseAlternativeImageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.Name" xml:space="preserve">
+    <value>chooseAlternativeImageButton</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -630,7 +731,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>817, 679</value>
+    <value>817, 701</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>

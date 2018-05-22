@@ -2843,6 +2843,16 @@ body {
     height:0%;
 }
 
+.imageImpaired {
+	display:none; 
+}
+
+.imageOthers {	
+	max-width : 100%;
+	display:initial;
+}
+	
+
 
 
 ;"
@@ -4099,8 +4109,11 @@ body {
 
                 //string finalString = Encoding.UTF8.GetString(utf8Bytes);
 
-                string finalString = ReplaceNonPrintableCharacters(infile, ' ');
-
+                string finalString = ReplaceNonPrintableCharacters(infile, '?');
+               
+                finalString = finalString.Replace("\n\n", "</p><p>");
+                finalString = "<p>" + finalString;
+                finalString = finalString + "finalString";
                 dynamic currentLocation = doc.selection.createRange();
                 currentLocation.pasteHTML(finalString);
 
