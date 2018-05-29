@@ -178,14 +178,13 @@ a {
 }
 
 .impaired .imageImpaired {
-	max-width : 100%;
+  max-width : 100%;
 	display:initial;
 }
 
 .impaired .imageOthers {	
-	display:none;
+	display:none; 
 }
-
 
 /*
 .impaired h1,h2,h3,h4,h5,h6,p,ol,li,p,table,tr,th,td,a,figcaption,figure {
@@ -214,7 +213,7 @@ a {
 }
 
 .blind table {
--  border: 1px solid black;
+  border: 1px solid black;
 }
 
 .blind object {
@@ -255,3 +254,4 @@ a {
 	max-width : 100%;
 	display:initial;
 }
+	

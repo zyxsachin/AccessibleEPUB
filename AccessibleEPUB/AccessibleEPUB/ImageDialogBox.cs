@@ -28,6 +28,7 @@ namespace AccessibleEPUB
 
         public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl)
         {
+            imageLocationTextBox.TabIndex = 1;
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             currentCI = Thread.CurrentThread.CurrentUICulture;
             InitializeComponent();
@@ -38,14 +39,40 @@ namespace AccessibleEPUB
             initTypeList();
         }
 
+        public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl, string location, string title, string altText, string caption, string tag)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
+            currentCI = Thread.CurrentThread.CurrentUICulture;
+            InitializeComponent();
+            doc = mainWindowDoc;
+            imageFolderPath = ip;
+            docLanguage = dl;
+
+            initTypeList();
+
+            imageLocationTextBox.TabIndex = 20;
+            imageLocationTextBox.Text = location;
+            imageLocationTextBox.Focus();
+            titleTextBox.Text = title;
+            altTextTextBox.Text = altText;
+            captionTextBox.Text = caption;
+            typeComboBox.Text = tag;
+
+        }
+
+   
+
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.Dispose();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void addImageButton_Click(object sender, EventArgs e)
         {
+           
             bool altImageExists = false;
 
             if (imageLocationTextBox.Text == "")
@@ -61,17 +88,11 @@ namespace AccessibleEPUB
                 return;
             }
 
-            if (alternativeImageTextBox.Text != "")
+            if (alternativeImageTextBox.Text.Trim() != "")
             {
-                altImageExists = true;
-                
+                altImageExists = true;               
             }
-            if (File.Exists(alternativeImageTextBox.Text) == false)
-            {
-                //TODO MessageBox
-                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.imagePathContent, Resource_MessageBox.imagePathTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+          
 
             if (titleTextBox.Text == "")
             {
@@ -112,11 +133,13 @@ namespace AccessibleEPUB
                     return;
                 }
             }
+
             if (altImageExists)
             {
                 try
                 {
                     System.IO.File.Copy(alternativeImageTextBox.Text, altImagePath);
+                   
                 }
                 catch (IOException ie)
                 {
@@ -131,6 +154,11 @@ namespace AccessibleEPUB
                         return;
                     }
                 }
+            }
+            else
+            {
+                Console.WriteLine(imagePath);
+                altImagePath = imagePath;
             }
           
 
@@ -188,14 +216,16 @@ namespace AccessibleEPUB
             }
 
 
+            // currentLocation.pasteHTML("\n" + @"<div class=""imageOthers""> <figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
+            //    tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text +@"</figcaption></figure></div>" + "\n");
+
+            //currentLocation.pasteHTML("\n" + @"<div class=""imageImpaired""> <figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent"">" +
+            //   tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
 
 
 
-            currentLocation.pasteHTML("\n" + @"<div class=""imageOthers""> <figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
-                tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text +@"</figcaption></figure></div>" + "\n");
-
-            currentLocation.pasteHTML("\n" + @"<div class=""imageImpaired""> <figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent"">" +
-               tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" > " + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
+            currentLocation.pasteHTML("\n" + @"<div> <figure" + heightTag + widthTag + @"><img class=""imageOthers""  title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><img class=""imageImpaired"" title=""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent imageImpaired"">" +
+               tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
 
 
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<br>", "");
@@ -213,6 +243,7 @@ namespace AccessibleEPUB
             //src =""" + imageLocationTextBox.Text + @""" alt =""" + altTextTextBox.Text + @""">
             this.Hide();
             this.Dispose();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void chooseImageButton_Click(object sender, EventArgs e)
@@ -241,7 +272,6 @@ namespace AccessibleEPUB
             string[] tagTypesEng = { "None", "Image", "Graph", "Math" };
             string[] tagTypesGer = { "Kein", "Bild", "Graph", "Mathematik" };
 
-            Console.WriteLine("LANGUAGE:" + docLanguage);
 
             if (docLanguage == "en")
             {

@@ -64,10 +64,11 @@ body {
 }
 
 .imageImpaired {
-	max-width : 100%;
-  	display:initial;
+	display:none; 
 }
 
-.imageOthers {
-  display:none; 
+.imageOthers {	
+	max-width : 100%;
+	display:initial;
 }
+	

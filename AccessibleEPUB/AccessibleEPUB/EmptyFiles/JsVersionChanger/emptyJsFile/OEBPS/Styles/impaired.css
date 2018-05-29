@@ -63,9 +63,10 @@ body {
 
 .imageImpaired {
 	max-width : 100%;
-  	display:initial;
+	display:initial;
 }
 
-.imageOthers {
+.imageOthers {	
   display:none; 
 }
+	

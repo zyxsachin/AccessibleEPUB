@@ -158,7 +158,7 @@ namespace AccessibleEPUB
            
         }
 
-
+        
       
 
 
@@ -2653,7 +2653,7 @@ namespace AccessibleEPUB
                         }
                     }
                 }
-                Console.WriteLine(contentFile);
+                //Console.WriteLine(contentFile);
                 string header = contentBody.Substring(0, first + bracketTerminateIndex + 1);
                 string closer = contentBody.Substring(end);
                 newContent = header + body + closer;
@@ -2862,9 +2862,9 @@ body {
 
             HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyUp);
 
-        
 
-
+            HTMLEditor.Document.Body.DoubleClick += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorDoubleClick);
+               
 
             //HTMLEditor.Document.ExecCommand("FontName", false, "Arial");
 
@@ -2877,6 +2877,364 @@ body {
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new System.EventHandler(timer_Tick);
             timer.Start();
+
+            
+        }
+
+
+        private void updateFontFormat()
+        {
+            string elemOuter = HTMLEditor.Document.ActiveElement.OuterHtml;
+
+          
+            
+
+            //Console.WriteLine("Print " + HTMLEditor.Document.Body.OuterHtml);
+            
+
+
+            //Point ScreenCoord = new Point(MousePosition.X, MousePosition.Y);
+
+            //Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
+
+            //HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
+
+            //string elemOuter = elem.OuterHtml;
+
+            //Console.WriteLine(elemOuter);
+            //Console.WriteLine(HTMLEditor.Document.ActiveElement.OuterHtml.Substring(0,3));
+
+            if (elemOuter.StartsWith("<h1"))
+            {
+                formatComboBox.SelectedIndex = 1;
+            }
+            else if (elemOuter.StartsWith("<h2"))
+            {
+                formatComboBox.SelectedIndex = 2;
+            }
+            else if (elemOuter.StartsWith("<h3"))
+            {
+                formatComboBox.SelectedIndex = 3;
+            }
+            else if (elemOuter.StartsWith("<h4"))
+            {
+                formatComboBox.SelectedIndex = 4;
+            }
+            else if (elemOuter.StartsWith("<h5"))
+            {
+                formatComboBox.SelectedIndex = 5;
+            }
+            else if (elemOuter.StartsWith("<h6"))
+            {
+                formatComboBox.SelectedIndex = 6;
+            }
+
+
+
+        }
+
+
+        private void HTMLEditorDoubleClick(object sender, HtmlElementEventArgs e)
+        {
+            int x = e.MousePosition.X;
+            int y = e.MousePosition.Y;
+            Point p = new Point(x, y);
+            
+            Point ScreenCoord = new Point(MousePosition.X, MousePosition.Y);
+
+            Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
+        
+            HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
+
+            HtmlElementCollection elems = HTMLEditor.Document.GetElementsByTagName(elem.TagName);
+            //Console.WriteLine("HTMLelement " + HTMLEditor.Document.ActiveElement.TagName);
+            //Console.WriteLine("Point " + BrowserCoord.X + "," + BrowserCoord.Y + " outerHTML " + elem.OuterHtml);
+
+            
+            bool isImage = false;
+            bool isMath = false;
+            bool isDiv = false;
+
+            if (elem.OuterHtml.StartsWith("<figure") || elem.OuterHtml.StartsWith("<FIGURE")) {
+
+
+
+                HtmlElementCollection kids = elem.Children; 
+
+                foreach (HtmlElement child in kids)
+                {
+                    if (child.TagName.ToLower().Equals("img"))
+                    {
+                        isImage = true;
+                    }
+                    if (child.TagName.ToLower().Equals("div")) 
+                    {
+                        isDiv = true;
+                    }
+                    if (isDiv == true && child.OuterHtml.ToLower().Contains("<math"))
+                    {
+                        isMath = true;
+                    }
+                    //Console.WriteLine(child.OuterHtml);
+                    
+                }
+                //Console.WriteLine("Is Image: " + isImage +  " Is Div:" + isDiv + " Is Math: " + isMath);
+
+      
+
+                if (isImage && !isDiv && !isMath)
+                {
+                    string figCapt = "<figcaption>";
+                    string figCaptEnd = "</figcaption>";
+
+                    string openTag = "&lt;";
+                    string endTag = "&gt;";
+
+                    string titleStart = "title=\"";
+                    string titleEnd = "\" ";
+
+                    string srcStart = "src=\"";
+
+                    string figCaption = "";
+
+                    string tag = "";
+
+                    string altText = "";
+
+                    string title = "";
+
+                    string imgSrc = "";
+
+
+                    foreach (HtmlElement child in kids)
+                    {
+                        string s = child.OuterHtml;
+                        if (s.ToLower().Contains(figCapt))
+                        {
+                            figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length, s.IndexOf(figCaptEnd) - s.IndexOf(figCapt) - figCapt.Length);
+                            //Console.WriteLine("caption " + figCaption);
+                        }
+                        //Console.WriteLine(s);
+
+                        if (s.ToLower().Contains(openTag) && s.ToLower().Contains("<p"))
+                        {
+                            tag = s.Substring(s.IndexOf(openTag) + openTag.Length, s.IndexOf(endTag) - s.IndexOf(openTag) - openTag.Length);
+                            //Console.WriteLine("tag " + tag);
+                            altText = s.Substring(s.IndexOf(endTag) + endTag.Length, s.LastIndexOf(openTag) - s.IndexOf(endTag) - endTag.Length);
+                            //Console.WriteLine("alttext " + altText);
+                        }
+
+                        //TODO proper ways of finding the end of src and title
+                        if (s.ToLower().Contains("<img") && s.ToLower().Contains("src"))
+                        {
+                            imgSrc = s.Substring(s.IndexOf(srcStart) + srcStart.Length, s.Length - 2 - s.IndexOf(srcStart) - srcStart.Length);
+                            //Console.WriteLine("imgSrc " + imgSrc);
+                            title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
+                            //Console.WriteLine("title " + title);
+                        }
+
+                    }
+
+                    string oldElem = elem.OuterHtml;
+                    //elem.OuterHtml = "";
+                    HTMLEditor.Document.ExecCommand("Delete", false, null);
+                    //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
+                    //elem.OuterHtml = "";
+
+
+
+                    HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
+                    ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder(), language, imgSrc, title, altText, figCaption, tag);
+                    idb.ShowDialog();
+
+                    if (idb.DialogResult.Equals(DialogResult.Cancel))
+                    {
+                        //Console.WriteLine(oldElem);
+                        //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
+                        dynamic currentLocation = doc.selection.createRange();
+                        currentLocation.pasteHTML(oldElem);
+                    }
+                    fileEdited = true;
+                    fileNotSaved = true;
+
+                    refreshBrowsers();
+
+                }
+
+                if (isImage && isDiv && isMath)
+                {
+                    string figCapt = "<figcaption";
+                    string figCaptEnd = "</figcaption>";
+
+                    
+                  
+
+                    string titleStart = "title=\"";
+                    string titleEnd = "\" ";
+
+
+                    string figCaption = "";
+
+
+                    string mathCode = "";
+
+                    string title = "";
+
+
+
+                    foreach (HtmlElement child in kids)
+                    {
+                        string s = child.OuterHtml;
+
+                        if (s.ToLower().Contains(figCapt))
+                        {
+                            int first = s.IndexOf(figCapt);
+
+                            int end = s.IndexOf(figCaptEnd);
+
+                          
+                            int bracketTerminateIndex = 0;
+                            bool endMode = true;
+                            for (int i = 0; i < end - first; i++)
+                            {
+                                //Console.Write(s[first + i]);
+                                if (s[first + i] == '<')
+                                {
+                                    endMode = false;
+                                }
+
+                                if (s[first + i] == '>')
+                                {
+
+                                    if (endMode == false)
+                                    {
+                                        endMode = true;
+                                    }
+                                    else
+                                    {
+                                        bracketTerminateIndex = i;
+                                    }
+                                }
+                            }
+
+                           
+
+                            figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length + bracketTerminateIndex, s.IndexOf(figCaptEnd) - bracketTerminateIndex - s.IndexOf(figCapt) - figCapt.Length);
+                            figCaption = figCaption.Substring(figCaption.IndexOf(">") + 1);
+
+                            //Console.WriteLine("caption " + figCaption);
+                        }
+                        //Console.WriteLine(s);
+
+                        if (s.ToLower().Contains("$") && s.ToLower().Contains("<p"))
+                        {
+                            mathCode = s.Substring(s.IndexOf(">") + 2, s.LastIndexOf("<") - s.IndexOf(">") - 3);
+                            //Console.WriteLine("alttext " + altText);
+                        }
+
+                        //TODO proper ways of finding the end of title
+                        if (s.ToLower().Contains("<div class") && s.ToLower().Contains("title") && s.ToLower().Contains("class=\"math\""))
+                        {
+                            int titleStartIndex = s.IndexOf(titleStart);
+                            int titleEndIndex = 0;
+                            string shorterString = s;
+                            bool continueTitleSearch = true;
+
+                            for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
+                            {
+                               
+                                if (s.Substring(i).StartsWith(titleEnd)) {                                   
+                                    titleEndIndex = i;
+                                    break;
+                                }
+                                
+                            }
+
+                            //while  (continueTitleSearch)
+                            //{
+                            //    titleEndIndex = shorterString.IndexOf(titleEnd) + titleEndIndex;
+
+                            //    if (titleEndIndex > titleStartIndex)
+                            //    {                               
+                            //        continueTitleSearch = false;
+                            //    }
+                            //    else
+                            //    {
+                            //        shorterString = shorterString.Substring(shorterString.IndexOf(titleEnd) + titleEnd.Length);
+                            //    }
+                            //    Console.WriteLine(shorterString);
+                            //}
+                            //Console.WriteLine(s.Substring(titleStartIndex));
+                            title = s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length);
+                            Console.WriteLine("TITLE " + s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length));
+                            //title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
+                            //Console.WriteLine("title " + title);
+                        }
+
+                    }
+
+                    string oldElem = elem.OuterHtml;
+                    //elem.OuterHtml = "";
+                    HTMLEditor.Document.ExecCommand("Delete", false, null);
+                    //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
+                    //elem.OuterHtml = "";
+
+
+
+                    HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
+                    MathDialogBox mdb = new MathDialogBox(doc, getImageFolder(), mathCode, title, figCaption);
+                    mdb.ShowDialog();
+
+                    if (mdb.DialogResult.Equals(DialogResult.Cancel))
+                    {
+                        //Console.WriteLine(oldElem);
+                        //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
+                        dynamic currentLocation = doc.selection.createRange();
+                        currentLocation.pasteHTML(oldElem);
+                    }
+                    fileEdited = true;
+                    fileNotSaved = true;
+
+                    refreshBrowsers();
+                }
+
+
+
+
+
+
+
+
+
+                    //Console.WriteLine(elem.FirstChild.OuterHtml);
+                    //Console.WriteLine(elemChild.OuterHtml);
+                    //while (elemChild.NextSibling != null) {
+                    //    HtmlElement nextChild = elemChild.NextSibling;
+                    //    Console.WriteLine(nextChild.OuterHtml);
+                    //    elemChild = elemChild.NextSibling;
+                    //}
+
+                    //if (elem.OuterHtml.StartsWith("<math") || elem.OuterHtml.StartsWith("<MATH"))
+                    //{
+                    //    Console.WriteLine(elem.FirstChild.OuterHtml);
+                    //}
+                }
+
+            //try
+            //{
+            //    HtmlElement elem = e.FromElement;
+            //    string bla = elem.Document.Body.InnerText;
+            //   // Console.WriteLine("DOUBLECLICKED: " + bla);
+            //   // HTMLAnchorElement anchor;
+
+            //}
+            //catch (Exception ee)
+            //{
+            //    Console.WriteLine("THIS IS AN DOUBLE CLICK EXCEPTION");
+            //    //Console.WriteLine(ee.ToString());
+            //}
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -2886,7 +3244,7 @@ body {
             {
                 refreshBrowsers();
                 //HTMLEditor.Document.Focus();
-                
+       
             }
         }
 
@@ -3165,7 +3523,7 @@ body {
             //refreshBrowsers();
 
             //HTMLEditor.Document.Focus();
-
+           
             if (HTMLEditor.Document.Body.InnerText == "")
             {
                 return;
@@ -3188,7 +3546,6 @@ body {
                     while (index < text.Length && char.IsWhiteSpace(text[index]))
                         index++;
                 }
-
 
 
                 wordCountLabel.Text = origWordCountLabel + wordCount;
@@ -4069,8 +4426,8 @@ body {
 
             }
 
-            
-              
+            updateFontFormat();
+
         }
 
         private void textToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4140,7 +4497,7 @@ body {
                 }
 
                 if (b < 32) { 
-                    Console.WriteLine(c);
+                    //Console.WriteLine(c);
                     result.Append(replaceWith);
                 }
                 else

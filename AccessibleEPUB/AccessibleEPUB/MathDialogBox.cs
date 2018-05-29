@@ -58,6 +58,27 @@ namespace AccessibleEPUB
             formula.BorderThickness = new Thickness(3, 3, 3, 3);
 
             imageFolderPath = imagePath;
+        }
+
+        public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath, string mathCode, string title, string figCaption)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
+            InitializeComponent();
+
+            doc = mainWindowDoc;
+
+            host.Dock = DockStyle.Fill;
+            host.Child = formula;
+
+            System.Windows.Media.Brush br = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+            formula.BorderBrush = br;
+            formula.BorderThickness = new Thickness(3, 3, 3, 3);
+
+            inputTextBox.Text = mathCode;
+            titleTextBox.Text = title;
+            captionTextBox.Text = figCaption;
+
+            imageFolderPath = imagePath;
 
 
         }
@@ -72,7 +93,9 @@ namespace AccessibleEPUB
                 return;
             }
 
-      
+
+
+
             string pandoc = Path.Combine(ip, "pandoc-2.1");
             string currentDic = Directory.GetCurrentDirectory();
 
@@ -94,7 +117,7 @@ namespace AccessibleEPUB
             if (!(titleTextBox.Text == ""))
             {
                 title = titleTextBox.Text;
-                titleTag = @""" title=""" + titleTextBox.Text + " \"";
+                titleTag = @""" title=""" + titleTextBox.Text + "\"";
             }
             else
             {
@@ -110,7 +133,7 @@ namespace AccessibleEPUB
 
             if (!(captionTextBox.Text == "")) {
                 caption = captionTextBox.Text;
-                captionTag = "<figcaption style=\"text-align:left\">\n" + caption + @"</figcaption>";
+                captionTag = "<figcaption style=\"text-align:left\">" + caption + @"</figcaption>";
             }
             else
             {
@@ -306,7 +329,7 @@ namespace AccessibleEPUB
 
             this.Hide();
             this.Dispose();
-
+            this.DialogResult = DialogResult.OK;
             //doc.body.innerText += math;
             //formula.HorizontalAlignment
 
@@ -609,6 +632,7 @@ namespace AccessibleEPUB
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Hide();
             this.Dispose();
         }
