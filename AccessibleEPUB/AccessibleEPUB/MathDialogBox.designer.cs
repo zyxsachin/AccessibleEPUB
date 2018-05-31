@@ -39,7 +39,12 @@
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.captionLabel = new System.Windows.Forms.Label();
             this.captionTextBox = new System.Windows.Forms.TextBox();
+            this.floatGroupBox = new System.Windows.Forms.GroupBox();
+            this.rightRadioButton = new System.Windows.Forms.RadioButton();
+            this.leftRadioButton = new System.Windows.Forms.RadioButton();
+            this.noneRadioButton = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
+            this.floatGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // insertFormulaButton
@@ -101,11 +106,42 @@
             resources.ApplyResources(this.captionTextBox, "captionTextBox");
             this.captionTextBox.Name = "captionTextBox";
             // 
+            // floatGroupBox
+            // 
+            resources.ApplyResources(this.floatGroupBox, "floatGroupBox");
+            this.floatGroupBox.Controls.Add(this.rightRadioButton);
+            this.floatGroupBox.Controls.Add(this.leftRadioButton);
+            this.floatGroupBox.Controls.Add(this.noneRadioButton);
+            this.floatGroupBox.Name = "floatGroupBox";
+            this.floatGroupBox.TabStop = false;
+            // 
+            // rightRadioButton
+            // 
+            resources.ApplyResources(this.rightRadioButton, "rightRadioButton");
+            this.rightRadioButton.Name = "rightRadioButton";
+            this.rightRadioButton.TabStop = true;
+            this.rightRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // leftRadioButton
+            // 
+            resources.ApplyResources(this.leftRadioButton, "leftRadioButton");
+            this.leftRadioButton.Name = "leftRadioButton";
+            this.leftRadioButton.TabStop = true;
+            this.leftRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // noneRadioButton
+            // 
+            resources.ApplyResources(this.noneRadioButton, "noneRadioButton");
+            this.noneRadioButton.Name = "noneRadioButton";
+            this.noneRadioButton.TabStop = true;
+            this.noneRadioButton.UseVisualStyleBackColor = true;
+            // 
             // MathDialogBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.floatGroupBox);
             this.Controls.Add(this.captionTextBox);
             this.Controls.Add(this.captionLabel);
             this.Controls.Add(this.titleLabel);
@@ -118,6 +154,8 @@
             this.Name = "MathDialogBox";
             this.Load += new System.EventHandler(this.MathDialogBox_Load);
             this.panel1.ResumeLayout(false);
+            this.floatGroupBox.ResumeLayout(false);
+            this.floatGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +173,9 @@
         private System.Windows.Forms.Integration.ElementHost host;
         private System.Windows.Forms.Label captionLabel;
         private System.Windows.Forms.TextBox captionTextBox;
+        private System.Windows.Forms.GroupBox floatGroupBox;
+        private System.Windows.Forms.RadioButton rightRadioButton;
+        private System.Windows.Forms.RadioButton leftRadioButton;
+        private System.Windows.Forms.RadioButton noneRadioButton;
     }
 }

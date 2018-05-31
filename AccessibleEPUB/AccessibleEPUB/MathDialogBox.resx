@@ -122,7 +122,7 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="insertFormulaButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>575, 673</value>
+    <value>575, 778</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="insertFormulaButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
@@ -148,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;insertFormulaButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="inputTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15pt</value>
@@ -175,10 +175,46 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;inputTextBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="panel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;host.Name" xml:space="preserve">
+    <value>host</value>
+  </data>
+  <data name="&gt;&gt;host.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Integration.ElementHost, WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  </data>
+  <data name="&gt;&gt;host.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;host.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 424</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>931, 319</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="host.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -210,35 +246,11 @@
   <data name="&gt;&gt;host.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 319</value>
-  </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>931, 319</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>829, 673</value>
+    <value>829, 778</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -262,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="formulaLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -292,7 +304,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;formulaLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -322,7 +334,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15pt</value>
@@ -349,7 +361,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -382,7 +394,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15pt</value>
@@ -409,6 +421,171 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="floatGroupBox.AccessibleDescription" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
+  </data>
+  <data name="floatGroupBox.AccessibleName" xml:space="preserve">
+    <value>Choose the format of the EPUB file</value>
+  </data>
+  <data name="rightRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rightRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rightRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rightRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="rightRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rightRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 42</value>
+  </data>
+  <data name="rightRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="rightRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 27</value>
+  </data>
+  <data name="rightRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="rightRadioButton.Text" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Name" xml:space="preserve">
+    <value>rightRadioButton</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="leftRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="leftRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="leftRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="leftRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="leftRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="leftRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 42</value>
+  </data>
+  <data name="leftRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="leftRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 27</value>
+  </data>
+  <data name="leftRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="leftRadioButton.Text" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Name" xml:space="preserve">
+    <value>leftRadioButton</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="noneRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="noneRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="noneRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="noneRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="noneRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="noneRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 42</value>
+  </data>
+  <data name="noneRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="noneRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 27</value>
+  </data>
+  <data name="noneRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="noneRadioButton.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Name" xml:space="preserve">
+    <value>noneRadioButton</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="floatGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="floatGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 311</value>
+  </data>
+  <data name="floatGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="floatGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="floatGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 91</value>
+  </data>
+  <data name="floatGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="floatGroupBox.Text" xml:space="preserve">
+    <value>Figure Alignment</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.Name" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -421,7 +598,7 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1044, 753</value>
+    <value>1044, 860</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>

@@ -1141,7 +1141,7 @@ namespace AccessibleEPUB
             this.Text = Path.GetFileName(target) + " - " + accessibleEpubFormText;
 
             documentLanguageLabel.Text = origDocumentLanguageLabel + language;
-
+            HTMLEditor.Document.Focus();
             //openTab(contentFile);
         }
 
@@ -2884,13 +2884,29 @@ body {
 
         private void updateFontFormat()
         {
-            string elemOuter = HTMLEditor.Document.ActiveElement.OuterHtml;
+            string elemOuter = "";
 
-          
-            
+            IHTMLSelectionObject currentSelection = doc.selection;
+
+            if (currentSelection != null)
+            {
+                IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
+
+                if (range != null)
+                {
+                    elemOuter = range.parentElement().outerHTML;
+                    //Console.WriteLine(range.parentElement().outerHTML);
+                    //MessageBox.Show(range.text);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
 
             //Console.WriteLine("Print " + HTMLEditor.Document.Body.OuterHtml);
-            
+
 
 
             //Point ScreenCoord = new Point(MousePosition.X, MousePosition.Y);
@@ -2904,7 +2920,11 @@ body {
             //Console.WriteLine(elemOuter);
             //Console.WriteLine(HTMLEditor.Document.ActiveElement.OuterHtml.Substring(0,3));
 
-            if (elemOuter.StartsWith("<h1"))
+            if (elemOuter.StartsWith("<p"))
+            {
+                formatComboBox.SelectedIndex = 0;
+            }
+            else if (elemOuter.StartsWith("<h1"))
             {
                 formatComboBox.SelectedIndex = 1;
             }
@@ -2928,11 +2948,18 @@ body {
             {
                 formatComboBox.SelectedIndex = 6;
             }
-
-
-
         }
 
+
+        private string ReplaceFirst(string text, string search, string replace)
+        {
+            int pos = text.IndexOf(search);
+            if (pos < 0)
+            {
+                return text;
+            }
+            return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
+        }
 
         private void HTMLEditorDoubleClick(object sender, HtmlElementEventArgs e)
         {
@@ -2946,28 +2973,578 @@ body {
         
             HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
 
+            identifyElement(elem);
+
+            //HtmlElementCollection elems = HTMLEditor.Document.GetElementsByTagName(elem.TagName);
+            ////Console.WriteLine("HTMLelement " + HTMLEditor.Document.ActiveElement.TagName);
+            ////Console.WriteLine("Point " + BrowserCoord.X + "," + BrowserCoord.Y + " outerHTML " + elem.OuterHtml);
+
+            
+            //bool isImage = false;
+            //bool isMath = false;
+            //bool isDiv = false;
+
+            //string ulRegular = "<ul>";
+            //string ulDisc = "<ul style=\"list-style-type:disc;\">";
+            //string ulCircle = "<ul style=\"list-style-type:circle;\">";
+            //string ulSquare = "<ul style=\"list-style-type:square;\">";
+
+            //string ulDiscA = "<ul style=\"list-style-type: disc;\">";
+            //string ulCircleA = "<ul style=\"list-style-type: circle;\">";
+            //string ulSquareA = "<ul style=\"list-style-type: square;\">";
+
+
+            //if (elem.OuterHtml.StartsWith("<ul"))
+            //{
+            //    string figElem = elem.OuterHtml;
+
+            //    if (figElem.ToLower().StartsWith(ulRegular) || figElem.ToLower().StartsWith(ulDiscA))
+            //    {
+            //        //elem.OuterHtml = ReplaceFirst(figElem, ulRegular, ulCircle);
+            //        elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulRegular, ulCircleA);
+            //    }
+            //    else if (figElem.ToLower().StartsWith(ulCircleA))
+            //    {
+            //        //elem.OuterHtml = ReplaceFirst(figElem, ulCircle, ulSquare);
+            //        elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulCircleA, ulSquareA);
+            //    }
+            //    else if (figElem.ToLower().StartsWith(ulSquareA))
+            //    {
+            //        //elem.OuterHtml = ReplaceFirst(figElem, ulSquare, ulRegular);
+            //        elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulSquareA, ulRegular);
+            //    }
+
+            //}
+
+            //string olRegular = "<ol>";
+            //string olTypeNum = "<ol type=\"1\">";
+            //string olTypeUpper = "<ol type=\"A\">";
+            //string olTypeLower = "<ol type=\"a\">";
+            //string olTypeRomanU = "<ol type=\"I\">";
+            //string olTypeRomanL = "<ol type=\"i\">";
+
+            //if (elem.OuterHtml.StartsWith("<ol"))
+            //{
+            //    string figElem = elem.OuterHtml;
+                
+            //    if (figElem.StartsWith(olRegular) || figElem.StartsWith(olTypeNum)) {
+            //        elem.OuterHtml = ReplaceFirst(figElem, olRegular, olTypeUpper);
+            //    }
+            //    else if (figElem.StartsWith(olTypeUpper))
+            //    {
+            //        elem.OuterHtml = ReplaceFirst(figElem, olTypeUpper, olTypeLower);
+            //    }
+            //    else if (figElem.StartsWith(olTypeLower))
+            //    {
+            //        elem.OuterHtml = ReplaceFirst(figElem, olTypeLower, olTypeRomanU);
+            //    }
+            //    else if (figElem.StartsWith(olTypeRomanU))
+            //    {
+            //        elem.OuterHtml = ReplaceFirst(figElem, olTypeRomanU, olTypeRomanL);
+            //    }
+            //    else if (figElem.StartsWith(olTypeRomanL))
+            //    {
+            //        elem.OuterHtml = ReplaceFirst(figElem, olTypeRomanL, olRegular);
+            //    }
+            //}
+     
+
+
+            
+
+            //if (elem.OuterHtml.StartsWith("<figure") || elem.OuterHtml.StartsWith("<FIGURE"))
+            //{
+            //    HtmlElementCollection kids = elem.Children;
+
+            //    foreach (HtmlElement child in kids)
+            //    {
+
+            //        if (child.TagName.ToLower().Equals("img"))
+            //        {
+            //            isImage = true;
+            //        }
+            //        if (child.TagName.ToLower().Equals("div"))
+            //        {
+            //            isDiv = true;
+            //        }
+            //        if (isDiv == true && child.OuterHtml.ToLower().Contains("<math"))
+            //        {
+            //            isMath = true;
+            //        }
+            //        //Console.WriteLine(child.OuterHtml);
+
+            //    }
+            //    //Console.WriteLine("Is Image: " + isImage + " Is Div:" + isDiv + " Is Math: " + isMath);
+
+
+
+            //    if (isImage && !isDiv && !isMath)
+            //    {
+            //        string figCapt = "<figcaption";
+            //        string figCaptEnd = "</figcaption>";
+
+            //        string openTag = "&lt;";
+            //        string endTag = "&gt;";
+
+            //        string closeTag = ">";
+
+            //        string titleStart = "title=\"";
+            //        string titleEnd = "\" ";
+
+            //        string heightStart = "height=\"";
+
+            //        string widthStart = "width=\"";
+
+            //        string srcStart = "src=\"";
+
+            //        string width = "";
+            //        string height = "";
+
+            //        string figCaption = "";
+
+            //        string tag = "";
+
+            //        string altText = "";
+
+            //        string title = "";
+
+            //        string imgSrc = "";
+
+            //        string altImgSrc = "";
+
+            //        bool hasAltImg = true;
+
+            //        string figElem = elem.OuterHtml;
+
+                   
+            //        if (figElem.Contains(heightStart) && System.Char.IsDigit(figElem.ElementAt(figElem.IndexOf(heightStart) + heightStart.Length)))
+            //        {
+                        
+            //            for (int i = figElem.IndexOf(heightStart) + heightStart.Length; i < figElem.Length; i++)
+            //            {
+            //                if (System.Char.IsDigit(figElem.ElementAt(i))){
+            //                    height = height + figElem.ElementAt(i);
+            //                }
+            //                else
+            //                {
+            //                    break;
+            //                }
+                                
+            //            }
+            //            //height = figElem.Substring(figElem.IndexOf(heightStart) + heightStart.Length, figElem.IndexOf(titleEnd) - figElem.IndexOf(heightStart) - heightStart.Length);
+            //        }
+
+            //        if (figElem.Contains(widthStart) && System.Char.IsDigit(figElem.ElementAt(figElem.IndexOf(widthStart) + widthStart.Length)))
+            //        {
+
+            //            for (int i = figElem.IndexOf(widthStart) + widthStart.Length; i < figElem.Length; i++)
+            //            {
+            //                if (System.Char.IsDigit(figElem.ElementAt(i)))
+            //                {
+            //                    width = width + figElem.ElementAt(i);
+            //                }
+            //                else
+            //                {
+            //                    break;
+            //                }
+
+            //            }
+            //            //width = figElem.Substring(figElem.IndexOf(widthStart) + widthStart.Length, figElem.IndexOf(titleEnd) - figElem.IndexOf(widthStart) - widthStart.Length);
+            //        }
+
+                 
+            //        string floatValue = "none";
+
+            //        if (figElem.Contains("float : left") || figElem.Contains("float: left") || figElem.Contains("float :left") || figElem.Contains("float:left"))
+            //        {
+            //            Console.WriteLine(figElem);
+            //            floatValue = "left";
+                               
+            //        }
+            //        else if (figElem.Contains("float : right") || figElem.Contains("float: right") || figElem.Contains("float :right") || figElem.Contains("float:right"))
+            //        {
+            //            Console.WriteLine(figElem);
+            //            floatValue = "right";
+
+            //        }
+
+
+            //        foreach (HtmlElement child in kids)
+            //        {
+            //            string s = child.OuterHtml;
+            //            if (s.ToLower().Contains(figCapt))
+            //            {
+            //                int first = s.IndexOf(figCapt);
+
+            //                int end = s.IndexOf(figCaptEnd);
+
+
+            //                int bracketTerminateIndex = 0;
+            //                bool endMode = true;
+            //                for (int i = 0; i < end - first; i++)
+            //                {
+            //                    if (s[first + i] == '<')
+            //                    {
+            //                        endMode = false;
+            //                    }
+
+            //                    if (s[first + i] == '>')
+            //                    {
+
+            //                        if (endMode == false)
+            //                        {
+            //                            endMode = true;
+            //                        }
+            //                        else
+            //                        {
+            //                            bracketTerminateIndex = i;
+            //                        }
+            //                    }
+            //                }
+
+
+
+            //                figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length + bracketTerminateIndex, s.IndexOf(figCaptEnd) - bracketTerminateIndex - s.IndexOf(figCapt) - figCapt.Length);
+            //                figCaption = figCaption.Substring(figCaption.IndexOf(">") + 1);
+            //                //figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length, s.IndexOf(figCaptEnd) - s.IndexOf(figCapt) - figCapt.Length);                           
+            //            }
+
+            //            if (s.ToLower().Contains(openTag) && s.ToLower().Contains("<p"))
+            //            {
+            //                tag = s.Substring(s.IndexOf(openTag) + openTag.Length, s.IndexOf(endTag) - s.IndexOf(openTag) - openTag.Length);
+            //                altText = s.Substring(s.IndexOf(endTag) + endTag.Length, s.LastIndexOf(openTag) - s.IndexOf(endTag) - endTag.Length);
+            //            }
+
+            //            //TODO proper ways of finding the end of src
+            //            if (s.ToLower().Contains("<img") && s.Contains("imageOthers") && s.ToLower().Contains("src"))
+            //            {
+            //                imgSrc = s.Substring(s.IndexOf(srcStart) + srcStart.Length, s.Length - 2 - s.IndexOf(srcStart) - srcStart.Length);
+
+            //                if (imgSrc.Contains("file:///"))
+            //                {
+            //                    imgSrc = imgSrc.Replace("file:///", "");
+            //                }
+
+            //                int titleStartIndex = s.IndexOf(titleStart);
+            //                int titleEndIndex = 0;
+            //                string shorterString = s;
+
+            //                for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
+            //                {
+
+            //                    if (s.Substring(i).StartsWith(titleEnd))
+            //                    {
+            //                        titleEndIndex = i;
+            //                        break;
+            //                    }
+
+            //                }
+ 
+            //                title = s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length);
+
+            //                //title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
+            //            }
+                        
+            //            if (s.ToLower().Contains("<img") && s.Contains("imageImpaired"))
+            //            {                  
+            //                string impS = s.Substring(s.IndexOf("imageImpaired"));
+                           
+            //                altImgSrc = impS.Substring(impS.IndexOf(srcStart) + srcStart.Length, impS.Length - 2 - impS.IndexOf(srcStart) - srcStart.Length);
+            //            }
+
+            //        }
+           
+            //        if (imgSrc.Equals(altImgSrc))
+            //        {
+            //            hasAltImg = false;
+            //            altImgSrc = "";
+            //        }
+
+            //        string oldElem = elem.OuterHtml;
+            //        //elem.OuterHtml = "";
+            //        HTMLEditor.Document.ExecCommand("Delete", false, null);
+
+
+
+            //        HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
+            //        ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder(), language, imgSrc, title, altText, figCaption, tag, altImgSrc, width, height, floatValue);
+            //        idb.ShowDialog();
+                    
+            //        if (idb.DialogResult.Equals(DialogResult.Cancel))
+            //        {
+            //            dynamic currentLocation = doc.selection.createRange();
+            //            currentLocation.pasteHTML(oldElem);
+            //        }
+            //        fileEdited = true;
+            //        fileNotSaved = true;
+
+            //        refreshBrowsers();
+
+            //    }
+
+            //    if (isImage && isDiv && isMath)
+            //    {
+            //        string figCapt = "<figcaption";
+            //        string figCaptEnd = "</figcaption>";
+
+            //        string titleStart = "title=\"";
+            //        string titleEnd = "\" ";
+
+            //        string figCaption = "";
+
+            //        string mathCode = "";
+
+            //        string title = "";
+
+            //        string figElem = elem.OuterHtml;
+
+            //        string floatValue = "none";
+
+            //        if (figElem.Contains("float : left") || figElem.Contains("float: left") || figElem.Contains("float :left") || figElem.Contains("float:left"))
+            //        {
+            //            //Console.WriteLine(figElem);
+            //            floatValue = "left";
+
+            //        }
+            //        else if (figElem.Contains("float : right") || figElem.Contains("float: right") || figElem.Contains("float :right") || figElem.Contains("float:right"))
+            //        {
+            //            //Console.WriteLine(figElem);
+            //            floatValue = "right";
+
+            //        }
+
+            //        foreach (HtmlElement child in kids)
+            //        {
+            //            string s = child.OuterHtml;
+
+            //            if (s.ToLower().Contains(figCapt))
+            //            {
+            //                int first = s.IndexOf(figCapt);
+
+            //                int end = s.IndexOf(figCaptEnd);
+
+
+            //                int bracketTerminateIndex = 0;
+            //                bool endMode = true;
+            //                for (int i = 0; i < end - first; i++)
+            //                {
+            //                    if (s[first + i] == '<')
+            //                    {
+            //                        endMode = false;
+            //                    }
+
+            //                    if (s[first + i] == '>')
+            //                    {
+
+            //                        if (endMode == false)
+            //                        {
+            //                            endMode = true;
+            //                        }
+            //                        else
+            //                        {
+            //                            bracketTerminateIndex = i;
+            //                        }
+            //                    }
+            //                }
+
+
+
+            //                figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length + bracketTerminateIndex, s.IndexOf(figCaptEnd) - bracketTerminateIndex - s.IndexOf(figCapt) - figCapt.Length);
+            //                figCaption = figCaption.Substring(figCaption.IndexOf(">") + 1);
+
+            //            }
+
+            //            if (s.ToLower().Contains("$") && s.ToLower().Contains("<p"))
+            //            {
+            //                mathCode = s.Substring(s.IndexOf(">") + 2, s.LastIndexOf("<") - s.IndexOf(">") - 3);
+            //            }
+
+            //            if (s.ToLower().Contains("<div class") && s.ToLower().Contains("title") && s.ToLower().Contains("class=\"math\""))
+            //            {
+            //                int titleStartIndex = s.IndexOf(titleStart);
+            //                int titleEndIndex = 0;
+            //                string shorterString = s;         
+
+            //                for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
+            //                {
+
+            //                    if (s.Substring(i).StartsWith(titleEnd))
+            //                    {
+            //                        titleEndIndex = i;
+            //                        break;
+            //                    }
+
+            //                }
+
+            //                //while  (continueTitleSearch)
+            //                //{
+            //                //    titleEndIndex = shorterString.IndexOf(titleEnd) + titleEndIndex;
+
+            //                //    if (titleEndIndex > titleStartIndex)
+            //                //    {                               
+            //                //        continueTitleSearch = false;
+            //                //    }
+            //                //    else
+            //                //    {
+            //                //        shorterString = shorterString.Substring(shorterString.IndexOf(titleEnd) + titleEnd.Length);
+            //                //    }
+            //                //    Console.WriteLine(shorterString);
+            //                //}
+            //                //Console.WriteLine(s.Substring(titleStartIndex));
+            //                title = s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length);
+            //                //Console.WriteLine("TITLE " + s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length));
+            //                //title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
+            //                //Console.WriteLine("title " + title);
+            //            }
+
+            //        }
+
+            //        string oldElem = elem.OuterHtml;
+            //        //elem.OuterHtml = "";
+            //        HTMLEditor.Document.ExecCommand("Delete", false, null);
+
+
+
+            //        HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
+            //        MathDialogBox mdb = new MathDialogBox(doc, getImageFolder(), mathCode, title, figCaption, floatValue);
+            //        mdb.ShowDialog();
+
+            //        if (mdb.DialogResult.Equals(DialogResult.Cancel))
+            //        {
+            //            dynamic currentLocation = doc.selection.createRange();
+            //            currentLocation.pasteHTML(oldElem);
+            //        }
+            //        fileEdited = true;
+            //        fileNotSaved = true;
+
+            //        refreshBrowsers();
+            //    }
+
+
+
+            //    //Console.WriteLine(elem.FirstChild.OuterHtml);
+            //    //Console.WriteLine(elemChild.OuterHtml);
+            //    //while (elemChild.NextSibling != null) {
+            //    //    HtmlElement nextChild = elemChild.NextSibling;
+            //    //    Console.WriteLine(nextChild.OuterHtml);
+            //    //    elemChild = elemChild.NextSibling;
+            //    //}
+
+            //    //if (elem.OuterHtml.StartsWith("<math") || elem.OuterHtml.StartsWith("<MATH"))
+            //    //{
+            //    //    Console.WriteLine(elem.FirstChild.OuterHtml);
+            //    //}
+            //}
+
+            ////try
+            ////{
+            ////    HtmlElement elem = e.FromElement;
+            ////    string bla = elem.Document.Body.InnerText;
+            ////   // Console.WriteLine("DOUBLECLICKED: " + bla);
+            ////   // HTMLAnchorElement anchor;
+
+            ////}
+            ////catch (Exception ee)
+            ////{
+            ////    Console.WriteLine("THIS IS AN DOUBLE CLICK EXCEPTION");
+            ////    //Console.WriteLine(ee.ToString());
+            ////}
+        }
+
+        private void identifyElement(HtmlElement elem)
+        {
             HtmlElementCollection elems = HTMLEditor.Document.GetElementsByTagName(elem.TagName);
             //Console.WriteLine("HTMLelement " + HTMLEditor.Document.ActiveElement.TagName);
             //Console.WriteLine("Point " + BrowserCoord.X + "," + BrowserCoord.Y + " outerHTML " + elem.OuterHtml);
 
-            
+
             bool isImage = false;
             bool isMath = false;
             bool isDiv = false;
 
-            if (elem.OuterHtml.StartsWith("<figure") || elem.OuterHtml.StartsWith("<FIGURE")) {
+            string ulRegular = "<ul>";
+            string ulDisc = "<ul style=\"list-style-type:disc;\">";
+            string ulCircle = "<ul style=\"list-style-type:circle;\">";
+            string ulSquare = "<ul style=\"list-style-type:square;\">";
+
+            string ulDiscA = "<ul style=\"list-style-type: disc;\">";
+            string ulCircleA = "<ul style=\"list-style-type: circle;\">";
+            string ulSquareA = "<ul style=\"list-style-type: square;\">";
+
+
+            if (elem.OuterHtml.StartsWith("<ul"))
+            {
+                string figElem = elem.OuterHtml;
+
+                if (figElem.ToLower().StartsWith(ulRegular) || figElem.ToLower().StartsWith(ulDiscA))
+                {
+                    //elem.OuterHtml = ReplaceFirst(figElem, ulRegular, ulCircle);
+                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulRegular, ulCircleA);
+                }
+                else if (figElem.ToLower().StartsWith(ulCircleA))
+                {
+                    //elem.OuterHtml = ReplaceFirst(figElem, ulCircle, ulSquare);
+                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulCircleA, ulSquareA);
+                }
+                else if (figElem.ToLower().StartsWith(ulSquareA))
+                {
+                    //elem.OuterHtml = ReplaceFirst(figElem, ulSquare, ulRegular);
+                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulSquareA, ulRegular);
+                }
+
+            }
+
+            string olRegular = "<ol>";
+            string olTypeNum = "<ol type=\"1\">";
+            string olTypeUpper = "<ol type=\"A\">";
+            string olTypeLower = "<ol type=\"a\">";
+            string olTypeRomanU = "<ol type=\"I\">";
+            string olTypeRomanL = "<ol type=\"i\">";
+
+            if (elem.OuterHtml.StartsWith("<ol"))
+            {
+                string figElem = elem.OuterHtml;
+
+                if (figElem.StartsWith(olRegular) || figElem.StartsWith(olTypeNum))
+                {
+                    elem.OuterHtml = ReplaceFirst(figElem, olRegular, olTypeUpper);
+                }
+                else if (figElem.StartsWith(olTypeUpper))
+                {
+                    elem.OuterHtml = ReplaceFirst(figElem, olTypeUpper, olTypeLower);
+                }
+                else if (figElem.StartsWith(olTypeLower))
+                {
+                    elem.OuterHtml = ReplaceFirst(figElem, olTypeLower, olTypeRomanU);
+                }
+                else if (figElem.StartsWith(olTypeRomanU))
+                {
+                    elem.OuterHtml = ReplaceFirst(figElem, olTypeRomanU, olTypeRomanL);
+                }
+                else if (figElem.StartsWith(olTypeRomanL))
+                {
+                    elem.OuterHtml = ReplaceFirst(figElem, olTypeRomanL, olRegular);
+                }
+            }
 
 
 
-                HtmlElementCollection kids = elem.Children; 
+
+
+            if (elem.OuterHtml.StartsWith("<figure") || elem.OuterHtml.StartsWith("<FIGURE"))
+            {
+                HtmlElementCollection kids = elem.Children;
 
                 foreach (HtmlElement child in kids)
                 {
+
                     if (child.TagName.ToLower().Equals("img"))
                     {
                         isImage = true;
                     }
-                    if (child.TagName.ToLower().Equals("div")) 
+                    if (child.TagName.ToLower().Equals("div"))
                     {
                         isDiv = true;
                     }
@@ -2976,24 +3553,33 @@ body {
                         isMath = true;
                     }
                     //Console.WriteLine(child.OuterHtml);
-                    
-                }
-                //Console.WriteLine("Is Image: " + isImage +  " Is Div:" + isDiv + " Is Math: " + isMath);
 
-      
+                }
+                //Console.WriteLine("Is Image: " + isImage + " Is Div:" + isDiv + " Is Math: " + isMath);
+
+
 
                 if (isImage && !isDiv && !isMath)
                 {
-                    string figCapt = "<figcaption>";
+                    string figCapt = "<figcaption";
                     string figCaptEnd = "</figcaption>";
 
                     string openTag = "&lt;";
                     string endTag = "&gt;";
 
+                    string closeTag = ">";
+
                     string titleStart = "title=\"";
                     string titleEnd = "\" ";
 
+                    string heightStart = "height=\"";
+
+                    string widthStart = "width=\"";
+
                     string srcStart = "src=\"";
+
+                    string width = "";
+                    string height = "";
 
                     string figCaption = "";
 
@@ -3005,100 +3591,80 @@ body {
 
                     string imgSrc = "";
 
+                    string altImgSrc = "";
 
-                    foreach (HtmlElement child in kids)
+                    bool hasAltImg = true;
+
+                    string figElem = elem.OuterHtml;
+
+
+                    if (figElem.Contains(heightStart) && System.Char.IsDigit(figElem.ElementAt(figElem.IndexOf(heightStart) + heightStart.Length)))
                     {
-                        string s = child.OuterHtml;
-                        if (s.ToLower().Contains(figCapt))
-                        {
-                            figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length, s.IndexOf(figCaptEnd) - s.IndexOf(figCapt) - figCapt.Length);
-                            //Console.WriteLine("caption " + figCaption);
-                        }
-                        //Console.WriteLine(s);
 
-                        if (s.ToLower().Contains(openTag) && s.ToLower().Contains("<p"))
+                        for (int i = figElem.IndexOf(heightStart) + heightStart.Length; i < figElem.Length; i++)
                         {
-                            tag = s.Substring(s.IndexOf(openTag) + openTag.Length, s.IndexOf(endTag) - s.IndexOf(openTag) - openTag.Length);
-                            //Console.WriteLine("tag " + tag);
-                            altText = s.Substring(s.IndexOf(endTag) + endTag.Length, s.LastIndexOf(openTag) - s.IndexOf(endTag) - endTag.Length);
-                            //Console.WriteLine("alttext " + altText);
-                        }
+                            if (System.Char.IsDigit(figElem.ElementAt(i)))
+                            {
+                                height = height + figElem.ElementAt(i);
+                            }
+                            else
+                            {
+                                break;
+                            }
 
-                        //TODO proper ways of finding the end of src and title
-                        if (s.ToLower().Contains("<img") && s.ToLower().Contains("src"))
-                        {
-                            imgSrc = s.Substring(s.IndexOf(srcStart) + srcStart.Length, s.Length - 2 - s.IndexOf(srcStart) - srcStart.Length);
-                            //Console.WriteLine("imgSrc " + imgSrc);
-                            title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
-                            //Console.WriteLine("title " + title);
                         }
-
+                        //height = figElem.Substring(figElem.IndexOf(heightStart) + heightStart.Length, figElem.IndexOf(titleEnd) - figElem.IndexOf(heightStart) - heightStart.Length);
                     }
 
-                    string oldElem = elem.OuterHtml;
-                    //elem.OuterHtml = "";
-                    HTMLEditor.Document.ExecCommand("Delete", false, null);
-                    //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
-                    //elem.OuterHtml = "";
-
-
-
-                    HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
-
-                    ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder(), language, imgSrc, title, altText, figCaption, tag);
-                    idb.ShowDialog();
-
-                    if (idb.DialogResult.Equals(DialogResult.Cancel))
+                    if (figElem.Contains(widthStart) && System.Char.IsDigit(figElem.ElementAt(figElem.IndexOf(widthStart) + widthStart.Length)))
                     {
-                        //Console.WriteLine(oldElem);
-                        //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
-                        dynamic currentLocation = doc.selection.createRange();
-                        currentLocation.pasteHTML(oldElem);
+
+                        for (int i = figElem.IndexOf(widthStart) + widthStart.Length; i < figElem.Length; i++)
+                        {
+                            if (System.Char.IsDigit(figElem.ElementAt(i)))
+                            {
+                                width = width + figElem.ElementAt(i);
+                            }
+                            else
+                            {
+                                break;
+                            }
+
+                        }
+                        //width = figElem.Substring(figElem.IndexOf(widthStart) + widthStart.Length, figElem.IndexOf(titleEnd) - figElem.IndexOf(widthStart) - widthStart.Length);
                     }
-                    fileEdited = true;
-                    fileNotSaved = true;
-
-                    refreshBrowsers();
-
-                }
-
-                if (isImage && isDiv && isMath)
-                {
-                    string figCapt = "<figcaption";
-                    string figCaptEnd = "</figcaption>";
-
-                    
-                  
-
-                    string titleStart = "title=\"";
-                    string titleEnd = "\" ";
 
 
-                    string figCaption = "";
+                    string floatValue = "none";
 
+                    if (figElem.Contains("float : left") || figElem.Contains("float: left") || figElem.Contains("float :left") || figElem.Contains("float:left"))
+                    {
+                        Console.WriteLine(figElem);
+                        floatValue = "left";
 
-                    string mathCode = "";
+                    }
+                    else if (figElem.Contains("float : right") || figElem.Contains("float: right") || figElem.Contains("float :right") || figElem.Contains("float:right"))
+                    {
+                        Console.WriteLine(figElem);
+                        floatValue = "right";
 
-                    string title = "";
-
+                    }
 
 
                     foreach (HtmlElement child in kids)
                     {
                         string s = child.OuterHtml;
-
                         if (s.ToLower().Contains(figCapt))
                         {
                             int first = s.IndexOf(figCapt);
 
                             int end = s.IndexOf(figCaptEnd);
 
-                          
+
                             int bracketTerminateIndex = 0;
                             bool endMode = true;
                             for (int i = 0; i < end - first; i++)
                             {
-                                //Console.Write(s[first + i]);
                                 if (s[first + i] == '<')
                                 {
                                     endMode = false;
@@ -3118,37 +3684,179 @@ body {
                                 }
                             }
 
-                           
+
+
+                            figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length + bracketTerminateIndex, s.IndexOf(figCaptEnd) - bracketTerminateIndex - s.IndexOf(figCapt) - figCapt.Length);
+                            figCaption = figCaption.Substring(figCaption.IndexOf(">") + 1);
+                            //figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length, s.IndexOf(figCaptEnd) - s.IndexOf(figCapt) - figCapt.Length);                           
+                        }
+
+                        if (s.ToLower().Contains(openTag) && s.ToLower().Contains("<p"))
+                        {
+                            tag = s.Substring(s.IndexOf(openTag) + openTag.Length, s.IndexOf(endTag) - s.IndexOf(openTag) - openTag.Length);
+                            altText = s.Substring(s.IndexOf(endTag) + endTag.Length, s.LastIndexOf(openTag) - s.IndexOf(endTag) - endTag.Length);
+                        }
+
+                        //TODO proper ways of finding the end of src
+                        if (s.ToLower().Contains("<img") && s.Contains("imageOthers") && s.ToLower().Contains("src"))
+                        {
+                            imgSrc = s.Substring(s.IndexOf(srcStart) + srcStart.Length, s.Length - 2 - s.IndexOf(srcStart) - srcStart.Length);
+
+                            if (imgSrc.Contains("file:///"))
+                            {
+                                imgSrc = imgSrc.Replace("file:///", "");
+                            }
+
+                            int titleStartIndex = s.IndexOf(titleStart);
+                            int titleEndIndex = 0;
+                            string shorterString = s;
+
+                            for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
+                            {
+
+                                if (s.Substring(i).StartsWith(titleEnd))
+                                {
+                                    titleEndIndex = i;
+                                    break;
+                                }
+
+                            }
+
+                            title = s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length);
+
+                            //title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
+                        }
+
+                        if (s.ToLower().Contains("<img") && s.Contains("imageImpaired"))
+                        {
+                            string impS = s.Substring(s.IndexOf("imageImpaired"));
+
+                            altImgSrc = impS.Substring(impS.IndexOf(srcStart) + srcStart.Length, impS.Length - 2 - impS.IndexOf(srcStart) - srcStart.Length);
+                        }
+
+                    }
+
+                    if (imgSrc.Equals(altImgSrc))
+                    {
+                        hasAltImg = false;
+                        altImgSrc = "";
+                    }
+
+                    string oldElem = elem.OuterHtml;
+                    //elem.OuterHtml = "";
+                    HTMLEditor.Document.ExecCommand("Delete", false, null);
+
+
+
+                    HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
+                    ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder(), language, imgSrc, title, altText, figCaption, tag, altImgSrc, width, height, floatValue);
+                    idb.ShowDialog();
+
+                    if (idb.DialogResult.Equals(DialogResult.Cancel))
+                    {
+                        dynamic currentLocation = doc.selection.createRange();
+                        currentLocation.pasteHTML(oldElem);
+                    }
+                    fileEdited = true;
+                    fileNotSaved = true;
+
+                    refreshBrowsers();
+
+                }
+
+                if (isImage && isDiv && isMath)
+                {
+                    string figCapt = "<figcaption";
+                    string figCaptEnd = "</figcaption>";
+
+                    string titleStart = "title=\"";
+                    string titleEnd = "\" ";
+
+                    string figCaption = "";
+
+                    string mathCode = "";
+
+                    string title = "";
+
+                    string figElem = elem.OuterHtml;
+
+                    string floatValue = "none";
+
+                    if (figElem.Contains("float : left") || figElem.Contains("float: left") || figElem.Contains("float :left") || figElem.Contains("float:left"))
+                    {
+                        //Console.WriteLine(figElem);
+                        floatValue = "left";
+
+                    }
+                    else if (figElem.Contains("float : right") || figElem.Contains("float: right") || figElem.Contains("float :right") || figElem.Contains("float:right"))
+                    {
+                        //Console.WriteLine(figElem);
+                        floatValue = "right";
+
+                    }
+
+                    foreach (HtmlElement child in kids)
+                    {
+                        string s = child.OuterHtml;
+
+                        if (s.ToLower().Contains(figCapt))
+                        {
+                            int first = s.IndexOf(figCapt);
+
+                            int end = s.IndexOf(figCaptEnd);
+
+
+                            int bracketTerminateIndex = 0;
+                            bool endMode = true;
+                            for (int i = 0; i < end - first; i++)
+                            {
+                                if (s[first + i] == '<')
+                                {
+                                    endMode = false;
+                                }
+
+                                if (s[first + i] == '>')
+                                {
+
+                                    if (endMode == false)
+                                    {
+                                        endMode = true;
+                                    }
+                                    else
+                                    {
+                                        bracketTerminateIndex = i;
+                                    }
+                                }
+                            }
+
+
 
                             figCaption = s.Substring(s.IndexOf(figCapt) + figCapt.Length + bracketTerminateIndex, s.IndexOf(figCaptEnd) - bracketTerminateIndex - s.IndexOf(figCapt) - figCapt.Length);
                             figCaption = figCaption.Substring(figCaption.IndexOf(">") + 1);
 
-                            //Console.WriteLine("caption " + figCaption);
                         }
-                        //Console.WriteLine(s);
 
                         if (s.ToLower().Contains("$") && s.ToLower().Contains("<p"))
                         {
                             mathCode = s.Substring(s.IndexOf(">") + 2, s.LastIndexOf("<") - s.IndexOf(">") - 3);
-                            //Console.WriteLine("alttext " + altText);
                         }
 
-                        //TODO proper ways of finding the end of title
                         if (s.ToLower().Contains("<div class") && s.ToLower().Contains("title") && s.ToLower().Contains("class=\"math\""))
                         {
                             int titleStartIndex = s.IndexOf(titleStart);
                             int titleEndIndex = 0;
                             string shorterString = s;
-                            bool continueTitleSearch = true;
 
                             for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
                             {
-                               
-                                if (s.Substring(i).StartsWith(titleEnd)) {                                   
+
+                                if (s.Substring(i).StartsWith(titleEnd))
+                                {
                                     titleEndIndex = i;
                                     break;
                                 }
-                                
+
                             }
 
                             //while  (continueTitleSearch)
@@ -3167,7 +3875,7 @@ body {
                             //}
                             //Console.WriteLine(s.Substring(titleStartIndex));
                             title = s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length);
-                            Console.WriteLine("TITLE " + s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length));
+                            //Console.WriteLine("TITLE " + s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length));
                             //title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
                             //Console.WriteLine("title " + title);
                         }
@@ -3177,20 +3885,16 @@ body {
                     string oldElem = elem.OuterHtml;
                     //elem.OuterHtml = "";
                     HTMLEditor.Document.ExecCommand("Delete", false, null);
-                    //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
-                    //elem.OuterHtml = "";
 
 
 
                     HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
 
-                    MathDialogBox mdb = new MathDialogBox(doc, getImageFolder(), mathCode, title, figCaption);
+                    MathDialogBox mdb = new MathDialogBox(doc, getImageFolder(), mathCode, title, figCaption, floatValue);
                     mdb.ShowDialog();
 
                     if (mdb.DialogResult.Equals(DialogResult.Cancel))
                     {
-                        //Console.WriteLine(oldElem);
-                        //Console.WriteLine("OUTERHTML: " + elem.OuterHtml);
                         dynamic currentLocation = doc.selection.createRange();
                         currentLocation.pasteHTML(oldElem);
                     }
@@ -3202,25 +3906,19 @@ body {
 
 
 
+                //Console.WriteLine(elem.FirstChild.OuterHtml);
+                //Console.WriteLine(elemChild.OuterHtml);
+                //while (elemChild.NextSibling != null) {
+                //    HtmlElement nextChild = elemChild.NextSibling;
+                //    Console.WriteLine(nextChild.OuterHtml);
+                //    elemChild = elemChild.NextSibling;
+                //}
 
-
-
-
-
-
-                    //Console.WriteLine(elem.FirstChild.OuterHtml);
-                    //Console.WriteLine(elemChild.OuterHtml);
-                    //while (elemChild.NextSibling != null) {
-                    //    HtmlElement nextChild = elemChild.NextSibling;
-                    //    Console.WriteLine(nextChild.OuterHtml);
-                    //    elemChild = elemChild.NextSibling;
-                    //}
-
-                    //if (elem.OuterHtml.StartsWith("<math") || elem.OuterHtml.StartsWith("<MATH"))
-                    //{
-                    //    Console.WriteLine(elem.FirstChild.OuterHtml);
-                    //}
-                }
+                //if (elem.OuterHtml.StartsWith("<math") || elem.OuterHtml.StartsWith("<MATH"))
+                //{
+                //    Console.WriteLine(elem.FirstChild.OuterHtml);
+                //}
+            }
 
             //try
             //{
@@ -3244,7 +3942,7 @@ body {
             {
                 refreshBrowsers();
                 //HTMLEditor.Document.Focus();
-       
+                updateFontFormat();
             }
         }
 
@@ -3254,8 +3952,6 @@ body {
             //Gecko.GeckoDocument.StyleSheetCollection styleSheets12 = geckoWebBrowser1.Document.StyleSheets;
             //GeckoStyleSheet styleSheet12 = geckoWebBrowser1.Document.StyleSheets.First();
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet12) + "CSS End");
-
-
 
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
             ss.cssText = @"html *
@@ -3269,7 +3965,7 @@ body {
 word-wrap: break-word;
 }
 
-    figure {
+figure {
 	padding: 2px;
 	max-width : 95%;
     border: double;
@@ -3858,6 +4554,7 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
             ImageDialogBox idb = new ImageDialogBox(doc, getImageFolder(), language);
             idb.ShowDialog();
 
@@ -3875,6 +4572,7 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
             TableDialogBox tdb = new TableDialogBox(doc);
             tdb.ShowDialog();
 
@@ -3891,6 +4589,7 @@ body {
                 return;
             }
             HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
             MathDialogBox mdb = new MathDialogBox(doc, getImageFolder());
             mdb.ShowDialog();
 
@@ -4255,6 +4954,8 @@ body {
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+
             if (containsFile == false)
             {
                 return;
@@ -4270,13 +4971,20 @@ body {
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-
+                    
                 }
                 else if (dialogResult == DialogResult.Cancel)
                 {
                     e.Cancel = true;
                 }
             }
+
+            geckoWebBrowser1.Dispose();
+            geckoWebBrowser2.Dispose();
+            geckoWebBrowser3.Dispose();
+            geckoWebBrowser4.Dispose();
+            Environment.Exit(0);
+           
         }
 
         private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4299,7 +5007,6 @@ body {
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-           
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4412,6 +5119,9 @@ body {
 
         private void HTMLEditor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            IHTMLElement ielem = null;
+            HtmlElement elem;
+
             if (e.KeyCode == Keys.Tab)
             {
                 e.IsInputKey = true;
@@ -4419,15 +5129,171 @@ body {
             }
             else if (e.KeyCode == Keys.Shift && e.KeyCode == Keys.Tab)
             {
-
                 e.IsInputKey = true;
                 outdent();
+            }
+            else if (e.Control && e.KeyCode == Keys.F3)
+            {
+               
+                e.IsInputKey = true;
+               
+                IHTMLSelectionObject currentSelection = doc.selection;
+                if (currentSelection != null)
+                {
+                    IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
+                    IHTMLTxtRange oldRange = currentSelection.createRange() as IHTMLTxtRange;
+                  
+                    //if (range != null)
+                    //{
+                    //    range.moveToElementText(range.parentElement());
+                    //    //range.select();
+                    //    Console.WriteLine("RangeHTML: " + range.parentElement().parentElement.outerHTML);
 
 
+                    //    foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                    //    {
+                    //        Console.WriteLine("Kid: " + kid.OuterHtml);
+                    //        if (kid.OuterHtml.ToLower().StartsWith( @"<div style=""display:inline""> <figure"))
+                    //        {
+                    //            //Console.WriteLine("Kid: " + kid.OuterHtml);
+                    //        }
+                    //        //Console.WriteLine(kid.OuterHtml);
+                    //        if (kid.OuterHtml.ToLower().Contains(range.parentElement().parentElement.outerHTML.ToLower()))
+                    //        {
+                    //            if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                    //            {
+                    //                //Console.WriteLine("SAME");
+                    //                elem = kid;
+                                    
+                    //                identifyElement(elem);
+                    //                oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
+                    //                return;
+                    //            }
+                                
+                    //        }
+                    //    }
+
+                    //    if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
+                    //    {
+                    //        //ielem = range.parentElement();
+                    //        //Console.WriteLine(ielem.outerHTML);
+                            
+                    //        //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                    //        //{
+                    //        //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                    //        //    {
+                    //        //        Console.WriteLine("Kid: " + kid.OuterHtml);
+                    //        //    }
+                    //        //    //Console.WriteLine(kid.OuterHtml);
+                    //        //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
+                    //        //    {
+                    //        //        Console.WriteLine("SAME");
+                    //        //    }
+                    //        //}
+                    //    }
+
+                    //    if (range.htmlText.ToLower().StartsWith("<figure"))
+                    //    {
+                    //        return;
+                    //    }
+                    //    //if (ielem == null)
+                    //    //{
+                    //    //    return;
+                    //    //}
+
+                    //    if (!range.parentElement().outerHTML.ToLower().Contains("<math"))
+                    //    {
+                    //        return;
+                    //    }
+
+
+                        //MessageBox.Show(range.text);
+                        //range.select();
+
+
+
+                    //}
+
+                    if (range != null)
+                    {
+                        Console.WriteLine(range.htmlText);
+                        if (range.htmlText.EndsWith("</FIGCAPTION>"))
+                        {
+                            return;
+                        }
+
+                        range.moveToElementText(range.parentElement());
+                        //range.select();
+                        //Console.WriteLine("RangeHTML: " + range.parentElement().outerHTML);
+
+
+                        foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                        {
+                            //Console.WriteLine("Kid: " + kid.OuterHtml);
+                            if (kid.OuterHtml.ToLower().StartsWith(@"<div style=""display:inline""> <figure"))
+                            {
+                                //Console.WriteLine("Kid: " + kid.OuterHtml);
+                            }
+                            //Console.WriteLine(kid.OuterHtml);
+                            if (kid.OuterHtml.ToLower().Contains(range.parentElement().outerHTML.ToLower()))
+                            {
+                                if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                                {
+                                    //Console.WriteLine("SAME");
+                                    elem = kid;
+
+                                    identifyElement(elem);
+                                    oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
+                                    return;
+                                }
+
+                            }
+                        }
+
+                        if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
+                        {
+                            //ielem = range.parentElement();
+                            //Console.WriteLine(ielem.outerHTML);
+
+                            //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                            //{
+                            //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                            //    {
+                            //        Console.WriteLine("Kid: " + kid.OuterHtml);
+                            //    }
+                            //    //Console.WriteLine(kid.OuterHtml);
+                            //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
+                            //    {
+                            //        Console.WriteLine("SAME");
+                            //    }
+                            //}
+                        }
+
+                        //if (range.htmlText.ToLower().StartsWith("<figure"))
+                        //{
+                        //    return;
+                        //}
+                        //if (ielem == null)
+                        //{
+                        //    return;
+                        //}
+
+
+
+
+                        //MessageBox.Show(range.text);
+                        //range.select();
+
+
+
+                    }
+                }
+         
             }
 
-            updateFontFormat();
+            HTMLEditor.Document.Focus();
 
+            //updateFontFormat();
         }
 
         private void textToolStripMenuItem_Click(object sender, EventArgs e)

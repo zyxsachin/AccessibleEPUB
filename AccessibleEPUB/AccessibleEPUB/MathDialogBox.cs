@@ -32,7 +32,7 @@ namespace AccessibleEPUB
         //private string pngFile;
 
         string imageFolderPath;
-
+        
 
 
         //string initialPath = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
@@ -58,9 +58,10 @@ namespace AccessibleEPUB
             formula.BorderThickness = new Thickness(3, 3, 3, 3);
 
             imageFolderPath = imagePath;
+            noneRadioButton.Checked = true;
         }
 
-        public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath, string mathCode, string title, string figCaption)
+        public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath, string mathCode, string title, string figCaption, string floatValue)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             InitializeComponent();
@@ -79,6 +80,20 @@ namespace AccessibleEPUB
             captionTextBox.Text = figCaption;
 
             imageFolderPath = imagePath;
+
+
+            if (floatValue == "none")
+            {
+                noneRadioButton.Checked = true;
+            }
+            else if (floatValue == "left")
+            {
+                leftRadioButton.Checked = true;
+            }
+            else if (floatValue == "right")
+            {
+                rightRadioButton.Checked = true;
+            }
 
 
         }
@@ -139,7 +154,23 @@ namespace AccessibleEPUB
             {
                 captionTag = "";
             }
-           
+
+            string styleTag = "";
+
+            if (noneRadioButton.Checked == true)
+            {
+
+            }
+            else if (leftRadioButton.Checked == true)
+            {
+                styleTag = " style=\"float:left;\" ";
+            }
+            else if (rightRadioButton.Checked == true)
+            {
+                styleTag = " style=\"float:right;\" ";
+            }
+
+
 
             //if (titleTextBox.Text == "")
             //{
@@ -149,7 +180,7 @@ namespace AccessibleEPUB
 
 
             System.IO.File.WriteAllText(accFile, "$" + inputTextBox.Text + "$");
-            Console.WriteLine(System.IO.File.ReadAllText(accFile));
+            //Console.WriteLine(System.IO.File.ReadAllText(accFile));
             //string imagesFolder = Path.Combine(imageFolderPath, "images");
             string imagesFolder = imageFolderPath;
 
@@ -281,11 +312,11 @@ namespace AccessibleEPUB
             formulaToAdd += "\n<figure>";
 
             // titleTag = @""" title=""" + titleTextBox.Text
-            string mathHeader = @"<div role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle>";
+            string mathHeader = @"<div" + styleTag + @" role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle>";
 
-            string mathHeaderImpaired = @"<div role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
+            string mathHeaderImpaired = @"<div" + styleTag + @" role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
 
-
+            
             string mathEnd = "</mstyle></math>";
 
 
@@ -326,10 +357,11 @@ namespace AccessibleEPUB
             //doc.body.innerHTML = doc.body.innerHTML + "<br>";
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<figure>", "<br><figure>");
             //doc.body.innerHTML = doc.body.innerHTML.Replace("</figure>", "</figure><br>");
-
+            
+            this.DialogResult = DialogResult.OK;
             this.Hide();
             this.Dispose();
-            this.DialogResult = DialogResult.OK;
+   
             //doc.body.innerText += math;
             //formula.HorizontalAlignment
 
@@ -478,7 +510,7 @@ namespace AccessibleEPUB
             {
                 Directory.CreateDirectory(imagesFolder);
             }
-            Console.WriteLine(filePath);
+            //Console.WriteLine(filePath);
             string currentDic = Directory.GetCurrentDirectory();
 
             System.IO.DirectoryInfo di = new DirectoryInfo(imagesFolder);
@@ -526,6 +558,7 @@ namespace AccessibleEPUB
                 DialogResult dialogResult = System.Windows.Forms.MessageBox.Show(Resource_MessageBox.formulaOverwriteContent , Resource_MessageBox.formulaOverwriteTitle, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    //System.IO.File.Delete(svgFile);
                     //System.IO.File.Copy(svgFile, imagePath, true);
                 }
                 else if (dialogResult == DialogResult.No)

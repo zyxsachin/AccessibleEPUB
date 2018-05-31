@@ -27,8 +27,7 @@ namespace AccessibleEPUB
         CultureInfo currentCI;
 
         public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl)
-        {
-            imageLocationTextBox.TabIndex = 1;
+        {       
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             currentCI = Thread.CurrentThread.CurrentUICulture;
             InitializeComponent();
@@ -36,10 +35,13 @@ namespace AccessibleEPUB
             imageFolderPath = ip;
             docLanguage = dl;
 
+            imageLocationTextBox.TabIndex = 1;
+            noneRadioButton.Checked = true;
+
             initTypeList();
         }
 
-        public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl, string location, string title, string altText, string caption, string tag)
+        public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl, string location, string title, string altText, string caption, string tag, string altImgLocation, string width, string height, string floatValue)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
             currentCI = Thread.CurrentThread.CurrentUICulture;
@@ -52,29 +54,44 @@ namespace AccessibleEPUB
 
             imageLocationTextBox.TabIndex = 20;
             imageLocationTextBox.Text = location;
-            imageLocationTextBox.Focus();
             titleTextBox.Text = title;
             altTextTextBox.Text = altText;
             captionTextBox.Text = caption;
             typeComboBox.Text = tag;
+            alternativeImageTextBox.Text = altImgLocation;
+            widthTextBox.Text = width;
+            heightTextBox.Text = height;
 
+            if (floatValue == "none")
+            {
+                noneRadioButton.Checked = true;
+            }
+            else if (floatValue == "left")
+            {
+                leftRadioButton.Checked = true;
+            }
+            else if (floatValue == "right")
+            {
+                rightRadioButton.Checked = true;
+            }
         }
-
-   
 
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+
+            this.DialogResult = DialogResult.Cancel;
+            
             this.Hide();
             this.Dispose();
-            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void addImageButton_Click(object sender, EventArgs e)
         {
-           
+            this.DialogResult = DialogResult.OK;
             bool altImageExists = false;
-
+     
             if (imageLocationTextBox.Text == "")
             {
                 //System.Windows.Forms.MessageBox.Show("The image path is empty.", "Empty image path", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -113,19 +130,24 @@ namespace AccessibleEPUB
                 Directory.CreateDirectory(imageFolderPath);
             }
 
-            string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(imageLocationTextBox.Text));
-            string altImagePath = Path.Combine(imageFolderPath, Path.GetFileName(alternativeImageTextBox.Text));
-
+            string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(imageLocationTextBox.Text));          
+            string altImagePath = "";
+            
             try
             {
-                System.IO.File.Copy(imageLocationTextBox.Text, imagePath);
+                if (imageLocationTextBox.Text != imagePath)
+                {
+                    System.IO.File.Copy(imageLocationTextBox.Text, imagePath);
+                }
+                
             } 
             catch (IOException ie)
             {
                 //DialogResult dialogResult = MessageBox.Show("Image with same name already exists in the document. Should the file be overwritten?", "Overwrite file", MessageBoxButtons.YesNo);
                 DialogResult dialogResult = MessageBox.Show(Resource_MessageBox.imageOverwriteContent, Resource_MessageBox.imageOverwriteTitle, MessageBoxButtons.YesNo);
+               
                 if (dialogResult == DialogResult.Yes)
-                {
+                {                 
                     System.IO.File.Copy(imageLocationTextBox.Text, imagePath, true);
                 }
                 else if (dialogResult == DialogResult.No)
@@ -138,8 +160,11 @@ namespace AccessibleEPUB
             {
                 try
                 {
-                    System.IO.File.Copy(alternativeImageTextBox.Text, altImagePath);
-                   
+                    altImagePath = Path.Combine(imageFolderPath, Path.GetFileName(alternativeImageTextBox.Text));
+                    if (alternativeImageTextBox.Text != altImagePath)
+                    {
+                        System.IO.File.Copy(alternativeImageTextBox.Text, altImagePath);
+                    }
                 }
                 catch (IOException ie)
                 {
@@ -156,11 +181,10 @@ namespace AccessibleEPUB
                 }
             }
             else
-            {
-                Console.WriteLine(imagePath);
+            {               
                 altImagePath = imagePath;
             }
-          
+        
 
 
             dynamic currentLocation = doc.selection.createRange();
@@ -184,7 +208,7 @@ namespace AccessibleEPUB
             int height = 0;
             int width = 0;
 
-
+          
             if (heightTextBox.Text == "")
             {
 
@@ -216,6 +240,22 @@ namespace AccessibleEPUB
             }
 
 
+            string styleTag = "";
+            
+            if (noneRadioButton.Checked == true)
+            {
+
+            }
+            else if (leftRadioButton.Checked == true)
+            {
+                styleTag = " style=\"float:left;\" ";
+            }
+            else if (rightRadioButton.Checked == true)
+            {
+                styleTag = " style=\"float:right;\" ";
+            }
+
+
             // currentLocation.pasteHTML("\n" + @"<div class=""imageOthers""> <figure" + heightTag + widthTag + @"><img title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><p class=""transparent"">" +
             //    tag + altTextTextBox.Text + tagEnd +  @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text +@"</figcaption></figure></div>" + "\n");
 
@@ -223,9 +263,15 @@ namespace AccessibleEPUB
             //   tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
 
 
+            //Console.WriteLine("\n" + @"<div> <figure" + heightTag + widthTag + @"><img class=""imageOthers""  title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><img class=""imageImpaired"" title=""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent imageImpaired"">" +
+            //   tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
 
-            currentLocation.pasteHTML("\n" + @"<div> <figure" + heightTag + widthTag + @"><img class=""imageOthers""  title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag +  @"""><img class=""imageImpaired"" title=""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent imageImpaired"">" +
-               tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
+
+            currentLocation.pasteHTML("\n" + @"<figure" + styleTag + heightTag + widthTag + @"><img class=""imageOthers""" + styleTag + @"title =""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><img class=""imageImpaired""" + styleTag + @"title =""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent"">" +
+               tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure>" + "\n");
+            // Old version with outside div
+            //currentLocation.pasteHTML("\n" + @"<div style=""display:inline""> <figure" + styleTag + heightTag + widthTag + @"><img class=""imageOthers""" + styleTag +  @"title =""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><img class=""imageImpaired""" + styleTag + @"title =""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent imageImpaired"">" +
+            //   tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
 
 
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<br>", "");
@@ -241,9 +287,10 @@ namespace AccessibleEPUB
 
 
             //src =""" + imageLocationTextBox.Text + @""" alt =""" + altTextTextBox.Text + @""">
+            this.DialogResult = DialogResult.OK;
             this.Hide();
             this.Dispose();
-            this.DialogResult = DialogResult.OK;
+          
         }
 
         private void chooseImageButton_Click(object sender, EventArgs e)

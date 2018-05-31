@@ -94,7 +94,6 @@ body {
 }
 
 .imageOthers {	
-	max-width : 100%;
-	display:initial;
+	display:none; 
 }
 	

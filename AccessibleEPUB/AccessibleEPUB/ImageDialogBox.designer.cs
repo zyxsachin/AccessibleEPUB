@@ -49,6 +49,11 @@
             this.alternativeImageTextBox = new System.Windows.Forms.TextBox();
             this.alternativeImageLabel = new System.Windows.Forms.Label();
             this.chooseAlternativeImageButton = new System.Windows.Forms.Button();
+            this.floatGroupBox = new System.Windows.Forms.GroupBox();
+            this.leftRadioButton = new System.Windows.Forms.RadioButton();
+            this.noneRadioButton = new System.Windows.Forms.RadioButton();
+            this.rightRadioButton = new System.Windows.Forms.RadioButton();
+            this.floatGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageLocationLabel
@@ -160,10 +165,41 @@
             this.chooseAlternativeImageButton.UseVisualStyleBackColor = true;
             this.chooseAlternativeImageButton.Click += new System.EventHandler(this.chooseAlternativeImageButton_Click);
             // 
+            // floatGroupBox
+            // 
+            resources.ApplyResources(this.floatGroupBox, "floatGroupBox");
+            this.floatGroupBox.Controls.Add(this.rightRadioButton);
+            this.floatGroupBox.Controls.Add(this.leftRadioButton);
+            this.floatGroupBox.Controls.Add(this.noneRadioButton);
+            this.floatGroupBox.Name = "floatGroupBox";
+            this.floatGroupBox.TabStop = false;
+            // 
+            // leftRadioButton
+            // 
+            resources.ApplyResources(this.leftRadioButton, "leftRadioButton");
+            this.leftRadioButton.Name = "leftRadioButton";
+            this.leftRadioButton.TabStop = true;
+            this.leftRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // noneRadioButton
+            // 
+            resources.ApplyResources(this.noneRadioButton, "noneRadioButton");
+            this.noneRadioButton.Name = "noneRadioButton";
+            this.noneRadioButton.TabStop = true;
+            this.noneRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // rightRadioButton
+            // 
+            resources.ApplyResources(this.rightRadioButton, "rightRadioButton");
+            this.rightRadioButton.Name = "rightRadioButton";
+            this.rightRadioButton.TabStop = true;
+            this.rightRadioButton.UseVisualStyleBackColor = true;
+            // 
             // ImageDialogBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.floatGroupBox);
             this.Controls.Add(this.chooseAlternativeImageButton);
             this.Controls.Add(this.alternativeImageTextBox);
             this.Controls.Add(this.alternativeImageLabel);
@@ -185,6 +221,8 @@
             this.Controls.Add(this.imageLocationTextBox);
             this.Controls.Add(this.imageLocationLabel);
             this.Name = "ImageDialogBox";
+            this.floatGroupBox.ResumeLayout(false);
+            this.floatGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +250,9 @@
         private System.Windows.Forms.TextBox alternativeImageTextBox;
         private System.Windows.Forms.Label alternativeImageLabel;
         private System.Windows.Forms.Button chooseAlternativeImageButton;
+        private System.Windows.Forms.GroupBox floatGroupBox;
+        private System.Windows.Forms.RadioButton leftRadioButton;
+        private System.Windows.Forms.RadioButton noneRadioButton;
+        private System.Windows.Forms.RadioButton rightRadioButton;
     }
 }
