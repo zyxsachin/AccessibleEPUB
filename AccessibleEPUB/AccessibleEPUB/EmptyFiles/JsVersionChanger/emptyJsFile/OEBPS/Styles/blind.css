@@ -97,3 +97,8 @@ body {
 	display:none; 
 }
 	
+table, th, td {
+    border-style: solid;
+    border-collapse: collapse;
+    border-width:2px;
+}

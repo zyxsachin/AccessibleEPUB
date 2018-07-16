@@ -21,25 +21,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_068FAC379706496A901788C84D5B42CE"
+        "MsmKey" = "8:_0B9DE00A56BA491FAAA9D71744B37CD2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0B58EB346FFA44618FDCDCF3D49FD258"
+        "MsmKey" = "8:_0FDEAA2EA1B24459B20F698AF88126B1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_10A1DF0D0F28462DBA89D59CE2A3DB40"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_13C80E8485A64F92B0BEB6758CDA728D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -75,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2AB1C88A8FDF405F870CE108B789EC13"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2B251672C14B4D39AAD37E7A373ADF1D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,14 +93,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_324824A067B245B1A0CBC99CBB8B8935"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_33C6C7FB4E2CB934B7B356C4BC8A547D"
+        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_33C6C7FB4E2CB934B7B356C4BC8A547D"
-        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
+        "MsmKey" = "8:_35DC292AD3B94C518D69C72F2A19FB9B"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,13 +147,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5D82E65BCC7642BA88FAFB7A0BCF623D"
+        "MsmKey" = "8:_590AF2B4638344C0AFE3E60E111AE07B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6132B66EE708482188AB5BB0F8ECF8E6"
+        "MsmKey" = "8:_5D82E65BCC7642BA88FAFB7A0BCF623D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -166,6 +166,12 @@
         "Entry"
         {
         "MsmKey" = "8:_6244967F98594D6F8904E43F5D024995"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_64EEA338E1CB4868BF888B9D8F5B9750"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -184,6 +190,12 @@
         "Entry"
         {
         "MsmKey" = "8:_6CBCCC8786084C68B5B1A2C51E9EFE8D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7086F1280E8B403AB617AC26D5B0968C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -209,6 +221,12 @@
         {
         "MsmKey" = "8:_7E506E1044084A2488D4018761B7A16F"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_822F42F3451291FDEA87C21BD7D19D0F"
+        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -243,19 +261,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_98C40B7786EC48378CF01E397F4921C9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_995A0E5141904DE786BEEF4BCC9F567C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_99E610FC6E6642A48531BF2789457BCF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -263,6 +269,12 @@
         {
         "MsmKey" = "8:_9D92967536BA44798D090D3698717D78"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9EC4B5AE9C37E2F5298FF8C0412B249D"
+        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -285,25 +297,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B2FE52DE92BF2DBC1B8EA286F32EE287"
-        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B40BB846AA224170A7F041CE9452C188"
+        "MsmKey" = "8:_A586890F277A4592B94DF4AEF115A496"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B8DEA99D9BD346D784AB902351D7C4B3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BBD73A1A4D6B49D68794EBA731C0FD46"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -321,13 +321,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C3586B8F114349E0AA1B3A95C007555B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C4D5C68006C34FF68B500346750EE881"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C6337FB278224E8BA66CCA96FC98E432"
+        "MsmKey" = "8:_C5D34BD54B9C4AB5A6F214378DED0773"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -339,7 +345,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CD7479E77C994ED9B3C2538ECA2BA94D"
+        "MsmKey" = "8:_CB49FF5E9BF842ADB5AD589CAC444B1B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -375,7 +381,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DF68280A8A94443797FE8285257AF847"
+        "MsmKey" = "8:_DF8EEDFDA1C644D5B8B61A9595ED59EA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -405,14 +411,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE4D350683554EF494B0700C56B62416"
+        "MsmKey" = "8:_F10320D016504C6BA295E970336C3EE3"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F40B9E8BA01AF475AC357461F4352C37"
-        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -423,7 +423,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F6A37ACF4D21468A8148E1A698327F61"
+        "MsmKey" = "8:_F6559506F2D54542BF0DABDEBA5AD187"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -436,49 +436,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_316296E3A238ED6484656F19F5834F59"
+        "OwnerKey" = "8:_F59D1B845A9C4E588D9CFAA2E07BFC2E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9FC908196983F6458748A60C6B97B18B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C34E665523FF642D0C353D239C199149"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_92E02855390E10BE090B9400324BEA87"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F40B9E8BA01AF475AC357461F4352C37"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5043E4BE53B09BA5256A816A79F62254"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_33C6C7FB4E2CB934B7B356C4BC8A547D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E30041CD1BEB832C441E2C881C1FA355"
+        "OwnerKey" = "8:_9EC4B5AE9C37E2F5298FF8C0412B249D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -490,13 +454,49 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B2FE52DE92BF2DBC1B8EA286F32EE287"
+        "OwnerKey" = "8:_E30041CD1BEB832C441E2C881C1FA355"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F59D1B845A9C4E588D9CFAA2E07BFC2E"
+        "OwnerKey" = "8:_33C6C7FB4E2CB934B7B356C4BC8A547D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5043E4BE53B09BA5256A816A79F62254"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_822F42F3451291FDEA87C21BD7D19D0F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_92E02855390E10BE090B9400324BEA87"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C34E665523FF642D0C353D239C199149"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9FC908196983F6458748A60C6B97B18B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_316296E3A238ED6484656F19F5834F59"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -619,12 +619,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_068FAC379706496A901788C84D5B42CE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B9DE00A56BA491FAAA9D71744B37CD2"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Misc\\script.js"
-            "TargetName" = "8:script.js"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Text\\Content.xhtml"
+            "TargetName" = "8:Content.xhtml"
             "Tag" = "8:"
-            "Folder" = "8:_A49D879CB6EB41A9B369566C537496AA"
+            "Folder" = "8:_2CDAC3B97FDB4CC4AC74E0C737808AA4"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -639,12 +639,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B58EB346FFA44618FDCDCF3D49FD258"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0FDEAA2EA1B24459B20F698AF88126B1"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\content.opf"
-            "TargetName" = "8:content.opf"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\style.css"
+            "TargetName" = "8:style.css"
             "Tag" = "8:"
-            "Folder" = "8:_D7B2CC5B16554B8FA9C5F082D5588D01"
+            "Folder" = "8:_79402ACA938F4533BA0FB32D190054DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -679,26 +679,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13C80E8485A64F92B0BEB6758CDA728D"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\META-INF\\container.xml"
-            "TargetName" = "8:container.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_1490DA5216984B59A52C87D884B7B829"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_152182159817BE9285939CBDDE1877F4"
             {
             "AssemblyRegister" = "3:1"
@@ -706,6 +686,11 @@
             "AssemblyAsmDisplayName" = "8:SgmlReaderDll, Version=1.8.14.0, Culture=neutral, PublicKeyToken=46b2db9ca481831b, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_152182159817BE9285939CBDDE1877F4"
+                    {
+                    "Name" = "8:SgmlReaderDll.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:SgmlReaderDll.dll"
             "TargetName" = "8:"
@@ -805,6 +790,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2AB1C88A8FDF405F870CE108B789EC13"
+            {
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\content.opf"
+            "TargetName" = "8:content.opf"
+            "Tag" = "8:"
+            "Folder" = "8:_C50F1FCB02CF4C1EBB68384C679947D3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B251672C14B4D39AAD37E7A373ADF1D"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\Release\\pandoc-2.1\\result.txt"
@@ -876,26 +881,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_324824A067B245B1A0CBC99CBB8B8935"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\toc.ncx"
-            "TargetName" = "8:toc.ncx"
-            "Tag" = "8:"
-            "Folder" = "8:_D7B2CC5B16554B8FA9C5F082D5588D01"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_33C6C7FB4E2CB934B7B356C4BC8A547D"
             {
             "AssemblyRegister" = "3:1"
@@ -903,6 +888,11 @@
             "AssemblyAsmDisplayName" = "8:Geckofx-Winforms, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_33C6C7FB4E2CB934B7B356C4BC8A547D"
+                    {
+                    "Name" = "8:Geckofx-Winforms.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Geckofx-Winforms.dll"
             "TargetName" = "8:"
@@ -920,6 +910,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35DC292AD3B94C518D69C72F2A19FB9B"
+            {
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\toc.ncx"
+            "TargetName" = "8:toc.ncx"
+            "Tag" = "8:"
+            "Folder" = "8:_C50F1FCB02CF4C1EBB68384C679947D3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_380F1637E2764A5AAA23DCACD7CA022A"
@@ -989,6 +999,11 @@
             "AssemblyAsmDisplayName" = "8:Geckofx-Core, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_5043E4BE53B09BA5256A816A79F62254"
+                    {
+                    "Name" = "8:Geckofx-Core.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Geckofx-Core.dll"
             "TargetName" = "8:"
@@ -1028,12 +1043,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5D82E65BCC7642BA88FAFB7A0BCF623D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_590AF2B4638344C0AFE3E60E111AE07B"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\x86\\Release\\Firefox\\libGLESv2.dll"
-            "TargetName" = "8:libGLESv2.dll"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\mimetype"
+            "TargetName" = "8:mimetype"
             "Tag" = "8:"
-            "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
+            "Folder" = "8:_F0E12500B86B41C78C6ADDF37EA08270"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1048,12 +1063,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6132B66EE708482188AB5BB0F8ECF8E6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5D82E65BCC7642BA88FAFB7A0BCF623D"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile.zip"
-            "TargetName" = "8:emptyJsFile.zip"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\x86\\Release\\Firefox\\libGLESv2.dll"
+            "TargetName" = "8:libGLESv2.dll"
             "Tag" = "8:"
-            "Folder" = "8:_DE6D70A9B792442AA73891EB26A7578F"
+            "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1094,6 +1109,26 @@
             "TargetName" = "8:plugin-hang-ui.exe"
             "Tag" = "8:"
             "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_64EEA338E1CB4868BF888B9D8F5B9750"
+            {
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\visible.css"
+            "TargetName" = "8:visible.css"
+            "Tag" = "8:"
+            "Folder" = "8:_79402ACA938F4533BA0FB32D190054DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1154,6 +1189,26 @@
             "TargetName" = "8:Pandoc User's Guide.html"
             "Tag" = "8:"
             "Folder" = "8:_533AAA3530F444CFA25821C025452088"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7086F1280E8B403AB617AC26D5B0968C"
+            {
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile.epub"
+            "TargetName" = "8:emptyJsFile.epub"
+            "Tag" = "8:"
+            "Folder" = "8:_DE6D70A9B792442AA73891EB26A7578F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1248,6 +1303,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_822F42F3451291FDEA87C21BD7D19D0F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_822F42F3451291FDEA87C21BD7D19D0F"
+                    {
+                    "Name" = "8:DotNetZip.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:DotNetZip.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83046E832FCB4BE2A669539A3A7DDD7D"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\x86\\Release\\Firefox\\icuin56.dll"
@@ -1315,6 +1401,11 @@
             "AssemblyAsmDisplayName" = "8:ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_92E02855390E10BE090B9400324BEA87"
+                    {
+                    "Name" = "8:ICSharpCode.AvalonEdit.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:ICSharpCode.AvalonEdit.dll"
             "TargetName" = "8:"
@@ -1354,52 +1445,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_98C40B7786EC48378CF01E397F4921C9"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Text\\Content.xhtml"
-            "TargetName" = "8:Content.xhtml"
-            "Tag" = "8:"
-            "Folder" = "8:_6451907981374FFF93507DE667D5D385"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_995A0E5141904DE786BEEF4BCC9F567C"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\SingleFile\\empty_Single_File.epub"
             "TargetName" = "8:empty_Single_File.epub"
             "Tag" = "8:"
             "Folder" = "8:_0D460896376B419AB6DF17F682A76F78"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_99E610FC6E6642A48531BF2789457BCF"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\mimetype"
-            "TargetName" = "8:mimetype"
-            "Tag" = "8:"
-            "Folder" = "8:_F2D76090D1E24387BCCDBE4411ADC756"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1434,6 +1485,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9EC4B5AE9C37E2F5298FF8C0412B249D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:WpfMath, Version=0.5.0.41790, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_9EC4B5AE9C37E2F5298FF8C0412B249D"
+                    {
+                    "Name" = "8:WpfMath.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:WpfMath.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9F7570AD1F184ABE9194B6E4E1823481"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\SingleFile\\empty_Single_File\\OEBPS\\Styles\\style.css"
@@ -1461,6 +1543,11 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
+                    "_9FC908196983F6458748A60C6B97B18B"
+                    {
+                    "Name" = "8:System.IO.Compression.FileSystem.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
             "TargetName" = "8:"
@@ -1500,38 +1587,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B2FE52DE92BF2DBC1B8EA286F32EE287"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A586890F277A4592B94DF4AEF115A496"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WpfMath, Version=0.3.1.40510, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:WpfMath.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile.zip"
+            "TargetName" = "8:emptyJsFile.zip"
             "Tag" = "8:"
-            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B40BB846AA224170A7F041CE9452C188"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\visible.css"
-            "TargetName" = "8:visible.css"
-            "Tag" = "8:"
-            "Folder" = "8:_AF3B32606AAB4C2CAC7249FD9C5B1AD1"
+            "Folder" = "8:_DE6D70A9B792442AA73891EB26A7578F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1552,26 +1613,6 @@
             "TargetName" = "8:freebl3.dll"
             "Tag" = "8:"
             "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBD73A1A4D6B49D68794EBA731C0FD46"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Text\\VersionChanger.xhtml"
-            "TargetName" = "8:VersionChanger.xhtml"
-            "Tag" = "8:"
-            "Folder" = "8:_6451907981374FFF93507DE667D5D385"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1613,6 +1654,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_C34E665523FF642D0C353D239C199149"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -1630,6 +1676,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C3586B8F114349E0AA1B3A95C007555B"
+            {
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Text\\VersionChanger.xhtml"
+            "TargetName" = "8:VersionChanger.xhtml"
+            "Tag" = "8:"
+            "Folder" = "8:_2CDAC3B97FDB4CC4AC74E0C737808AA4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4D5C68006C34FF68B500346750EE881"
@@ -1652,12 +1718,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6337FB278224E8BA66CCA96FC98E432"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C5D34BD54B9C4AB5A6F214378DED0773"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\blind.css"
-            "TargetName" = "8:blind.css"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Misc\\script.js"
+            "TargetName" = "8:script.js"
             "Tag" = "8:"
-            "Folder" = "8:_AF3B32606AAB4C2CAC7249FD9C5B1AD1"
+            "Folder" = "8:_07A4BD392BE5490EAE8D567185CAFEC8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1692,12 +1758,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CD7479E77C994ED9B3C2538ECA2BA94D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB49FF5E9BF842ADB5AD589CAC444B1B"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Text\\nav.xhtml"
-            "TargetName" = "8:nav.xhtml"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\META-INF\\container.xml"
+            "TargetName" = "8:container.xml"
             "Tag" = "8:"
-            "Folder" = "8:_6451907981374FFF93507DE667D5D385"
+            "Folder" = "8:_4587634A24AD41209B86D45F1097DC9E"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1812,12 +1878,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DF68280A8A94443797FE8285257AF847"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DF8EEDFDA1C644D5B8B61A9595ED59EA"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\style.css"
-            "TargetName" = "8:style.css"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\impaired.css"
+            "TargetName" = "8:impaired.css"
             "Tag" = "8:"
-            "Folder" = "8:_AF3B32606AAB4C2CAC7249FD9C5B1AD1"
+            "Folder" = "8:_79402ACA938F4533BA0FB32D190054DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1859,6 +1925,11 @@
             "AssemblyAsmDisplayName" = "8:GlobalHotKey, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_E30041CD1BEB832C441E2C881C1FA355"
+                    {
+                    "Name" = "8:GlobalHotKey.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:GlobalHotKey.dll"
             "TargetName" = "8:"
@@ -1918,12 +1989,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE4D350683554EF494B0700C56B62416"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F10320D016504C6BA295E970336C3EE3"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile.epub"
-            "TargetName" = "8:emptyJsFile.epub"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Text\\nav.xhtml"
+            "TargetName" = "8:nav.xhtml"
             "Tag" = "8:"
-            "Folder" = "8:_DE6D70A9B792442AA73891EB26A7578F"
+            "Folder" = "8:_2CDAC3B97FDB4CC4AC74E0C737808AA4"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1936,32 +2007,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F40B9E8BA01AF475AC357461F4352C37"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:DotNetZip.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F59D1B845A9C4E588D9CFAA2E07BFC2E"
@@ -1995,12 +2040,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F6A37ACF4D21468A8148E1A698327F61"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F6559506F2D54542BF0DABDEBA5AD187"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\impaired.css"
-            "TargetName" = "8:impaired.css"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Styles\\blind.css"
+            "TargetName" = "8:blind.css"
             "Tag" = "8:"
-            "Folder" = "8:_AF3B32606AAB4C2CAC7249FD9C5B1AD1"
+            "Folder" = "8:_79402ACA938F4533BA0FB32D190054DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2148,64 +2193,64 @@
                             "Property" = "8:_402D837C6FBE4A028D95FE2151B28979"
                                 "Folders"
                                 {
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F2D76090D1E24387BCCDBE4411ADC756"
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F0E12500B86B41C78C6ADDF37EA08270"
                                     {
                                     "Name" = "8:emptyJsFile"
                                     "AlwaysCreate" = "11:FALSE"
                                     "Condition" = "8:"
                                     "Transitive" = "11:FALSE"
-                                    "Property" = "8:_2B29F2750D22439B83B7C28A5CED2FBE"
+                                    "Property" = "8:_54F4BD39490345098ED50D867DB14B35"
                                         "Folders"
                                         {
-                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_1490DA5216984B59A52C87D884B7B829"
+                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_4587634A24AD41209B86D45F1097DC9E"
                                             {
                                             "Name" = "8:META-INF"
                                             "AlwaysCreate" = "11:FALSE"
                                             "Condition" = "8:"
                                             "Transitive" = "11:FALSE"
-                                            "Property" = "8:_B9F0606A19714257AF4D2A7D0D610951"
+                                            "Property" = "8:_F4F658034E714DE3948DB918D19D9CF6"
                                                 "Folders"
                                                 {
                                                 }
                                             }
-                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_D7B2CC5B16554B8FA9C5F082D5588D01"
+                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_C50F1FCB02CF4C1EBB68384C679947D3"
                                             {
                                             "Name" = "8:OEBPS"
                                             "AlwaysCreate" = "11:FALSE"
                                             "Condition" = "8:"
                                             "Transitive" = "11:FALSE"
-                                            "Property" = "8:_7C5BC8DC6A9A47F29724F2B13EDE8443"
+                                            "Property" = "8:_A481F39E3A98477AB865475D898B6C45"
                                                 "Folders"
                                                 {
-                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6451907981374FFF93507DE667D5D385"
-                                                    {
-                                                    "Name" = "8:Text"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "Condition" = "8:"
-                                                    "Transitive" = "11:FALSE"
-                                                    "Property" = "8:_6538AABC2F7D44BA993660BCB159FA8A"
-                                                        "Folders"
-                                                        {
-                                                        }
-                                                    }
-                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A49D879CB6EB41A9B369566C537496AA"
+                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_07A4BD392BE5490EAE8D567185CAFEC8"
                                                     {
                                                     "Name" = "8:Misc"
                                                     "AlwaysCreate" = "11:FALSE"
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
-                                                    "Property" = "8:_2272CEBD696E447D9CF8732DD3D27DF6"
+                                                    "Property" = "8:_B6DA74521CAE4AB7BC9CC623030977C0"
                                                         "Folders"
                                                         {
                                                         }
                                                     }
-                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_AF3B32606AAB4C2CAC7249FD9C5B1AD1"
+                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_2CDAC3B97FDB4CC4AC74E0C737808AA4"
+                                                    {
+                                                    "Name" = "8:Text"
+                                                    "AlwaysCreate" = "11:FALSE"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "Property" = "8:_98F42371DF794BE3A0552B1573FFFF4A"
+                                                        "Folders"
+                                                        {
+                                                        }
+                                                    }
+                                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_79402ACA938F4533BA0FB32D190054DA"
                                                     {
                                                     "Name" = "8:Styles"
                                                     "AlwaysCreate" = "11:FALSE"
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
-                                                    "Property" = "8:_7A1672922D3846C18FCB35A7F8F51601"
+                                                    "Property" = "8:_7F6644D7369645C8BFFF43B7FF1D3F6E"
                                                         "Folders"
                                                         {
                                                         }

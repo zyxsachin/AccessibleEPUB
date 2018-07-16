@@ -118,6 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="countToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 25</value>
+  </data>
+  <data name="languageToolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 0</value>
+  </data>
+  <data name="languageToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 25</value>
+  </data>
+  <data name="versionToolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1238, 0</value>
+  </data>
+  <data name="versionToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 25</value>
+  </data>
+  <data name="editToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1897, 31</value>
+  </data>
   <data name="wordCountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 22</value>
   </data>
@@ -130,20 +148,11 @@
   <data name="characterCountLabel.Text" xml:space="preserve">
     <value>Zeichenzahl: </value>
   </data>
-  <data name="countToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 25</value>
-  </data>
   <data name="documentLanguageLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
   <data name="documentLanguageLabel.Text" xml:space="preserve">
     <value>Documentsprache:</value>
-  </data>
-  <data name="languageToolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 0</value>
-  </data>
-  <data name="languageToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 25</value>
   </data>
   <data name="lastSavedLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 22</value>
@@ -151,50 +160,23 @@
   <data name="lastSavedLabel.Text" xml:space="preserve">
     <value>Gespeichert vor:</value>
   </data>
-  <data name="versionToolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1238, 0</value>
-  </data>
-  <data name="versionToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 25</value>
-  </data>
-  <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 918</value>
-  </data>
   <data name="newFileSplashButton.Text" xml:space="preserve">
     <value>Neu</value>
   </data>
   <data name="openFileSplashButton.Text" xml:space="preserve">
     <value>Öffnen</value>
   </data>
-  <data name="geckoWebBrowser4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 918</value>
-  </data>
-  <data name="geckoWebBrowser1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1375, 885</value>
-  </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1381, 889</value>
-  </data>
   <data name="tabPage1.Text" xml:space="preserve">
     <value>Sehende</value>
-  </data>
-  <data name="geckoWebBrowser2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1375, 885</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1381, 889</value>
   </data>
   <data name="tabPage2.Text" xml:space="preserve">
     <value>Sehgeschädigte</value>
   </data>
-  <data name="geckoWebBrowser3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1375, 885</value>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 24</value>
   </data>
-  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1381, 889</value>
-  </data>
-  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 918</value>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Datei</value>
   </data>
   <data name="newDocumentToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -206,7 +188,7 @@
 </value>
   </data>
   <data name="newDocumentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>227, 26</value>
   </data>
   <data name="newDocumentToolStripMenuItem.Text" xml:space="preserve">
     <value>Neu</value>
@@ -221,13 +203,13 @@
 </value>
   </data>
   <data name="openFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>227, 26</value>
   </data>
   <data name="openFileToolStripMenuItem.Text" xml:space="preserve">
     <value>Öffnen</value>
   </data>
   <data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 6</value>
+    <value>224, 6</value>
   </data>
   <data name="saveToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -238,7 +220,7 @@
 </value>
   </data>
   <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>227, 26</value>
   </data>
   <data name="saveToolStripMenuItem.Text" xml:space="preserve">
     <value>Speichern</value>
@@ -254,34 +236,51 @@
 </value>
   </data>
   <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>227, 26</value>
   </data>
   <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
     <value>Speichern unter</value>
   </data>
+  <data name="toolStripSeparator16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 6</value>
+  </data>
+  <data name="textToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAIFJREFUOE+VjjEOwCAIRXuoDp09nEMv0SO2XVhtvoEGFRVJXjTgf7hJEVHScNtf
+        CB3nnlkS6K1aMOHieLm5BrMQQkGMsZTMBM/9/pgSvmR0ULAEWpJ/gaoFOmAJQCPQSKhHI5BCE0N5ZOEW
+        jHAJcFq4BSNcApw1S4IRU4GHrsAPpQ9YIUnc0EPhQgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="textToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 26</value>
+  </data>
+  <data name="textToolStripMenuItem.Text" xml:space="preserve">
+    <value>Textdatei importieren</value>
+  </data>
   <data name="toolStripSeparator12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 6</value>
+    <value>224, 6</value>
   </data>
   <data name="closeFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>227, 26</value>
   </data>
   <data name="closeFileToolStripMenuItem.Text" xml:space="preserve">
     <value>Datei schließen</value>
   </data>
   <data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 6</value>
+    <value>224, 6</value>
   </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 26</value>
+    <value>227, 26</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 24</value>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
   </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Datei</value>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Bearbeiten</value>
   </data>
   <data name="undoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -391,11 +390,11 @@
   <data name="findToolStripMenuItem.Text" xml:space="preserve">
     <value>Suchen</value>
   </data>
-  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+  <data name="insertToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 24</value>
   </data>
-  <data name="editToolStripMenuItem.Text" xml:space="preserve">
-    <value>Bearbeiten</value>
+  <data name="insertToolStripMenuItem.Text" xml:space="preserve">
+    <value>Einfügen</value>
   </data>
   <data name="insertImageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -478,22 +477,11 @@
   <data name="toolStripSeparator14.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 6</value>
   </data>
-  <data name="textToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAACBSURBVDhPlY4xDsAgCEV7qA6dPZxDL9Ejtl1Ybb6BBhUV
-        SV404H+4SRFR0nDbXwgd555ZEuitWjDh4ni5uQazEEJBjLGUzATP/f6YEr5kdFCwBFqSf4GqBTpgCUAj
-        0EioRyOQQhNDeWThFoxwCXBauAUjXAKcNUuCEVOBh67AD6UPWCFJ3NBD4UIAAAAASUVORK5CYII=
-</value>
+  <data name="formatToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 24</value>
   </data>
-  <data name="importToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 26</value>
-  </data>
-  <data name="insertToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 24</value>
-  </data>
-  <data name="insertToolStripMenuItem.Text" xml:space="preserve">
-    <value>Einfügen</value>
+  <data name="formatToolStripMenuItem.Text" xml:space="preserve">
+    <value>Formatierung</value>
   </data>
   <data name="boldToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -505,7 +493,7 @@
 </value>
   </data>
   <data name="boldToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="boldToolStripMenuItem.Text" xml:space="preserve">
     <value>Fett</value>
@@ -521,7 +509,7 @@
 </value>
   </data>
   <data name="italicToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="italicToolStripMenuItem.Text" xml:space="preserve">
     <value>Kursiv</value>
@@ -536,7 +524,7 @@
 </value>
   </data>
   <data name="underlineToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="underlineToolStripMenuItem.Text" xml:space="preserve">
     <value>Unterstreichen</value>
@@ -550,13 +538,13 @@
 </value>
   </data>
   <data name="strikethroughToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="strikethroughToolStripMenuItem.Text" xml:space="preserve">
     <value>Durchstreichen</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 6</value>
+    <value>307, 6</value>
   </data>
   <data name="justifyLeftToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -566,7 +554,7 @@
 </value>
   </data>
   <data name="justifyLeftToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="justifyLeftToolStripMenuItem.Text" xml:space="preserve">
     <value>Links ausrichten</value>
@@ -580,7 +568,7 @@
 </value>
   </data>
   <data name="centerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="centerToolStripMenuItem.Text" xml:space="preserve">
     <value>Zentrieren</value>
@@ -593,7 +581,7 @@
 </value>
   </data>
   <data name="justifyRightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="justifyRightToolStripMenuItem.Text" xml:space="preserve">
     <value>Rechts ausrichten</value>
@@ -606,13 +594,13 @@
 </value>
   </data>
   <data name="justifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="justifyToolStripMenuItem.Text" xml:space="preserve">
     <value>Blocksatz</value>
   </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 6</value>
+    <value>307, 6</value>
   </data>
   <data name="indentToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -623,7 +611,7 @@
 </value>
   </data>
   <data name="indentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="indentToolStripMenuItem.Text" xml:space="preserve">
     <value>Einrücken</value>
@@ -637,16 +625,31 @@
 </value>
   </data>
   <data name="outdentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 26</value>
+    <value>310, 26</value>
   </data>
   <data name="outdentToolStripMenuItem.Text" xml:space="preserve">
     <value>Ausrücken</value>
   </data>
-  <data name="formatToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 24</value>
+  <data name="toolStripSeparator15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 6</value>
   </data>
-  <data name="formatToolStripMenuItem.Text" xml:space="preserve">
-    <value>Formatierung</value>
+  <data name="editImageMathToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 26</value>
+  </data>
+  <data name="editImageMathToolStripMenuItem.Text" xml:space="preserve">
+    <value>Bild/Formel bearbeiten</value>
+  </data>
+  <data name="toggleBulletPointStyleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 26</value>
+  </data>
+  <data name="toggleBulletPointStyleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Aufzählungsart verändern</value>
+  </data>
+  <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 24</value>
+  </data>
+  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ansicht</value>
   </data>
   <data name="togglePreviewToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -712,11 +715,11 @@
   <data name="toggleRefreshPreviewToolStripMenuItem.Text" xml:space="preserve">
     <value>Vorschauaktualisierung umschalten</value>
   </data>
-  <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 24</value>
+  <data name="toolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 24</value>
   </data>
-  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ansicht</value>
+  <data name="toolsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Werkzeuge</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 26</value>
@@ -724,11 +727,8 @@
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-  <data name="toolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 24</value>
-  </data>
-  <data name="toolsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Werkzeuge</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hilfe</value>
   </data>
   <data name="viewHelpToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -758,9 +758,6 @@
   </data>
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>Information</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hilfe</value>
   </data>
   <data name="newFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -845,6 +842,9 @@ Das Dokument speichern</value>
         MzAfpwHbtm1H0QiTA+He3t7/S5cshYtjGHDt6jUwG4ZhGmH46pWrYPH37z6AaQwDiMHPnj6nzAAYxjCA
         HAw3gBIMzZPkAgYGADNeuw744i1hAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="toggleCodeButton.ToolTipText" xml:space="preserve">
+    <value>Code Editor umschalten</value>
   </data>
   <data name="toggleFileExplorerButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -937,6 +937,36 @@ Das Dokument speichern</value>
   <data name="orderedListButton.ToolTipText" xml:space="preserve">
     <value>Nummerierte Liste</value>
   </data>
+  <data name="numberedToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="numberedToolStripMenuItem.Text" xml:space="preserve">
+    <value>Zahlen</value>
+  </data>
+  <data name="alphabeticallyCapitalizedToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="alphabeticallyCapitalizedToolStripMenuItem.Text" xml:space="preserve">
+    <value>Großgeschr. Buchstaben</value>
+  </data>
+  <data name="alphabeticallyLowercaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="alphabeticallyLowercaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Kleingeschr. Buchstaben</value>
+  </data>
+  <data name="romanUppercaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="romanUppercaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Großgeschr. römisch</value>
+  </data>
+  <data name="romanLowercaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="romanLowercaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Kleingeschr. römisch</value>
+  </data>
   <data name="unorderedListButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -949,6 +979,24 @@ Das Dokument speichern</value>
   </data>
   <data name="unorderedListButton.ToolTipText" xml:space="preserve">
     <value>Aufzählung</value>
+  </data>
+  <data name="circleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 26</value>
+  </data>
+  <data name="circleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Kreis</value>
+  </data>
+  <data name="emptyCircleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 26</value>
+  </data>
+  <data name="emptyCircleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Leerer Kreis</value>
+  </data>
+  <data name="squareToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 26</value>
+  </data>
+  <data name="squareToolStripMenuItem.Text" xml:space="preserve">
+    <value>Quadrat</value>
   </data>
   <data name="formatComboBox.ToolTipText" xml:space="preserve">
     <value>Textformat wählen</value>
@@ -1117,8 +1165,5 @@ Das Dokument speichern</value>
   </data>
   <data name="importTextButton.Text" xml:space="preserve">
     <value>Text importieren</value>
-  </data>
-  <data name="editToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1897, 31</value>
   </data>
 </root>

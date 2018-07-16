@@ -50,9 +50,9 @@
             this.alternativeImageLabel = new System.Windows.Forms.Label();
             this.chooseAlternativeImageButton = new System.Windows.Forms.Button();
             this.floatGroupBox = new System.Windows.Forms.GroupBox();
+            this.rightRadioButton = new System.Windows.Forms.RadioButton();
             this.leftRadioButton = new System.Windows.Forms.RadioButton();
             this.noneRadioButton = new System.Windows.Forms.RadioButton();
-            this.rightRadioButton = new System.Windows.Forms.RadioButton();
             this.floatGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,6 +174,13 @@
             this.floatGroupBox.Name = "floatGroupBox";
             this.floatGroupBox.TabStop = false;
             // 
+            // rightRadioButton
+            // 
+            resources.ApplyResources(this.rightRadioButton, "rightRadioButton");
+            this.rightRadioButton.Name = "rightRadioButton";
+            this.rightRadioButton.TabStop = true;
+            this.rightRadioButton.UseVisualStyleBackColor = true;
+            // 
             // leftRadioButton
             // 
             resources.ApplyResources(this.leftRadioButton, "leftRadioButton");
@@ -187,13 +194,6 @@
             this.noneRadioButton.Name = "noneRadioButton";
             this.noneRadioButton.TabStop = true;
             this.noneRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // rightRadioButton
-            // 
-            resources.ApplyResources(this.rightRadioButton, "rightRadioButton");
-            this.rightRadioButton.Name = "rightRadioButton";
-            this.rightRadioButton.TabStop = true;
-            this.rightRadioButton.UseVisualStyleBackColor = true;
             // 
             // ImageDialogBox
             // 

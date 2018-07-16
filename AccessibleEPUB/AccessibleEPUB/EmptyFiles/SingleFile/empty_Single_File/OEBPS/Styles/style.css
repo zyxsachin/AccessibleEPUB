@@ -7,6 +7,12 @@ a {
   font-family: "Arial", Helvetica, sans-serif;
 }
 
+table, th, td {
+    border-style: solid;
+    border-collapse: collapse;
+    border-width:2px;
+}
+
 .versionChanger *{
   font-family: "Arial", Helvetica, sans-serif !important;
 

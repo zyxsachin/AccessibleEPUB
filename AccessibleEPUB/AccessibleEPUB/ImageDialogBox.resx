@@ -117,290 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="imageLocationLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="imageLocationLabel.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="floatGroupBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
-  </data>
-  <data name="imageLocationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 34</value>
-  </data>
-  <data name="imageLocationLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 23</value>
-  </data>
-  <data name="imageLocationLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="imageLocationLabel.Text" xml:space="preserve">
-    <value>Location of image</value>
-  </data>
-  <data name="&gt;&gt;imageLocationLabel.Name" xml:space="preserve">
-    <value>imageLocationLabel</value>
-  </data>
-  <data name="&gt;&gt;imageLocationLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imageLocationLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;imageLocationLabel.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="imageLocationTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="imageLocationTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 76</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="imageLocationTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="imageLocationTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>713, 30</value>
-  </data>
-  <data name="imageLocationTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;imageLocationTextBox.Name" xml:space="preserve">
-    <value>imageLocationTextBox</value>
-  </data>
-  <data name="&gt;&gt;imageLocationTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imageLocationTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;imageLocationTextBox.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 176</value>
-  </data>
-  <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>744, 30</value>
-  </data>
-  <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Name" xml:space="preserve">
-    <value>titleTextBox</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="titleLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 135</value>
-  </data>
-  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 23</value>
-  </data>
-  <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="titleLabel.Text" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
-    <value>titleLabel</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="altTextTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="altTextTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 276</value>
-  </data>
   <data name="altTextTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
-  </data>
-  <data name="altTextTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>744, 30</value>
-  </data>
-  <data name="altTextTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;altTextTextBox.Name" xml:space="preserve">
-    <value>altTextTextBox</value>
-  </data>
-  <data name="&gt;&gt;altTextTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;altTextTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;altTextTextBox.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="altTextLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="altTextLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
-  <data name="altTextLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 235</value>
-  </data>
-  <data name="altTextLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 23</value>
-  </data>
-  <data name="altTextLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="altTextLabel.Text" xml:space="preserve">
-    <value>Alternative Text</value>
-  </data>
-  <data name="&gt;&gt;altTextLabel.Name" xml:space="preserve">
-    <value>altTextLabel</value>
-  </data>
-  <data name="&gt;&gt;altTextLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;altTextLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;altTextLabel.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="captionLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="captionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 335</value>
-  </data>
-  <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 23</value>
-  </data>
-  <data name="captionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="captionLabel.Text" xml:space="preserve">
-    <value>Caption (optional)</value>
-  </data>
-  <data name="&gt;&gt;captionLabel.Name" xml:space="preserve">
-    <value>captionLabel</value>
-  </data>
-  <data name="&gt;&gt;captionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;captionLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="captionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 377</value>
-  </data>
-  <data name="captionTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="captionTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>744, 30</value>
-  </data>
-  <data name="captionTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.Name" xml:space="preserve">
-    <value>captionTextBox</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="addImageButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="addImageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>404, 768</value>
-  </data>
-  <data name="addImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="heightLabel.Text" xml:space="preserve">
+    <value>Height (px)</value>
   </data>
   <data name="addImageButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 48</value>
   </data>
-  <data name="addImageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="chooseAlternativeImageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="addImageButton.Text" xml:space="preserve">
-    <value>Insert Image</value>
+  <data name="titleLabel.Text" xml:space="preserve">
+    <value>Title</value>
   </data>
-  <data name="&gt;&gt;addImageButton.Name" xml:space="preserve">
-    <value>addImageButton</value>
+  <data name="&gt;&gt;chooseImageButton.Name" xml:space="preserve">
+    <value>chooseImageButton</value>
   </data>
-  <data name="&gt;&gt;addImageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="rightRadioButton.Text" xml:space="preserve">
+    <value>Right</value>
   </data>
-  <data name="&gt;&gt;addImageButton.Parent" xml:space="preserve">
+  <data name="altTextLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 235</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="typeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 31</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;addImageButton.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;floatGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 768</value>
-  </data>
-  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 48</value>
-  </data>
-  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
-    <value>cancelButton</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;typeLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
     <value>$this</value>
@@ -408,280 +170,612 @@
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="chooseImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAASFJREFUOE+lks9KAlEUh+8b5Bv0Bj2CzyC0Dty1b5kuoqWPEIEURLgIF4J/WtSi
-        zeimTTQSoRCViKKiMtvT/Q5eGfMOKh74cWfOOb9vzrmMiaIoayUbdGGSgobuU0E+q+deUbM9Y6vUwrIa
-        AGjk9AnAsBP4atmtAJjjE6HO46XMpyPqqY0An+jfG8C51Qo+xfvXAP33ur47sW+33ZJC+VVyd02pNdvy
-        3brR/BpgNuppIQ4AmM5X5ODkVo7OHsQcXyuEvPU8rwAgx81o8huqqfTyoT1AmIRnq8wSQON/s8sDwBR+
-        DeTw9N4BxstL1D0T/kamumq8KcSJdYLwB0gRQBEIX0oS9d5woiYHcxCdYpfggw7CvSzSuwUQ7oPTiMge
-        EvMH7hzdlDzjmN0AAAAASUVORK5CYII=
-</value>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 48</value>
   </data>
-  <data name="chooseImageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="&gt;&gt;addImageButton.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
-  <data name="chooseImageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>731, 76</value>
+  <data name="&gt;&gt;altTextLabel.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
-  <data name="chooseImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="&gt;&gt;altTextLabel.Name" xml:space="preserve">
+    <value>altTextLabel</value>
   </data>
-  <data name="chooseImageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 30</value>
-  </data>
-  <data name="chooseImageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;chooseImageButton.Name" xml:space="preserve">
-    <value>chooseImageButton</value>
-  </data>
-  <data name="&gt;&gt;chooseImageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chooseImageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chooseImageButton.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="typeComboBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="typeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 478</value>
-  </data>
-  <data name="typeComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="typeComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 31</value>
-  </data>
-  <data name="typeComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;typeComboBox.Name" xml:space="preserve">
-    <value>typeComboBox</value>
-  </data>
-  <data name="&gt;&gt;typeComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;typeComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;typeComboBox.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="typeLabel.AutoSize" type="System.Boolean, mscorlib">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="typeLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
+  <data name="alternativeImageTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>713, 30</value>
   </data>
-  <data name="typeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 436</value>
-  </data>
-  <data name="typeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 23</value>
-  </data>
-  <data name="typeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="typeLabel.Text" xml:space="preserve">
-    <value>Tag Type</value>
-  </data>
-  <data name="&gt;&gt;typeLabel.Name" xml:space="preserve">
-    <value>typeLabel</value>
-  </data>
-  <data name="&gt;&gt;typeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;typeLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;typeLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="widthLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="widthLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="widthLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="widthLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 436</value>
-  </data>
-  <data name="widthLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
+  <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 135</value>
   </data>
   <data name="widthLabel.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
+  <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
+    <value>titleLabel</value>
+  </data>
+  <data name="alternativeImageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;imageLocationTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chooseImageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 23</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Name" xml:space="preserve">
+    <value>captionTextBox</value>
+  </data>
+  <data name="&gt;&gt;altTextLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="addImageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>404, 768</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.Name" xml:space="preserve">
+    <value>chooseAlternativeImageButton</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>744, 30</value>
+  </data>
+  <data name="chooseImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="noneRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 27</value>
+  </data>
+  <data name="addImageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.Name" xml:space="preserve">
+    <value>heightLabel</value>
+  </data>
+  <data name="widthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="leftRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;alternativeImageTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="noneRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="imageLocationLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 23</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Name" xml:space="preserve">
+    <value>typeLabel</value>
+  </data>
+  <data name="rightRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="typeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="heightTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="typeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="captionTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>744, 30</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="heightTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;heightTextBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Name" xml:space="preserve">
+    <value>titleTextBox</value>
+  </data>
+  <data name="noneRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="captionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 335</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addImageButton.Name" xml:space="preserve">
+    <value>addImageButton</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="imageLocationTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="noneRadioButton.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="widthLabel.Text" xml:space="preserve">
     <value>Width (px)</value>
   </data>
-  <data name="&gt;&gt;widthLabel.Name" xml:space="preserve">
-    <value>widthLabel</value>
+  <data name="&gt;&gt;addImageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;widthLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;widthLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;widthLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="heightLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="heightLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="heightLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="rightRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="heightLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>591, 436</value>
   </data>
-  <data name="heightLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 23</value>
+  <data name="&gt;&gt;floatGroupBox.Name" xml:space="preserve">
+    <value>floatGroupBox</value>
   </data>
-  <data name="heightLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="imageLocationTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 76</value>
   </data>
-  <data name="heightLabel.Text" xml:space="preserve">
-    <value>Height (px)</value>
-  </data>
-  <data name="&gt;&gt;heightLabel.Name" xml:space="preserve">
-    <value>heightLabel</value>
-  </data>
-  <data name="&gt;&gt;heightLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;heightLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;heightLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="widthTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="widthTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>404, 477</value>
-  </data>
-  <data name="widthTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="chooseAlternativeImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="widthTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 30</value>
+  <data name="&gt;&gt;rightRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="widthTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;widthTextBox.Name" xml:space="preserve">
-    <value>widthTextBox</value>
-  </data>
-  <data name="&gt;&gt;widthTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;widthTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;widthTextBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="heightTextBox.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="altTextTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="heightTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 478</value>
+  <data name="&gt;&gt;noneRadioButton.Name" xml:space="preserve">
+    <value>noneRadioButton</value>
   </data>
-  <data name="heightTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="&gt;&gt;rightRadioButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="heightTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 30</value>
-  </data>
-  <data name="heightTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;heightTextBox.Name" xml:space="preserve">
-    <value>heightTextBox</value>
-  </data>
-  <data name="&gt;&gt;heightTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;heightTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;heightTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="alternativeImageTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="alternativeImageTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 577</value>
+  <data name="&gt;&gt;noneRadioButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="alternativeImageTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="alternativeImageTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>713, 30</value>
-  </data>
-  <data name="alternativeImageTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;alternativeImageTextBox.Name" xml:space="preserve">
-    <value>alternativeImageTextBox</value>
-  </data>
-  <data name="&gt;&gt;alternativeImageTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;alternativeImageTextBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;widthTextBox.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="heightTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 30</value>
+  </data>
+  <data name="widthLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="&gt;&gt;alternativeImageTextBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="alternativeImageLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="imageLocationTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="&gt;&gt;widthLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="typeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 436</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Name" xml:space="preserve">
+    <value>leftRadioButton</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="leftRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ImageDialogBox</value>
+  </data>
+  <data name="altTextTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>744, 30</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="floatGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 91</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="typeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 478</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="floatGroupBox.AccessibleName" xml:space="preserve">
+    <value>Choose the format of the EPUB file</value>
+  </data>
+  <data name="noneRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 42</value>
   </data>
   <data name="alternativeImageLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
+  <data name="rightRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="&gt;&gt;addImageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageLocationTextBox.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="leftRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 42</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="heightLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="altTextLabel.Text" xml:space="preserve">
+    <value>Alternative Text</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;imageLocationTextBox.Name" xml:space="preserve">
+    <value>imageLocationTextBox</value>
+  </data>
+  <data name="chooseImageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>731, 76</value>
+  </data>
+  <data name="typeComboBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="chooseAlternativeImageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 30</value>
+  </data>
+  <data name="noneRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="leftRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="imageLocationLabel.Text" xml:space="preserve">
+    <value>Location of image</value>
+  </data>
+  <data name="leftRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="addImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="noneRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="typeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 23</value>
+  </data>
+  <data name="chooseImageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="alternativeImageTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 577</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="chooseAlternativeImageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>731, 577</value>
+  </data>
+  <data name="floatGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="heightLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="imageLocationLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="&gt;&gt;altTextLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;widthLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="addImageButton.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="heightLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="widthTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>404, 477</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Choose Image</value>
+  </data>
+  <data name="chooseImageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="alternativeImageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>436, 23</value>
+  </data>
+  <data name="&gt;&gt;widthTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="widthLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="&gt;&gt;heightTextBox.Name" xml:space="preserve">
+    <value>heightTextBox</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.Name" xml:space="preserve">
+    <value>imageLocationLabel</value>
+  </data>
+  <data name="altTextLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 23</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Name" xml:space="preserve">
+    <value>rightRadioButton</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="alternativeImageTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="leftRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="alternativeImageTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="leftRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 27</value>
+  </data>
+  <data name="&gt;&gt;widthTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="heightTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>595, 478</value>
+  </data>
   <data name="alternativeImageLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>595, 768</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chooseImageButton.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="heightTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="widthLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 436</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="altTextTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 276</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="alternativeImageLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;widthLabel.Name" xml:space="preserve">
+    <value>widthLabel</value>
+  </data>
+  <data name="rightRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 42</value>
+  </data>
+  <data name="imageLocationLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="addImageButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="rightRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="titleLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="floatGroupBox.Text" xml:space="preserve">
+    <value>Figure Alignment</value>
+  </data>
+  <data name="imageLocationLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="widthTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 30</value>
+  </data>
+  <data name="&gt;&gt;chooseImageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chooseAlternativeImageButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="alternativeImageLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 536</value>
   </data>
-  <data name="alternativeImageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>436, 23</value>
+  <data name="&gt;&gt;noneRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
   </data>
-  <data name="alternativeImageLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 176</value>
   </data>
-  <data name="alternativeImageLabel.Text" xml:space="preserve">
-    <value>Alternative Image for Visually Impaired (optional)</value>
+  <data name="rightRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="floatGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 634</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="rightRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="widthTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="rightRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 27</value>
+  </data>
+  <data name="leftRadioButton.Text" xml:space="preserve">
+    <value>Left</value>
   </data>
   <data name="&gt;&gt;alternativeImageLabel.Name" xml:space="preserve">
     <value>alternativeImageLabel</value>
   </data>
-  <data name="&gt;&gt;alternativeImageLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;alternativeImageLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;leftRadioButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Name" xml:space="preserve">
+    <value>captionLabel</value>
+  </data>
+  <data name="chooseAlternativeImageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="floatGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="captionTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="captionTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="typeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="captionLabel.Text" xml:space="preserve">
+    <value>Caption (optional)</value>
+  </data>
+  <data name="&gt;&gt;typeComboBox.Name" xml:space="preserve">
+    <value>typeComboBox</value>
+  </data>
+  <data name="captionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="widthTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="altTextLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chooseImageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 30</value>
+  </data>
+  <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>817, 842</value>
+  </data>
+  <data name="&gt;&gt;chooseAlternativeImageButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;alternativeImageLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="chooseAlternativeImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -694,223 +788,129 @@
         EvMH7hzdlDzjmN0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="chooseAlternativeImageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="chooseAlternativeImageButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chooseAlternativeImageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>731, 577</value>
-  </data>
-  <data name="chooseAlternativeImageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="chooseAlternativeImageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 30</value>
-  </data>
-  <data name="chooseAlternativeImageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;chooseAlternativeImageButton.Name" xml:space="preserve">
-    <value>chooseAlternativeImageButton</value>
-  </data>
-  <data name="&gt;&gt;chooseAlternativeImageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chooseAlternativeImageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chooseAlternativeImageButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="floatGroupBox.AccessibleDescription" xml:space="preserve">
-    <value>The format how the switching between normal, visually impaired and blind works</value>
-  </data>
-  <data name="floatGroupBox.AccessibleName" xml:space="preserve">
-    <value>Choose the format of the EPUB file</value>
-  </data>
-  <data name="rightRadioButton.AccessibleDescription" xml:space="preserve">
-    <value />
-  </data>
-  <data name="rightRadioButton.AccessibleName" xml:space="preserve">
-    <value />
-  </data>
-  <data name="rightRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rightRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="rightRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rightRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 42</value>
-  </data>
-  <data name="rightRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="rightRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 27</value>
-  </data>
-  <data name="rightRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="rightRadioButton.Text" xml:space="preserve">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;rightRadioButton.Name" xml:space="preserve">
-    <value>rightRadioButton</value>
-  </data>
-  <data name="&gt;&gt;rightRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rightRadioButton.Parent" xml:space="preserve">
-    <value>floatGroupBox</value>
-  </data>
-  <data name="&gt;&gt;rightRadioButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="leftRadioButton.AccessibleDescription" xml:space="preserve">
-    <value />
-  </data>
-  <data name="leftRadioButton.AccessibleName" xml:space="preserve">
-    <value />
-  </data>
-  <data name="leftRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="leftRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
+  <data name="&gt;&gt;heightTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="leftRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="leftRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 42</value>
+  <data name="leftRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
   </data>
-  <data name="leftRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="leftRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 27</value>
-  </data>
-  <data name="leftRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="leftRadioButton.Text" xml:space="preserve">
-    <value>Left</value>
-  </data>
-  <data name="&gt;&gt;leftRadioButton.Name" xml:space="preserve">
-    <value>leftRadioButton</value>
-  </data>
-  <data name="&gt;&gt;leftRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;leftRadioButton.Parent" xml:space="preserve">
-    <value>floatGroupBox</value>
-  </data>
-  <data name="&gt;&gt;leftRadioButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="noneRadioButton.AccessibleDescription" xml:space="preserve">
-    <value />
-  </data>
-  <data name="noneRadioButton.AccessibleName" xml:space="preserve">
-    <value />
-  </data>
-  <data name="noneRadioButton.AutoSize" type="System.Boolean, mscorlib">
+  <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="imageLocationTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>713, 30</value>
+  </data>
+  <data name="widthLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="heightLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 23</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageLocationLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="imageLocationTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="&gt;&gt;heightTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;altTextTextBox.Name" xml:space="preserve">
+    <value>altTextTextBox</value>
+  </data>
+  <data name="&gt;&gt;widthTextBox.Name" xml:space="preserve">
+    <value>widthTextBox</value>
+  </data>
+  <data name="imageLocationLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 34</value>
+  </data>
+  <data name="heightLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="noneRadioButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
   </data>
-  <data name="noneRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="typeLabel.Text" xml:space="preserve">
+    <value>Tag Type</value>
   </data>
-  <data name="noneRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 42</value>
+  <data name="chooseImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAASFJREFUOE+lks9KAlEUh+8b5Bv0Bj2CzyC0Dty1b5kuoqWPEIEURLgIF4J/WtSi
+        zeimTTQSoRCViKKiMtvT/Q5eGfMOKh74cWfOOb9vzrmMiaIoayUbdGGSgobuU0E+q+deUbM9Y6vUwrIa
+        AGjk9AnAsBP4atmtAJjjE6HO46XMpyPqqY0An+jfG8C51Qo+xfvXAP33ur47sW+33ZJC+VVyd02pNdvy
+        3brR/BpgNuppIQ4AmM5X5ODkVo7OHsQcXyuEvPU8rwAgx81o8huqqfTyoT1AmIRnq8wSQON/s8sDwBR+
+        DeTw9N4BxstL1D0T/kamumq8KcSJdYLwB0gRQBEIX0oS9d5woiYHcxCdYpfggw7CvSzSuwUQ7oPTiMge
+        EvMH7hzdlDzjmN0AAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="noneRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="&gt;&gt;widthLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="noneRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 27</value>
+  <data name="typeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
-  <data name="noneRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="noneRadioButton.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;noneRadioButton.Name" xml:space="preserve">
-    <value>noneRadioButton</value>
-  </data>
-  <data name="&gt;&gt;noneRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;noneRadioButton.Parent" xml:space="preserve">
-    <value>floatGroupBox</value>
-  </data>
-  <data name="&gt;&gt;noneRadioButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="floatGroupBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="floatGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 634</value>
+  <data name="&gt;&gt;imageLocationTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="floatGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="floatGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="captionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 377</value>
   </data>
-  <data name="floatGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 91</value>
+  <data name="altTextLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="floatGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+  <data name="noneRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="floatGroupBox.Text" xml:space="preserve">
-    <value>Figure Alignment</value>
+  <data name="noneRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;floatGroupBox.Name" xml:space="preserve">
-    <value>floatGroupBox</value>
+  <data name="alternativeImageLabel.Text" xml:space="preserve">
+    <value>Alternative Image for Visually Impaired (optional)</value>
   </data>
-  <data name="&gt;&gt;floatGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="rightRadioButton.AccessibleName" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;floatGroupBox.Parent" xml:space="preserve">
+  <data name="captionLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="&gt;&gt;alternativeImageTextBox.Name" xml:space="preserve">
+    <value>alternativeImageTextBox</value>
+  </data>
+  <data name="altTextTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="floatGroupBox.AccessibleDescription" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
+  </data>
+  <data name="&gt;&gt;heightLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;floatGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="widthTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 23</value>
+  </data>
+  <data name="typeComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>817, 842</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Choose Image</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ImageDialogBox</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

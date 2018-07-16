@@ -71,4 +71,9 @@ body {
 	max-width : 100%;
 	display:initial;
 }
-	
+
+table, th, td {
+    border-style: solid;
+    border-collapse: collapse;
+    border-width:2px;
+}

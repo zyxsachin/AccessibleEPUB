@@ -81,27 +81,30 @@ namespace AccessibleEPUB
         {
 
             this.DialogResult = DialogResult.Cancel;
-            
+
             this.Hide();
             this.Dispose();
-            this.Close();
+            //this.Close();
         }
 
         private void addImageButton_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            //this.DialogResult = DialogResult.OK;
             bool altImageExists = false;
+            bool toEnd = false;
      
             if (imageLocationTextBox.Text == "")
             {
                 //System.Windows.Forms.MessageBox.Show("The image path is empty.", "Empty image path", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 System.Windows.Forms.MessageBox.Show(Resource_MessageBox.imagePathContent, Resource_MessageBox.imagePathTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //toEnd = true;
                 return;
             } 
             else if (File.Exists(imageLocationTextBox.Text) == false)
             {
                 //System.Windows.Forms.MessageBox.Show("Image doesn't exist.", "Image doesn't exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 System.Windows.Forms.MessageBox.Show(Resource_MessageBox.imagePathContent, Resource_MessageBox.imagePathTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //toEnd = true;
                 return;
             }
 
@@ -125,6 +128,12 @@ namespace AccessibleEPUB
                 return;
             }
 
+            //if (toEnd == true)
+            //{
+            //    //return;
+            //}
+
+            //else { 
             if (!Directory.Exists(imageFolderPath))
             {
                 Directory.CreateDirectory(imageFolderPath);
@@ -290,7 +299,7 @@ namespace AccessibleEPUB
             this.DialogResult = DialogResult.OK;
             this.Hide();
             this.Dispose();
-          
+            //}
         }
 
         private void chooseImageButton_Click(object sender, EventArgs e)

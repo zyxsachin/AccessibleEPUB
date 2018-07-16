@@ -61,6 +61,24 @@ namespace AccessibleEPUB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changes will only be shown when the program is restarted.
+        /// </summary>
+        internal static string changesContent {
+            get {
+                return ResourceManager.GetString("changesContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changes.
+        /// </summary>
+        internal static string changesTitle {
+            get {
+                return ResourceManager.GetString("changesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Problem converting from WYSIWYG to HTML.
         /// </summary>
         internal static string conversionContent {

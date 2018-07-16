@@ -22,6 +22,8 @@ namespace AccessibleEPUB
         string englishString;
         string germanString;
 
+
+
         public SettingsDialogBox()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
@@ -86,6 +88,8 @@ namespace AccessibleEPUB
 
 
             Settings.Default.Save();
+
+            MessageBox.Show(Resource_MessageBox.changesContent, Resource_MessageBox.conversionTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
             this.Hide();

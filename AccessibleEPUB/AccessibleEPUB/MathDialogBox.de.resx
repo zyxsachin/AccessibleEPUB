@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="insertFormulaButton.Text" xml:space="preserve">
-    <value>Formel einfügen</value>
-  </data>
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
@@ -138,6 +135,27 @@
   </data>
   <data name="captionLabel.Text" xml:space="preserve">
     <value>Bildunterschrift (optional)</value>
+  </data>
+  <data name="floatGroupBox.Text" xml:space="preserve">
+    <value>Bildausrichtung</value>
+  </data>
+  <data name="rightRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 27</value>
+  </data>
+  <data name="rightRadioButton.Text" xml:space="preserve">
+    <value>Rechts</value>
+  </data>
+  <data name="leftRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 27</value>
+  </data>
+  <data name="leftRadioButton.Text" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="noneRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 27</value>
+  </data>
+  <data name="noneRadioButton.Text" xml:space="preserve">
+    <value>Keine</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Mathematik einfügen</value>

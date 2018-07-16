@@ -33,6 +33,29 @@ namespace AccessibleEPUB
             doc = mainWindowDoc;
         }
 
+        public TableDialogBox(IHTMLDocument2 mainWindowDoc, DataGridView old, string title)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
+         
+            InitializeComponent();
+            doc = mainWindowDoc;
+
+            adjustTable();
+
+            rowTextBox.Text = old.RowCount.ToString();
+            columnTextBox.Text = old.ColumnCount.ToString();
+            titleTextBox.Text = title;
+
+
+            dgv = CopyDataGridView(old);
+
+            //dgv.AutoSize = true;
+            //dgv.Location = new System.Drawing.Point(0, 0);
+
+            //tablePanel.Controls.Add(dgv);
+
+        }
+
 
 
         private DataGridView CopyDataGridView(DataGridView dgv_org)
@@ -159,7 +182,7 @@ namespace AccessibleEPUB
 
         private void insertTableButton_Click(object sender, EventArgs e)
         {
-     
+            
             string tableHTML = @"<TABLE title=""" + @titleTextBox.Text + @"""><TBODY>";
 
             for (int col = 0; col < dgv.ColumnCount; col++)
@@ -196,12 +219,12 @@ namespace AccessibleEPUB
             //}
 
             tableHTML += @"</TBODY> </TABLE>" + "\n";
-            Console.WriteLine(tableHTML);
+            //Console.WriteLine(tableHTML);
             dynamic currentLocation = doc.selection.createRange();
             currentLocation.pasteHTML(tableHTML);
 
             //doc.body.innerHTML += WebUtility.HtmlDecode(tableHTML);
-
+            this.DialogResult = DialogResult.OK;
             this.Hide();
             this.Dispose();
 
@@ -274,6 +297,7 @@ namespace AccessibleEPUB
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Hide();
             this.Dispose();
         }

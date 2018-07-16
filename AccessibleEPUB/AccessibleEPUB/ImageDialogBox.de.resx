@@ -139,9 +139,6 @@
   <data name="captionLabel.Text" xml:space="preserve">
     <value>Bildunterschrift (optional)</value>
   </data>
-  <data name="addImageButton.Text" xml:space="preserve">
-    <value>Bild einfügen</value>
-  </data>
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
@@ -173,6 +170,44 @@
   </data>
   <data name="heightLabel.Text" xml:space="preserve">
     <value>Höhe (px)</value>
+  </data>
+  <data name="alternativeImageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 23</value>
+  </data>
+  <data name="alternativeImageLabel.Text" xml:space="preserve">
+    <value>Alternativbild für Sehgeschädigte (optional)</value>
+  </data>
+  <data name="chooseAlternativeImageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAASFJREFUOE+lks9KAlEUh+8b5Bv0Bj2CzyC0Dty1b5kuoqWPEIEURLgIF4J/WtSi
+        zeimTTQSoRCViKKiMtvT/Q5eGfMOKh74cWfOOb9vzrmMiaIoayUbdGGSgobuU0E+q+deUbM9Y6vUwrIa
+        AGjk9AnAsBP4atmtAJjjE6HO46XMpyPqqY0An+jfG8C51Qo+xfvXAP33ur47sW+33ZJC+VVyd02pNdvy
+        3brR/BpgNuppIQ4AmM5X5ODkVo7OHsQcXyuEvPU8rwAgx81o8huqqfTyoT1AmIRnq8wSQON/s8sDwBR+
+        DeTw9N4BxstL1D0T/kamumq8KcSJdYLwB0gRQBEIX0oS9d5woiYHcxCdYpfggw7CvSzSuwUQ7oPTiMge
+        EvMH7hzdlDzjmN0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="floatGroupBox.Text" xml:space="preserve">
+    <value>Bildausrichtung</value>
+  </data>
+  <data name="rightRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 27</value>
+  </data>
+  <data name="rightRadioButton.Text" xml:space="preserve">
+    <value>Rechts</value>
+  </data>
+  <data name="leftRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 27</value>
+  </data>
+  <data name="leftRadioButton.Text" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="noneRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 27</value>
+  </data>
+  <data name="noneRadioButton.Text" xml:space="preserve">
+    <value>Keine</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Bild einfügen</value>

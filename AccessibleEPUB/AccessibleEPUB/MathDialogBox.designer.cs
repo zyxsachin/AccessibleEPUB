@@ -68,8 +68,8 @@
             // 
             // host
             // 
-            this.host.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.host, "host");
+            this.host.BackColor = System.Drawing.SystemColors.Window;
             this.host.Name = "host";
             this.host.TabStop = false;
             this.host.Child = null;

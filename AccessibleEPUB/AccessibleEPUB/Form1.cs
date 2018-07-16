@@ -83,6 +83,8 @@ namespace AccessibleEPUB
         bool refresh = true;
         bool mathmlManifestupdated = false;
 
+        bool split1panel1Visible = false;
+
 
         string tempFolderStillInUseLong = "Temp folder is still in use. After pressing OK, the file opening process will stop.";
         string tempFolderStillInUse = "Folder still in use";
@@ -131,6 +133,7 @@ namespace AccessibleEPUB
         string origLastSavedLabel;
 
 
+        /* Program startup */
 
         public Form1()
         {
@@ -157,12 +160,7 @@ namespace AccessibleEPUB
 
            
         }
-
-        
-      
-
-
-
+    
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -176,8 +174,7 @@ namespace AccessibleEPUB
             editToolStrip.SendToBack();
             menuBar.Dock = DockStyle.Top;
 
-
-
+            /* Steps needed to make the web browser editable */
             HTMLEditor.DocumentText = @"<html><body></body></html>"; //This will get our HTML editor ready, inserting common HTML blocks into the document
 
             doc = HTMLEditor.Document.DomDocument as IHTMLDocument2;
@@ -185,8 +182,7 @@ namespace AccessibleEPUB
             doc.designMode = "On";                                  //Make the web 'browser' an editable HTML field
 
 
-            //What we just did was make our web browser editable!
-
+            /* Sets up web browser to have the newest version of internet explorer loaded. Only the newest ones support SVGs and advanced CSS features */
             int BrowserVer, RegVal;
 
             // get the installed IE version
@@ -211,6 +207,7 @@ namespace AccessibleEPUB
                     Key.SetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe", RegVal, RegistryValueKind.DWord);
 
 
+            /* Makes the editor and the preview split into two equal parts */
             int halfWidth = splitContainer2.Width / 2;
             splitContainer2.SplitterDistance = halfWidth;
 
@@ -218,6 +215,123 @@ namespace AccessibleEPUB
             versionToolStrip.Location = new Point(toolStripContainer1.BottomToolStripPanel.Width - versionToolStrip.Width, versionToolStrip.Location.Y);
 
             languageToolStrip.Location = new Point(toolStripContainer1.BottomToolStripPanel.Width / 2 - languageToolStrip.Width / 2, languageToolStrip.Location.Y);
+        }
+
+        /* Sets up the editor in the form of a WebBrowser when the window has finised loading */
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+
+            IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
+
+            /* CSS of the initial editor */
+            ss.cssText = @"html *
+{
+	font-family: ""Arial"", Helvetica, sans-serif !important;
+
+        }
+        p {
+  font-size:16px;
+
+word-wrap: break-word;
+}
+
+figure {
+	padding: 2px;
+	max-width : 95%;
+    border: double 4px;
+}
+
+figcaption {
+	word-wrap: break-word;
+	max-width : 100%;
+  font-size:16px;
+}
+
+img {
+	max-width : 98%;
+    margin: 5px
+}
+
+
+object {
+  max-width : 100%; 
+}
+
+math {
+  max-width : 100%;
+
+}
+
+table, th, td, tr, tbody {
+      border-style: double;
+    border-collapse: collapse;
+    border-width:4px;
+  text-align: center;
+}
+
+.transparent {
+  display: none;
+  color: transparent;
+}
+
+body {
+	width: 100%;
+	margin-left: 2px;
+	margin-right: auto;
+}
+
+.math {
+
+    display:none;
+    height:0%;
+
+}
+
+.mathImpaired {
+
+    display:none;
+    height:0%;
+}
+
+.imageImpaired {
+    display: none;
+}
+
+.imageOthers {
+    max - width : 100 %;
+    display: initial;
+}
+
+
+;"
+;
+            //splitContainer1.Panel1Collapsed = true;
+            //splitContainer1.Panel1.Hide();
+
+            /* Events of the editor document body. They cannot be added with GUI builder as it Document is only created after the window has been loaded. */
+            HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyUp);
+
+            HTMLEditor.Document.Body.DoubleClick += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorDoubleClick);
+
+            //HTMLEditor.Document.Body.Click += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorClick);
+
+            HTMLEditor.Document.Body.MouseUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyMouseUp);
+
+            //HTMLEditor.Document.ExecCommand("FontName", false, "Arial");
+
+            /* Sets up the drop down menus */
+            InitHeadingsList();
+            InitFontList();
+            InitFontSizeList();
+
+
+            /* The timer is required to refresh the preview every second or so */
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += new System.EventHandler(timer_Tick);
+            timer.Start();
+
+
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
@@ -235,15 +349,8 @@ namespace AccessibleEPUB
 
         //}
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openFile(sender, e);
-        }
 
 
 
@@ -252,7 +359,7 @@ namespace AccessibleEPUB
 
         //}
 
-
+        /* Goes through the given path and return a node with all files as sub nodes. Subdirectories are recursively traversed. */
         private TreeNode TraverseDirectory(string path)
         {
             //int index = path.LastIndexOf('\\');
@@ -304,7 +411,7 @@ namespace AccessibleEPUB
         //    return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
         //}
 
-
+        /* The next three methods handle what is done after a treeview element is clicked. */
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -320,7 +427,9 @@ namespace AccessibleEPUB
             //    richTextBox1.Text = innerHtml;
             //    geckoWebBrowser1.ViewSource();
             //}
-    
+            
+           
+            /* Gets the path of the file from the treeview. If a directory is selected nothing happens. */
             string absPath = Path.Combine(accEpubFolderName, e.Node.FullPath);
             string fileName = e.Node.FullPath;
             FileAttributes attr = File.GetAttributes(absPath);
@@ -336,6 +445,7 @@ namespace AccessibleEPUB
             //    return;
             //}
 
+            /* Handles the various EPUB file types */
             if (openTabs == null || openTabs.Contains(fileName) == false)
             {
 
@@ -463,6 +573,7 @@ namespace AccessibleEPUB
 
             else
             {
+                /* If the file is already open in the code editor, then it just switches the tab. */
                 foreach (TabPage tab in filesTabControl.TabPages)
                 {
                     if (tab.Name == fileName)
@@ -485,6 +596,33 @@ namespace AccessibleEPUB
             //richTextBox1.Text = geckoWebBrowser1.Text;
         }
 
+        /* The clicked header will have its HtmlElement found, and then is scrolled to. */
+        private void headerTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string outerHtmlKey = e.Node.Name;
+            foreach (HtmlElement el in HTMLEditor.Document.Body.Children)
+            {
+                if (outerHtmlKey == el.OuterHtml)
+                {
+                    el.ScrollIntoView(true);
+                }
+            }
+        }
+
+        /* The clicked figure will have its HtmlElement found, and then is scrolled to. */
+        private void figureTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string outerHtmlKey = e.Node.Name;
+            foreach (HtmlElement el in HTMLEditor.Document.Body.Children)
+            {
+                if (outerHtmlKey == el.OuterHtml)
+                {
+                    el.ScrollIntoView(true);
+                }
+            }
+        }
+
+        /* Creates a manifest section in the metadata file. */
         private void createManifest()
         {
             string searchFolder = Path.Combine(epubFolderName, "OEBPS");
@@ -518,6 +656,7 @@ namespace AccessibleEPUB
 
         }
 
+        /* Updates the manifest section of the EPUB metadata file to reflect the changes */
         private string loopManifest(string manifestContentParameter, string searchFolder)
         {
             string initialFolder = Path.Combine(epubFolderName, "OEBPS");
@@ -600,45 +739,46 @@ namespace AccessibleEPUB
             return manifestContent;
         }
 
-        public void updateManifest()
-        {
-            string searchFolder = Path.Combine(epubFolderName, "OEBPS");
-            string manifestTagOpen = "<manifest>";
-            string manifestTagClose = "</manifest>";
+        //public void updateManifest()
+        //{
+        //    string searchFolder = Path.Combine(epubFolderName, "OEBPS");
+        //    string manifestTagOpen = "<manifest>";
+        //    string manifestTagClose = "</manifest>";
 
-            string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+        //    string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
 
-            int firstIndex = metadata.IndexOf(manifestTagOpen);
-            int endIndex = metadata.IndexOf(manifestTagClose);
+        //    int firstIndex = metadata.IndexOf(manifestTagOpen);
+        //    int endIndex = metadata.IndexOf(manifestTagClose);
 
-            string manifestHead = metadata.Substring(0, firstIndex);
+        //    string manifestHead = metadata.Substring(0, firstIndex);
 
-            string manifestBody = metadata.Substring(firstIndex, endIndex - firstIndex);
+        //    string manifestBody = metadata.Substring(firstIndex, endIndex - firstIndex);
 
-            string manifestEnd = metadata.Substring(endIndex + manifestTagClose.Length);
+        //    string manifestEnd = metadata.Substring(endIndex + manifestTagClose.Length);
 
-            string jsManifestIdRef = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\" properties=\"script\"/>";
-            string cssManifestIdRef = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\"/>";
+        //    string jsManifestIdRef = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\" properties=\"script\"/>";
+        //    string cssManifestIdRef = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\"/>";
 
-            string jsMathml = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\" properties=\"script mathml\"/>";
-            string cssMathml = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\" properties=\"mathml\"/>";
+        //    string jsMathml = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\" properties=\"script mathml\"/>";
+        //    string cssMathml = "<item id=\"Content.xhtml\" href=\"Text/Content.xhtml\" media-type=\"application/xhtml+xml\" properties=\"mathml\"/>";
 
-            string newJsIdRef = jsManifestIdRef.Replace("Content.xhtml", Path.GetFileName(contentFile));
-            string newCssIdRef = cssManifestIdRef.Replace("Content.xhtml", Path.GetFileName(contentFile));
+        //    string newJsIdRef = jsManifestIdRef.Replace("Content.xhtml", Path.GetFileName(contentFile));
+        //    string newCssIdRef = cssManifestIdRef.Replace("Content.xhtml", Path.GetFileName(contentFile));
 
-            string newJsMathml = jsMathml.Replace("Content.xhtml", Path.GetFileName(contentFile));
-            string newCssMathml = cssMathml.Replace("Content.xhtml", Path.GetFileName(contentFile));
+        //    string newJsMathml = jsMathml.Replace("Content.xhtml", Path.GetFileName(contentFile));
+        //    string newCssMathml = cssMathml.Replace("Content.xhtml", Path.GetFileName(contentFile));
 
-            metadata = metadata.Replace(newJsIdRef, newJsMathml);
-            metadata = metadata.Replace(newCssIdRef, newCssMathml);
-
-
-            File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), metadata);
-
-            mathmlManifestupdated = true;
-        }
+        //    metadata = metadata.Replace(newJsIdRef, newJsMathml);
+        //    metadata = metadata.Replace(newCssIdRef, newCssMathml);
 
 
+        //    File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), metadata);
+
+        //    mathmlManifestupdated = true;
+        //}
+
+
+        /* Opens a file according to its file type. */
         private void openTab(string absPath)
         {
             if (absPath.EndsWith(".xhtml") || absPath.EndsWith(".html"))
@@ -818,17 +958,6 @@ namespace AccessibleEPUB
 
         }
 
-        private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void openFileButton_Click(object sender, EventArgs e)
-        {
-            openFile(sender, e);
-        }
-
-
         //private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
         //{
 
@@ -856,7 +985,7 @@ namespace AccessibleEPUB
         //}
 
 
-
+        /* Opens a EPUB file and sets up the view, editor, and preview */
         private void openFile(object sender, EventArgs e)
         {
            
@@ -871,6 +1000,26 @@ namespace AccessibleEPUB
             string zipFileName = "";     // Formerly tempFile3 
 
 
+            /* Checks if a file is open and asks if it should be saved before opening a new file. */
+            if (containsFile == true || fileNotSaved == true)
+            {
+                //DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Save the file before exiting?", "Save changes", MessageBoxButtons.YesNoCancel);
+                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show(Resource_MessageBox.saveLeavingContent, Resource_MessageBox.saveLeavingTitle, MessageBoxButtons.YesNoCancel);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    saveFile();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+
+        
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 closeFile(sender, e);
@@ -920,7 +1069,7 @@ namespace AccessibleEPUB
                 }
 
 
-
+                /* Checks if the Accessible EPUB temp folder is not in use */
                 while (di.GetDirectories().Length != 0 || di.GetFiles().Length != 0)
                 {
                     //var result = MessageBox.Show("Could not delete all files in temp folder.", "Unable to delete files in temp folder", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
@@ -1141,6 +1290,13 @@ namespace AccessibleEPUB
             this.Text = Path.GetFileName(target) + " - " + accessibleEpubFormText;
 
             documentLanguageLabel.Text = origDocumentLanguageLabel + language;
+
+            updateHeaderList();
+
+            splitContainer1.Panel1Collapsed = false;
+            elementTabControl.Visible = true;
+            treeView1.Visible = false;
+
             HTMLEditor.Document.Focus();
             //openTab(contentFile);
         }
@@ -1180,14 +1336,13 @@ namespace AccessibleEPUB
 
        
 
-        private void closeFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            closeFile(sender, e);
 
-        }
 
+        /* Closes the current file and resets the view to the initial one. */
         private void closeFile(object sender, EventArgs e)
         {
+            splitContainer1.Panel1Collapsed = true;
+          
             filesTabControl.TabPages.Clear();
             treeView1.Nodes.Clear();
             openTabs.Clear();
@@ -1222,10 +1377,6 @@ namespace AccessibleEPUB
 
 
 
-        private void newFileButton_Click(object sender, EventArgs e)
-        {
-            newSingleFile(sender, e);
-        }
 
         public void setMode(int modeNew)
         {
@@ -1357,11 +1508,9 @@ namespace AccessibleEPUB
                 } while (isInUse);
 
             }
-
+           
             if (mode == (int)fileMode.singleFileCss)
             {
-
-
                 //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", accEpubFolderName);
                 string emptySingleFileZip = Path.Combine("EmptyFiles", "SingleFile", "empty_Single_File.zip");
                 string emptySingleFileEpub = Path.Combine("EmptyFiles", "SingleFile", "empty_Single_File.epub");
@@ -1666,9 +1815,13 @@ namespace AccessibleEPUB
             newMetaData = newMetaData.Replace("BookIdentificationNumber", uuidString);
 
             File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), newMetaData);
+            
+            if (mode == (int)fileMode.singleFileJs)
+            {
+                impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
+                blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
+            }
 
-            impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
-            blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
 
             //geckoWebBrowser1.Navigate(contentFile);
             //geckoWebBrowser2.Navigate(impairedContentFile);
@@ -1685,9 +1838,11 @@ namespace AccessibleEPUB
             impFile = impFile.Replace(cssString, impCssString);
             bliFile = bliFile.Replace(cssString, bliCssString);
 
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
-
+            if (mode == (int)fileMode.singleFileJs)
+            {
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile)), impFile);
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile)), bliFile);
+            }
 
             determineLanguage();
 
@@ -1697,6 +1852,10 @@ namespace AccessibleEPUB
             geckoWebBrowser4.Navigate(contentFile);
             splitContainer2.Panel2Collapsed = false;
             splitContainer2.Panel2.Show();
+
+            splitContainer1.Panel1Collapsed = false;
+            elementTabControl.Visible = true;
+            treeView1.Visible = false;
 
             showToolStrips();
 
@@ -1721,6 +1880,8 @@ namespace AccessibleEPUB
       
         }
 
+        /* The next few methods handle special directory actions */
+        /* Deletes the contents of an empty or not empty directory, but not the directory itself. */
         private void DirectoryDelete(string path)
         {
 
@@ -1764,24 +1925,26 @@ namespace AccessibleEPUB
 
         }
 
-        private static void CloneDirectory(string root, string dest)
-        {
-            foreach (var directory in Directory.GetDirectories(root))
-            {
-                string dirName = Path.GetFileName(directory);
-                if (!Directory.Exists(Path.Combine(dest, dirName)))
-                {
-                    Directory.CreateDirectory(Path.Combine(dest, dirName));
-                }
-                CloneDirectory(directory, Path.Combine(dest, dirName));
-            }
+       
+        //private static void CloneDirectory(string root, string dest)
+        //{
+        //    foreach (var directory in Directory.GetDirectories(root))
+        //    {
+        //        string dirName = Path.GetFileName(directory);
+        //        if (!Directory.Exists(Path.Combine(dest, dirName)))
+        //        {
+        //            Directory.CreateDirectory(Path.Combine(dest, dirName));
+        //        }
+        //        CloneDirectory(directory, Path.Combine(dest, dirName));
+        //    }
 
-            foreach (var file in Directory.GetFiles(root))
-            {
-                File.Copy(file, Path.Combine(dest, Path.GetFileName(file)));
-            }
-        }
+        //    foreach (var file in Directory.GetFiles(root))
+        //    {
+        //        File.Copy(file, Path.Combine(dest, Path.GetFileName(file)));
+        //    }
+        //}
 
+        /* Copies the contents of the directory, but not the directory itself. */
         private static void DirectoryCopy(string sourceDirName, string destDirName)
         {
             // Get the subdirectories for the specified directory.
@@ -1821,6 +1984,7 @@ namespace AccessibleEPUB
 
         }
 
+        /* Refreshes the code editor view to have the newest content. */
         private void filesTabControl_Selected(object sender, TabControlEventArgs e)
         {
             if (filesTabControl.TabPages.Count >= 1)
@@ -1832,6 +1996,7 @@ namespace AccessibleEPUB
             }
         }
 
+        /* Generates the table of contents, but only for JavaScript version of Accessible EPUB */
         private void generateTableOfContents()
         {
             //string oebpsFolder = Path.Combine(epubFolderName, "OEBPS", "Text");
@@ -2183,7 +2348,7 @@ namespace AccessibleEPUB
         }
 
 
-
+        /* The XHTML div section splits for each section */
         string startOfContent = "<!--StartOfContent-->";
         string imp = "<div style=\"padding:none\" id=\"impaired\" class=\"impaired\">\n<!--StartOfImpairedSection-->\n";
         string impEnd = "<!--EndOfImpairedSection-->\n</div>\n";
@@ -2241,6 +2406,7 @@ namespace AccessibleEPUB
             saveFile();
         }
 
+        /* Zips up the EPUB as according to the EPUB standards. The mimetype file should not be compressed, so is added separately. */
         private void createEpubZip(string source, string dest)
         {
       
@@ -2340,29 +2506,41 @@ namespace AccessibleEPUB
 
             //contentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "Content.xhtml");
 
+            impairedContentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "ImpContent.xhtml");
+            blindContentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "BliContent.xhtml");
+            if (File.Exists(impairedContentFile))
+            {
+                File.Delete(impairedContentFile);
+            }
+
+
+            if (File.Exists(blindContentFile))
+            {
+                File.Delete(blindContentFile);
+            }
+
             if (mode == (int)fileMode.singleFileJs)
             {
                 //impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
                 //blindContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Bli" + Path.GetFileName(contentFile));
-
-                impairedContentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "ImpContent.xhtml");
-                blindContentFile = Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "BliContent.xhtml");
+               
 
 
-                if (File.Exists(impairedContentFile))
-                {
-                    File.Delete(impairedContentFile);
-                }
+                //if (File.Exists(impairedContentFile))
+                //{
+                //    File.Delete(impairedContentFile);
+                //}
 
 
-                if (File.Exists(blindContentFile))
-                {
-                    File.Delete(blindContentFile);
-                }
+                //if (File.Exists(blindContentFile))
+                //{
+                //    File.Delete(blindContentFile);
+                //}
 
                 generateTableOfContents();
             }
-        
+
+          
 
             string zipFileName = epubFolderName + ".zip";
             File.Delete(zipFileName);
@@ -2447,6 +2625,7 @@ namespace AccessibleEPUB
             }
         }
 
+        /* Converts code editor code to WYSIWYG editor suitable code. */
         private void htmlToWysiwyg()
         {
             string vis = "<div id=\"visible\" class=\"visible\">";
@@ -2528,6 +2707,8 @@ namespace AccessibleEPUB
 
         }
 
+
+        /* Converts the WYSIWYG browser content to regular XHTML. */
         private void wysiwygToHtml()
         {
             //if ((contentFile == (Path.Combine(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "Text"), "nav.xhtml"))))
@@ -2696,6 +2877,7 @@ namespace AccessibleEPUB
             TextReader tr;
             tr = new StringReader(newContent);
 
+            /* SgmlReader has to be used to convert the HTML to XHTML. */
             // setup SgmlReader
             Sgml.SgmlReader sgmlReader = new Sgml.SgmlReader();
             sgmlReader.DocType = "HTML";
@@ -2734,7 +2916,7 @@ namespace AccessibleEPUB
 
             System.IO.File.WriteAllText(contentFile, newContent);
 
-
+            /* Loads a file to a code editor. */
             foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
             {
                 ca.Value.Load(Path.Combine(accEpubFolderName, ca.Key));
@@ -2743,145 +2925,81 @@ namespace AccessibleEPUB
 
         }
 
-        private void saveToEpub()
-        {
 
-        }
+//        private void addFilesToMeta()
+//        {
+//            string fileName = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf");
+//            string content = File.ReadAllText(fileName);
 
-        private void addFilesToMeta()
-        {
-            string fileName = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf");
-            string content = File.ReadAllText(fileName);
+//            string startManifest = "<manifest>";
+//            string endManifest = "</manifest>";
 
-            string startManifest = "<manifest>";
-            string endManifest = "</manifest>";
+//            int startManiIndex = content.IndexOf(startManifest);
+//            int endManiIndex = content.IndexOf(endManifest);
 
-            int startManiIndex = content.IndexOf(startManifest);
-            int endManiIndex = content.IndexOf(endManifest);
+//            string defaultText = @"
+//                <item id=""ncx"" href=""toc.ncx"" media-type=""application/x-dtbncx+xml""/>
+//                <item id=""Content.xhtml"" href=""Text/Content.xhtml"" media-type=""application/xhtml+xml""/>
+//";
 
-            string defaultText = @"
-                <item id=""ncx"" href=""toc.ncx"" media-type=""application/x-dtbncx+xml""/>
-                <item id=""Content.xhtml"" href=""Text/Content.xhtml"" media-type=""application/xhtml+xml""/>
-";
+//            //< item id = "Content.xhtml" href = "Text/Content.xhtml" media - type = "application/xhtml+xml" />
 
-            //< item id = "Content.xhtml" href = "Text/Content.xhtml" media - type = "application/xhtml+xml" />
+//            //     < item id = "style.css" href = "Styles/style.css" media - type = "text/css" />
 
-            //     < item id = "style.css" href = "Styles/style.css" media - type = "text/css" />
-
-            //          < item id = "navid" href = "Text/nav.xhtml" media - type = "application/xhtml+xml" properties = "nav" /> "
-        }
+//            //          < item id = "navid" href = "Text/nav.xhtml" media - type = "application/xhtml+xml" properties = "nav" /> "
+//        }
 
      
 
-        private void Form1_Shown(object sender, EventArgs e)
+      
+
+        private void HTMLEditorClick(object sender, HtmlElementEventArgs e)
         {
+            int x = e.MousePosition.X;
+            int y = e.MousePosition.Y;
+            Point p = new Point(x, y);
+      
+            Point ScreenCoord = new Point(MousePosition.X, MousePosition.Y);
 
-            IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
-            ss.cssText = @"html *
-{
-	/*font-family: ""Arial"", Helvetica, sans-serif !important;*/
+            Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
 
-        }
-        p {
-  font-size:16px;
+            HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
 
-word-wrap: break-word;
-}
-
-    figure {
-	padding: 2px;
-	max-width : 95%;
-    border: double;
-}
-
-figcaption {
-	word-wrap: break-word;
-	max-width : 100%;
-  font-size:16px;
-}
-
-img {
-	max-width : 100%;
-}
-
-
-object {
-  max-width : 100%; 
-}
-
-math {
-  max-width : 100%;
-
-}
-
-table, th, td {
-  border: 1px solid black;
-  text-align: center;
-}
-
-.transparent {
-  display: none;
-  color: transparent;
-}
-
-body {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.math {
-
-    display:none;
-    height:0%;
-
-}
-
-.mathImpaired {
-
-    display:none;
-    height:0%;
-}
-
-.imageImpaired {
-	display:none; 
-}
-
-.imageOthers {	
-	max-width : 100%;
-	display:initial;
-}
-	
-
-
-
-;"
-;
-            //splitContainer1.Panel1Collapsed = true;
-            //splitContainer1.Panel1.Hide();
-
-            HTMLEditor.Document.Body.KeyUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyKeyUp);
-
-
-            HTMLEditor.Document.Body.DoubleClick += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorDoubleClick);
-               
-
-            //HTMLEditor.Document.ExecCommand("FontName", false, "Arial");
-
-            InitHeadingsList();
-            InitFontList();
-            InitFontSizeList();
-
-
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += new System.EventHandler(timer_Tick);
-            timer.Start();
 
             
+             dynamic currentSelection = doc.selection as IHTMLSelectionObject;
+            
+            if (elem.TagName == "IMG")
+            {
+                IHTMLElement current = doc.elementFromPoint(x, y) as IHTMLElement;
+                IHTMLElement pare = current.parentElement;
+                dynamic range = currentSelection.createRange() as IHTMLTxtRange;
+                //    //HTMLEditor.Document.Body.
+                Console.WriteLine(current.outerHTML);
+                //    HTMLSelectElement bla = new HTMLSelectElement();
+
+
+                foreach (IHTMLElement a in doc.all)
+                {
+
+                    if (a.outerHTML == pare.outerHTML)
+                    {
+                        Console.WriteLine(a.outerHTML);
+                        range.moveToElementText(pare);
+                        range.select();
+                    }
+                }
+
+
+
+
+
+            }
+
         }
 
 
+        /* Gets the current heading style (p, h1, h2 and so on */
         private void updateFontFormat()
         {
             string elemOuter = "";
@@ -2950,7 +3068,7 @@ body {
             }
         }
 
-
+        /* Replaces only the first instance of a string */
         private string ReplaceFirst(string text, string search, string replace)
         {
             int pos = text.IndexOf(search);
@@ -2961,6 +3079,7 @@ body {
             return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
         }
 
+        /* Finds the HtmlElement which has been double clicked on and passes the result to the method identifyElement. */
         private void HTMLEditorDoubleClick(object sender, HtmlElementEventArgs e)
         {
             int x = e.MousePosition.X;
@@ -2971,7 +3090,7 @@ body {
 
             Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
         
-            HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
+            HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);       
 
             identifyElement(elem);
 
@@ -3453,6 +3572,7 @@ body {
             ////}
         }
 
+        /* Method is used to for editing images, math and tables. It also allows the bullet point style to chagne */
         private void identifyElement(HtmlElement elem)
         {
             HtmlElementCollection elems = HTMLEditor.Document.GetElementsByTagName(elem.TagName);
@@ -3529,7 +3649,119 @@ body {
                 }
             }
 
+            if (elem.TagName.StartsWith("TABLE"))
+            {
+                int rows = 0;
+                int cols = 0;
+                int rowCount = 0;
+                int colCount = 0;
 
+                string titleStart = "title=\"";
+                string titleEnd = "\">";
+
+                string oldElem = elem.OuterHtml;
+
+                string s = elem.OuterHtml;
+
+                int titleStartIndex = s.IndexOf(titleStart) + titleStart.Length;
+                int titleEndIndex = 0;
+                string shorterString = s;
+                string title = "";
+
+                if (elem.OuterHtml.Contains(titleStart))
+                {
+                    for (int i = titleStartIndex; i < s.Length + titleStart.Length; i++)
+                    {
+                        //Console.Write(s[i]);
+                        if (s.Substring(i).StartsWith(titleEnd))
+                        {
+                            titleEndIndex = i;
+                            break;
+                        }
+                    }
+                    title = s.Substring(titleStartIndex, titleEndIndex - titleStartIndex);
+                }
+              
+
+                //Console.WriteLine(s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex));
+               
+                //Console.WriteLine("TITLE: " + title);
+
+                DataGridView table = new DataGridView();
+                foreach (HtmlElement a in elem.FirstChild.Children)
+                {                                     
+                    foreach (HtmlElement b in a.Children)
+                    {                   
+                        cols++;
+                    }
+
+                    rows++;
+                }
+
+                cols = cols / rows;
+
+                table.RowCount = rows;
+                table.ColumnCount = cols;
+
+                foreach (HtmlElement a in elem.FirstChild.Children)
+                {
+
+                    //Console.WriteLine(a.OuterHtml);
+                    foreach (HtmlElement b in a.Children)
+                    {
+                        table.Rows[rowCount].Cells[colCount].Value = b.InnerHtml;
+                        //Console.WriteLine(b.InnerHtml);
+                        colCount++;
+                    }
+                    colCount = 0;
+                    rowCount++;
+                }
+                elem.OuterHtml = "";
+                HTMLEditor.Document.ExecCommand("Delete", false, null);
+
+                HTMLEditor.Document.ExecCommand("formatBlock", false, "<p>");
+
+                //for (int i = 0; i < rows; ++i)
+                //{
+                //    for (int j = 0; j < cols; ++j)
+                //    {
+                //       Console.WriteLine("Row: " + i + ", Col: " + j + ": " +table.Rows[i].Cells[j].Value);
+                //    }
+                //}
+
+                //Console.WriteLine("Rows: " + rows);
+                //Console.WriteLine("Cols: " + cols);
+
+                TableDialogBox tdb = new TableDialogBox(doc, table, title);
+                tdb.ShowDialog();
+
+
+                if (tdb.DialogResult.Equals(DialogResult.Cancel))
+                {
+                   
+                    dynamic currentLocation = doc.selection.createRange();
+                    currentLocation.pasteHTML(oldElem);
+                }
+
+                fileEdited = true;
+                fileNotSaved = true;
+
+                refreshBrowsers();
+
+            }
+
+
+            if (elem.TagName.StartsWith("IMG"))
+            {
+
+                if (elem.Parent.TagName.StartsWith("FIGURE"))
+                {
+                    elem = elem.Parent;
+                    elem.Focus();
+                }
+               
+               
+            }
 
 
 
@@ -3639,13 +3871,13 @@ body {
 
                     if (figElem.Contains("float : left") || figElem.Contains("float: left") || figElem.Contains("float :left") || figElem.Contains("float:left"))
                     {
-                        Console.WriteLine(figElem);
+                        //Console.WriteLine(figElem);
                         floatValue = "left";
 
                     }
                     else if (figElem.Contains("float : right") || figElem.Contains("float: right") || figElem.Contains("float :right") || figElem.Contains("float:right"))
                     {
-                        Console.WriteLine(figElem);
+                        //Console.WriteLine(figElem);
                         floatValue = "right";
 
                     }
@@ -3743,7 +3975,7 @@ body {
                     }
 
                     string oldElem = elem.OuterHtml;
-                    //elem.OuterHtml = "";
+                    elem.OuterHtml = "";
                     HTMLEditor.Document.ExecCommand("Delete", false, null);
 
 
@@ -3883,7 +4115,7 @@ body {
                     }
 
                     string oldElem = elem.OuterHtml;
-                    //elem.OuterHtml = "";
+                    elem.OuterHtml = "";
                     HTMLEditor.Document.ExecCommand("Delete", false, null);
 
 
@@ -3938,21 +4170,99 @@ body {
         void timer_Tick(object sender, EventArgs e)
         {
             // 'Raise event
-          if (containsFile == true && fileEdited == true)
+            if (containsFile == true && fileEdited == true)
             {
                 refreshBrowsers();
                 //HTMLEditor.Document.Focus();
-                updateFontFormat();
+                updateFontFormat();            
+            }
+        }
+            
+
+        private void updateHeaderList()
+        {
+            headerTreeView.Nodes.Clear();
+            figureTreeView.Nodes.Clear();
+            //List<HtmlElement> headerOrder = new List<HtmlElement>();
+            //Dictionary<HtmlElement, string> headerMap = new Dictionary<HtmlElement, string>();
+             
+            foreach (HtmlElement el in HTMLEditor.Document.Body.Children)
+            {
+                if ((el.TagName == "H1") || (el.TagName == "H2") || (el.TagName == "H3") || (el.TagName == "H4") || (el.TagName == "H5") || (el.TagName == "H6"))
+                {
+                    //headerOrder.Add(el);
+                    //headerMap.Add(el, el.InnerText);
+                    headerTreeView.Nodes.Add(el.OuterHtml, el.InnerText);
+                }
+              
+
+                if ((el.TagName == "FIGURE"))
+                {
+                    //Console.WriteLine(el.OuterHtml);
+
+                    string s = el.OuterHtml;
+                    string titleStart = "title=\"";
+                    string titleEnd = "\" ";
+                    string title = "";
+                    int titleStartIndex = s.IndexOf(titleStart);
+                    int titleEndIndex = 0;
+                    string shorterString = s;
+
+                    string tag = "";
+
+
+                    string altBeg = "alttext=\"";
+                    string altText = "";
+
+                    string openTag = "&lt;";
+                    string endTag = "&gt;";
+                    string nodeValue = "";
+
+                    if (s.ToLower().Contains(altBeg))
+                    {
+                        for (int i = s.IndexOf(altBeg) + altBeg.Length; s[i] != '\"'; i++ )
+                        {
+                            altText = altText + s[i];
+                        }
+                        
+                        
+                        nodeValue = altText;
+                    }
+                    else
+                    {
+                        for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
+                        {
+
+                            if (s.Substring(i).StartsWith(titleEnd))
+                            {
+                                titleEndIndex = i;
+                                break;
+                            }
+
+                        }
+
+                        title = s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length);
+                        nodeValue = title;
+                    }
+
+          
+                    //Console.WriteLine(nodeValue);
+
+                    figureTreeView.Nodes.Add(el.OuterHtml, nodeValue);
+                }
+                //el.ScrollIntoView(true);
             }
         }
 
 
+        /* Updates the preview to reflect the editor's contents */
         private void refreshBrowsers()
         {
             //Gecko.GeckoDocument.StyleSheetCollection styleSheets12 = geckoWebBrowser1.Document.StyleSheets;
             //GeckoStyleSheet styleSheet12 = geckoWebBrowser1.Document.StyleSheets.First();
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet12) + "CSS End");
 
+            /* CSS style of browser which is slightly different to the Accessible EPUB standard */
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
             ss.cssText = @"html *
 {
@@ -3968,7 +4278,7 @@ word-wrap: break-word;
 figure {
 	padding: 2px;
 	max-width : 95%;
-    border: double;
+    border: double 4px;
 }
 
 figcaption {
@@ -3979,6 +4289,7 @@ figcaption {
 
 img {
 	max-width : 100%;
+    margin: 10px
 }
 
 
@@ -3991,8 +4302,10 @@ math {
 
 }
 
-table, th, td {
-  border: 1px solid black;
+table, th, td, tr, tbody {
+      border-style: double;
+    border-collapse: collapse;
+    border-width:4px;
   text-align: center;
 }
 
@@ -4003,7 +4316,7 @@ table, th, td {
 
 body {
 	width: 100%;
-	margin-left: auto;
+	margin-left: 2px;
 	margin-right: auto;
 }
 
@@ -4020,6 +4333,14 @@ body {
     height:0%;
 }
 
+.imageImpaired {
+    display: none;
+}
+
+.imageOthers {
+    max - width : 100 %;
+    display: initial;
+}
 
 
 ;"
@@ -4209,6 +4530,16 @@ body {
             fileEdited = false;
         }
 
+        private void HTMLEditorBodyMouseUp(object sender, System.Windows.Forms.HtmlElementEventArgs e)
+        {
+            if (containsFile == true && fileEdited == true)
+            {
+                refreshBrowsers();
+                //HTMLEditor.Document.Focus();
+                updateFontFormat();
+            }
+        }
+
 
         private void HTMLEditorBodyKeyUp(object sender, System.Windows.Forms.HtmlElementEventArgs e)
         {
@@ -4259,8 +4590,7 @@ body {
                 lastSavedLabel.Text = origLastSavedLabel + span.Minutes + " Min";
             }
 
-          
-            
+
         }
 
         
@@ -4638,6 +4968,7 @@ body {
             insertOrderedList();
         }
 
+
         private void unorderedListButton_Click(object sender, EventArgs e)
         {
             insertUnorderedList();
@@ -4710,55 +5041,17 @@ body {
             insertMath();
         }
 
-        private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            //if (e.Control && e.KeyCode == Keys.B)
-            //{
-            //    makeBold();
-            //}
-            //else if (e.Control && e.KeyCode == Keys.I)
-            //{
-            //    makeItalic();
-            //}
-            //else if (e.Control && e.KeyCode == Keys.U)
-            //{
-            //    makeUnderline();
-            //}
-            //else if (e.Control && e.KeyCode == Keys.I)
-            //{
-            //    makeItalic();
-            //}
-
-
-        }
-
         private void keyPressSave(object sender, KeyPressedEventArgs e)
         {
             if (e.HotKey.Key == Key.S)
             {
                 saveFile();
             }
-
-            //if (e.HotKey.Key == Key.None)
-            //{
-            //    geckoWebBrowser1.Reload();
-            //}
         }
 
-        private void newDocumentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            newSingleFile(sender, e);
-        }
+       
 
-        private void openFileToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            openFile(sender, e);
-        }
 
-        private void closeFileToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            closeFile(sender, e);
-        }
 
         private string getImageFolder()
         {
@@ -4873,17 +5166,29 @@ body {
         }
 
         private void toggleFileExplorerButton_Click(object sender, EventArgs e)
-        {
+        {           
             if (splitContainer1.Panel1Collapsed == true)
             {
+                treeView1.Visible = true;
+                elementTabControl.Visible = false;
+
                 splitContainer1.Panel1Collapsed = false;
                 splitContainer1.Panel1.Show();
+                
             }
-
             else if (splitContainer1.Panel1Collapsed == false)
             {
-                splitContainer1.Panel1Collapsed = true;
-                splitContainer1.Panel1.Hide();
+                if (treeView1.Visible == false)
+                {
+                    treeView1.Visible = true;
+                    elementTabControl.Visible = false;
+                }
+                else
+                {
+                    splitContainer1.Panel1Collapsed = true;
+                    splitContainer1.Panel1.Hide();
+                }
+               
             }
         }
 
@@ -4954,8 +5259,6 @@ body {
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-
             if (containsFile == false)
             {
                 return;
@@ -4978,11 +5281,12 @@ body {
                     e.Cancel = true;
                 }
             }
-
+            HTMLEditor.Dispose();
             geckoWebBrowser1.Dispose();
             geckoWebBrowser2.Dispose();
             geckoWebBrowser3.Dispose();
             geckoWebBrowser4.Dispose();
+            this.Dispose();
             Environment.Exit(0);
            
         }
@@ -5021,6 +5325,10 @@ body {
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (containsFile == false)
+            {
+                return;
+            }
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
             saveFileDialog1.Title = "Create a new EPUB File";
@@ -5048,9 +5356,46 @@ body {
             newSingleFile(sender, e);
         }
 
+
+        private void newFileButton_Click(object sender, EventArgs e)
+        {
+            newSingleFile(sender, e);
+        }
+
+        private void newDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            newSingleFile(sender, e);
+        }
+
+
         private void openFileSplashButton_Click(object sender, EventArgs e)
         {
             openFile(sender, e);
+        }
+
+        private void openFileButton_Click(object sender, EventArgs e)
+        {
+            openFile(sender, e);
+        }
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFile(sender, e);
+        }
+
+
+        private void openFileToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            openFile(sender, e);
+        }
+
+        private void closeFileToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            closeFile(sender, e);
+        }
+
+        private void closeFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeFile(sender, e);
         }
 
         private void playPauseRefreshButton_Click(object sender, EventArgs e)
@@ -5104,6 +5449,7 @@ body {
             togglePreviewButton.Visible = true;
             playPauseRefreshButton.Visible = true;
             toggleToolStripSeparator.Visible = true;
+            toggleNavigationPaneButton.Visible = true;
         }
 
         private void hideToolStrips()
@@ -5115,6 +5461,173 @@ body {
             togglePreviewButton.Visible = false;
             playPauseRefreshButton.Visible = false;
             toggleToolStripSeparator.Visible = false;
+            toggleNavigationPaneButton.Visible = false;
+        }
+
+        private void editImageMath()
+        {
+            IHTMLElement ielem = null;
+            HtmlElement elem;
+
+
+            IHTMLSelectionObject currentSelection = doc.selection;
+            if (currentSelection != null)
+            {
+                IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
+                IHTMLTxtRange oldRange = currentSelection.createRange() as IHTMLTxtRange;
+
+                //if (range != null)
+                //{
+                //    range.moveToElementText(range.parentElement());
+                //    //range.select();
+                //    Console.WriteLine("RangeHTML: " + range.parentElement().parentElement.outerHTML);
+
+
+                //    foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                //    {
+                //        Console.WriteLine("Kid: " + kid.OuterHtml);
+                //        if (kid.OuterHtml.ToLower().StartsWith( @"<div style=""display:inline""> <figure"))
+                //        {
+                //            //Console.WriteLine("Kid: " + kid.OuterHtml);
+                //        }
+                //        //Console.WriteLine(kid.OuterHtml);
+                //        if (kid.OuterHtml.ToLower().Contains(range.parentElement().parentElement.outerHTML.ToLower()))
+                //        {
+                //            if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                //            {
+                //                //Console.WriteLine("SAME");
+                //                elem = kid;
+
+                //                identifyElement(elem);
+                //                oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
+                //                return;
+                //            }
+
+                //        }
+                //    }
+
+                //    if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
+                //    {
+                //        //ielem = range.parentElement();
+                //        //Console.WriteLine(ielem.outerHTML);
+
+                //        //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                //        //{
+                //        //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                //        //    {
+                //        //        Console.WriteLine("Kid: " + kid.OuterHtml);
+                //        //    }
+                //        //    //Console.WriteLine(kid.OuterHtml);
+                //        //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
+                //        //    {
+                //        //        Console.WriteLine("SAME");
+                //        //    }
+                //        //}
+                //    }
+
+                //    if (range.htmlText.ToLower().StartsWith("<figure"))
+                //    {
+                //        return;
+                //    }
+                //    //if (ielem == null)
+                //    //{
+                //    //    return;
+                //    //}
+
+                //    if (!range.parentElement().outerHTML.ToLower().Contains("<math"))
+                //    {
+                //        return;
+                //    }
+
+
+                //MessageBox.Show(range.text);
+                //range.select();
+
+
+
+                //}
+
+                if (range != null)
+                {
+                    //Console.WriteLine(range.htmlText);
+                    //if (range.htmlText.EndsWith("</FIGCAPTION>"))
+                    //{
+                    //    return;
+                    //}
+
+                    range.moveToElementText(range.parentElement());
+                    //range.select();
+                    //Console.WriteLine("RangeHTML: " + range.parentElement().outerHTML);
+
+
+                    foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                    {
+                        //Console.WriteLine("Kid: " + kid.OuterHtml);
+                        if (kid.OuterHtml.ToLower().StartsWith(@"<div style=""display:inline""> <figure"))
+                        {
+                            //Console.WriteLine("Kid: " + kid.OuterHtml);
+                        }
+                        //Console.WriteLine(kid.OuterHtml);
+                        if (kid.OuterHtml.ToLower().Contains(range.parentElement().outerHTML.ToLower()))
+                        {
+                            if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                            {
+                                //Console.WriteLine("SAME");
+                                elem = kid;
+
+                                identifyElement(elem);
+                                oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
+                                return;
+                            }
+
+                            else if (kid.OuterHtml.ToLower().StartsWith("<ol") || kid.OuterHtml.ToLower().StartsWith("<ul"))
+                            {
+                                elem = kid;
+                                identifyElement(elem);
+                                return;
+                            }
+                        }
+                    }
+
+                    if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
+                    {
+                        //ielem = range.parentElement();
+                        //Console.WriteLine(ielem.outerHTML);
+
+                        //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+                        //{
+                        //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+                        //    {
+                        //        Console.WriteLine("Kid: " + kid.OuterHtml);
+                        //    }
+                        //    //Console.WriteLine(kid.OuterHtml);
+                        //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
+                        //    {
+                        //        Console.WriteLine("SAME");
+                        //    }
+                        //}
+                    }
+
+                    //if (range.htmlText.ToLower().StartsWith("<figure"))
+                    //{
+                    //    return;
+                    //}
+                    //if (ielem == null)
+                    //{
+                    //    return;
+                    //}
+
+
+
+
+                    //MessageBox.Show(range.text);
+                    //range.select();
+
+
+
+                }
+            }
+
         }
 
         private void HTMLEditor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -5132,163 +5645,171 @@ body {
                 e.IsInputKey = true;
                 outdent();
             }
-            else if (e.Control && e.KeyCode == Keys.F3)
+            //else if (e.Control && e.KeyCode == Keys.F3)
+            //{
+
+            //e.IsInputKey = true;
+
+            //IHTMLSelectionObject currentSelection = doc.selection;
+            //if (currentSelection != null)
+            //{
+            //    IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
+            //    IHTMLTxtRange oldRange = currentSelection.createRange() as IHTMLTxtRange;
+
+            //    //if (range != null)
+            //    //{
+            //    //    range.moveToElementText(range.parentElement());
+            //    //    //range.select();
+            //    //    Console.WriteLine("RangeHTML: " + range.parentElement().parentElement.outerHTML);
+
+
+            //    //    foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+            //    //    {
+            //    //        Console.WriteLine("Kid: " + kid.OuterHtml);
+            //    //        if (kid.OuterHtml.ToLower().StartsWith( @"<div style=""display:inline""> <figure"))
+            //    //        {
+            //    //            //Console.WriteLine("Kid: " + kid.OuterHtml);
+            //    //        }
+            //    //        //Console.WriteLine(kid.OuterHtml);
+            //    //        if (kid.OuterHtml.ToLower().Contains(range.parentElement().parentElement.outerHTML.ToLower()))
+            //    //        {
+            //    //            if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+            //    //            {
+            //    //                //Console.WriteLine("SAME");
+            //    //                elem = kid;
+
+            //    //                identifyElement(elem);
+            //    //                oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
+            //    //                return;
+            //    //            }
+
+            //    //        }
+            //    //    }
+
+            //    //    if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
+            //    //    {
+            //    //        //ielem = range.parentElement();
+            //    //        //Console.WriteLine(ielem.outerHTML);
+
+            //    //        //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+            //    //        //{
+            //    //        //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+            //    //        //    {
+            //    //        //        Console.WriteLine("Kid: " + kid.OuterHtml);
+            //    //        //    }
+            //    //        //    //Console.WriteLine(kid.OuterHtml);
+            //    //        //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
+            //    //        //    {
+            //    //        //        Console.WriteLine("SAME");
+            //    //        //    }
+            //    //        //}
+            //    //    }
+
+            //    //    if (range.htmlText.ToLower().StartsWith("<figure"))
+            //    //    {
+            //    //        return;
+            //    //    }
+            //    //    //if (ielem == null)
+            //    //    //{
+            //    //    //    return;
+            //    //    //}
+
+            //    //    if (!range.parentElement().outerHTML.ToLower().Contains("<math"))
+            //    //    {
+            //    //        return;
+            //    //    }
+
+
+            //        //MessageBox.Show(range.text);
+            //        //range.select();
+
+
+
+            //    //}
+
+            //    if (range != null)
+            //    {
+            //        Console.WriteLine(range.htmlText);
+            //        if (range.htmlText.EndsWith("</FIGCAPTION>"))
+            //        {
+            //            return;
+            //        }
+
+            //        range.moveToElementText(range.parentElement());
+            //        //range.select();
+            //        //Console.WriteLine("RangeHTML: " + range.parentElement().outerHTML);
+
+
+            //        foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+            //        {
+            //            //Console.WriteLine("Kid: " + kid.OuterHtml);
+            //            if (kid.OuterHtml.ToLower().StartsWith(@"<div style=""display:inline""> <figure"))
+            //            {
+            //                //Console.WriteLine("Kid: " + kid.OuterHtml);
+            //            }
+            //            //Console.WriteLine(kid.OuterHtml);
+            //            if (kid.OuterHtml.ToLower().Contains(range.parentElement().outerHTML.ToLower()))
+            //            {
+            //                if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+            //                {
+            //                    //Console.WriteLine("SAME");
+            //                    elem = kid;
+
+            //                    identifyElement(elem);
+            //                    oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
+            //                    return;
+            //                }
+
+            //            }
+            //        }
+
+            //        if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
+            //        {
+            //            //ielem = range.parentElement();
+            //            //Console.WriteLine(ielem.outerHTML);
+
+            //            //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
+            //            //{
+            //            //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
+            //            //    {
+            //            //        Console.WriteLine("Kid: " + kid.OuterHtml);
+            //            //    }
+            //            //    //Console.WriteLine(kid.OuterHtml);
+            //            //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
+            //            //    {
+            //            //        Console.WriteLine("SAME");
+            //            //    }
+            //            //}
+            //        }
+
+            //        //if (range.htmlText.ToLower().StartsWith("<figure"))
+            //        //{
+            //        //    return;
+            //        //}
+            //        //if (ielem == null)
+            //        //{
+            //        //    return;
+            //        //}
+
+
+
+
+            //        //MessageBox.Show(range.text);
+            //        //range.select();
+
+
+
+            //    }
+            //}
+
+            //}
+
+            if (containsFile == true && fileEdited == true)
             {
-               
-                e.IsInputKey = true;
-               
-                IHTMLSelectionObject currentSelection = doc.selection;
-                if (currentSelection != null)
-                {
-                    IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
-                    IHTMLTxtRange oldRange = currentSelection.createRange() as IHTMLTxtRange;
-                  
-                    //if (range != null)
-                    //{
-                    //    range.moveToElementText(range.parentElement());
-                    //    //range.select();
-                    //    Console.WriteLine("RangeHTML: " + range.parentElement().parentElement.outerHTML);
-
-
-                    //    foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
-                    //    {
-                    //        Console.WriteLine("Kid: " + kid.OuterHtml);
-                    //        if (kid.OuterHtml.ToLower().StartsWith( @"<div style=""display:inline""> <figure"))
-                    //        {
-                    //            //Console.WriteLine("Kid: " + kid.OuterHtml);
-                    //        }
-                    //        //Console.WriteLine(kid.OuterHtml);
-                    //        if (kid.OuterHtml.ToLower().Contains(range.parentElement().parentElement.outerHTML.ToLower()))
-                    //        {
-                    //            if (kid.OuterHtml.ToLower().StartsWith("<figure"))
-                    //            {
-                    //                //Console.WriteLine("SAME");
-                    //                elem = kid;
-                                    
-                    //                identifyElement(elem);
-                    //                oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
-                    //                return;
-                    //            }
-                                
-                    //        }
-                    //    }
-
-                    //    if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
-                    //    {
-                    //        //ielem = range.parentElement();
-                    //        //Console.WriteLine(ielem.outerHTML);
-                            
-                    //        //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
-                    //        //{
-                    //        //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
-                    //        //    {
-                    //        //        Console.WriteLine("Kid: " + kid.OuterHtml);
-                    //        //    }
-                    //        //    //Console.WriteLine(kid.OuterHtml);
-                    //        //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
-                    //        //    {
-                    //        //        Console.WriteLine("SAME");
-                    //        //    }
-                    //        //}
-                    //    }
-
-                    //    if (range.htmlText.ToLower().StartsWith("<figure"))
-                    //    {
-                    //        return;
-                    //    }
-                    //    //if (ielem == null)
-                    //    //{
-                    //    //    return;
-                    //    //}
-
-                    //    if (!range.parentElement().outerHTML.ToLower().Contains("<math"))
-                    //    {
-                    //        return;
-                    //    }
-
-
-                        //MessageBox.Show(range.text);
-                        //range.select();
-
-
-
-                    //}
-
-                    if (range != null)
-                    {
-                        Console.WriteLine(range.htmlText);
-                        if (range.htmlText.EndsWith("</FIGCAPTION>"))
-                        {
-                            return;
-                        }
-
-                        range.moveToElementText(range.parentElement());
-                        //range.select();
-                        //Console.WriteLine("RangeHTML: " + range.parentElement().outerHTML);
-
-
-                        foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
-                        {
-                            //Console.WriteLine("Kid: " + kid.OuterHtml);
-                            if (kid.OuterHtml.ToLower().StartsWith(@"<div style=""display:inline""> <figure"))
-                            {
-                                //Console.WriteLine("Kid: " + kid.OuterHtml);
-                            }
-                            //Console.WriteLine(kid.OuterHtml);
-                            if (kid.OuterHtml.ToLower().Contains(range.parentElement().outerHTML.ToLower()))
-                            {
-                                if (kid.OuterHtml.ToLower().StartsWith("<figure"))
-                                {
-                                    //Console.WriteLine("SAME");
-                                    elem = kid;
-
-                                    identifyElement(elem);
-                                    oldRange.parentElement().outerHTML = oldRange.parentElement().innerHTML;
-                                    return;
-                                }
-
-                            }
-                        }
-
-                        if (range.parentElement().outerHTML.ToLower().Contains("<figure"))
-                        {
-                            //ielem = range.parentElement();
-                            //Console.WriteLine(ielem.outerHTML);
-
-                            //foreach (HtmlElement kid in HTMLEditor.Document.Body.Children)
-                            //{
-                            //    if (kid.OuterHtml.ToLower().StartsWith("<figure"))
-                            //    {
-                            //        Console.WriteLine("Kid: " + kid.OuterHtml);
-                            //    }
-                            //    //Console.WriteLine(kid.OuterHtml);
-                            //    if (ielem.outerHTML.ToLower() == kid.OuterHtml.ToLower())
-                            //    {
-                            //        Console.WriteLine("SAME");
-                            //    }
-                            //}
-                        }
-
-                        //if (range.htmlText.ToLower().StartsWith("<figure"))
-                        //{
-                        //    return;
-                        //}
-                        //if (ielem == null)
-                        //{
-                        //    return;
-                        //}
-
-
-
-
-                        //MessageBox.Show(range.text);
-                        //range.select();
-
-
-
-                    }
-                }
-         
+                refreshBrowsers();
+                //HTMLEditor.Document.Focus();
+                updateFontFormat();
+                updateHeaderList();
             }
 
             HTMLEditor.Document.Focus();
@@ -5317,7 +5838,24 @@ body {
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                //string line;
+                //Encoding encod = GetEncoding(ofd.FileName);
+                //string infile = File.ReadAllText(ofd.FileName, encod);
                 string infile = File.ReadAllText(ofd.FileName);
+                string finalString = "";
+                finalString = infile;
+
+
+                //System.IO.StreamReader file = new System.IO.StreamReader(ofd.FileName);
+
+                //while ((line = file.ReadLine()) != null)
+                //{
+                //    finalString = ReplaceNonPrintableCharacters(line, '?');
+                //    finalString = finalString + line + "\n";
+
+
+                //}
+
                 //string outfile = "";
                 //StreamReader sr = new StreamReader(infile);
                 //StreamWriter sw = new StreamWriter(outfile, false, Encoding.Default);
@@ -5332,11 +5870,17 @@ body {
 
                 //string finalString = Encoding.UTF8.GetString(utf8Bytes);
 
-                string finalString = ReplaceNonPrintableCharacters(infile, '?');
-               
+
+                if (CheckNonPrintableCharacters(infile) == false)
+                {
+                    finalString = ReplaceNonPrintableCharacters(infile, '?');
+                }
+
+
                 finalString = finalString.Replace("\n\n", "</p><p>");
+
                 finalString = "<p>" + finalString;
-                finalString = finalString + "finalString";
+                //finalString = finalString + "finalString";
                 dynamic currentLocation = doc.selection.createRange();
                 currentLocation.pasteHTML(finalString);
 
@@ -5346,6 +5890,32 @@ body {
             fileNotSaved = true;
 
             refreshBrowsers();
+        }
+
+        bool CheckNonPrintableCharacters(string s)
+        {
+            //StringBuilder result = new StringBuilder();
+            bool has = true;
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                byte b = (byte)c;
+
+                if (c == ' ' || c == '\n' || c == '\t' || c=='\r')
+                {
+                    //result.Append(c);
+                    continue;
+                }
+
+                if (b < 32)
+                {
+                    //Console.WriteLine(c);
+                    has = false;
+                }
+                //else
+                    //result.Append(c);
+            }
+            return has;
         }
 
         string ReplaceNonPrintableCharacters(string s, char replaceWith)
@@ -5394,6 +5964,117 @@ body {
             if (bom[0] == 0xfe && bom[1] == 0xff) return Encoding.BigEndianUnicode; //UTF-16BE
             if (bom[0] == 0 && bom[1] == 0 && bom[2] == 0xfe && bom[3] == 0xff) return Encoding.UTF32;
             return Encoding.ASCII;
+        }
+
+        private void editImageMathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editImageMath();
+        }
+
+        private void numberedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+        }
+
+        private void alphabeticallyCapitalizedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+            editImageMath();
+         }
+
+        private void alphabeticallyLowercaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+            editImageMath();
+            editImageMath();
+        }
+
+        private void romanUppercaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+            editImageMath();
+            editImageMath();
+            editImageMath();
+        }
+
+        private void romanLowercaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertOrderedList();
+            editImageMath();
+            editImageMath();
+            editImageMath();
+            editImageMath();
+        }
+
+        private void circleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertUnorderedList();
+        }
+
+        private void emptyCircleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertUnorderedList();
+            editImageMath();
+        }
+
+        private void squareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertUnorderedList();
+            editImageMath();
+            editImageMath();
+        }
+
+        private void toggleNavigationPaneButton_Click(object sender, EventArgs e)
+        {
+
+            if (splitContainer1.Panel1Collapsed == true)
+            {
+                treeView1.Visible = false;
+                elementTabControl.Visible = true;
+                splitContainer1.Panel1Collapsed = false;
+                splitContainer1.Panel1.Show();
+
+            }
+            else if (splitContainer1.Panel1Collapsed == false)
+            {
+                if (elementTabControl.Visible == false)
+                {
+                    treeView1.Visible = false;
+                    elementTabControl.Visible = true;
+                } 
+                else
+                {
+                    splitContainer1.Panel1Collapsed = true;
+                    splitContainer1.Panel1.Hide();
+                }
+
+            }
+        }
+
+        private void toggleNavigationPaneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (splitContainer1.Panel1Collapsed == true)
+            {
+                treeView1.Visible = false;
+                elementTabControl.Visible = true;
+                splitContainer1.Panel1Collapsed = false;
+                splitContainer1.Panel1.Show();
+
+            }
+            else if (splitContainer1.Panel1Collapsed == false)
+            {
+                if (elementTabControl.Visible == false)
+                {
+                    treeView1.Visible = false;
+                    elementTabControl.Visible = true;
+                }
+                else
+                {
+                    splitContainer1.Panel1Collapsed = true;
+                    splitContainer1.Panel1.Hide();
+                }
+
+            }
         }
     }
 

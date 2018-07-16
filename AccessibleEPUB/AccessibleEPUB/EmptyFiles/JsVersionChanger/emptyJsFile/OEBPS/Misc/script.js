@@ -6,9 +6,9 @@ function loadCSS() {
 
 
 	for (i=0; i<document.styleSheets.length; i++){
-		if (document.styleSheets[i].cssRules.length==1) 
+		if (endsWith(document.styleSheets[i].href, "style.css")) 
 			mycss=document.styleSheets[i] 
-			break;
+			
 	}
 
 
@@ -80,4 +80,8 @@ function selectBlind() {
 	currentCSS = '@import url("blind.css");';
 	loadCSS();
 				
+}
+
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
