@@ -335,7 +335,7 @@ namespace AccessibleEPUB
 
             string altTextParagraph = "<p class=\"transparent\">$" + inputTextBox.Text + "$</p>";
 
-            formulaToAdd += altTextParagraph + captionTag + "</figure>\n"; ;
+            formulaToAdd += altTextParagraph + captionTag + "</figure>\n"; 
 
             //doc.body.innerHTML += formulaToAdd;
 
