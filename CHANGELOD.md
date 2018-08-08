@@ -1,5 +1,8 @@
 Accessible EPUB changelog
 
+0.1.6
+	-The exception caused when hitting a key in an empty editor is now removed
+	-Fixed the error when inserting images with width and height
 0.1.5
 	-Feature to seek position of editor with Header and Figures
 	-Changed how tables appear in the standard

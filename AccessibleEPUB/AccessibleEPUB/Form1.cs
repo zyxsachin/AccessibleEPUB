@@ -3803,6 +3803,9 @@ body {
 
                     string titleStart = "title=\"";
                     string titleEnd = "\" ";
+                    string titleEnd2 = "\"/";
+
+
 
                     string heightStart = "height=\"";
 
@@ -3933,12 +3936,12 @@ body {
                         if (s.ToLower().Contains("<img") && s.Contains("imageOthers") && s.ToLower().Contains("src"))
                         {
                             imgSrc = s.Substring(s.IndexOf(srcStart) + srcStart.Length, s.Length - 2 - s.IndexOf(srcStart) - srcStart.Length);
-
+  
                             if (imgSrc.Contains("file:///"))
                             {
                                 imgSrc = imgSrc.Replace("file:///", "");
                             }
-
+                           
                             int titleStartIndex = s.IndexOf(titleStart);
                             int titleEndIndex = 0;
                             string shorterString = s;
@@ -3946,7 +3949,7 @@ body {
                             for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
                             {
 
-                                if (s.Substring(i).StartsWith(titleEnd))
+                                if (s.Substring(i).StartsWith(titleEnd) || s.Substring(i).StartsWith(titleEnd2))
                                 {
                                     titleEndIndex = i;
                                     break;
@@ -3955,7 +3958,7 @@ body {
                             }
 
                             title = s.Substring(titleStartIndex + titleStart.Length, titleEndIndex - titleStartIndex - titleStart.Length);
-
+                       
                             //title = s.Substring(s.IndexOf(titleStart) + titleStart.Length, s.IndexOf(titleEnd) - s.IndexOf(titleStart) - titleStart.Length);
                         }
 
@@ -4004,6 +4007,8 @@ body {
 
                     string titleStart = "title=\"";
                     string titleEnd = "\" ";
+                    string titleEnd2 = "\"/";
+
 
                     string figCaption = "";
 
@@ -4083,7 +4088,7 @@ body {
                             for (int i = titleStartIndex; i < s.Length + titleStartIndex; i++)
                             {
 
-                                if (s.Substring(i).StartsWith(titleEnd))
+                                if (s.Substring(i).StartsWith(titleEnd) || s.Substring(i).StartsWith(titleEnd2))
                                 {
                                     titleEndIndex = i;
                                     break;
@@ -4550,50 +4555,79 @@ body {
             //refreshBrowsers();
 
             //HTMLEditor.Document.Focus();
-           
-            if (HTMLEditor.Document.Body.InnerText == "")
+
+
+
+
+            string bodyText = "";
+
+            try
+            {
+                bodyText = HTMLEditor.Document.Body.InnerText;
+          
+
+                //for (int i = 0; i < bodyText.Length; i++)
+                //{
+    
+                //    if (bodyText[i] == ' ' || bodyText[i] == '\n' || bodyText[i] == '\t' || bodyText[i] == '\r')
+                //    {
+                //        bodyText = bodyText.Substring(0, i - 1) + bodyText.Substring(i + 1);
+                //    }
+                //}
+
+
+                if (bodyText == "" || containsFile == false)
+                {
+                    return;
+                }
+
+                if (containsFile == true)
+                {
+                    var text = HTMLEditor.Document.Body.InnerText;
+                    int wordCount = 0, index = 0;
+
+                    while (index < text.Length)
+                    {
+                        // check if current char is part of a word
+                        while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                            index++;
+
+                        wordCount++;
+
+                        // skip whitespace until next word
+                        while (index < text.Length && char.IsWhiteSpace(text[index]))
+                            index++;
+                    }
+
+
+                    wordCountLabel.Text = origWordCountLabel + wordCount;
+
+                    characterCountLabel.Text = origCharacterCountLabel + text.Length;
+                }
+
+                DateTime time = DateTime.UtcNow;
+
+                if (lastSave.Year == time.Year)
+                {
+                    TimeSpan span = time.Subtract(lastSave);
+
+
+                    lastSavedLabel.Text = origLastSavedLabel + span.Minutes + " Min";
+                }
+
+            }
+            catch (System.Reflection.TargetInvocationException tie)
+            {
+                return;
+            }
+            catch (System.NullReferenceException ne)
             {
                 return;
             }
 
-            if (containsFile == true)
-            {
-                var text = HTMLEditor.Document.Body.InnerText;
-                int wordCount = 0, index = 0;
-
-                while (index < text.Length)
-                {
-                    // check if current char is part of a word
-                    while (index < text.Length && !char.IsWhiteSpace(text[index]))
-                        index++;
-
-                    wordCount++;
-
-                    // skip whitespace until next word
-                    while (index < text.Length && char.IsWhiteSpace(text[index]))
-                        index++;
-                }
-
-
-                wordCountLabel.Text = origWordCountLabel + wordCount;
-
-                characterCountLabel.Text = origCharacterCountLabel + text.Length;
-            }
-
-            DateTime time = DateTime.UtcNow;
-
-            if (lastSave.Year == time.Year)
-            {
-                TimeSpan span = time.Subtract(lastSave);
-
-
-                lastSavedLabel.Text = origLastSavedLabel + span.Minutes + " Min";
-            }
-
-
         }
 
-        
+
 
         private void SetCssText(string cssText, GeckoStyleSheet gss)
         {
