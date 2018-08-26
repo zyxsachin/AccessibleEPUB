@@ -333,6 +333,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C5A986B3DC59413FA33868148CC68777"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C5D34BD54B9C4AB5A6F214378DED0773"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1718,6 +1724,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C5A986B3DC59413FA33868148CC68777"
+            {
+            "SourcePath" = "8:..\\..\\..\\Logo.ico"
+            "TargetName" = "8:Logo.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C5D34BD54B9C4AB5A6F214378DED0773"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Misc\\script.js"
@@ -2063,6 +2089,29 @@
         }
         "FileType"
         {
+            "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_C3BD58C8333A469C8BD6A300E5923256"
+            {
+            "Name" = "8:EPUB"
+            "Description" = "8:"
+            "Extensions" = "8:epub"
+            "MIME" = "8:"
+            "Icon" = "8:"
+            "IconIndex" = "3:0"
+                "Command"
+                {
+                "Command" = "8:_54514DC846574178B16B59BE7976451A"
+                }
+                "Verbs"
+                {
+                    "{95C0C507-CBF0-42B8-B119-07219E384A4A}:_E812A578168F4189AED6CF63FED6A5AC"
+                    {
+                    "Command" = "8:&Open"
+                    "Verb" = "8:open"
+                    "Arguments" = "8:\"%1\""
+                    "Order" = "3:0"
+                    }
+                }
+            }
         }
         "Folder"
         {
@@ -2315,7 +2364,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SZS AccessibleEPUB"
         "ProductCode" = "8:{DB02A360-E977-426A-AF4C-1CBDFE8E8DAF}"
-        "PackageCode" = "8:{66F5A7BD-00D7-42C9-9BB0-FA7FC9F22704}"
+        "PackageCode" = "8:{F49E6BD9-585C-47CC-8D2B-5D9FE11AAEDB}"
         "UpgradeCode" = "8:{B31233DE-8E67-43E3-9988-FF16EB2BF624}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2446,7 +2495,7 @@
             "Target" = "8:_54514DC846574178B16B59BE7976451A"
             "Folder" = "8:_7AFE1651FCFB416C86BF4A058DD18308"
             "WorkingFolder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
-            "Icon" = "8:"
+            "Icon" = "8:_C5A986B3DC59413FA33868148CC68777"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8B5AB1CE3FD2443F8CEF000BC5A24CEE"
@@ -2460,7 +2509,7 @@
             "Target" = "8:_54514DC846574178B16B59BE7976451A"
             "Folder" = "8:_44B604277DD447809F29362CE79FD2D2"
             "WorkingFolder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
-            "Icon" = "8:"
+            "Icon" = "8:_C5A986B3DC59413FA33868148CC68777"
             "Feature" = "8:"
             }
         }
@@ -2869,7 +2918,7 @@
             "Tag" = "8:"
             "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
             "Condition" = "8:"
-            "Transitive" = "11:FALSE"
+            "Transitive" = "11:TRUE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:FALSE"

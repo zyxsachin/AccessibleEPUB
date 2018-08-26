@@ -71,6 +71,10 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.convertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.javaScriptToCSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSSToJavaScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.closeFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
@@ -477,6 +481,8 @@
             this.saveAsToolStripMenuItem,
             this.toolStripSeparator16,
             this.textToolStripMenuItem,
+            this.toolStripSeparator14,
+            this.convertToolStripMenuItem,
             this.toolStripSeparator12,
             this.closeFileToolStripMenuItem,
             this.toolStripSeparator10,
@@ -522,6 +528,31 @@
             // 
             resources.ApplyResources(this.textToolStripMenuItem, "textToolStripMenuItem");
             this.textToolStripMenuItem.Name = "textToolStripMenuItem";
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
+            // 
+            // convertToolStripMenuItem
+            // 
+            this.convertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.javaScriptToCSSToolStripMenuItem,
+            this.cSSToJavaScriptToolStripMenuItem});
+            this.convertToolStripMenuItem.Name = "convertToolStripMenuItem";
+            resources.ApplyResources(this.convertToolStripMenuItem, "convertToolStripMenuItem");
+            // 
+            // javaScriptToCSSToolStripMenuItem
+            // 
+            this.javaScriptToCSSToolStripMenuItem.Name = "javaScriptToCSSToolStripMenuItem";
+            resources.ApplyResources(this.javaScriptToCSSToolStripMenuItem, "javaScriptToCSSToolStripMenuItem");
+            this.javaScriptToCSSToolStripMenuItem.Click += new System.EventHandler(this.javaScriptToCSSToolStripMenuItem_Click);
+            // 
+            // cSSToJavaScriptToolStripMenuItem
+            // 
+            this.cSSToJavaScriptToolStripMenuItem.Name = "cSSToJavaScriptToolStripMenuItem";
+            resources.ApplyResources(this.cSSToJavaScriptToolStripMenuItem, "cSSToJavaScriptToolStripMenuItem");
+            this.cSSToJavaScriptToolStripMenuItem.Click += new System.EventHandler(this.cSSToJavaScriptToolStripMenuItem_Click);
             // 
             // toolStripSeparator12
             // 
@@ -1420,6 +1451,10 @@
         private System.Windows.Forms.TabPage figureTabPage;
         private System.Windows.Forms.TreeView figureTreeView;
         private System.Windows.Forms.ToolStripMenuItem toggleNavigationPaneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem javaScriptToCSSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem cSSToJavaScriptToolStripMenuItem;
     }
 
 

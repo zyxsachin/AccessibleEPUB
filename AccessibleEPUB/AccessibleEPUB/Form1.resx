@@ -727,7 +727,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1375, 916</value>
+    <value>1375, 912</value>
   </data>
   <data name="geckoWebBrowser2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -745,7 +745,7 @@
     <value>0</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 29</value>
   </data>
   <data name="tabPage2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -754,7 +754,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1381, 920</value>
+    <value>1381, 916</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -784,7 +784,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1375, 916</value>
+    <value>1375, 912</value>
   </data>
   <data name="geckoWebBrowser3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -802,7 +802,7 @@
     <value>0</value>
   </data>
   <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 29</value>
   </data>
   <data name="tabPage3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -811,7 +811,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1381, 920</value>
+    <value>1381, 916</value>
   </data>
   <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1093,6 +1093,27 @@
   </data>
   <data name="textToolStripMenuItem.Text" xml:space="preserve">
     <value>Import Text</value>
+  </data>
+  <data name="toolStripSeparator14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 6</value>
+  </data>
+  <data name="javaScriptToCSSToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 26</value>
+  </data>
+  <data name="javaScriptToCSSToolStripMenuItem.Text" xml:space="preserve">
+    <value>JavaScript to CSS</value>
+  </data>
+  <data name="cSSToJavaScriptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 26</value>
+  </data>
+  <data name="cSSToJavaScriptToolStripMenuItem.Text" xml:space="preserve">
+    <value>CSS to JavaScript</value>
+  </data>
+  <data name="convertToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 26</value>
+  </data>
+  <data name="convertToolStripMenuItem.Text" xml:space="preserve">
+    <value>Convert</value>
   </data>
   <data name="toolStripSeparator12.Size" type="System.Drawing.Size, System.Drawing">
     <value>237, 6</value>
@@ -2603,6 +2624,30 @@ Save the document</value>
     <value>textToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;textToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator14.Name" xml:space="preserve">
+    <value>toolStripSeparator14</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;convertToolStripMenuItem.Name" xml:space="preserve">
+    <value>convertToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;convertToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;javaScriptToCSSToolStripMenuItem.Name" xml:space="preserve">
+    <value>javaScriptToCSSToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;javaScriptToCSSToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cSSToJavaScriptToolStripMenuItem.Name" xml:space="preserve">
+    <value>cSSToJavaScriptToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;cSSToJavaScriptToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator12.Name" xml:space="preserve">
