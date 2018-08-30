@@ -1,5 +1,11 @@
 # Accessible EPUB changelog
 
+## 0.1.7
+- Converter between CSS and JavaScript versions
+- Added logo
+- Can open EPUB files with Accessible EPUB
+- Fixed text type recognition with mouse click and that <span> elements are created automatically
+
 ## 0.1.6
 - The exception caused when hitting a key in an empty editor is now removed
 - Fixed the error when inserting images with width and height
