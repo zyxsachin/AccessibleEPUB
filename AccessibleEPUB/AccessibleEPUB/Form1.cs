@@ -55,7 +55,7 @@ namespace AccessibleEPUB
         Dictionary<string, string> headings;
         string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string accessibleEpubFormText = "Accessible EPUB";
-
+        ICSharpCode.AvalonEdit.TextEditor codeEditor= new ICSharpCode.AvalonEdit.TextEditor();
 
         enum fileMode
         {
@@ -74,6 +74,7 @@ namespace AccessibleEPUB
 
         string currentTab = null;
         string lastTab = null;
+        string currentEditorFile = null;
 
         string title;
         string author;
@@ -238,12 +239,15 @@ namespace AccessibleEPUB
             versionToolStrip.Location = new Point(toolStripContainer1.BottomToolStripPanel.Width - versionToolStrip.Width, versionToolStrip.Location.Y);
 
             languageToolStrip.Location = new Point(toolStripContainer1.BottomToolStripPanel.Width / 2 - languageToolStrip.Width / 2, languageToolStrip.Location.Y);
+
+            
         }
 
         /* Sets up the editor in the form of a WebBrowser when the window has finised loading */
         private void Form1_Shown(object sender, EventArgs e)
         {
-
+            elementHost2.Child = codeEditor;
+            
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
 
             /* CSS of the initial editor */
@@ -481,41 +485,41 @@ body {
 
                 if ((!fileName.EndsWith(".svg")) && (!fileName.EndsWith(".jpg")) && (!fileName.EndsWith(".png")))
                 {
-                    TabPage myTabPage = new TabPage(e.Node.Text);
-                    myTabPage.Name = fileName;
-                    filesTabControl.TabPages.Add(myTabPage);
+                    //TabPage myTabPage = new TabPage(e.Node.Text);
+                    //myTabPage.Name = fileName;
+                    //filesTabControl.TabPages.Add(myTabPage);
 
-                    //RichTextBox rtb = new RichTextBox();
+                    ////RichTextBox rtb = new RichTextBox();
 
-                    System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
-                    host.Dock = DockStyle.Fill;
+                    //System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
+                    //host.Dock = DockStyle.Fill;
 
-                    codeArea = new ICSharpCode.AvalonEdit.TextEditor();
-
-
-
-                    host.Child = codeArea;
-                    myTabPage.Controls.Add(host);
+                    //codeArea = new ICSharpCode.AvalonEdit.TextEditor();
 
 
 
-                    //myTabPage.Controls.Add(rtb);
+                    ////host.Child = codeArea;
+                    ////myTabPage.Controls.Add(host);
+                 
 
-                    //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
-                    openTabs.Add(fileName);
 
-                    openTextEditors.Add(codeArea);
+                    ////myTabPage.Controls.Add(rtb);
 
-                    tabsToTextEditors.Add(fileName, codeArea);
+                    ////rtb.Dock = System.Windows.Forms.DockStyle.Fill;
+                    //openTabs.Add(fileName);
 
-                    filesTabControl.SelectedTab = myTabPage;
+                    //openTextEditors.Add(codeArea);
 
-                    lastTab = currentTab;
-                    currentTab = fileName;
+                    //tabsToTextEditors.Add(fileName, codeArea);
+
+                    //filesTabControl.SelectedTab = myTabPage;
+
+                    //lastTab = currentTab;
+                    //currentTab = fileName;
                 }
 
-
-
+                codeEditor.Save(currentEditorFile);
+                currentEditorFile = absPath;
                 openTab(absPath);
 
 
@@ -601,20 +605,20 @@ body {
                 //}
             }
 
-            else
-            {
-                /* If the file is already open in the code editor, then it just switches the tab. */
-                foreach (TabPage tab in filesTabControl.TabPages)
-                {
-                    if (tab.Name == fileName)
-                    {
-                        filesTabControl.SelectedTab = tab;
-                        lastTab = currentTab;
-                        currentTab = fileName;
-                        openTab(absPath);
-                    }
-                }
-            }
+            //else
+            //{
+            //    /* If the file is already open in the code editor, then it just switches the tab. */
+            //    foreach (TabPage tab in filesTabControl.TabPages)
+            //    {
+            //        if (tab.Name == fileName)
+            //        {
+            //            filesTabControl.SelectedTab = tab;
+            //            lastTab = currentTab;
+            //            currentTab = fileName;
+            //            openTab(absPath);
+            //        }
+            //    }
+            //}
 
 
 
@@ -874,9 +878,13 @@ body {
                 //if (filesTabControl.Visible == true)
                 //{
 
-                codeArea.Load(absPath);
-                //codeArea.Text = File.ReadAllText(absPath);
-                codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("HTML");
+
+                //codeArea.Load(absPath);
+                ////codeArea.Text = File.ReadAllText(absPath);
+                //codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("HTML");
+
+                codeEditor.Load(absPath);
+                codeEditor.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("HTML");
 
                 //}
 
@@ -933,9 +941,12 @@ body {
                 ////splitContainer2.Panel2Collapsed = true;
                 ////splitContainer2.Panel2.Hide();
 
-                codeArea.Load(absPath);
-                //codeArea.Text = File.ReadAllText(absPath);
-                codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("CSS");
+                //codeArea.Load(absPath);
+                ////codeArea.Text = File.ReadAllText(absPath);
+                //codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("CSS");
+
+                codeEditor.Load(absPath);
+                codeEditor.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("CSS");
 
 
 
@@ -950,11 +961,13 @@ body {
                 ////splitContainer2.Panel2Collapsed = true;
                 ////splitContainer2.Panel2.Hide();
 
-                codeArea.Load(absPath);
-                //codeArea.Text = File.ReadAllText(absPath);
-                codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("JavaScript");
+                //codeArea.Load(absPath);
+                ////codeArea.Text = File.ReadAllText(absPath);
+                //codeArea.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("JavaScript");
 
 
+                codeEditor.Load(absPath);
+                codeEditor.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("JavaScript");
             }
 
 
@@ -979,8 +992,10 @@ body {
                 //splitContainer2.Panel2Collapsed = true;
                 //splitContainer2.Panel2.Hide();
 
-                codeArea.Load(absPath);
+                //codeArea.Load(absPath);
                 //codeArea.Text = File.ReadAllText(absPath);
+
+                codeEditor.Load(absPath);
 
             }
 
@@ -1283,30 +1298,34 @@ body {
             myTabPage.Name = tabPageName;
             filesTabControl.TabPages.Add(myTabPage);
 
+
+
             //RichTextBox rtb = new RichTextBox();
 
-            System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
-            host.Dock = DockStyle.Fill;
+            //System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
+            //host.Dock = DockStyle.Fill;
 
-            codeArea = new ICSharpCode.AvalonEdit.TextEditor();
+            //codeArea = new ICSharpCode.AvalonEdit.TextEditor();
 
 
 
-            host.Child = codeArea;
-            myTabPage.Controls.Add(host);
+            //host.Child = codeArea;
+            //myTabPage.Controls.Add(host);
 
 
             //myTabPage.Controls.Add(rtb);
 
             //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
-            openTabs.Add(tabPageName);
+            //openTabs.Add(tabPageName);
 
-            openTextEditors.Add(codeArea);
+            //openTextEditors.Add(codeArea);
 
-            tabsToTextEditors.Add(tabPageName, codeArea);
+            //tabsToTextEditors.Add(tabPageName, codeArea);
 
-            filesTabControl.SelectedTab = myTabPage;
-            currentTab = tabPageName;
+            //filesTabControl.SelectedTab = myTabPage;
+            //currentTab = tabPageName;
+
+            currentEditorFile = contentFile;
             openTab(contentFile);
 
             HTMLEditor.Focus();
@@ -1363,6 +1382,11 @@ body {
         
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                if (!openFileDialog1.FileName.EndsWith(".epub")){
+                    MessageBox.Show(Resource_MessageBox.notEpubContent, Resource_MessageBox.notEpubTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
                 closeFile(sender, e);
 
                 containsFile = true;
@@ -1596,35 +1620,37 @@ body {
 
             TabPage myTabPage = new TabPage(Path.GetFileName(contentFile));
 
-            string tabPageName = contentFile.Substring(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(contentFile)))).Length + 1);
-            //Console.WriteLine(contentFile.Substring(Path.GetDirectoryName(Path.GetDirectoryName(contentFile)).Length));
-            myTabPage.Name = tabPageName;
-            filesTabControl.TabPages.Add(myTabPage);
+            //string tabPageName = contentFile.Substring(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(contentFile)))).Length + 1);
+            ////Console.WriteLine(contentFile.Substring(Path.GetDirectoryName(Path.GetDirectoryName(contentFile)).Length));
+            //myTabPage.Name = tabPageName;
+            //filesTabControl.TabPages.Add(myTabPage);
 
-            //RichTextBox rtb = new RichTextBox();
+            ////RichTextBox rtb = new RichTextBox();
 
-            System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
-            host.Dock = DockStyle.Fill;
+            //System.Windows.Forms.Integration.ElementHost host = new System.Windows.Forms.Integration.ElementHost();
+            //host.Dock = DockStyle.Fill;
 
-            codeArea = new ICSharpCode.AvalonEdit.TextEditor();
-
-
-
-            host.Child = codeArea;
-            myTabPage.Controls.Add(host);
+            //codeArea = new ICSharpCode.AvalonEdit.TextEditor();
 
 
-            //myTabPage.Controls.Add(rtb);
 
-            //rtb.Dock = System.Windows.Forms.DockStyle.Fill;
-            openTabs.Add(tabPageName);
+            //host.Child = codeArea;
+            //myTabPage.Controls.Add(host);
 
-            openTextEditors.Add(codeArea);
 
-            tabsToTextEditors.Add(tabPageName, codeArea);
+            ////myTabPage.Controls.Add(rtb);
 
-            filesTabControl.SelectedTab = myTabPage;
-            currentTab = tabPageName;
+            ////rtb.Dock = System.Windows.Forms.DockStyle.Fill;
+            //openTabs.Add(tabPageName);
+
+            //openTextEditors.Add(codeArea);
+
+            //tabsToTextEditors.Add(tabPageName, codeArea);
+
+            //filesTabControl.SelectedTab = myTabPage;
+            //currentTab = tabPageName;
+
+            currentEditorFile = contentFile;
             openTab(contentFile);
 
             HTMLEditor.Focus();
@@ -2814,12 +2840,14 @@ body {
             {
                 return;
             }
-            if (filesTabControl.Visible == false)
+            //if (filesTabControl.Visible == false)
+            if (elementHost2.Visible == false)
             {
                 wysiwygToHtml();
             }
             else
             {
+
                 htmlToWysiwyg();
 
                 //foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
@@ -2945,9 +2973,11 @@ body {
             {
                 return;
             }
-
-            filesTabControl.Visible = !filesTabControl.Visible;
-            if (filesTabControl.Visible == false)
+            elementHost2.Visible = !elementHost2.Visible;
+            elementHost2.BringToFront();
+            //filesTabControl.Visible = !filesTabControl.Visible;
+            //if (filesTabControl.Visible == false)
+            if (elementHost2.Visible == false)
             {
                 //splitContainer1.Panel1Collapsed = false;
                 //splitContainer1.Panel1.Show();
@@ -2958,12 +2988,14 @@ body {
             }
             else
             {
-                filesTabControl.Focus();
+                elementHost2.Focus();
+                //filesTabControl.Focus();
+               
 
-                //splitContainer1.Panel1Collapsed = true;
-                //splitContainer1.Panel1.Hide();
-                //splitContainer1.Panel1Collapsed = false;
-                //splitContainer1.Panel1.Show();
+                ////splitContainer1.Panel1Collapsed = true;
+                ////splitContainer1.Panel1.Hide();
+                ////splitContainer1.Panel1Collapsed = false;
+                ////splitContainer1.Panel1.Show();
                 wysiwygToHtml();
 
             }
@@ -2976,14 +3008,19 @@ body {
             string start = "<!--StartOfVisibleSection-->";
             string end = "<!--EndOfVisibleSection-->";
 
-            foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
+            //foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
+            //{
+            //    //if (ca.Key == lastTab)
+            //    //{
+            //    //    ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
+            //    //}
+            //    //ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
+            //    //File.WriteAllText(Path.Combine(accEpubFolderName, ca.Key), ca.Value.Document.Text);
+            //}
+
+            if (elementHost2.Visible == true)
             {
-                //if (ca.Key == lastTab)
-                //{
-                //    ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
-                //}
-                //ca.Value.Save(Path.Combine(accEpubFolderName, ca.Key));
-                //File.WriteAllText(Path.Combine(accEpubFolderName, ca.Key), ca.Value.Document.Text);
+                codeEditor.Save(currentEditorFile);
             }
 
             string bodyStart = "<body";
@@ -3066,7 +3103,21 @@ body {
             //}
 
             string body = doc.body.innerHTML;
+            //Regex spanRegex = new Regex(@"(?<=span)(.*)(?=/span)");
+            Regex spanRegex = new Regex(@"<span[^>]*>(.*?)<\/span>");
+            //Console.WriteLine(body);
+            MatchCollection spanMatches = spanRegex.Matches(body);
+            Match sp = spanRegex.Match(body);
+            //Console.WriteLine("LALA:" + sp.ToString());
+            //Console.WriteLine("BABA:" + sp.Groups[1].ToString());
+    
 
+            foreach (Match span in spanMatches)
+            {
+                string replacementString = span.Groups[1].ToString();
+                body = body.Replace(span.ToString(), replacementString);
+               
+            }
             if (body == null)
             {
                 return;
@@ -3260,11 +3311,12 @@ body {
 
             System.IO.File.WriteAllText(contentFile, newContent);
 
-            /* Loads a file to a code editor. */
-            foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
-            {
-                ca.Value.Load(Path.Combine(accEpubFolderName, ca.Key));
-            }
+            codeEditor.Load(contentFile);
+            ///* Loads a file to a code editor. */
+            //foreach (KeyValuePair<string, ICSharpCode.AvalonEdit.TextEditor> ca in tabsToTextEditors)
+            //{
+            //    ca.Value.Load(Path.Combine(accEpubFolderName, ca.Key));
+            //}
 
 
         }
@@ -3927,33 +3979,34 @@ body {
             bool imageClicked = false;
 
             string ulRegular = "<ul>";
-            string ulDisc = "<ul style=\"list-style-type:disc;\">";
-            string ulCircle = "<ul style=\"list-style-type:circle;\">";
-            string ulSquare = "<ul style=\"list-style-type:square;\">";
 
-            string ulDiscA = "<ul style=\"list-style-type: disc;\">";
-            string ulCircleA = "<ul style=\"list-style-type: circle;\">";
-            string ulSquareA = "<ul style=\"list-style-type: square;\">";
+            //string ulDiscA = "<ul style=\"list-style-type:disc;\">";
+            //string ulCircleA = "<ul style=\"list-style-type:circle;\">";
+            //string ulSquareA = "<ul style=\"list-style-type:square;\">";
+
+            string ulDisc = "<ul style=\"list-style-type: disc;\">";
+            string ulCircle = "<ul style=\"list-style-type: circle;\">";
+            string ulSquare = "<ul style=\"list-style-type: square;\">";
 
 
             if (elem.OuterHtml.StartsWith("<ul"))
             {
                 string figElem = elem.OuterHtml;
 
-                if (figElem.ToLower().StartsWith(ulRegular) || figElem.ToLower().StartsWith(ulDiscA))
+                if (figElem.ToLower().StartsWith(ulRegular) || figElem.ToLower().StartsWith(ulDisc))
                 {
                     //elem.OuterHtml = ReplaceFirst(figElem, ulRegular, ulCircle);
-                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulRegular, ulCircleA);
+                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulRegular, ulCircle);
                 }
-                else if (figElem.ToLower().StartsWith(ulCircleA))
+                else if (figElem.ToLower().StartsWith(ulCircle))
                 {
                     //elem.OuterHtml = ReplaceFirst(figElem, ulCircle, ulSquare);
-                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulCircleA, ulSquareA);
+                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulCircle, ulSquare);
                 }
-                else if (figElem.ToLower().StartsWith(ulSquareA))
+                else if (figElem.ToLower().StartsWith(ulSquare))
                 {
                     //elem.OuterHtml = ReplaceFirst(figElem, ulSquare, ulRegular);
-                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulSquareA, ulRegular);
+                    elem.OuterHtml = ReplaceFirst(figElem.ToLower(), ulSquare, ulRegular);
                 }
 
             }
@@ -4928,29 +4981,30 @@ body {
 
             string bodyText = "";
 
+         
+            bodyText = HTMLEditor.Document.Body.InnerText;
+
+
+            //for (int i = 0; i < bodyText.Length; i++)
+            //{
+
+            //    if (bodyText[i] == ' ' || bodyText[i] == '\n' || bodyText[i] == '\t' || bodyText[i] == '\r')
+            //    {
+            //        bodyText = bodyText.Substring(0, i - 1) + bodyText.Substring(i + 1);
+            //    }
+            //}
+
+          
+            if (bodyText == "" || containsFile == false)
+            {
+                return;
+            }
+
             try
             {
-                bodyText = HTMLEditor.Document.Body.InnerText;
-          
-
-                //for (int i = 0; i < bodyText.Length; i++)
-                //{
-    
-                //    if (bodyText[i] == ' ' || bodyText[i] == '\n' || bodyText[i] == '\t' || bodyText[i] == '\r')
-                //    {
-                //        bodyText = bodyText.Substring(0, i - 1) + bodyText.Substring(i + 1);
-                //    }
-                //}
-
-
-                if (bodyText == "" || containsFile == false)
-                {
-                    return;
-                }
-
                 if (containsFile == true)
                 {
-                    var text = HTMLEditor.Document.Body.InnerText;
+                    string text = HTMLEditor.Document.Body.InnerText;
                     int wordCount = 0, index = 0;
 
                     while (index < text.Length)
@@ -4967,19 +5021,9 @@ body {
                     }
 
 
-                    wordCountLabel.Text = origWordCountLabel + wordCount;
+                wordCountLabel.Text = origWordCountLabel + wordCount;
 
-                    characterCountLabel.Text = origCharacterCountLabel + text.Length;
-                }
-
-                DateTime time = DateTime.UtcNow;
-
-                if (lastSave.Year == time.Year)
-                {
-                    TimeSpan span = time.Subtract(lastSave);
-
-
-                    lastSavedLabel.Text = origLastSavedLabel + span.Minutes + " Min";
+                characterCountLabel.Text = origCharacterCountLabel + text.Length;
                 }
 
             }
@@ -4991,6 +5035,18 @@ body {
             {
                 return;
             }
+
+            DateTime time = DateTime.UtcNow;
+
+            if (lastSave.Year == time.Year)
+            {
+                TimeSpan span = time.Subtract(lastSave);
+
+
+                lastSavedLabel.Text = origLastSavedLabel + span.Minutes + " Min";
+            }
+
+          
 
         }
 
@@ -5364,16 +5420,16 @@ body {
 
 
 
-        private void orderedListButton_Click(object sender, EventArgs e)
-        {
-            insertOrderedList();
-        }
+        //private void orderedListButton_Click(object sender, EventArgs e)
+        //{
+        //    insertOrderedList();
+        //}
 
 
-        private void unorderedListButton_Click(object sender, EventArgs e)
-        {
-            insertUnorderedList();
-        }
+        //private void unorderedListButton_Click(object sender, EventArgs e)
+        //{
+        //    insertUnorderedList();
+        //}
 
         private void formatComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -6373,8 +6429,8 @@ body {
         }
 
         private void numberedToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            insertOrderedList();
+        {  
+            insertOrderedList();           
         }
 
         private void alphabeticallyCapitalizedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -6702,7 +6758,7 @@ body {
             }
             else
             {
-                MessageBox.Show("File is already in CSS format", "Already CSS format", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(Resource_MessageBox.jsToCssContent, Resource_MessageBox.jsToCssTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
                 
         }
@@ -6715,8 +6771,23 @@ body {
             }
             else
             {
-                MessageBox.Show("File is already in JavaScript format", "Already JavaScript format", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(Resource_MessageBox.cssToJsContent, Resource_MessageBox.cssToJsTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void toggleBulletPointStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editImageMath();
+        }
+
+        private void orderedListButton_ButtonClick(object sender, EventArgs e)
+        {
+            insertOrderedList();
+        }
+
+        private void unorderedListButton_ButtonClick(object sender, EventArgs e)
+        {
+            insertUnorderedList();
         }
     }
 

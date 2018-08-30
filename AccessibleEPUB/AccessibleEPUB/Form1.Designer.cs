@@ -53,6 +53,7 @@
             this.openFileSplashButton = new System.Windows.Forms.Button();
             this.filesTabControl = new System.Windows.Forms.TabControl();
             this.HTMLEditor = new System.Windows.Forms.WebBrowser();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
             this.geckoWebBrowser4 = new Gecko.GeckoWebBrowser();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -352,6 +353,7 @@
             this.splitContainer2.Panel1.Controls.Add(this.splashScreenPanel);
             this.splitContainer2.Panel1.Controls.Add(this.filesTabControl);
             this.splitContainer2.Panel1.Controls.Add(this.HTMLEditor);
+            this.splitContainer2.Panel1.Controls.Add(this.elementHost2);
             // 
             // splitContainer2.Panel2
             // 
@@ -394,6 +396,12 @@
             this.HTMLEditor.Name = "HTMLEditor";
             this.HTMLEditor.ScriptErrorsSuppressed = true;
             this.HTMLEditor.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.HTMLEditor_PreviewKeyDown);
+            // 
+            // elementHost2
+            // 
+            resources.ApplyResources(this.elementHost2, "elementHost2");
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Child = null;
             // 
             // geckoWebBrowser4
             // 
@@ -796,6 +804,7 @@
             // 
             this.toggleBulletPointStyleToolStripMenuItem.Name = "toggleBulletPointStyleToolStripMenuItem";
             resources.ApplyResources(this.toggleBulletPointStyleToolStripMenuItem, "toggleBulletPointStyleToolStripMenuItem");
+            this.toggleBulletPointStyleToolStripMenuItem.Click += new System.EventHandler(this.toggleBulletPointStyleToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -1046,12 +1055,12 @@
             this.romanLowercaseToolStripMenuItem});
             resources.ApplyResources(this.orderedListButton, "orderedListButton");
             this.orderedListButton.Name = "orderedListButton";
-            this.orderedListButton.Click += new System.EventHandler(this.orderedListButton_Click);
+            this.orderedListButton.ButtonClick += new System.EventHandler(this.orderedListButton_ButtonClick);
             // 
             // numberedToolStripMenuItem
             // 
-            this.numberedToolStripMenuItem.Name = "numberedToolStripMenuItem";
             resources.ApplyResources(this.numberedToolStripMenuItem, "numberedToolStripMenuItem");
+            this.numberedToolStripMenuItem.Name = "numberedToolStripMenuItem";
             this.numberedToolStripMenuItem.Click += new System.EventHandler(this.numberedToolStripMenuItem_Click);
             // 
             // alphabeticallyCapitalizedToolStripMenuItem
@@ -1087,7 +1096,7 @@
             this.squareToolStripMenuItem});
             resources.ApplyResources(this.unorderedListButton, "unorderedListButton");
             this.unorderedListButton.Name = "unorderedListButton";
-            this.unorderedListButton.Click += new System.EventHandler(this.unorderedListButton_Click);
+            this.unorderedListButton.ButtonClick += new System.EventHandler(this.unorderedListButton_ButtonClick);
             // 
             // circleToolStripMenuItem
             // 
@@ -1455,6 +1464,7 @@
         private System.Windows.Forms.ToolStripMenuItem javaScriptToCSSToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem cSSToJavaScriptToolStripMenuItem;
+        private System.Windows.Forms.Integration.ElementHost elementHost2;
     }
 
 

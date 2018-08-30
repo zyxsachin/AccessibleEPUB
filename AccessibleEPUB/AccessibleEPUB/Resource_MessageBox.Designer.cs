@@ -97,6 +97,24 @@ namespace AccessibleEPUB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File is already in JavaScript format.
+        /// </summary>
+        internal static string cssToJsContent {
+            get {
+                return ResourceManager.GetString("cssToJsContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already JavaScript format.
+        /// </summary>
+        internal static string cssToJsTitle {
+            get {
+                return ResourceManager.GetString("cssToJsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The alternative text is empty..
         /// </summary>
         internal static string emptyAltTextContent {
@@ -241,6 +259,24 @@ namespace AccessibleEPUB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File is already in CSS format.
+        /// </summary>
+        internal static string jsToCssContent {
+            get {
+                return ResourceManager.GetString("jsToCssContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already CSS format.
+        /// </summary>
+        internal static string jsToCssTitle {
+            get {
+                return ResourceManager.GetString("jsToCssTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No input was entered..
         /// </summary>
         internal static string noFormulaContent {
@@ -291,6 +327,24 @@ namespace AccessibleEPUB {
         internal static string notDeleteTempTitle {
             get {
                 return ResourceManager.GetString("notDeleteTempTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The file name is not an EPUB file.
+        /// </summary>
+        internal static string notEpubContent {
+            get {
+                return ResourceManager.GetString("notEpubContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not an EPUB file.
+        /// </summary>
+        internal static string notEpubTitle {
+            get {
+                return ResourceManager.GetString("notEpubTitle", resourceCulture);
             }
         }
         

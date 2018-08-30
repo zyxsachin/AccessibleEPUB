@@ -129,6 +129,12 @@
   <data name="conversionTitle" xml:space="preserve">
     <value>Umwandlungsproblem</value>
   </data>
+  <data name="cssToJsContent" xml:space="preserve">
+    <value>Datei ist schon im JavaScript Format</value>
+  </data>
+  <data name="cssToJsTitle" xml:space="preserve">
+    <value>Datei ist schon im JavaScript Format</value>
+  </data>
   <data name="emptyAltTextContent" xml:space="preserve">
     <value>Alternativtextfeld ist leer.</value>
   </data>
@@ -177,6 +183,12 @@
   <data name="invalidWidthTitle" xml:space="preserve">
     <value>Ungültige Breite</value>
   </data>
+  <data name="jsToCssContent" xml:space="preserve">
+    <value>Datei ist schon im CSS Format</value>
+  </data>
+  <data name="jsToCssTitle" xml:space="preserve">
+    <value>Datei ist schon im CSS Format</value>
+  </data>
   <data name="noFormulaContent" xml:space="preserve">
     <value>Keine Formel eingegeben</value>
   </data>
@@ -194,6 +206,12 @@
   </data>
   <data name="notDeleteTempTitle" xml:space="preserve">
     <value>Löschung des Temp Ordners</value>
+  </data>
+  <data name="notEpubContent" xml:space="preserve">
+    <value>Der Dateiname ist keine EPUB Datei</value>
+  </data>
+  <data name="notEpubTitle" xml:space="preserve">
+    <value>Keine EPUB Datei</value>
   </data>
   <data name="parseInputContent" xml:space="preserve">
     <value>Fehler beim bearbeiten der Eingabe:</value>

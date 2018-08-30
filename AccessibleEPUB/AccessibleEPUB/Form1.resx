@@ -268,7 +268,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 949</value>
+    <value>191, 918</value>
   </data>
   <data name="treeView1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -292,7 +292,7 @@
     <value>3, 3</value>
   </data>
   <data name="headerTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 910</value>
+    <value>177, 879</value>
   </data>
   <data name="headerTreeView.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -316,7 +316,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="headerTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 916</value>
+    <value>183, 885</value>
   </data>
   <data name="headerTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -343,7 +343,7 @@
     <value>3, 3</value>
   </data>
   <data name="figureTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 910</value>
+    <value>177, 879</value>
   </data>
   <data name="figureTreeView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -367,7 +367,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="figureTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 916</value>
+    <value>183, 885</value>
   </data>
   <data name="figureTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -397,7 +397,7 @@
     <value>0, 0</value>
   </data>
   <data name="elementTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 949</value>
+    <value>191, 918</value>
   </data>
   <data name="elementTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -591,6 +591,36 @@
   <data name="&gt;&gt;HTMLEditor.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="elementHost2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="elementHost2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="elementHost2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1893, 949</value>
+  </data>
+  <data name="elementHost2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="elementHost2.Text" xml:space="preserve">
+    <value>elementHost2</value>
+  </data>
+  <data name="elementHost2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;elementHost2.Name" xml:space="preserve">
+    <value>elementHost2</value>
+  </data>
+  <data name="&gt;&gt;elementHost2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Integration.ElementHost, WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  </data>
+  <data name="&gt;&gt;elementHost2.Parent" xml:space="preserve">
+    <value>splitContainer2.Panel1</value>
+  </data>
+  <data name="&gt;&gt;elementHost2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;splitContainer2.Panel1.Name" xml:space="preserve">
     <value>splitContainer2.Panel1</value>
   </data>
@@ -613,7 +643,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 949</value>
+    <value>1389, 918</value>
   </data>
   <data name="geckoWebBrowser4.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -847,7 +877,7 @@
     <value>2000, 4999</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 949</value>
+    <value>1389, 918</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -2064,6 +2094,9 @@ Save the document</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 31</value>
+  </data>
+  <data name="numberedToolStripMenuItem.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="numberedToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>251, 26</value>
