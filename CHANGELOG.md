@@ -1,5 +1,9 @@
 # Accessible EPUB changelog
 
+## 0.1.8
+- Added ability to insert inline math by surrounding them with two dollar signs
+- Updated Gecko Browser to the newest version
+
 ## 0.1.7
 - Converter between CSS and JavaScript versions
 - Added logo

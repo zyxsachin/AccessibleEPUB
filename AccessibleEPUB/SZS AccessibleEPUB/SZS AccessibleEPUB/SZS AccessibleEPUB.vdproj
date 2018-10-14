@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0311346B298F429F91E4045F844DB545"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_0B9DE00A56BA491FAAA9D71744B37CD2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,12 +87,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_33C6C7FB4E2CB934B7B356C4BC8A547D"
-        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_35DC292AD3B94C518D69C72F2A19FB9B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -106,12 +94,6 @@
         "Entry"
         {
         "MsmKey" = "8:_380F1637E2764A5AAA23DCACD7CA022A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_43FDAEBB1DCF453EAEF5C9BCD1D6E640"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -125,18 +107,6 @@
         {
         "MsmKey" = "8:_4BD06166764647ADA2E39EAAF83812CD"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5043E4BE53B09BA5256A816A79F62254"
-        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5043E4BE53B09BA5256A816A79F62254"
-        "OwnerKey" = "8:_33C6C7FB4E2CB934B7B356C4BC8A547D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -237,7 +207,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_83046E832FCB4BE2A669539A3A7DDD7D"
+        "MsmKey" = "8:_82C71FECEA77400EAEA5649A6E0FB859"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -351,8 +321,26 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_CAF4928963EC3D57D298175E9CF3B00F"
+        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CB49FF5E9BF842ADB5AD589CAC444B1B"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0AA60DE0A882E1143A6ADAF47C2B955"
+        "OwnerKey" = "8:_54514DC846574178B16B59BE7976451A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0AA60DE0A882E1143A6ADAF47C2B955"
+        "OwnerKey" = "8:_CAF4928963EC3D57D298175E9CF3B00F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -423,6 +411,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F506DC2175414862A9510608E59C2C05"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F59D1B845A9C4E588D9CFAA2E07BFC2E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -430,6 +424,12 @@
         "Entry"
         {
         "MsmKey" = "8:_F6559506F2D54542BF0DABDEBA5AD187"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F8B147F77FA64DCFA7D17EE139BAA5E4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -448,6 +448,18 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CAF4928963EC3D57D298175E9CF3B00F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D0AA60DE0A882E1143A6ADAF47C2B955"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9EC4B5AE9C37E2F5298FF8C0412B249D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -461,18 +473,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E30041CD1BEB832C441E2C881C1FA355"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_33C6C7FB4E2CB934B7B356C4BC8A547D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5043E4BE53B09BA5256A816A79F62254"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -605,26 +605,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0311346B298F429F91E4045F844DB545"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\x86\\Release\\Firefox\\icudt56.dll"
-            "TargetName" = "8:icudt56.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B9DE00A56BA491FAAA9D71744B37CD2"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\Text\\Content.xhtml"
@@ -887,37 +867,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_33C6C7FB4E2CB934B7B356C4BC8A547D"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Geckofx-Winforms, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_33C6C7FB4E2CB934B7B356C4BC8A547D"
-                    {
-                    "Name" = "8:Geckofx-Winforms.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Geckofx-Winforms.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35DC292AD3B94C518D69C72F2A19FB9B"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\OEBPS\\toc.ncx"
@@ -942,26 +891,6 @@
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\x86\\Release\\Firefox\\xul.dll"
             "TargetName" = "8:xul.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_43FDAEBB1DCF453EAEF5C9BCD1D6E640"
-            {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\x86\\Release\\Firefox\\icuuc56.dll"
-            "TargetName" = "8:icuuc56.dll"
             "Tag" = "8:"
             "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
             "Condition" = "8:"
@@ -1016,37 +945,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5043E4BE53B09BA5256A816A79F62254"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Geckofx-Core, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_5043E4BE53B09BA5256A816A79F62254"
-                    {
-                    "Name" = "8:Geckofx-Core.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Geckofx-Core.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_52078028C958471E8D0A53F5E0E4C29C"
@@ -1360,10 +1258,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83046E832FCB4BE2A669539A3A7DDD7D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_82C71FECEA77400EAEA5649A6E0FB859"
             {
-            "SourcePath" = "8:..\\..\\AccessibleEPUB\\bin\\x86\\Release\\Firefox\\icuin56.dll"
-            "TargetName" = "8:icuin56.dll"
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\Firefox\\icudt58.dll"
+            "TargetName" = "8:icudt58.dll"
             "Tag" = "8:"
             "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
             "Condition" = "8:"
@@ -1784,6 +1682,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CAF4928963EC3D57D298175E9CF3B00F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_CAF4928963EC3D57D298175E9CF3B00F"
+                    {
+                    "Name" = "8:Geckofx-Winforms.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Geckofx-Winforms.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB49FF5E9BF842ADB5AD589CAC444B1B"
             {
             "SourcePath" = "8:..\\..\\AccessibleEPUB\\EmptyFiles\\JsVersionChanger\\emptyJsFile\\META-INF\\container.xml"
@@ -1802,6 +1731,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D0AA60DE0A882E1143A6ADAF47C2B955"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Geckofx-Core, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_D0AA60DE0A882E1143A6ADAF47C2B955"
+                    {
+                    "Name" = "8:Geckofx-Core.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Geckofx-Core.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D1A0A8F723794A30ADB898DE214CF5C1"
@@ -2035,6 +1995,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F506DC2175414862A9510608E59C2C05"
+            {
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\Firefox\\icuuc58.dll"
+            "TargetName" = "8:icuuc58.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F59D1B845A9C4E588D9CFAA2E07BFC2E"
             {
             "AssemblyRegister" = "3:1"
@@ -2072,6 +2052,26 @@
             "TargetName" = "8:blind.css"
             "Tag" = "8:"
             "Folder" = "8:_79402ACA938F4533BA0FB32D190054DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8B147F77FA64DCFA7D17EE139BAA5E4"
+            {
+            "SourcePath" = "8:..\\..\\AccessibleEPUB\\Firefox\\icuin58.dll"
+            "TargetName" = "8:icuin58.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5680DC4AA87A47DCAB8F3D29BFB53B81"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2363,15 +2363,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SZS AccessibleEPUB"
-        "ProductCode" = "8:{492A6A38-2DB7-4393-82C1-D47EE62535F2}"
-        "PackageCode" = "8:{06B9DC78-B82C-4C46-BF23-E18A7B1617D0}"
+        "ProductCode" = "8:{3B5663C6-E47B-4D39-B472-A4772F0AFAA9}"
+        "PackageCode" = "8:{89875F91-2C1B-4EC3-9B16-E0A4D88F33BF}"
         "UpgradeCode" = "8:{B31233DE-8E67-43E3-9988-FF16EB2BF624}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.1.7"
+        "ProductVersion" = "8:0.1.8"
         "Manufacturer" = "8:SZS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -652,7 +652,7 @@
     <value>geckoWebBrowser4</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser4.Type" xml:space="preserve">
-    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
+    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser4.Parent" xml:space="preserve">
     <value>splitContainer2.Panel2</value>
@@ -709,7 +709,7 @@
     <value>geckoWebBrowser1</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser1.Type" xml:space="preserve">
-    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
+    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser1.Parent" xml:space="preserve">
     <value>tabPage1</value>
@@ -766,7 +766,7 @@
     <value>geckoWebBrowser2</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser2.Type" xml:space="preserve">
-    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
+    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser2.Parent" xml:space="preserve">
     <value>tabPage2</value>
@@ -823,7 +823,7 @@
     <value>geckoWebBrowser3</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser3.Type" xml:space="preserve">
-    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
+    <value>Gecko.GeckoWebBrowser, Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857</value>
   </data>
   <data name="&gt;&gt;geckoWebBrowser3.Parent" xml:space="preserve">
     <value>tabPage3</value>

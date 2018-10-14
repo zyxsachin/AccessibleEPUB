@@ -88,12 +88,12 @@
       <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Geckofx-Core, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
-      <HintPath>..\packages\Geckofx45.45.0.1.0\lib\net35\Geckofx-Core.dll</HintPath>
+    <Reference Include="Geckofx-Core, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\SZS AccessibleEPUB\packages\Geckofx45.45.0.34\lib\net45\Geckofx-Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Geckofx-Winforms, Version=45.0.1.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
-      <HintPath>..\packages\Geckofx45.45.0.1.0\lib\net35\Geckofx-Winforms.dll</HintPath>
+    <Reference Include="Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\SZS AccessibleEPUB\packages\Geckofx45.45.0.34\lib\net45\Geckofx-Winforms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GlobalHotKey, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -325,10 +325,25 @@
     </Content>
     <None Include="Firefox\omni.ja" />
     <None Include="packages.config" />
-    <Content Include="Firefox\D3DCompiler_43.dll" />
+    <Content Include="Firefox\AccessibleMarshal.dll" />
+    <Content Include="Firefox\breakpadinjector.dll" />
     <Content Include="Firefox\d3dcompiler_47.dll" />
-    <Content Include="Firefox\msvcp120.dll" />
-    <Content Include="Firefox\msvcr120.dll" />
+    <Content Include="Firefox\freebl3.dll" />
+    <Content Include="Firefox\icudt58.dll" />
+    <Content Include="Firefox\icuin58.dll" />
+    <Content Include="Firefox\icuuc58.dll" />
+    <Content Include="Firefox\lgpllibs.dll" />
+    <Content Include="Firefox\libEGL.dll" />
+    <Content Include="Firefox\libGLESv2.dll" />
+    <Content Include="Firefox\mozglue.dll" />
+    <Content Include="Firefox\nss3.dll" />
+    <Content Include="Firefox\nssckbi.dll" />
+    <Content Include="Firefox\nssdbm3.dll" />
+    <Content Include="Firefox\plugin-container.exe" />
+    <Content Include="Firefox\plugin-hang-ui.exe" />
+    <Content Include="Firefox\sandboxbroker.dll" />
+    <Content Include="Firefox\softokn3.dll" />
+    <Content Include="Firefox\xul.dll" />
     <Content Include="Logo.ico" />
     <Content Include="pandoc-2.1\COPYING.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -375,60 +390,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="EmptyFiles\SingleFile\empty_Single_File\OEBPS\Styles\style.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\AccessibleMarshal.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\breakpadinjector.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\freebl3.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\icudt56.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\icuin56.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\icuuc56.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\lgpllibs.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\libEGL.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\libGLESv2.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\mozglue.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\nss3.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\nssckbi.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\nssdbm3.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\plugin-container.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\plugin-hang-ui.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\sandboxbroker.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\softokn3.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Firefox\xul.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Help.html">
@@ -497,8 +458,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Geckofx45.45.0.33\build\Geckofx45.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx45.45.0.33\build\Geckofx45.targets'))" />
     <Error Condition="!Exists('..\packages\Geckofx45.45.0.1.0\build\Geckofx45.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx45.45.0.1.0\build\Geckofx45.targets'))" />
+    <Error Condition="!Exists('..\SZS AccessibleEPUB\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\SZS AccessibleEPUB\packages\Geckofx45.45.0.34\build\Geckofx45.targets'))" />
   </Target>
   <Import Project="..\packages\Geckofx45.45.0.1.0\build\Geckofx45.targets" Condition="Exists('..\packages\Geckofx45.45.0.1.0\build\Geckofx45.targets')" />
+  <Import Project="..\SZS AccessibleEPUB\packages\Geckofx45.45.0.34\build\Geckofx45.targets" Condition="Exists('..\SZS AccessibleEPUB\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

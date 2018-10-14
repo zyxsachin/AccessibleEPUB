@@ -3088,7 +3088,8 @@ body {
             }
 
 
-           
+            
+            /* It has to be InnerHtml and not OuterHtml. Otherwise editing images and math would not work */
             string mathBody = HTMLEditor.Document.Body.InnerHtml.Replace("\n", "");
    
 
@@ -3647,8 +3648,6 @@ body {
 
             HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
 
-            Console.WriteLine(elem.OuterHtml);
-
             //dynamic currentSelection = doc.selection as IHTMLSelectionObject;
 
             //if (elem.TagName.ToUpper() == "IMG")
@@ -3780,7 +3779,7 @@ body {
             Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
         
             HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
-            Console.WriteLine("BLA: " + elem.OuterHtml);
+
             identifyElement(elem);
 
             //HtmlElementCollection elems = HTMLEditor.Document.GetElementsByTagName(elem.TagName);
