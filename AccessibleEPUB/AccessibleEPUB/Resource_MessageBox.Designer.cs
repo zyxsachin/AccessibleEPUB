@@ -205,6 +205,24 @@ namespace AccessibleEPUB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accessible EPUB cannot open this file.
+        /// </summary>
+        internal static string invalidFileContent {
+            get {
+                return ResourceManager.GetString("invalidFileContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid file.
+        /// </summary>
+        internal static string invalidFileTitle {
+            get {
+                return ResourceManager.GetString("invalidFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The entered formula is invalid..
         /// </summary>
         internal static string invalidFormulaContent {

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Diagnostics;
+
 using System.Windows.Threading;
 
 using System.IO;
@@ -83,7 +85,7 @@ namespace AccessibleEPUB
         bool newFileCorrect;
 
         bool refresh = true;
-        bool mathmlManifestupdated = false;
+       
 
         bool split1panel1Visible = false;
 
@@ -341,8 +343,8 @@ body {
             HTMLEditor.Document.Body.DoubleClick += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorDoubleClick);
 
             HTMLEditor.Document.Body.Click += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorClick);
-
-            //HTMLEditor.Document.Body.MouseUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorBodyMouseUp);
+            //HTMLEditor.Document.Body.MouseDown += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorMouseDown);
+            //HTMLEditor.Document.Body.MouseUp += new System.Windows.Forms.HtmlElementEventHandler(HTMLEditorMouseUp);
 
             //HTMLEditor.Document.ExecCommand("FontName", false, "Arial");
 
@@ -808,7 +810,6 @@ body {
 
         //    File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), metadata);
 
-        //    mathmlManifestupdated = true;
         //}
 
 
@@ -1179,7 +1180,9 @@ body {
             }
             else
             {
-                MessageBox.Show("Accessible EPUB cannot open this file", "Invalid file");
+                //TODO
+                MessageBox.Show(Resource_MessageBox.invalidFileContent, Resource_MessageBox.invalidFileTitle);
+
                 return;
             }
 
@@ -3032,7 +3035,7 @@ body {
             if (File.Exists(contentFile))
             {
                 body = File.ReadAllText(contentFile);
-
+                
                 body = body.Replace(Path.Combine("..", ""), Path.Combine(epubFolderName, "OEBPS"));
 
                 if (!body.Contains(start))
@@ -3048,6 +3051,7 @@ body {
                 contentFileExists = false;
                 singleFileMode = false;
             }
+
 
             //if (contentFileExists == false)
             //{
@@ -3084,8 +3088,112 @@ body {
             }
 
 
+           
+            string mathBody = HTMLEditor.Document.Body.InnerHtml.Replace("\n", "");
+   
 
 
+
+            //Regex inlineMathRegex = new Regex(@"<span class=""inlineFormula"">/^(.*?)</span>/");
+            //Regex inlineMathRegex = new Regex(@"<span class=""inlineFormula"">[.]*(?:(?!\<\/span\>).)*");
+
+            Regex inlineMathRegex = new Regex(@"<div class=""inlineFormula"" (?:(?!(</p>)).)*</p>", RegexOptions.IgnoreCase);
+
+            
+
+            MatchCollection inlineMathMatches = inlineMathRegex.Matches(mathBody);
+
+            if (inlineMathMatches.Count > 0)
+            {
+                foreach (Match m in inlineMathMatches)
+                {
+                    
+                  
+                    Regex formulaRegex = new Regex(@"\$[^\$]+\$");
+                   
+                    Match formulaMatch = formulaRegex.Match(m.ToString());
+               
+                    mathBody = mathBody.Replace(m.ToString(), "$" + formulaMatch.ToString() + "$");
+                    
+                }
+
+    
+                HTMLEditor.Document.Body.InnerHtml = mathBody;
+                //HTMLEditor.Document.Body.OuterHtml = HTMLEditor.Document.Body.OuterHtml.Replace("<P></P>", "");
+            }
+          
+
+        }
+
+        private void convertInlineFormula()
+        {
+            string body = HTMLEditor.Document.Body.OuterHtml;
+
+            Regex inlineFormulaRegex = new Regex(@"\$\$[^\$<>\n]+\$\$");
+
+            Regex annotationRegex = new Regex(@"<annotation encoding=""application/x\-tex"">[^</]</annotation>");
+
+            MatchCollection inlineFormulasMatches = inlineFormulaRegex.Matches(body);
+
+            if (inlineFormulasMatches.Count > 0)
+            {
+                foreach (Match m in inlineFormulasMatches)
+                {
+
+
+                    string pandoc = Path.Combine(initialPath, "pandoc-2.1");
+                    string currentDic = Directory.GetCurrentDirectory();
+
+
+                    string accFile = Path.Combine(accEpubFolderName, "accEpub.txt");
+                    string formulaResult = Path.Combine(accEpubFolderName, "formulaResult.txt");
+
+                    Directory.SetCurrentDirectory(pandoc);
+
+
+                    System.IO.File.WriteAllText(accFile, m.ToString());
+
+                    var proc = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            //FileName = "pandoc", //Path.Combine(pandoc, "pandoc"),
+                            FileName = @"c:\windows\system32\cmd.exe",
+                            Arguments = @"/c pandoc --mathml " + accFile + " > " + formulaResult,
+                            //UseShellExecute = false,
+                            //RedirectStandardOutput = false,
+                            CreateNoWindow = true,
+                            WindowStyle = ProcessWindowStyle.Hidden
+                        }
+                    };
+
+
+                    proc.Start();
+                    proc.WaitForExit();
+                    string math = System.IO.File.ReadAllText(formulaResult);
+
+                    math = math.Replace("<semantics>", "");
+                    math = math.Replace("</semantics>", "");
+                    math = math.Replace("<mrow>", "");
+                    math = math.Replace("</mrow>", "");
+                    math = math.Replace("display=\"block\"", "display=\"inline\"");
+
+                    Match annotationMatch = annotationRegex.Match(math);
+
+                    
+
+                    math = "<figure style=\"display:inline;\">" + m.ToString().Substring(1, m.ToString().Length - 2) + "<div class=\"toRemove\" style=\"display:inline; border-style:solid; border-color:black; width:100px; height:100px;\"> " + math + "</div>" + "</figure>";
+                    //body =  body.Replace(m.ToString(), m.ToString().Substring(0, m.ToString().Length - 1));
+
+
+                    body = body.Replace(m.ToString(), math);
+
+                    HTMLEditor.Document.Body.OuterHtml = body;
+
+                    //HTMLEditor.Document.Body.OuterHtml = HTMLEditor.Document.Body.OuterHtml.Replace("</p><p><math", "<math");
+                    //Console.WriteLine("Inline: " + math);
+                }
+            }
         }
 
 
@@ -3107,7 +3215,7 @@ body {
             Regex spanRegex = new Regex(@"<span[^>]*>(.*?)<\/span>");
             //Console.WriteLine(body);
             MatchCollection spanMatches = spanRegex.Matches(body);
-            Match sp = spanRegex.Match(body);
+            
             //Console.WriteLine("LALA:" + sp.ToString());
             //Console.WriteLine("BABA:" + sp.Groups[1].ToString());
     
@@ -3210,7 +3318,7 @@ body {
                 bool endMode = true;
                 for (int i = 1; i < end - first; i++)
                 {
-
+                    
                     if (contentBody[first + i] == '<')
                     {
                         endMode = false;
@@ -3297,6 +3405,88 @@ body {
             newContent = xmlDecl + docType + newContent;
 
 
+            // Inserting inline math
+            Regex inlineFormulaRegex = new Regex(@"\$\$[^\$<>\n]+\$\$");
+
+            MatchCollection inlineFormulasMatches = inlineFormulaRegex.Matches(newContent);
+
+
+            if (inlineFormulasMatches.Count > 0)
+            {
+                foreach (Match m in inlineFormulasMatches)
+                {
+                    string pandoc = Path.Combine(initialPath, "pandoc-2.1");
+                    string currentDic = Directory.GetCurrentDirectory();
+
+
+                    string accFile = Path.Combine(accEpubFolderName, "accEpub.txt");
+                    string formulaResult = Path.Combine(accEpubFolderName, "formulaResult.txt");
+
+                    Directory.SetCurrentDirectory(pandoc);
+
+
+                    System.IO.File.WriteAllText(accFile, m.ToString().Substring(1, m.ToString().Length - 2));
+
+                    var proc = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            //FileName = "pandoc", //Path.Combine(pandoc, "pandoc"),
+                            FileName = @"c:\windows\system32\cmd.exe",
+                            Arguments = @"/c pandoc --mathml " + accFile + " > " + formulaResult,
+                            //UseShellExecute = false,
+                            //RedirectStandardOutput = false,
+                            CreateNoWindow = true,
+                            WindowStyle = ProcessWindowStyle.Hidden
+                        }
+                    };
+
+
+                    proc.Start();
+                    proc.WaitForExit();
+                    string math = System.IO.File.ReadAllText(formulaResult);
+
+                    math = math.Replace("<semantics>", "<mstyle>");
+                    math = math.Replace("</semantics>", "</mstyle>");
+                    math = math.Replace("<p>", "");
+                    math = math.Replace("</p>", "");
+                    //math = math.Replace("<mrow>", "");
+                    //math = math.Replace("</mrow>", "");
+
+
+                    //math = ReplaceFirst(math, "<mrow>", "");
+                    //math = ReplaceLast(math, "</mrow>", "");
+
+
+
+                    while (math.Contains(annoStart) && math.Contains(annoEnd))
+                    {
+                        int start = math.IndexOf(annoStart);
+                        int end = math.IndexOf(annoEnd) + annoEnd.Length;
+
+                        math = math.Replace(math.Substring(start, end - start), "");
+                    }
+
+                    string divMath = "<div class=\"math\" role=\"math\">";
+                    string divMathImpaired = "<div class=\"mathImpaired\" role=\"math\">";
+                    string divEnd = "</div>";
+
+                    string mathImpaired = math;
+                    math = math.Replace("display=\"block\"", "display=\"inline\"");
+                    mathImpaired = mathImpaired.Replace("display=\"block\"", "display=\"inline\"");
+                    mathImpaired = mathImpaired.Replace("<mstyle>", "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">");
+
+                    math = @"<div style=""display:inline;"" class=""inlineFormula"">" + divMath + math + divEnd + divMathImpaired + mathImpaired + divEnd + "<p class=\"transparent\">" + m.ToString().Substring(1, m.ToString().Length - 2) + "</p>" + "</div>";
+
+                    //body =  body.Replace(m.ToString(), m.ToString().Substring(0, m.ToString().Length - 1));
+
+
+                    newContent = newContent.Replace(m.ToString(), math);
+
+                    //HTMLEditor.Document.Body.OuterHtml = HTMLEditor.Document.Body.OuterHtml.Replace("</p><p><math", "<math");
+                    //Console.WriteLine("Inline: " + math);
+                }
+            }
 
             //HtmlAgilityPack.HtmlDocument hap = new HtmlAgilityPack.HtmlDocument();
             //hap.LoadHtml(newContent);
@@ -3322,69 +3512,164 @@ body {
         }
 
 
-//        private void addFilesToMeta()
-//        {
-//            string fileName = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf");
-//            string content = File.ReadAllText(fileName);
+        //        private void addFilesToMeta()
+        //        {
+        //            string fileName = Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf");
+        //            string content = File.ReadAllText(fileName);
 
-//            string startManifest = "<manifest>";
-//            string endManifest = "</manifest>";
+        //            string startManifest = "<manifest>";
+        //            string endManifest = "</manifest>";
 
-//            int startManiIndex = content.IndexOf(startManifest);
-//            int endManiIndex = content.IndexOf(endManifest);
+        //            int startManiIndex = content.IndexOf(startManifest);
+        //            int endManiIndex = content.IndexOf(endManifest);
 
-//            string defaultText = @"
-//                <item id=""ncx"" href=""toc.ncx"" media-type=""application/x-dtbncx+xml""/>
-//                <item id=""Content.xhtml"" href=""Text/Content.xhtml"" media-type=""application/xhtml+xml""/>
-//";
+        //            string defaultText = @"
+        //                <item id=""ncx"" href=""toc.ncx"" media-type=""application/x-dtbncx+xml""/>
+        //                <item id=""Content.xhtml"" href=""Text/Content.xhtml"" media-type=""application/xhtml+xml""/>
+        //";
 
-//            //< item id = "Content.xhtml" href = "Text/Content.xhtml" media - type = "application/xhtml+xml" />
+        //            //< item id = "Content.xhtml" href = "Text/Content.xhtml" media - type = "application/xhtml+xml" />
 
-//            //     < item id = "style.css" href = "Styles/style.css" media - type = "text/css" />
+        //            //     < item id = "style.css" href = "Styles/style.css" media - type = "text/css" />
 
-//            //          < item id = "navid" href = "Text/nav.xhtml" media - type = "application/xhtml+xml" properties = "nav" /> "
-//        }
+        //            //          < item id = "navid" href = "Text/nav.xhtml" media - type = "application/xhtml+xml" properties = "nav" /> "
+        //        }
 
-     
+        //private void HTMLEditorMouseUp(object sender, System.Windows.Forms.HtmlElementEventArgs e)
+        //{
+        //    int x = e.MousePosition.X;
+        //    int y = e.MousePosition.Y;
+        //    Point p = new Point(x, y);
 
-      
+        //    Point ScreenCoord = new Point(MousePosition.X, MousePosition.Y);
+
+        //    Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
+
+        //    HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
+        //    Console.WriteLine(elem.TagName);
+
+
+        //    dynamic currentSelection = doc.selection as IHTMLSelectionObject;
+
+        //    if (elem.TagName.ToUpper() == "IMG")
+        //    {
+        //        try
+        //        {
+        //            IHTMLElement current = doc.elementFromPoint(x, y) as IHTMLElement;
+        //            IHTMLElement pare = current.parentElement;
+        //            IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
+
+        //            foreach (IHTMLElement a in doc.all)
+        //            {
+
+        //                if (a.outerHTML.ToLower() == pare.outerHTML.ToLower())
+        //                {
+        //                    Console.WriteLine(a.outerHTML);
+        //                    range.moveToElementText(range.parentElement());
+        //                    //range.moveToElementText(pare);
+        //                    range.select();
+        //                }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+
+        //        }
+        //        //    //HTMLEditor.Document.Body.               
+        //        //    HTMLSelectElement bla = new HTMLSelectElement();
+
+
+
+        //    }
+
+
+        //}
+
+
+        //private void HTMLEditorMouseDown(object sender, HtmlElementEventArgs e)
+        //{
+        //    int x = e.MousePosition.X;
+        //    int y = e.MousePosition.Y;
+        //    Point p = new Point(x, y);
+
+        //    Point ScreenCoord = new Point(MousePosition.X, MousePosition.Y);
+
+        //    Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
+
+        //    HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
+        //    Console.WriteLine(elem.TagName);
+
+
+        //    dynamic currentSelection = doc.selection as IHTMLSelectionObject;
+
+        //    if (elem.TagName.ToUpper() == "IMG")
+        //    {
+        //        try
+        //        {
+        //            IHTMLElement current = doc.elementFromPoint(x, y) as IHTMLElement;
+        //            IHTMLElement pare = current.parentElement;
+        //            IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
+
+        //            foreach (IHTMLElement a in doc.all)
+        //            {
+
+        //                if (a.outerHTML.ToLower() == pare.outerHTML.ToLower())
+        //                {
+        //                    Console.WriteLine(a.outerHTML);
+        //                    range.moveToElementText(range.parentElement());
+        //                    //range.moveToElementText(pare);
+        //                    range.select();
+        //                }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+
+        //        }
+        //        //    //HTMLEditor.Document.Body.               
+        //        //    HTMLSelectElement bla = new HTMLSelectElement();
+
+
+
+        //    }
+
+        //}
 
         private void HTMLEditorClick(object sender, HtmlElementEventArgs e)
         {
             int x = e.MousePosition.X;
             int y = e.MousePosition.Y;
             Point p = new Point(x, y);
-      
+
             Point ScreenCoord = new Point(MousePosition.X, MousePosition.Y);
 
             Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
 
             HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
 
-          
-            
-            dynamic currentSelection = doc.selection as IHTMLSelectionObject;
-            
-            if (elem.TagName == "IMG")
-            {
-                IHTMLElement current = doc.elementFromPoint(x, y) as IHTMLElement;
-                IHTMLElement pare = current.parentElement;
-                dynamic range = currentSelection.createRange() as IHTMLTxtRange;
-                //    //HTMLEditor.Document.Body.               
-                //    HTMLSelectElement bla = new HTMLSelectElement();
+            Console.WriteLine(elem.OuterHtml);
+
+            //dynamic currentSelection = doc.selection as IHTMLSelectionObject;
+
+            //if (elem.TagName.ToUpper() == "IMG")
+            //{
+            //    IHTMLElement current = doc.elementFromPoint(x, y) as IHTMLElement;
+            //    IHTMLElement pare = current.parentElement;
+            //    dynamic range = currentSelection.createRange() as IHTMLTxtRange;
+            //    //    //HTMLEditor.Document.Body.               
+            //    //    HTMLSelectElement bla = new HTMLSelectElement();
 
 
-                foreach (IHTMLElement a in doc.all)
-                {
-
-                    if (a.outerHTML == pare.outerHTML)
-                    {
-                        //Console.WriteLine(a.outerHTML);
-                        range.moveToElementText(pare);
-                        range.select();
-                    }
-                }
-            }
+            //    foreach (IHTMLElement a in doc.all)
+            //    {
+            //        Console.WriteLine(a.outerHTML);
+            //        if (a.outerHTML.ToLower() == pare.outerHTML.ToLower())
+            //        {
+            //            range.moveToElementText(pare);
+            //            range.select();
+            //        }
+            //    }
+            //}
 
             updateFontFormat();
             updateHeaderList();
@@ -3472,6 +3757,17 @@ body {
             return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
         }
 
+        public static string ReplaceLast(string text, string search, string replace)
+        {
+            int place = text.LastIndexOf(search);
+
+            if (place == -1)
+                return text;
+
+            string result = text.Remove(place, search.Length).Insert(place, replace);
+            return result;
+        }
+
         /* Finds the HtmlElement which has been double clicked on and passes the result to the method identifyElement. */
         private void HTMLEditorDoubleClick(object sender, HtmlElementEventArgs e)
         {
@@ -3483,8 +3779,8 @@ body {
 
             Point BrowserCoord = HTMLEditor.PointToClient(ScreenCoord);
         
-            HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);       
-
+            HtmlElement elem = HTMLEditor.Document.GetElementFromPoint(BrowserCoord);
+            Console.WriteLine("BLA: " + elem.OuterHtml);
             identifyElement(elem);
 
             //HtmlElementCollection elems = HTMLEditor.Document.GetElementsByTagName(elem.TagName);
@@ -4598,10 +4894,13 @@ body {
             {
                 refreshBrowsers();
                 //HTMLEditor.Document.Focus();
-                updateFontFormat();            
+                updateFontFormat();
+                  
             }
+
         }
-            
+        
+        
 
         private void updateHeaderList()
         {
@@ -4609,7 +4908,7 @@ body {
             figureTreeView.Nodes.Clear();
             //List<HtmlElement> headerOrder = new List<HtmlElement>();
             //Dictionary<HtmlElement, string> headerMap = new Dictionary<HtmlElement, string>();
-             
+            
             foreach (HtmlElement el in HTMLEditor.Document.Body.Children)
             {
                 if ((el.TagName == "H1") || (el.TagName == "H2") || (el.TagName == "H3") || (el.TagName == "H4") || (el.TagName == "H5") || (el.TagName == "H6"))
@@ -4623,7 +4922,7 @@ body {
                 if ((el.TagName == "FIGURE"))
                 {
                     //Console.WriteLine(el.OuterHtml);
-
+                    return;
                     string s = el.OuterHtml;
                     string titleStart = "title=\"";
                     string titleEnd = "\" ";
@@ -4778,7 +5077,7 @@ body {
             {
                 return;
             }
-
+           
 
             wysiwygToHtml();
 
@@ -4954,16 +5253,7 @@ body {
             fileEdited = false;
         }
 
-        //private void HTMLEditorBodyMouseUp(object sender, System.Windows.Forms.HtmlElementEventArgs e)
-        //{
-        //    if (containsFile == true && fileEdited == true)
-        //    {
-        //        refreshBrowsers();
-        //        //HTMLEditor.Document.Focus();
-        //        updateFontFormat();
-        //    }
-
-        //}
+   
 
 
         private void HTMLEditorBodyKeyUp(object sender, System.Windows.Forms.HtmlElementEventArgs e)
@@ -5379,13 +5669,7 @@ body {
 
             MathDialogBox mdb = new MathDialogBox(doc, getImageFolder());
             mdb.ShowDialog();
-
-            if (mathmlManifestupdated == false)
-            {
-                //updateManifest();
-            }
             
-
             fileEdited = true;
             fileNotSaved = true;
 
@@ -5738,6 +6022,7 @@ body {
                     e.Cancel = true;
                 }
             }
+            
             HTMLEditor.Dispose();
             geckoWebBrowser1.Dispose();
             geckoWebBrowser2.Dispose();

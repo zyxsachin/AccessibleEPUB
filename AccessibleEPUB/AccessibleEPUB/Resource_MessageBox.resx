@@ -165,6 +165,12 @@
   <data name="imagePathTitle" xml:space="preserve">
     <value>Image doesn't exist</value>
   </data>
+  <data name="invalidFileContent" xml:space="preserve">
+    <value>Accessible EPUB cannot open this file</value>
+  </data>
+  <data name="invalidFileTitle" xml:space="preserve">
+    <value>Invalid file</value>
+  </data>
   <data name="invalidFormulaContent" xml:space="preserve">
     <value>The entered formula is invalid.</value>
   </data>

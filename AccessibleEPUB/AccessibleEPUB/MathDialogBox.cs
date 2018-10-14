@@ -221,7 +221,12 @@ namespace AccessibleEPUB
             //}
             math = System.IO.File.ReadAllText(formulaResult);
             //math += proc.StandardOutput.ReadToEnd();
-            
+
+
+            //This is maybe why lines get added
+            //math = math.Replace("<p>", "");
+            //math = math.Replace("</p>", "");
+           
             string result = Path.Combine(accEpubFolderName, "result.txt");
 
             //Console.WriteLine(proc.StartInfo.FileName.ToString());
@@ -235,6 +240,22 @@ namespace AccessibleEPUB
             //Console.WriteLine(mathResult);
             mathResult = mathResult.Substring(0, mathResult.LastIndexOf(split2) + split2.Length);
 
+
+            string annoStart = "<annotation encoding=\"application/x-tex\">";
+            string annoEnd = "</annotation>";
+
+            while (mathResult.Contains(annoStart) && mathResult.Contains(annoEnd))
+            {
+                int start = mathResult.IndexOf(annoStart);
+                int end = mathResult.IndexOf(annoEnd) + annoEnd.Length;
+
+                mathResult = mathResult.Replace(mathResult.Substring(start, end - start), "");
+            }
+
+
+            mathResult = mathResult.Replace("&lt;", "<");
+            mathResult = mathResult.Replace("&gt;", ">");
+    
             bool encodeMode = false;
       
             StringBuilder sb = new StringBuilder("");
@@ -262,7 +283,6 @@ namespace AccessibleEPUB
 
 
             string mathFinalResult = sb.ToString();
-            //Console.WriteLine(mathFinalResult);
 
             //if (!Directory.Exists(imageFolderPath))
             //{
@@ -311,17 +331,21 @@ namespace AccessibleEPUB
 
             formulaToAdd += "\n<figure>";
 
+            string encodedInputForAlt = inputTextBox.Text.Replace("<", "&lt;");
+            encodedInputForAlt = encodedInputForAlt.Replace(">", "&gt;");
+            //encodedInputForAlt = "";
+
             // titleTag = @""" title=""" + titleTextBox.Text
-            string mathHeader = @"<div" + styleTag + @" role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle>";
-
-            string mathHeaderImpaired = @"<div" + styleTag + @" role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">" + "" + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
-
+            string mathHeader = @"<div" + styleTag + @" role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  titleTag  + @""">"  + "<mstyle>";
+      
+            string mathHeaderImpaired = @"<div" + styleTag + @" role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""">"  + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
+           
             
             string mathEnd = "</mstyle></math>";
 
 
-            formulaToAdd += "" + (@"<!--RemoveThis--><img class=""toRemove"" " + titleTag + @"src =""" + imagePath + @""" alt =""" + inputTextBox.Text + @""" //><!--RemoveEnd-->");
-
+            formulaToAdd += "" + (@"<!--RemoveThis--><img class=""toRemove"" " + titleTag + @"src =""" + imagePath + @""" /><!--RemoveEnd-->");
+            
             string divEnd = "</div>";
             //formulaToAdd += divEnd;
 
@@ -330,16 +354,13 @@ namespace AccessibleEPUB
             dynamic currentLocation = doc.selection.createRange();
             //r.pasteHTML(mathHeader + mathResult + mathEnd);
             formulaToAdd += mathHeader + mathFinalResult + mathEnd + divEnd;
-
             formulaToAdd += mathHeaderImpaired + mathFinalResult + mathEnd + divEnd;
 
-            string altTextParagraph = "<p class=\"transparent\">$" + inputTextBox.Text + "$</p>";
-
-            formulaToAdd += altTextParagraph + captionTag + "</figure>\n"; 
+            string altTextParagraph = "<p class=\"transparent\">$" + encodedInputForAlt + "$</p>";
+            formulaToAdd += altTextParagraph + captionTag + "</figure>\n";
 
             //doc.body.innerHTML += formulaToAdd;
 
-           
             currentLocation.pasteHTML(formulaToAdd);
 
             //doc.body.innerHTML += "</figure>\n";

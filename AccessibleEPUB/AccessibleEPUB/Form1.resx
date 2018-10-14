@@ -268,7 +268,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 918</value>
+    <value>191, 949</value>
   </data>
   <data name="treeView1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -292,7 +292,7 @@
     <value>3, 3</value>
   </data>
   <data name="headerTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 879</value>
+    <value>177, 910</value>
   </data>
   <data name="headerTreeView.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -316,7 +316,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="headerTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 885</value>
+    <value>183, 916</value>
   </data>
   <data name="headerTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -343,7 +343,7 @@
     <value>3, 3</value>
   </data>
   <data name="figureTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 879</value>
+    <value>177, 910</value>
   </data>
   <data name="figureTreeView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -367,7 +367,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="figureTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 885</value>
+    <value>183, 916</value>
   </data>
   <data name="figureTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -397,7 +397,7 @@
     <value>0, 0</value>
   </data>
   <data name="elementTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 918</value>
+    <value>191, 949</value>
   </data>
   <data name="elementTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -643,7 +643,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 918</value>
+    <value>1389, 949</value>
   </data>
   <data name="geckoWebBrowser4.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -877,7 +877,7 @@
     <value>2000, 4999</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 918</value>
+    <value>1389, 949</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>

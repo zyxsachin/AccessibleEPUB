@@ -46,36 +46,49 @@ namespace markdigTest
         {
             string locationParameter;
 
-
             string result = toParse;
 
-            Regex toParseRegex = new Regex(@"\$\$image\s*\n*\{[^\}]*\}");
-            Regex locationRegex = new Regex(@"\$\$location\s*:\s*([^\n]*)");
-            Regex titleRegex = new Regex(@"\$\$title\s*:\s*([^\n]*)");
-            Regex altRegex = new Regex(@"\$\$alt\s*:\s*([^\n]*)");
-            Regex captionRegex = new Regex(@"\$\$caption\s*:\s*([^\n]*)");
-            Regex tagRegex = new Regex(@"\$\$tag\s*:\s*([^\n]*)");
-            Regex widthRegex = new Regex(@"\$\$width\s*:\s*([^\n]*)");
-            Regex heightRegex = new Regex(@"\$\$height\s*:\s*([^\n]*)");
-            Regex altImageRegex = new Regex(@"\$\$altImage\s*:\s*([^\n]*)");
-            Regex alignRegex = new Regex(@"\$\$align\s*:\s*([^\n]*)");
+            Regex inlineFormulaRegex = new Regex(@"\$[^\$]+\$");
+
+            Regex toParseRegex = new Regex(@"\#\#image\s*\n*\{[^\}]*\}");
+            Regex locationRegex = new Regex(@"\#\#location\s*:\s*([^\n]*)");
+            Regex titleRegex = new Regex(@"\#\#title\s*:\s*([^\n]*)");
+            Regex altRegex = new Regex(@"\#\#alt\s*:\s*([^\n]*)");
+            Regex captionRegex = new Regex(@"\#\#caption\s*:\s*([^\n]*)");
+            Regex tagRegex = new Regex(@"\#\#tag\s*:\s*([^\n]*)");
+            Regex widthRegex = new Regex(@"\#\#width\s*:\s*([^\n]*)");
+            Regex heightRegex = new Regex(@"\#\#height\s*:\s*([^\n]*)");
+            Regex altImageRegex = new Regex(@"\#\#altImage\s*:\s*([^\n]*)");
+            Regex alignRegex = new Regex(@"\#\#align\s*:\s*([^\n]*)");
 
 
-            string imageBlock = toParseRegex.Match(toParse).ToString();
-            Console.WriteLine(imageBlock);
+            //string imageBlock = toParseRegex.Match(toParse).ToString();
+            //Console.WriteLine(imageBlock);
 
-            string locationString = locationRegex.Match(imageBlock).ToString();
-            MatchCollection locationMatches = locationRegex.Matches(imageBlock);
-            Match locationMatch = locationRegex.Match(imageBlock);
+            //string locationString = locationRegex.Match(imageBlock).ToString();
+            //MatchCollection locationMatches = locationRegex.Matches(imageBlock);
+            //Match locationMatch = locationRegex.Match(imageBlock);
 
-            locationParameter = locationMatch.Groups[1].Value;
+            //locationParameter = locationMatch.Groups[1].Value;
 
-            Console.WriteLine(locationString);
+            //Console.WriteLine(locationParameter);
 
             //foreach (Match m in locationMatches)
             //{
-            //    locationParameter = m.Groups[1].Value);
+            //    locationParameter = m.Groups[1].Value;
             //}
+
+            Console.WriteLine(result);
+            string inlineBlock = inlineFormulaRegex.Match(result).ToString();
+            Console.WriteLine("Inline" + inlineBlock);
+            MatchCollection inlineFormulasMatches = inlineFormulaRegex.Matches(result);
+
+            foreach (Match m in inlineFormulasMatches)
+            {
+                Console.WriteLine(m.ToString());
+            }
+
+
 
 
 
