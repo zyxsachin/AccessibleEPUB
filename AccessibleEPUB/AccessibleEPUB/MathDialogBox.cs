@@ -38,7 +38,8 @@ namespace AccessibleEPUB
         //string initialPath = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
         string initialPath = Directory.GetCurrentDirectory();
         //string ip = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-        string ip = Environment.CurrentDirectory.ToString();
+        //string ip = Environment.CurrentDirectory.ToString();
+        string ip = System.Windows.Forms.Application.StartupPath;
 
         string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB");
 
@@ -58,6 +59,7 @@ namespace AccessibleEPUB
             formula.BorderThickness = new Thickness(3, 3, 3, 3);
 
             imageFolderPath = imagePath;
+            Console.WriteLine(ip);
             noneRadioButton.Checked = true;
         }
 
@@ -102,10 +104,13 @@ namespace AccessibleEPUB
 
         private void insertFormulaButton_Click(object sender, EventArgs e)
         {
-            if (formula.HasError)
+            if (overrideParserCheckBox.Checked == false)
             {
-                System.Windows.Forms.MessageBox.Show(Resource_MessageBox.invalidFormulaContent, Resource_MessageBox.invalidFormulaTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                if (this.formula.HasError)
+                {
+                    System.Windows.Forms.MessageBox.Show(Resource_MessageBox.invalidFormulaContent, Resource_MessageBox.invalidFormulaTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
             }
 
 
@@ -113,7 +118,6 @@ namespace AccessibleEPUB
 
             string pandoc = Path.Combine(ip, "pandoc-2.1");
             string currentDic = Directory.GetCurrentDirectory();
-
 
             string accFile = Path.Combine(accEpubFolderName, "accEpub.txt");
             string formulaResult = Path.Combine(accEpubFolderName, "formulaResult.txt");
@@ -191,8 +195,11 @@ namespace AccessibleEPUB
 
             string imagePath = Path.Combine(imagesFolder, title + ".svg");
             svgFile = imagePath;
-
-            saveSVG(inputTextBox.Text, svgFile, title);
+            if (overrideParserCheckBox.Checked == false)
+            {
+                saveSVG(inputTextBox.Text, svgFile, title);
+            }
+           
             imagePath = svgFile;
             Directory.SetCurrentDirectory(pandoc);
             //Console.WriteLine(svgFile);
@@ -367,7 +374,6 @@ namespace AccessibleEPUB
 
             Directory.SetCurrentDirectory(currentDic);
 
-
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<br>", "");
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<BR>", "");
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<p></p>", "");
@@ -378,7 +384,7 @@ namespace AccessibleEPUB
             //doc.body.innerHTML = doc.body.innerHTML + "<br>";
             //doc.body.innerHTML = doc.body.innerHTML.Replace("<figure>", "<br><figure>");
             //doc.body.innerHTML = doc.body.innerHTML.Replace("</figure>", "</figure><br>");
-            
+
             this.DialogResult = DialogResult.OK;
             this.Hide();
             this.Dispose();

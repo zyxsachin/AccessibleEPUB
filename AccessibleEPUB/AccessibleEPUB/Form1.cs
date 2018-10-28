@@ -52,7 +52,7 @@ namespace AccessibleEPUB
         //string initialPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
         //string initialPath = Directory.GetCurrentDirectory();
         string initialPath = Application.StartupPath;
-
+        
         private IHTMLDocument2 doc;
         Dictionary<string, string> headings;
         string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -136,6 +136,7 @@ namespace AccessibleEPUB
         string origDocumentLanguageLabel;
         string origLastSavedLabel;
 
+        DispatcherTimer timer;
 
         /* Program startup */
 
@@ -355,7 +356,8 @@ body {
 
 
             /* The timer is required to refresh the preview every second or so */
-            DispatcherTimer timer = new DispatcherTimer();
+            //DispatcherTimer timer = new DispatcherTimer();
+            timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new System.EventHandler(timer_Tick);
             timer.Start();
@@ -1469,7 +1471,6 @@ body {
                 target = openFileDialog1.FileName;
                 File.Copy(openFileDialog1.FileName, epubFileName, true);
 
-
                 if (epubFileName.Contains('.'))
                 {
                     fileName = epubFileName.Substring(0, epubFileName.LastIndexOf('.'));
@@ -1948,6 +1949,8 @@ body {
                 //CloneDirectory(initialPath + "\\EmptyFiles\\empty_Single_File", targetFolder);
 
                 File.Copy(Path.Combine(initialPath, setPath + ".epub"), target, true);
+               
+                File.SetLastWriteTime(target, DateTime.Now);
 
                 //System.IO.Compression.ZipFile.CreateFromDirectory(targetFolder + "\\empty_Single_File", targetFolder + "\\empty_Single_File.zip");
 
@@ -2186,7 +2189,7 @@ body {
             newMetaData = newMetaData.Replace("BookIdentificationNumber", uuidString);
 
             File.WriteAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"), newMetaData);
-            
+
             if (mode == (int)fileMode.singleFileJs)
             {
                 impairedContentFile = Path.Combine(Path.GetDirectoryName(contentFile).ToString(), "Imp" + Path.GetFileName(contentFile));
@@ -4889,13 +4892,16 @@ body {
         void timer_Tick(object sender, EventArgs e)
         {
             // 'Raise event
-            if (containsFile == true && fileEdited == true)
-            {
-                refreshBrowsers();
-                //HTMLEditor.Document.Focus();
-                updateFontFormat();
-                  
-            }
+
+
+            handleRefresh();
+            //if (containsFile == true && fileEdited == true && refresh == true)
+            //{
+            //    //refreshBrowsers();
+            //    //HTMLEditor.Document.Focus();
+            //    updateFontFormat();
+
+            //}
 
         }
         
@@ -4985,88 +4991,90 @@ body {
             //Console.WriteLine("CSS Text1: " + GetCssText(styleSheet12) + "CSS End");
 
             /* CSS style of browser which is slightly different to the Accessible EPUB standard */
+            
+
             IHTMLStyleSheet ss = doc.createStyleSheet("", 0);
-            ss.cssText = @"html *
-{
-	font-family: ""Arial"", Helvetica, sans-serif !important;
+//            ss.cssText = @"html *
+//{
+//	font-family: ""Arial"", Helvetica, sans-serif !important;
 
-        }
-        p {
-  font-size:16px;
+//        }
+//        p {
+//  font-size:16px;
 
-word-wrap: break-word;
-}
+//word-wrap: break-word;
+//}
 
-figure {
-	padding: 2px;
-	max-width : 95%;
-    border: double 4px;
-}
+//figure {
+//	padding: 2px;
+//	max-width : 95%;
+//    border: double 4px;
+//}
 
-figcaption {
-	word-wrap: break-word;
-	max-width : 100%;
-  font-size:16px;
-}
+//figcaption {
+//	word-wrap: break-word;
+//	max-width : 100%;
+//  font-size:16px;
+//}
 
-img {
-	max-width : 100%;
-    margin: 10px
-}
-
-
-object {
-  max-width : 100%; 
-}
-
-math {
-  max-width : 100%;
-
-}
-
-table, th, td, tr, tbody {
-      border-style: double;
-    border-collapse: collapse;
-    border-width:4px;
-  text-align: center;
-}
-
-.transparent {
-  display: none;
-  color: transparent;
-}
-
-body {
-	width: 100%;
-	margin-left: 2px;
-	margin-right: auto;
-}
-
-.math {
-
-    display:none;
-    height:0%;
-
-}
-
-.mathImpaired {
-
-    display:none;
-    height:0%;
-}
-
-.imageImpaired {
-    display: none;
-}
-
-.imageOthers {
-    max - width : 100 %;
-    display: initial;
-}
+//img {
+//	max-width : 100%;
+//    margin: 10px
+//}
 
 
-;"
-;
+//object {
+//  max-width : 100%; 
+//}
+
+//math {
+//  max-width : 100%;
+
+//}
+
+//table, th, td, tr, tbody {
+//      border-style: double;
+//    border-collapse: collapse;
+//    border-width:4px;
+//  text-align: center;
+//}
+
+//.transparent {
+//  display: none;
+//  color: transparent;
+//}
+
+//body {
+//	width: 100%;
+//	margin-left: 2px;
+//	margin-right: auto;
+//}
+
+//.math {
+
+//    display:none;
+//    height:0%;
+
+//}
+
+//.mathImpaired {
+
+//    display:none;
+//    height:0%;
+//}
+
+//.imageImpaired {
+//    display: none;
+//}
+
+//.imageOthers {
+//    max - width : 100 %;
+//    display: initial;
+//}
+
+
+//;"
+
             if (refresh == false)
             {
                 return;
@@ -5075,8 +5083,7 @@ body {
             if (fileEdited == false)
             {
                 return;
-            }
-           
+            }              
 
             wysiwygToHtml();
 
@@ -5246,7 +5253,6 @@ body {
                 geckoWebBrowser3.Navigate(blindContentFile);
             }
             geckoWebBrowser4.Navigate(contentFile);
-            
 
 
             fileEdited = false;
@@ -5595,8 +5601,10 @@ body {
             }
             Color col = new Color();
             ColorDialog MyDialog = new ColorDialog();
+
             // Keeps the user from selecting a custom color.
-            MyDialog.AllowFullOpen = false;
+            MyDialog.AllowFullOpen = true;
+            
             // Allows the user to get help. (The default is false.)
             MyDialog.ShowHelp = false;
             // Sets the initial color select to the current text color.
@@ -5604,7 +5612,7 @@ body {
             {
                 col = MyDialog.Color;
             }
-
+            MyDialog.Dispose();
             string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.R, col.G, col.B);
             HTMLEditor.Document.ExecCommand("ForeColor", false, colorstr);
             fileEdited = true;
@@ -5637,7 +5645,8 @@ body {
             fileEdited = true;
             fileNotSaved = true;
 
-            refreshBrowsers();
+            handleRefresh();
+            //refreshBrowsers();
 
         }
 
@@ -5655,7 +5664,8 @@ body {
             fileEdited = true;
             fileNotSaved = true;
 
-            refreshBrowsers();
+            handleRefresh();
+            //refreshBrowsers();
         }
 
         private void insertMath()
@@ -5668,11 +5678,14 @@ body {
 
             MathDialogBox mdb = new MathDialogBox(doc, getImageFolder());
             mdb.ShowDialog();
-            
+
+            Directory.SetCurrentDirectory(initialPath);
+
             fileEdited = true;
             fileNotSaved = true;
 
-            refreshBrowsers();
+            handleRefresh();
+            //refreshBrowsers();
         }
 
 
@@ -6373,6 +6386,8 @@ body {
 
         private void HTMLEditor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            timer.Stop();
+            
             IHTMLElement ielem = null;
             HtmlElement elem;
 
@@ -6544,18 +6559,55 @@ body {
             //}
 
             //}
+           
+           
+            //handleRefresh();
+            //if (containsFile == true && fileEdited == true && refresh == true)
+            //{
+               
+               
+            //    refreshBrowsers();
 
-            if (containsFile == true && fileEdited == true)
-            {
-                refreshBrowsers();
-                //HTMLEditor.Document.Focus();
-                updateFontFormat();
-                updateHeaderList();
-            }
+            //    //HTMLEditor.Document.Focus();
+            //    updateFontFormat();
+            //    updateHeaderList();
+            //}
 
             HTMLEditor.Document.Focus();
-
+            timer.Start();
             //updateFontFormat();
+        }
+
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.Synchronized)]
+        private void handleRefresh()
+        {
+
+            refreshBrowsers();
+
+            updateFontFormat();
+            updateHeaderList();
+
+            //Console.WriteLine("BLA");
+            //if (lockRefreshBrowsers == false)
+            //{
+            //    Console.WriteLine("HAHA");
+
+            //    if (containsFile == true && fileEdited == true && refresh == true)
+            //    {
+
+            //        lockRefreshBrowsers = true;
+            //        //Task.Factory.StartNew(() => refreshBrowsers());
+            //        refreshBrowsers();
+
+            //        updateFontFormat();
+            //        updateHeaderList();
+            //        lockRefreshBrowsers = false;
+            //    }
+
+
+            //}
+
+
         }
 
         private void textToolStripMenuItem_Click(object sender, EventArgs e)
@@ -7072,6 +7124,36 @@ body {
         private void unorderedListButton_ButtonClick(object sender, EventArgs e)
         {
             insertUnorderedList();
+        }
+
+        private void changeBackgroundColorButton_Click(object sender, EventArgs e)
+        {
+            if (mode == (int)fileMode.singleFileCss)
+            {
+                if (containsFile == false)
+                {
+                    return;
+                }
+                Color col = new Color();
+                ColorDialog MyDialog = new ColorDialog();
+
+                // Keeps the user from selecting a custom color.
+                MyDialog.AllowFullOpen = true;
+
+                // Allows the user to get help. (The default is false.)
+                MyDialog.ShowHelp = false;
+                // Sets the initial color select to the current text color.
+                if (MyDialog.ShowDialog() == DialogResult.OK)
+                {
+                    col = MyDialog.Color;
+                }
+                MyDialog.Dispose();
+                string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.R, col.G, col.B);
+               
+
+                fileEdited = true;
+                fileNotSaved = true;
+            }
         }
     }
 

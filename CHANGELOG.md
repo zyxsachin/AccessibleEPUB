@@ -1,5 +1,11 @@
 # Accessible EPUB changelog
 
+## 0.1.9
+- Changed date of last modified of a new file to creation point
+- Pausing refresh now works earlier and avoids extra overhead
+- The LaTeX parser can now be deactivated so that any formulas recognized by pandoc can be inserted, but at the cost of error proofing
+- Fixed a bug where only one math formula can be added as a figure in a session 
+
 ## 0.1.8
 - Added ability to insert inline math by surrounding them with two dollar signs
 - Updated Gecko Browser to the newest version

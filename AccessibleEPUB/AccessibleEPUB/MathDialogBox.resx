@@ -118,328 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="floatGroupBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="inputTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>929, 36</value>
-  </data>
-  <data name="titleLabel.Text" xml:space="preserve">
-    <value>Title (optional)</value>
-  </data>
-  <data name="&gt;&gt;noneRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="noneRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 27</value>
-  </data>
-  <data name="&gt;&gt;floatGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 116</value>
-  </data>
-  <data name="&gt;&gt;inputTextBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="rightRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
-    <value>titleLabel</value>
-  </data>
-  <data name="noneRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="floatGroupBox.AccessibleName" xml:space="preserve">
-    <value>Choose the format of the EPUB file</value>
-  </data>
-  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 23</value>
-  </data>
-  <data name="captionTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>929, 36</value>
-  </data>
-  <data name="&gt;&gt;leftRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>929, 36</value>
-  </data>
-  <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1044, 860</value>
-  </data>
-  <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 154</value>
-  </data>
-  <data name="&gt;&gt;host.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Insert Math</value>
-  </data>
-  <data name="leftRadioButton.AccessibleName" xml:space="preserve">
-    <value />
-  </data>
-  <data name="host.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="floatGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 311</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;inputTextBox.Name" xml:space="preserve">
-    <value>inputTextBox</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;insertFormulaButton.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;floatGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="formulaLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 22</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="insertFormulaButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 57</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Name" xml:space="preserve">
-    <value>titleTextBox</value>
-  </data>
-  <data name="noneRadioButton.AccessibleDescription" xml:space="preserve">
-    <value />
-  </data>
-  <data name="captionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 213</value>
-  </data>
-  <data name="&gt;&gt;captionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 424</value>
-  </data>
-  <data name="&gt;&gt;captionLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="leftRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 42</value>
-  </data>
-  <data name="noneRadioButton.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="insertFormulaButton.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;inputTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;floatGroupBox.Name" xml:space="preserve">
-    <value>floatGroupBox</value>
-  </data>
-  <data name="&gt;&gt;inputTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="insertFormulaButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 12pt</value>
-  </data>
-  <data name="host.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
   </data>
   <data name="insertFormulaButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>655, 778</value>
   </data>
-  <data name="&gt;&gt;noneRadioButton.Name" xml:space="preserve">
-    <value>noneRadioButton</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="insertFormulaButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;rightRadioButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="insertFormulaButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 57</value>
   </data>
-  <data name="&gt;&gt;noneRadioButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;formulaLabel.ZOrder" xml:space="preserve">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="insertFormulaButton.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="insertFormulaButton.Text" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="&gt;&gt;insertFormulaButton.Name" xml:space="preserve">
     <value>insertFormulaButton</value>
   </data>
-  <data name="formulaLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="floatGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="insertFormulaButton.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;leftRadioButton.Name" xml:space="preserve">
-    <value>leftRadioButton</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="formulaLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="leftRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MathDialogBox</value>
-  </data>
-  <data name="leftRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rightRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="noneRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 42</value>
-  </data>
-  <data name="rightRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="host.Text" xml:space="preserve">
-    <value>host</value>
-  </data>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="noneRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="leftRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;captionTextBox.Name" xml:space="preserve">
-    <value>captionTextBox</value>
-  </data>
-  <data name="leftRadioButton.AccessibleDescription" xml:space="preserve">
-    <value />
-  </data>
   <data name="&gt;&gt;insertFormulaButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="noneRadioButton.AccessibleName" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;insertFormulaButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;host.Name" xml:space="preserve">
-    <value>host</value>
-  </data>
-  <data name="floatGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>931, 319</value>
-  </data>
-  <data name="insertFormulaButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="formulaLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rightRadioButton.AccessibleName" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;leftRadioButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rightRadioButton.Text" xml:space="preserve">
-    <value>Right</value>
+  <data name="&gt;&gt;insertFormulaButton.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="inputTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15pt</value>
-  </data>
-  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="host.Size" type="System.Drawing.Size, System.Drawing">
-    <value>931, 319</value>
-  </data>
-  <data name="&gt;&gt;leftRadioButton.Parent" xml:space="preserve">
-    <value>floatGroupBox</value>
-  </data>
-  <data name="&gt;&gt;rightRadioButton.Name" xml:space="preserve">
-    <value>rightRadioButton</value>
-  </data>
-  <data name="captionTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;host.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Integration.ElementHost, WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
-  </data>
-  <data name="leftRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="leftRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 27</value>
-  </data>
-  <data name="panel1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>829, 778</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;formulaLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="inputTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 60</value>
@@ -447,44 +159,362 @@
   <data name="inputTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 57</value>
-  </data>
-  <data name="rightRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 42</value>
-  </data>
-  <data name="rightRadioButton.AccessibleDescription" xml:space="preserve">
-    <value />
-  </data>
-  <data name="titleLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="floatGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 91</value>
-  </data>
-  <data name="&gt;&gt;floatGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;noneRadioButton.Parent" xml:space="preserve">
-    <value>floatGroupBox</value>
-  </data>
-  <data name="captionLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="inputTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>929, 36</value>
   </data>
   <data name="inputTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;inputTextBox.Name" xml:space="preserve">
+    <value>inputTextBox</value>
+  </data>
+  <data name="&gt;&gt;inputTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inputTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;inputTextBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="panel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;host.Name" xml:space="preserve">
+    <value>host</value>
+  </data>
+  <data name="&gt;&gt;host.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Integration.ElementHost, WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  </data>
+  <data name="&gt;&gt;host.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;host.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 424</value>
+  </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>931, 319</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="host.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="host.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="host.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="host.Size" type="System.Drawing.Size, System.Drawing">
+    <value>931, 319</value>
+  </data>
+  <data name="host.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="host.Text" xml:space="preserve">
+    <value>host</value>
+  </data>
+  <data name="&gt;&gt;host.Name" xml:space="preserve">
+    <value>host</value>
+  </data>
+  <data name="&gt;&gt;host.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Integration.ElementHost, WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  </data>
+  <data name="&gt;&gt;host.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;host.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>829, 778</value>
+  </data>
+  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 57</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="formulaLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="formulaLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="formulaLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 22</value>
+  </data>
+  <data name="formulaLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 23</value>
+  </data>
+  <data name="formulaLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="formulaLabel.Text" xml:space="preserve">
+    <value>Enter LaTeX math code</value>
+  </data>
+  <data name="&gt;&gt;formulaLabel.Name" xml:space="preserve">
+    <value>formulaLabel</value>
+  </data>
+  <data name="&gt;&gt;formulaLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;formulaLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;formulaLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="titleLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 116</value>
+  </data>
+  <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 23</value>
+  </data>
+  <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="titleLabel.Text" xml:space="preserve">
+    <value>Title (optional)</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Name" xml:space="preserve">
+    <value>titleLabel</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="titleTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15pt</value>
+  </data>
+  <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 154</value>
+  </data>
+  <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>929, 36</value>
+  </data>
+  <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Name" xml:space="preserve">
+    <value>titleTextBox</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="captionLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="captionLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="captionLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="captionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 213</value>
+  </data>
+  <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 23</value>
+  </data>
+  <data name="captionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="captionLabel.Text" xml:space="preserve">
+    <value>Caption (optional)</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Name" xml:space="preserve">
+    <value>captionLabel</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;captionLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="captionTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="captionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 251</value>
+  </data>
+  <data name="captionTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="captionTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>929, 36</value>
+  </data>
+  <data name="captionTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Name" xml:space="preserve">
+    <value>captionTextBox</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;captionTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="floatGroupBox.AccessibleDescription" xml:space="preserve">
+    <value>The format how the switching between normal, visually impaired and blind works</value>
+  </data>
+  <data name="floatGroupBox.AccessibleName" xml:space="preserve">
+    <value>Choose the format of the EPUB file</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Name" xml:space="preserve">
+    <value>rightRadioButton</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;rightRadioButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Name" xml:space="preserve">
+    <value>leftRadioButton</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Name" xml:space="preserve">
+    <value>noneRadioButton</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="floatGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="floatGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 311</value>
+  </data>
+  <data name="floatGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="floatGroupBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="floatGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 91</value>
+  </data>
+  <data name="floatGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="floatGroupBox.Text" xml:space="preserve">
+    <value>Figure Alignment</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.Name" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;floatGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rightRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rightRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rightRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rightRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="rightRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rightRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 42</value>
   </data>
   <data name="rightRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -492,112 +522,212 @@
   <data name="rightRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 27</value>
   </data>
-  <data name="&gt;&gt;insertFormulaButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="rightRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
-  <data name="captionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 23</value>
+  <data name="rightRadioButton.Text" xml:space="preserve">
+    <value>Right</value>
   </data>
-  <data name="&gt;&gt;captionLabel.Name" xml:space="preserve">
-    <value>captionLabel</value>
-  </data>
-  <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="captionTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="captionLabel.Text" xml:space="preserve">
-    <value>Caption (optional)</value>
-  </data>
-  <data name="host.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="captionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="rightRadioButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;rightRadioButton.Parent" xml:space="preserve">
-    <value>floatGroupBox</value>
-  </data>
-  <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
-    <value>cancelButton</value>
-  </data>
-  <data name="leftRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="leftRadioButton.Text" xml:space="preserve">
-    <value>Left</value>
-  </data>
-  <data name="&gt;&gt;formulaLabel.Name" xml:space="preserve">
-    <value>formulaLabel</value>
-  </data>
-  <data name="&gt;&gt;titleTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;host.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;formulaLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="noneRadioButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="formulaLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 23</value>
-  </data>
-  <data name="floatGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="captionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 251</value>
-  </data>
-  <data name="noneRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="noneRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="formulaLabel.Text" xml:space="preserve">
-    <value>Enter LaTeX math code</value>
-  </data>
-  <data name="host.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="captionLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
-  </data>
-  <data name="floatGroupBox.AccessibleDescription" xml:space="preserve">
-    <value>The format how the switching between normal, visually impaired and blind works</value>
+  <data name="&gt;&gt;rightRadioButton.Name" xml:space="preserve">
+    <value>rightRadioButton</value>
   </data>
   <data name="&gt;&gt;rightRadioButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="floatGroupBox.Text" xml:space="preserve">
-    <value>Figure Alignment</value>
+  <data name="&gt;&gt;rightRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
   </data>
-  <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="&gt;&gt;rightRadioButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="leftRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="leftRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="leftRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="leftRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="leftRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="leftRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 42</value>
+  </data>
+  <data name="leftRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
+  </data>
+  <data name="leftRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 27</value>
+  </data>
+  <data name="leftRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="leftRadioButton.Text" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Name" xml:space="preserve">
+    <value>leftRadioButton</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;leftRadioButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="noneRadioButton.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="noneRadioButton.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="noneRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="noneRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="noneRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="noneRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 42</value>
+  </data>
+  <data name="noneRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="noneRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 27</value>
+  </data>
+  <data name="noneRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="noneRadioButton.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Name" xml:space="preserve">
+    <value>noneRadioButton</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.Parent" xml:space="preserve">
+    <value>floatGroupBox</value>
+  </data>
+  <data name="&gt;&gt;noneRadioButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="overrideParserCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="overrideParserCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
+  </data>
+  <data name="overrideParserCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>431, 354</value>
+  </data>
+  <data name="overrideParserCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 27</value>
+  </data>
+  <data name="overrideParserCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="overrideParserCheckBox.Text" xml:space="preserve">
+    <value>Override parser</value>
+  </data>
+  <data name="&gt;&gt;overrideParserCheckBox.Name" xml:space="preserve">
+    <value>overrideParserCheckBox</value>
+  </data>
+  <data name="&gt;&gt;overrideParserCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;overrideParserCheckBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;overrideParserCheckBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="mathToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="overrideParserPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAPxJREFUOE+lkz0KwkAQhXMCL2BhZWebyjt5BA+SToxg4yW0kFzA0kD8QQwKgiQY
+        lHG/uIG4yYqaBwO7M+89diYTx0SSJK4KT0WoItPBmZyraVWoYkuFvz5dZbiMpT/bSWcc5cGZHDU4cLXs
+        BS0O/NVZupONDOaxLPaJHNN7HpzJUYMD981EXXwKvelWgkMqNlCDo038QuzyNNxNcXsU5VEGHLi6HRcD
+        j/54oglytjwatBiEDIk+vwVcNGgxyJg0wzJhewFcNGg/GtTNAJgG1hZsBmYL1iHaDMwhNvuMehdqF+ly
+        e+RRgFplkYC6NFtloE3++5nKUMUffmfHeQItwRFsVeCjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="overrideParserPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="overrideParserPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="overrideParserPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>619, 356</value>
+  </data>
+  <data name="overrideParserPictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="overrideParserPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 25</value>
+  </data>
+  <data name="overrideParserPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="overrideParserPictureBox.ToolTip" xml:space="preserve">
+    <value>Overriding the parser means that the equation is not shown in the space show below and the input can not be checked for errors. The formula can not be seen in the editor, but can be seen in the preview if it correct.</value>
+  </data>
+  <data name="&gt;&gt;overrideParserPictureBox.Name" xml:space="preserve">
+    <value>overrideParserPictureBox</value>
+  </data>
+  <data name="&gt;&gt;overrideParserPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;overrideParserPictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;overrideParserPictureBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1044, 860</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Insert Math</value>
+  </data>
+  <data name="&gt;&gt;mathToolTip.Name" xml:space="preserve">
+    <value>mathToolTip</value>
+  </data>
+  <data name="&gt;&gt;mathToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MathDialogBox</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

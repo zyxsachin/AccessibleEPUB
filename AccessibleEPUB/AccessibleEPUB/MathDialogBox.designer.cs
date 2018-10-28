@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MathDialogBox));
             this.insertFormulaButton = new System.Windows.Forms.Button();
             this.inputTextBox = new System.Windows.Forms.TextBox();
@@ -43,8 +44,12 @@
             this.rightRadioButton = new System.Windows.Forms.RadioButton();
             this.leftRadioButton = new System.Windows.Forms.RadioButton();
             this.noneRadioButton = new System.Windows.Forms.RadioButton();
+            this.overrideParserCheckBox = new System.Windows.Forms.CheckBox();
+            this.mathToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.overrideParserPictureBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.floatGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.overrideParserPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // insertFormulaButton
@@ -68,8 +73,8 @@
             // 
             // host
             // 
-            resources.ApplyResources(this.host, "host");
             this.host.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.host, "host");
             this.host.Name = "host";
             this.host.TabStop = false;
             this.host.Child = null;
@@ -136,11 +141,26 @@
             this.noneRadioButton.TabStop = true;
             this.noneRadioButton.UseVisualStyleBackColor = true;
             // 
+            // overrideParserCheckBox
+            // 
+            resources.ApplyResources(this.overrideParserCheckBox, "overrideParserCheckBox");
+            this.overrideParserCheckBox.Name = "overrideParserCheckBox";
+            this.overrideParserCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // overrideParserPictureBox
+            // 
+            resources.ApplyResources(this.overrideParserPictureBox, "overrideParserPictureBox");
+            this.overrideParserPictureBox.Name = "overrideParserPictureBox";
+            this.overrideParserPictureBox.TabStop = false;
+            this.mathToolTip.SetToolTip(this.overrideParserPictureBox, resources.GetString("overrideParserPictureBox.ToolTip"));
+            // 
             // MathDialogBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.overrideParserPictureBox);
+            this.Controls.Add(this.overrideParserCheckBox);
             this.Controls.Add(this.floatGroupBox);
             this.Controls.Add(this.captionTextBox);
             this.Controls.Add(this.captionLabel);
@@ -156,6 +176,7 @@
             this.panel1.ResumeLayout(false);
             this.floatGroupBox.ResumeLayout(false);
             this.floatGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.overrideParserPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +198,8 @@
         private System.Windows.Forms.RadioButton rightRadioButton;
         private System.Windows.Forms.RadioButton leftRadioButton;
         private System.Windows.Forms.RadioButton noneRadioButton;
+        private System.Windows.Forms.CheckBox overrideParserCheckBox;
+        private System.Windows.Forms.ToolTip mathToolTip;
+        private System.Windows.Forms.PictureBox overrideParserPictureBox;
     }
 }

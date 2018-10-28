@@ -176,6 +176,7 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.changeBackgroundColorButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -1011,7 +1012,8 @@
             this.imageButton,
             this.tableButton,
             this.mathButton,
-            this.importTextButton});
+            this.importTextButton,
+            this.changeBackgroundColorButton});
             this.editToolStrip.Name = "editToolStrip";
             this.editToolStrip.Stretch = true;
             // 
@@ -1271,6 +1273,13 @@
             resources.ApplyResources(this.imageList1, "imageList1");
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // changeBackgroundColorButton
+            // 
+            this.changeBackgroundColorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.changeBackgroundColorButton, "changeBackgroundColorButton");
+            this.changeBackgroundColorButton.Name = "changeBackgroundColorButton";
+            this.changeBackgroundColorButton.Click += new System.EventHandler(this.changeBackgroundColorButton_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -1469,6 +1478,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem cSSToJavaScriptToolStripMenuItem;
         private System.Windows.Forms.Integration.ElementHost elementHost2;
+        private System.Windows.Forms.ToolStripButton changeBackgroundColorButton;
     }
 
 
