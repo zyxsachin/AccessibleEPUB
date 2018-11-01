@@ -128,14 +128,14 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="titleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 63</value>
+    <value>39, 78</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="titleTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="titleTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 26</value>
+    <value>727, 30</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="titleTextBox.TabIndex" type="System.Int32, mscorlib">
@@ -153,9 +153,6 @@
   <data name="&gt;&gt;titleTextBox.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <metadata name="newFileDialogToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -163,13 +160,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 33</value>
-  </data>
-  <data name="titleLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>35, 41</value>
   </data>
   <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 18</value>
+    <value>46, 23</value>
   </data>
   <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -177,6 +171,9 @@
   <data name="titleLabel.Text" xml:space="preserve">
     <value>Title</value>
   </data>
+  <metadata name="newFileDialogToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="titleLabel.ToolTip" xml:space="preserve">
     <value>Title of the EPUB document as read by the EBook reader</value>
   </data>
@@ -199,13 +196,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="authorLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 105</value>
-  </data>
-  <data name="authorLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>35, 129</value>
   </data>
   <data name="authorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 18</value>
+    <value>67, 23</value>
   </data>
   <data name="authorLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -235,13 +229,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="authorTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 135</value>
+    <value>39, 166</value>
   </data>
   <data name="authorTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="authorTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 26</value>
+    <value>727, 30</value>
   </data>
   <data name="authorTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -281,20 +275,17 @@
     <value>NoControl</value>
   </data>
   <data name="singleFileCssPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>384, 37</value>
+    <value>512, 46</value>
   </data>
   <data name="singleFileCssPictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="singleFileCssPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 20</value>
+    <value>24, 25</value>
   </data>
   <data name="singleFileCssPictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <metadata name="newFileDialogToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="singleFileCssPictureBox.ToolTip" xml:space="preserve">
     <value>EPUB switching mechanism is handled with CSS. It is currently supported by Readium. Table of contents will not be generated.</value>
   </data>
@@ -323,13 +314,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="singleFileCssRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>269, 34</value>
+    <value>359, 42</value>
   </data>
   <data name="singleFileCssRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="singleFileCssRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 22</value>
+    <value>143, 27</value>
   </data>
   <data name="singleFileCssRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -369,13 +360,13 @@
     <value>NoControl</value>
   </data>
   <data name="singleFIleJsPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 37</value>
+    <value>317, 46</value>
   </data>
   <data name="singleFIleJsPictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="singleFIleJsPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 20</value>
+    <value>24, 25</value>
   </data>
   <data name="singleFIleJsPictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -412,13 +403,13 @@
     <value>NoControl</value>
   </data>
   <data name="chooseFileFormatPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 0</value>
+    <value>204, 0</value>
   </data>
   <data name="chooseFileFormatPictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="chooseFileFormatPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 20</value>
+    <value>24, 25</value>
   </data>
   <data name="chooseFileFormatPictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -451,13 +442,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="singleFileJsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 34</value>
+    <value>5, 42</value>
   </data>
   <data name="singleFileJsRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="singleFileJsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 22</value>
+    <value>294, 27</value>
   </data>
   <data name="singleFileJsRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -484,16 +475,16 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 340</value>
+    <value>39, 418</value>
   </data>
   <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>545, 74</value>
+    <value>727, 91</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -521,13 +512,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 437</value>
+    <value>547, 538</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 53</value>
+    <value>220, 65</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -551,13 +542,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 437</value>
+    <value>301, 538</value>
   </data>
   <data name="okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 53</value>
+    <value>220, 65</value>
   </data>
   <data name="okButton.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -584,13 +575,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="publisherLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 176</value>
-  </data>
-  <data name="publisherLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>35, 217</value>
   </data>
   <data name="publisherLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 18</value>
+    <value>178, 23</value>
   </data>
   <data name="publisherLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -623,13 +611,13 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="publisherTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 206</value>
+    <value>39, 254</value>
   </data>
   <data name="publisherTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="publisherTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 26</value>
+    <value>727, 30</value>
   </data>
   <data name="publisherTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -661,14 +649,431 @@
   <data name="languageComboBox.Items1" xml:space="preserve">
     <value>German</value>
   </data>
+  <data name="languageComboBox.Items2" xml:space="preserve">
+    <value>Abkhazian</value>
+  </data>
+  <data name="languageComboBox.Items3" xml:space="preserve">
+    <value>Afar</value>
+  </data>
+  <data name="languageComboBox.Items4" xml:space="preserve">
+    <value>Afrikaans</value>
+  </data>
+  <data name="languageComboBox.Items5" xml:space="preserve">
+    <value>Albanian</value>
+  </data>
+  <data name="languageComboBox.Items6" xml:space="preserve">
+    <value>Amharic</value>
+  </data>
+  <data name="languageComboBox.Items7" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="languageComboBox.Items8" xml:space="preserve">
+    <value>Armenian</value>
+  </data>
+  <data name="languageComboBox.Items9" xml:space="preserve">
+    <value>Assamese</value>
+  </data>
+  <data name="languageComboBox.Items10" xml:space="preserve">
+    <value>Aymara</value>
+  </data>
+  <data name="languageComboBox.Items11" xml:space="preserve">
+    <value>Azerbaijani</value>
+  </data>
+  <data name="languageComboBox.Items12" xml:space="preserve">
+    <value>Bashkir</value>
+  </data>
+  <data name="languageComboBox.Items13" xml:space="preserve">
+    <value>Basque</value>
+  </data>
+  <data name="languageComboBox.Items14" xml:space="preserve">
+    <value>Bengali</value>
+  </data>
+  <data name="languageComboBox.Items15" xml:space="preserve">
+    <value>Bhutani</value>
+  </data>
+  <data name="languageComboBox.Items16" xml:space="preserve">
+    <value>Bihari</value>
+  </data>
+  <data name="languageComboBox.Items17" xml:space="preserve">
+    <value>Bislama</value>
+  </data>
+  <data name="languageComboBox.Items18" xml:space="preserve">
+    <value>Breton</value>
+  </data>
+  <data name="languageComboBox.Items19" xml:space="preserve">
+    <value>Bulgarian</value>
+  </data>
+  <data name="languageComboBox.Items20" xml:space="preserve">
+    <value>Burmese</value>
+  </data>
+  <data name="languageComboBox.Items21" xml:space="preserve">
+    <value>Byelorussian</value>
+  </data>
+  <data name="languageComboBox.Items22" xml:space="preserve">
+    <value>Cambodian</value>
+  </data>
+  <data name="languageComboBox.Items23" xml:space="preserve">
+    <value>Catalan</value>
+  </data>
+  <data name="languageComboBox.Items24" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="languageComboBox.Items25" xml:space="preserve">
+    <value>Corsican</value>
+  </data>
+  <data name="languageComboBox.Items26" xml:space="preserve">
+    <value>Croatian</value>
+  </data>
+  <data name="languageComboBox.Items27" xml:space="preserve">
+    <value>Czech</value>
+  </data>
+  <data name="languageComboBox.Items28" xml:space="preserve">
+    <value>Danish</value>
+  </data>
+  <data name="languageComboBox.Items29" xml:space="preserve">
+    <value>Dutch</value>
+  </data>
+  <data name="languageComboBox.Items30" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="languageComboBox.Items31" xml:space="preserve">
+    <value>Esperanto</value>
+  </data>
+  <data name="languageComboBox.Items32" xml:space="preserve">
+    <value>Estonian</value>
+  </data>
+  <data name="languageComboBox.Items33" xml:space="preserve">
+    <value>Faeroese</value>
+  </data>
+  <data name="languageComboBox.Items34" xml:space="preserve">
+    <value>Fiji</value>
+  </data>
+  <data name="languageComboBox.Items35" xml:space="preserve">
+    <value>Finnish</value>
+  </data>
+  <data name="languageComboBox.Items36" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="languageComboBox.Items37" xml:space="preserve">
+    <value>Frisian</value>
+  </data>
+  <data name="languageComboBox.Items38" xml:space="preserve">
+    <value>Galician</value>
+  </data>
+  <data name="languageComboBox.Items39" xml:space="preserve">
+    <value>Georgian</value>
+  </data>
+  <data name="languageComboBox.Items40" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="languageComboBox.Items41" xml:space="preserve">
+    <value>Greek</value>
+  </data>
+  <data name="languageComboBox.Items42" xml:space="preserve">
+    <value>Greenlandic</value>
+  </data>
+  <data name="languageComboBox.Items43" xml:space="preserve">
+    <value>Guarani</value>
+  </data>
+  <data name="languageComboBox.Items44" xml:space="preserve">
+    <value>Gujarati</value>
+  </data>
+  <data name="languageComboBox.Items45" xml:space="preserve">
+    <value>Hausa</value>
+  </data>
+  <data name="languageComboBox.Items46" xml:space="preserve">
+    <value>Hebrew</value>
+  </data>
+  <data name="languageComboBox.Items47" xml:space="preserve">
+    <value>Hindi</value>
+  </data>
+  <data name="languageComboBox.Items48" xml:space="preserve">
+    <value>Hungarian</value>
+  </data>
+  <data name="languageComboBox.Items49" xml:space="preserve">
+    <value>Icelandic</value>
+  </data>
+  <data name="languageComboBox.Items50" xml:space="preserve">
+    <value>Indonesian</value>
+  </data>
+  <data name="languageComboBox.Items51" xml:space="preserve">
+    <value>Interlingua</value>
+  </data>
+  <data name="languageComboBox.Items52" xml:space="preserve">
+    <value>Interlingue</value>
+  </data>
+  <data name="languageComboBox.Items53" xml:space="preserve">
+    <value>Inuktitut</value>
+  </data>
+  <data name="languageComboBox.Items54" xml:space="preserve">
+    <value>Inupiak</value>
+  </data>
+  <data name="languageComboBox.Items55" xml:space="preserve">
+    <value>Irish</value>
+  </data>
+  <data name="languageComboBox.Items56" xml:space="preserve">
+    <value>Italian</value>
+  </data>
+  <data name="languageComboBox.Items57" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="languageComboBox.Items58" xml:space="preserve">
+    <value>Javanese</value>
+  </data>
+  <data name="languageComboBox.Items59" xml:space="preserve">
+    <value>Kannada</value>
+  </data>
+  <data name="languageComboBox.Items60" xml:space="preserve">
+    <value>Kashmiri</value>
+  </data>
+  <data name="languageComboBox.Items61" xml:space="preserve">
+    <value>Kazakh</value>
+  </data>
+  <data name="languageComboBox.Items62" xml:space="preserve">
+    <value>Kinyarwanda</value>
+  </data>
+  <data name="languageComboBox.Items63" xml:space="preserve">
+    <value>Kirghiz</value>
+  </data>
+  <data name="languageComboBox.Items64" xml:space="preserve">
+    <value>Kirundi</value>
+  </data>
+  <data name="languageComboBox.Items65" xml:space="preserve">
+    <value>Korean</value>
+  </data>
+  <data name="languageComboBox.Items66" xml:space="preserve">
+    <value>Kurdish</value>
+  </data>
+  <data name="languageComboBox.Items67" xml:space="preserve">
+    <value>Laothian</value>
+  </data>
+  <data name="languageComboBox.Items68" xml:space="preserve">
+    <value>Latin</value>
+  </data>
+  <data name="languageComboBox.Items69" xml:space="preserve">
+    <value>Latvian, Lettish</value>
+  </data>
+  <data name="languageComboBox.Items70" xml:space="preserve">
+    <value>Lingala</value>
+  </data>
+  <data name="languageComboBox.Items71" xml:space="preserve">
+    <value>Lithuanian</value>
+  </data>
+  <data name="languageComboBox.Items72" xml:space="preserve">
+    <value>Macedonian</value>
+  </data>
+  <data name="languageComboBox.Items73" xml:space="preserve">
+    <value>Malagasy</value>
+  </data>
+  <data name="languageComboBox.Items74" xml:space="preserve">
+    <value>Malay</value>
+  </data>
+  <data name="languageComboBox.Items75" xml:space="preserve">
+    <value>Malayalam</value>
+  </data>
+  <data name="languageComboBox.Items76" xml:space="preserve">
+    <value>Maltese</value>
+  </data>
+  <data name="languageComboBox.Items77" xml:space="preserve">
+    <value>Maori</value>
+  </data>
+  <data name="languageComboBox.Items78" xml:space="preserve">
+    <value>Marathi</value>
+  </data>
+  <data name="languageComboBox.Items79" xml:space="preserve">
+    <value>Moldavian</value>
+  </data>
+  <data name="languageComboBox.Items80" xml:space="preserve">
+    <value>Mongolian</value>
+  </data>
+  <data name="languageComboBox.Items81" xml:space="preserve">
+    <value>Nauru</value>
+  </data>
+  <data name="languageComboBox.Items82" xml:space="preserve">
+    <value>Nepali</value>
+  </data>
+  <data name="languageComboBox.Items83" xml:space="preserve">
+    <value>Norwegian</value>
+  </data>
+  <data name="languageComboBox.Items84" xml:space="preserve">
+    <value>Occitan</value>
+  </data>
+  <data name="languageComboBox.Items85" xml:space="preserve">
+    <value>Oriya</value>
+  </data>
+  <data name="languageComboBox.Items86" xml:space="preserve">
+    <value>Oromo</value>
+  </data>
+  <data name="languageComboBox.Items87" xml:space="preserve">
+    <value>Pashto</value>
+  </data>
+  <data name="languageComboBox.Items88" xml:space="preserve">
+    <value>Persian</value>
+  </data>
+  <data name="languageComboBox.Items89" xml:space="preserve">
+    <value>Polish</value>
+  </data>
+  <data name="languageComboBox.Items90" xml:space="preserve">
+    <value>Portuguese</value>
+  </data>
+  <data name="languageComboBox.Items91" xml:space="preserve">
+    <value>Punjabi</value>
+  </data>
+  <data name="languageComboBox.Items92" xml:space="preserve">
+    <value>Quechua</value>
+  </data>
+  <data name="languageComboBox.Items93" xml:space="preserve">
+    <value>Rhaeto-Romance</value>
+  </data>
+  <data name="languageComboBox.Items94" xml:space="preserve">
+    <value>Romanian</value>
+  </data>
+  <data name="languageComboBox.Items95" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="languageComboBox.Items96" xml:space="preserve">
+    <value>Samoan</value>
+  </data>
+  <data name="languageComboBox.Items97" xml:space="preserve">
+    <value>Sangro</value>
+  </data>
+  <data name="languageComboBox.Items98" xml:space="preserve">
+    <value>Sanskrit</value>
+  </data>
+  <data name="languageComboBox.Items99" xml:space="preserve">
+    <value>Scots Gaelic</value>
+  </data>
+  <data name="languageComboBox.Items100" xml:space="preserve">
+    <value>Serbian</value>
+  </data>
+  <data name="languageComboBox.Items101" xml:space="preserve">
+    <value>Serbo-Croatian</value>
+  </data>
+  <data name="languageComboBox.Items102" xml:space="preserve">
+    <value>Sesotho</value>
+  </data>
+  <data name="languageComboBox.Items103" xml:space="preserve">
+    <value>Setswana</value>
+  </data>
+  <data name="languageComboBox.Items104" xml:space="preserve">
+    <value>Shona</value>
+  </data>
+  <data name="languageComboBox.Items105" xml:space="preserve">
+    <value>Sindhi</value>
+  </data>
+  <data name="languageComboBox.Items106" xml:space="preserve">
+    <value>Singhalese</value>
+  </data>
+  <data name="languageComboBox.Items107" xml:space="preserve">
+    <value>Siswati</value>
+  </data>
+  <data name="languageComboBox.Items108" xml:space="preserve">
+    <value>Slovak</value>
+  </data>
+  <data name="languageComboBox.Items109" xml:space="preserve">
+    <value>Slovenian</value>
+  </data>
+  <data name="languageComboBox.Items110" xml:space="preserve">
+    <value>Somali</value>
+  </data>
+  <data name="languageComboBox.Items111" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="languageComboBox.Items112" xml:space="preserve">
+    <value>Sudanese</value>
+  </data>
+  <data name="languageComboBox.Items113" xml:space="preserve">
+    <value>Swahili</value>
+  </data>
+  <data name="languageComboBox.Items114" xml:space="preserve">
+    <value>Swedish</value>
+  </data>
+  <data name="languageComboBox.Items115" xml:space="preserve">
+    <value>Tagalog</value>
+  </data>
+  <data name="languageComboBox.Items116" xml:space="preserve">
+    <value>Tajik</value>
+  </data>
+  <data name="languageComboBox.Items117" xml:space="preserve">
+    <value>Tamil</value>
+  </data>
+  <data name="languageComboBox.Items118" xml:space="preserve">
+    <value>Tatar</value>
+  </data>
+  <data name="languageComboBox.Items119" xml:space="preserve">
+    <value>Tegulu</value>
+  </data>
+  <data name="languageComboBox.Items120" xml:space="preserve">
+    <value>Thai</value>
+  </data>
+  <data name="languageComboBox.Items121" xml:space="preserve">
+    <value>Tibetan</value>
+  </data>
+  <data name="languageComboBox.Items122" xml:space="preserve">
+    <value>Tigrinya</value>
+  </data>
+  <data name="languageComboBox.Items123" xml:space="preserve">
+    <value>Tonga</value>
+  </data>
+  <data name="languageComboBox.Items124" xml:space="preserve">
+    <value>Tsonga</value>
+  </data>
+  <data name="languageComboBox.Items125" xml:space="preserve">
+    <value>Turkish</value>
+  </data>
+  <data name="languageComboBox.Items126" xml:space="preserve">
+    <value>Turkmen</value>
+  </data>
+  <data name="languageComboBox.Items127" xml:space="preserve">
+    <value>Twi</value>
+  </data>
+  <data name="languageComboBox.Items128" xml:space="preserve">
+    <value>Uigur</value>
+  </data>
+  <data name="languageComboBox.Items129" xml:space="preserve">
+    <value>Ukrainian</value>
+  </data>
+  <data name="languageComboBox.Items130" xml:space="preserve">
+    <value>Urdu</value>
+  </data>
+  <data name="languageComboBox.Items131" xml:space="preserve">
+    <value>Uzbek</value>
+  </data>
+  <data name="languageComboBox.Items132" xml:space="preserve">
+    <value>Vietnamese</value>
+  </data>
+  <data name="languageComboBox.Items133" xml:space="preserve">
+    <value>Volapuk</value>
+  </data>
+  <data name="languageComboBox.Items134" xml:space="preserve">
+    <value>Welch</value>
+  </data>
+  <data name="languageComboBox.Items135" xml:space="preserve">
+    <value>Wolof</value>
+  </data>
+  <data name="languageComboBox.Items136" xml:space="preserve">
+    <value>Xhosa</value>
+  </data>
+  <data name="languageComboBox.Items137" xml:space="preserve">
+    <value>Yiddish</value>
+  </data>
+  <data name="languageComboBox.Items138" xml:space="preserve">
+    <value>Yoruba</value>
+  </data>
+  <data name="languageComboBox.Items139" xml:space="preserve">
+    <value>Zhuang</value>
+  </data>
+  <data name="languageComboBox.Items140" xml:space="preserve">
+    <value>Zulu</value>
+  </data>
   <data name="languageComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 277</value>
+    <value>39, 341</value>
   </data>
   <data name="languageComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="languageComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 26</value>
+    <value>151, 31</value>
   </data>
   <data name="languageComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -692,13 +1097,10 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="languageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 246</value>
-  </data>
-  <data name="languageLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>35, 303</value>
   </data>
   <data name="languageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 18</value>
+    <value>96, 23</value>
   </data>
   <data name="languageLabel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -725,13 +1127,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>628, 510</value>
+    <value>837, 628</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>New File</value>

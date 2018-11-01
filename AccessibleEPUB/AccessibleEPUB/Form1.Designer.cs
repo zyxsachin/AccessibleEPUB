@@ -169,6 +169,7 @@
             this.tableButton = new System.Windows.Forms.ToolStripButton();
             this.mathButton = new System.Windows.Forms.ToolStripButton();
             this.importTextButton = new System.Windows.Forms.ToolStripButton();
+            this.changeBackgroundColorButton = new System.Windows.Forms.ToolStripButton();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -176,7 +177,6 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.changeBackgroundColorButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -1235,6 +1235,13 @@
             this.importTextButton.Name = "importTextButton";
             this.importTextButton.Click += new System.EventHandler(this.importTextButton_Click);
             // 
+            // changeBackgroundColorButton
+            // 
+            this.changeBackgroundColorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.changeBackgroundColorButton, "changeBackgroundColorButton");
+            this.changeBackgroundColorButton.Name = "changeBackgroundColorButton";
+            this.changeBackgroundColorButton.Click += new System.EventHandler(this.changeBackgroundColorButton_Click);
+            // 
             // BottomToolStripPanel
             // 
             resources.ApplyResources(this.BottomToolStripPanel, "BottomToolStripPanel");
@@ -1272,13 +1279,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             resources.ApplyResources(this.imageList1, "imageList1");
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // changeBackgroundColorButton
-            // 
-            this.changeBackgroundColorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.changeBackgroundColorButton, "changeBackgroundColorButton");
-            this.changeBackgroundColorButton.Name = "changeBackgroundColorButton";
-            this.changeBackgroundColorButton.Click += new System.EventHandler(this.changeBackgroundColorButton_Click);
             // 
             // Form1
             // 

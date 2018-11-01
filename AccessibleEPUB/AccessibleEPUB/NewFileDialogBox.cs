@@ -27,6 +27,34 @@ namespace AccessibleEPUB
         string englishString;
         string germanString;
 
+        SortedDictionary<string, string> languagesDict = new SortedDictionary<string, string>
+        {
+           {"Abkhazian", "ab"}, {"Afar", "aa"}, {"Afrikaans", "af"}, {"Albanian", "sq"}, {"Amharic", "am"}, {"Arabic", "ar"},
+            { "Armenian", "hy"}, {"Assamese", "as"}, {"Aymara", "ay"}, {"Azerbaijani", "az"}, {"Bashkir", "ba"}, {"Basque", "eu"},
+            { "Bengali", "bn"}, {"Bhutani", "dz"}, {"Bihari", "bh"}, {"Bislama", "bi"}, {"Breton", "br"}, {"Bulgarian", "bg"},
+            { "Burmese", "my"}, {"Byelorussian", "be"}, {"Cambodian", "km"}, {"Catalan", "ca"}, {"Chinese", "zh"}, {"Corsican", "co"},
+            { "Croatian", "hr"}, {"Czech", "cs"}, {"Danish", "da"}, {"Dutch", "nl"}, {"English", "en"}, {"Esperanto", "eo"},
+            { "Estonian", "et"}, {"Faeroese", "fo"}, {"Fiji", "fj"}, {"Finnish", "fi"}, {"French", "fr"}, {"Frisian", "fy"},
+            { "Galician", "gl"}, {"Georgian", "ka"}, {"German", "de"}, {"Greek", "el"}, {"Greenlandic", "kl"}, {"Guarani", "gn"},
+            { "Gujarati", "gu"}, {"Hausa", "ha"}, {"Hebrew", "he"}, {"Hindi", "hi"}, {"Hungarian", "hu"}, {"Icelandic", "is"},
+            { "Indonesian", "id"}, {"Interlingua", "ia"}, {"Interlingue", "ie"}, {"Inuktitut", "iu"}, {"Inupiak", "ik"},
+            { "Irish", "ga"}, {"Italian", "it"}, {"Japanese", "ja"}, {"Javanese", "jw"}, {"Kannada", "kn"}, {"Kashmiri", "ks"},
+            { "Kazakh", "kk"}, {"Kinyarwanda", "rw"}, {"Kirghiz", "ky"}, {"Kirundi", "rn"}, {"Korean", "ko"}, {"Kurdish", "ku"},
+            { "Laothian", "lo"}, {"Latin", "la"}, {"Latvian, Lettish", "lv"}, {"Lingala", "ln"}, {"Lithuanian", "lt"},
+            { "Macedonian", "mk"}, {"Malagasy", "mg"}, {"Malay", "ms"}, {"Malayalam", "ml"}, {"Maltese", "mt"}, {"Maori", "mi"},
+            { "Marathi", "mr"}, {"Moldavian", "mo"}, {"Mongolian", "mn"}, {"Nauru", "na"}, {"Nepali", "ne"}, {"Norwegian", "no"},
+            { "Occitan", "oc"}, {"Oriya", "or"}, {"Oromo", "om"}, {"Pashto", "ps"}, {"Persian", "fa"}, {"Polish", "pl"},
+            { "Portuguese", "pt"}, {"Punjabi", "pa"}, {"Quechua", "qu"}, {"Rhaeto-Romance", "rm"}, {"Romanian", "ro"}, {"Russian", "ru"},
+            { "Samoan", "sm"}, {"Sangro", "sg"}, {"Sanskrit", "sa"}, {"Scots Gaelic", "gd"}, {"Serbian", "sr"}, {"Serbo-Croatian", "sh"},
+            { "Sesotho", "st"}, {"Setswana", "tn"}, {"Shona", "sn"}, {"Sindhi", "sd"}, {"Singhalese", "si"}, {"Siswati", "ss"},
+            { "Slovak", "sk"}, {"Slovenian", "sl"}, {"Somali", "so"}, {"Spanish", "es"}, {"Sudanese", "su"}, {"Swahili", "sw"},
+            { "Swedish", "sv"}, {"Tagalog", "tl"}, {"Tajik", "tg"}, {"Tamil", "ta"}, {"Tatar", "tt"}, {"Tegulu", "te"}, {"Thai", "th"},
+            { "Tibetan", "bo"}, {"Tigrinya", "ti"}, {"Tonga", "to"}, {"Tsonga", "ts"}, {"Turkish", "tr"}, {"Turkmen", "tk"},
+            { "Twi", "tw"}, {"Uigur", "ug"}, {"Ukrainian", "uk"}, {"Urdu", "ur"}, {"Uzbek", "uz"}, {"Vietnamese", "vi"},
+            { "Volapuk", "vo"}, {"Welch", "cy"}, {"Wolof", "wo"}, {"Xhosa", "xh"}, {"Yiddish", "yi"}, {"Yoruba", "yo"}, {"Zhuang", "za"}, {"Zulu", "zu"}
+        };
+
+
         enum fileMode
         {
             singleFileCss = 1,
@@ -133,6 +161,7 @@ namespace AccessibleEPUB
                 form.setTitle(title);
                 form.setMode(mode);
 
+                string languageChosen = "en";
                 if (languageComboBox.SelectedIndex == 0)
                 {
                     form.setLanguage("en");
@@ -142,6 +171,15 @@ namespace AccessibleEPUB
                     form.setLanguage("de");
                 }
 
+                if (languagesDict.TryGetValue(languageComboBox.Text, out languageChosen)) {
+                    Console.WriteLine("HAHA: " + languageChosen);
+                    form.setLanguage(languageChosen);
+                }
+
+
+              
+
+               
                 form.setNewFileCorrect(true);
                 form.setPublisher(publisher);
 

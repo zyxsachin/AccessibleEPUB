@@ -105,8 +105,10 @@ namespace AccessibleEPUB
 
         string tempPath = Path.GetTempPath();
 
-
         string tempFolder;
+
+        string packageDocumentFile;
+        string rootFolder;
 
         string contentFile;
 
@@ -1196,8 +1198,29 @@ body {
             }
             else
             {
+                if (Directory.Exists(Path.Combine(epubFolderName, "OEBPS")))
+                {
+
+                }
+                else if (Directory.Exists(Path.Combine(epubFolderName, "Text")))
+                {
+
+                }
+
                 mode = (int)fileMode.none;
-                string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+                string[] opfFiles = System.IO.Directory.GetFiles(Path.Combine(epubFolderName, "OEBPS"), "*.opf");
+                //string metadata = File.ReadAllText(Path.Combine(Path.Combine(epubFolderName, "OEBPS"), "content.opf"));
+                if (opfFiles.Length == 0)
+                {
+                    MessageBox.Show("No valid package document file (opf)");
+                    return;
+                }
+                else if (opfFiles.Length > 1)
+                {
+                    MessageBox.Show("Too many package document files (opf)");
+                    return;
+                }
+                string metadata = opfFiles[0];
                 string firstItem = "<itemref idref=\"";
                 int firstIndex = metadata.IndexOf(firstItem) + firstItem.Length;
                 string sub = metadata.Substring(firstIndex);
@@ -1851,6 +1874,7 @@ body {
 
             int count = 0;
 
+            rootFolder = Path.Combine(epubFolderName, "OEBPS");
 
 
             foreach (DirectoryInfo dir in di.GetDirectories())
@@ -2080,19 +2104,20 @@ body {
             int timeEndIndex = metadata.IndexOf(timeEnd);
 
             string languageShort;
-     
-            switch (language)
-            {
-                case "en":
-                    languageShort = "en";
-                    break;
-                case "de":
-                    languageShort = "de";
-                    break;
-                default:
-                    languageShort = "en";
-                    break;
-            }
+
+            languageShort = language;
+            //switch (language)
+            //{
+            //    case "en":
+            //        languageShort = "en";
+            //        break;
+            //    case "de":
+            //        languageShort = "de";
+            //        break;
+            //    default:
+            //        languageShort = "en";
+            //        break;
+            //}
 
             List<int> order = new List<int>{
                  titleStartIndex, titleEndIndex, creatorStartIndex, creatorEndIndex, languageStartIndex, languageEndIndex };
