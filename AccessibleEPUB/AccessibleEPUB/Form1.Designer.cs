@@ -213,6 +213,7 @@
             this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.countToolStrip);
             this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.languageToolStrip);
             this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.versionToolStrip);
+            resources.ApplyResources(this.toolStripContainer1.BottomToolStripPanel, "toolStripContainer1.BottomToolStripPanel");
             // 
             // toolStripContainer1.ContentPanel
             // 

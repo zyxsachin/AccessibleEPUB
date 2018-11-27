@@ -234,6 +234,9 @@
   <data name="&gt;&gt;versionToolStrip.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="toolStripContainer1.BottomToolStripPanel.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>4000, 25</value>
+  </data>
   <data name="&gt;&gt;toolStripContainer1.BottomToolStripPanel.Name" xml:space="preserve">
     <value>toolStripContainer1.BottomToolStripPanel</value>
   </data>
@@ -268,7 +271,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 949</value>
+    <value>191, 918</value>
   </data>
   <data name="treeView1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -292,7 +295,7 @@
     <value>3, 3</value>
   </data>
   <data name="headerTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 910</value>
+    <value>177, 879</value>
   </data>
   <data name="headerTreeView.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -316,7 +319,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="headerTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 916</value>
+    <value>183, 885</value>
   </data>
   <data name="headerTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -343,7 +346,7 @@
     <value>3, 3</value>
   </data>
   <data name="figureTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 910</value>
+    <value>177, 879</value>
   </data>
   <data name="figureTreeView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -367,7 +370,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="figureTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 916</value>
+    <value>183, 885</value>
   </data>
   <data name="figureTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -397,7 +400,7 @@
     <value>0, 0</value>
   </data>
   <data name="elementTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 949</value>
+    <value>191, 918</value>
   </data>
   <data name="elementTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -511,7 +514,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="splashScreenPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1893, 949</value>
+    <value>1893, 918</value>
   </data>
   <data name="splashScreenPanel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -538,7 +541,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="filesTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1893, 949</value>
+    <value>1893, 918</value>
   </data>
   <data name="filesTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -571,7 +574,7 @@
     <value>20, 20</value>
   </data>
   <data name="HTMLEditor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1893, 949</value>
+    <value>1893, 918</value>
   </data>
   <data name="HTMLEditor.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -598,7 +601,7 @@
     <value>0, 0</value>
   </data>
   <data name="elementHost2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1893, 949</value>
+    <value>1893, 918</value>
   </data>
   <data name="elementHost2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -643,7 +646,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="geckoWebBrowser4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 949</value>
+    <value>1389, 918</value>
   </data>
   <data name="geckoWebBrowser4.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -877,7 +880,7 @@
     <value>2000, 4999</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1389, 949</value>
+    <value>1389, 918</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -907,7 +910,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1893, 949</value>
+    <value>1893, 918</value>
   </data>
   <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
     <value>500</value>
@@ -940,7 +943,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1897, 953</value>
+    <value>1897, 922</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>195</value>
@@ -964,7 +967,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="toolStripContainer1.ContentPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1897, 953</value>
+    <value>1897, 922</value>
   </data>
   <data name="&gt;&gt;toolStripContainer1.ContentPanel.Name" xml:space="preserve">
     <value>toolStripContainer1.ContentPanel</value>
@@ -998,6 +1001,9 @@
   </data>
   <data name="toolStripContainer1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
+  </data>
+  <data name="toolStripContainer1.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>5555, 5555</value>
   </data>
   <data name="&gt;&gt;toolStripContainer1.RightToolStripPanel.Name" xml:space="preserve">
     <value>toolStripContainer1.RightToolStripPanel</value>
@@ -2320,7 +2326,7 @@ Save the document</value>
     <value>Justify</value>
   </data>
   <data name="fontComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 28</value>
+    <value>121, 31</value>
   </data>
   <data name="fontComboBox.ToolTipText" xml:space="preserve">
     <value>Choose Font</value>
@@ -2461,11 +2467,14 @@ Save the document</value>
   <data name="changeBackgroundColorButton.Text" xml:space="preserve">
     <value>Change Background Color</value>
   </data>
+  <data name="changeBackgroundColorButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="editToolStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 55</value>
   </data>
   <data name="editToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>930, 31</value>
+    <value>1897, 31</value>
   </data>
   <data name="editToolStrip.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
