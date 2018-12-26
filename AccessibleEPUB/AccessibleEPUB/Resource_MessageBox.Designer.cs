@@ -61,6 +61,24 @@ namespace AccessibleEPUB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatic refresh of the preview browser is deactivated due to a large number of formulas. Please use the button instead..
+        /// </summary>
+        internal static string automaticRefreshDisabledContent {
+            get {
+                return ResourceManager.GetString("automaticRefreshDisabledContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatic refresh disabled.
+        /// </summary>
+        internal static string automaticRefreshDisabledTitle {
+            get {
+                return ResourceManager.GetString("automaticRefreshDisabledTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Changes will only be shown when the program is restarted.
         /// </summary>
         internal static string changesContent {
@@ -331,6 +349,24 @@ namespace AccessibleEPUB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The current EPUB file is not an Accessible EPUB file..
+        /// </summary>
+        internal static string notAnAepubFileContent {
+            get {
+                return ResourceManager.GetString("notAnAepubFileContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not an Accessible EPUB file.
+        /// </summary>
+        internal static string notAnAepubFileTitle {
+            get {
+                return ResourceManager.GetString("notAnAepubFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not delete all files in temp folder..
         /// </summary>
         internal static string notDeleteTempContent {
@@ -363,6 +399,24 @@ namespace AccessibleEPUB {
         internal static string notEpubTitle {
             get {
                 return ResourceManager.GetString("notEpubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No valid package document file (opf) found in the EPUB file..
+        /// </summary>
+        internal static string noValidOpfContent {
+            get {
+                return ResourceManager.GetString("noValidOpfContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No valid OPF file found.
+        /// </summary>
+        internal static string noValidOpfTitle {
+            get {
+                return ResourceManager.GetString("noValidOpfTitle", resourceCulture);
             }
         }
         
@@ -507,6 +561,24 @@ namespace AccessibleEPUB {
         internal static string tocJsTitle {
             get {
                 return ResourceManager.GetString("tocJsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Too many package document files (opf) found in the EPUB file. There should only be one..
+        /// </summary>
+        internal static string tooManyOpfContent {
+            get {
+                return ResourceManager.GetString("tooManyOpfContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Too many OPF files found.
+        /// </summary>
+        internal static string tooManyOpfTitle {
+            get {
+                return ResourceManager.GetString("tooManyOpfTitle", resourceCulture);
             }
         }
     }

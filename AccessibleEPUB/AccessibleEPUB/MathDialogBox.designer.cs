@@ -172,7 +172,6 @@
             this.Controls.Add(this.inputTextBox);
             this.Controls.Add(this.insertFormulaButton);
             this.Name = "MathDialogBox";
-            this.Load += new System.EventHandler(this.MathDialogBox_Load);
             this.panel1.ResumeLayout(false);
             this.floatGroupBox.ResumeLayout(false);
             this.floatGroupBox.PerformLayout();

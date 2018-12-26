@@ -5,6 +5,7 @@
 - Pausing refresh now works earlier and avoids extra overhead
 - The LaTeX parser can now be deactivated so that any formulas recognized by pandoc can be inserted, but at the cost of error proofing
 - Fixed a bug where only one math formula can be added as a figure in a session 
+- Fixed an issue, where having too many inline formulas would slow down the program substantially as they converted in real time to show in the preview. Now they won't be converted in real time, and a button has to be pressed instead if there are too many formulas
 
 ## 0.1.8
 - Added ability to insert inline math by surrounding them with two dollar signs

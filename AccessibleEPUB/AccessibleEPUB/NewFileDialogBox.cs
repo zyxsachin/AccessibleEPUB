@@ -15,18 +15,44 @@ namespace AccessibleEPUB
 {
     public partial class NewFileDialogBox : Form
     {
+        /// <summary>
+        /// The title of the EPUB file, as specified by the Dublin Core Metadata Initiative.
+        /// </summary>
         string title;
+
+        /// <summary>
+        /// The author of the EPUB file, as specified by the Dublin Core Metadata Initiative.
+        /// </summary>
         string author;
-        int mode;
+
+        /// <summary>
+        /// The publisher of the EPUB file, as specified by the Dublin Core Metadata Initiative.
+        /// </summary>
         string publisher;
 
+        /// <summary>
+        /// The format of the currently opened EPUB file, described with values in <c>fileMode</c>.
+        /// </summary>
+        int mode;
 
+        //TODO Replace with proper implementation of languageDict
+        /// <summary>
+        /// It is used to compare the language in the settings and set the default document language.
+        /// </summary>
         string defaultEnglishString = "English";
+
+        /// <summary>
+        /// It is used to compare the language in the settings and set the default document language.
+        /// </summary>
         string defaultGermanString = "German";
 
-        string englishString;
-        string germanString;
+        //string englishString;
+        //string germanString;
 
+        /// <summary>
+        /// A group of common languages with their ISO 639-1 codes. Not in use currently, as the english name will be 
+        /// replaced with regional names so that each language in the program does not need a separate list.
+        /// </summary>
         SortedDictionary<string, string> languagesDict = new SortedDictionary<string, string>
         {
            {"Abkhazian", "ab"}, {"Afar", "aa"}, {"Afrikaans", "af"}, {"Albanian", "sq"}, {"Amharic", "am"}, {"Arabic", "ar"},
@@ -54,7 +80,14 @@ namespace AccessibleEPUB
             { "Volapuk", "vo"}, {"Welch", "cy"}, {"Wolof", "wo"}, {"Xhosa", "xh"}, {"Yiddish", "yi"}, {"Yoruba", "yo"}, {"Zhuang", "za"}, {"Zulu", "zu"}
         };
 
-
+        /// <summary>
+        /// The various file modes which were intended to be available at the beginning. <c>fileMode</c> is used as identifiers  
+        /// for the EPUB formats creatable by this editor. It is used frequently to make sure that CSS flavored EPUB file does
+        /// not is of the correct format<c>singleFileCss</c> and therefore avoids errors that would take place if it were treated
+        /// as anothed format. <c>singleFIleJs</c> are the only formats which can be created with the Accessible EPUB editor. 
+        /// <c>onlyVis</c>, <c>onlyBli</c> and <c>onlyImp</c> stand for formats with only single components, which are
+        /// regularly sighted, blind and visually impaired respectively.
+        /// </summary>
         enum fileMode
         {
             singleFileCss = 1,
@@ -65,10 +98,18 @@ namespace AccessibleEPUB
             none = 6
         }
 
+        /// <summary>
+        /// The current instance of <c>Form1</c> which is needed as information will be passed to it.
+        /// </summary>
         Form1 form;
 
+        /// <summary>
+        /// A constructor which needs an instance of <c>Form1</c> to pass the author, title and file mode to the instance.
+        /// </summary>
+        /// <param name="f">The current instance of <c>Form1</c> which is needed as information will be passed to it.</param>
         public NewFileDialogBox(Form1 f)
         {
+            
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
 
             InitializeComponent();
@@ -99,40 +140,45 @@ namespace AccessibleEPUB
         }
 
 
-        private void singleFileJsButton_Click(object sender, EventArgs e)
-        {
-            if (titleTextBox.Text != "" && authorTextBox.Text != "")
-            {
-                title = titleTextBox.Text;
-                author = authorTextBox.Text;
-                mode = (int)fileMode.singleFileJs;
+        //private void singleFileJsButton_Click(object sender, EventArgs e)
+        //{
+        //    if (titleTextBox.Text != "" && authorTextBox.Text != "")
+        //    {
+        //        title = titleTextBox.Text;
+        //        author = authorTextBox.Text;
+        //        mode = (int)fileMode.singleFileJs;
 
-                form.setAuthor(author);
-                form.setTitle(title);
-                form.setMode(mode);
+        //        form.setAuthor(author);
+        //        form.setTitle(title);
+        //        form.setMode(mode);
 
-                this.Dispose();
-                this.Hide();
+        //        this.Dispose();
+        //        this.Hide();
 
-            }
-        }
+        //    }
+        //}
 
+        
+        //public int getMode()
+        //{
+        //    return mode;
+        //}
 
-        public int getMode()
-        {
-            return mode;
-        }
+        //public string getTitle()
+        //{
+        //    return title;
+        //}
 
-        public string getTitle()
-        {
-            return title;
-        }
+        //public string getAuthor()
+        //{
+        //    return author;
+        //}
 
-        public string getAuthor()
-        {
-            return author;
-        }
-
+        /// <summary>
+        /// Tells the instance of <c>Form1</c> that a new file was not created so the process does not have to continue.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
             form.setNewFileCorrect(false);
@@ -140,8 +186,14 @@ namespace AccessibleEPUB
             this.Dispose();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void okButton_Click(object sender, EventArgs e)
         {
+         
             if (titleTextBox.Text != "" && authorTextBox.Text != "")
             {
                 if (singleFileJsRadioButton.Checked == true)
@@ -171,15 +223,12 @@ namespace AccessibleEPUB
                     form.setLanguage("de");
                 }
 
-                if (languagesDict.TryGetValue(languageComboBox.Text, out languageChosen)) {
-                    Console.WriteLine("HAHA: " + languageChosen);
-                    form.setLanguage(languageChosen);
-                }
+                //if (languagesDict.TryGetValue(languageComboBox.Text, out languageChosen)) {
+                //    form.setLanguage(languageChosen);
+                //}
 
 
-              
 
-               
                 form.setNewFileCorrect(true);
                 form.setPublisher(publisher);
 

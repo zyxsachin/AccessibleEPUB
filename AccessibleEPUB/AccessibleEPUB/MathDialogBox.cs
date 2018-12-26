@@ -23,27 +23,63 @@ using mshtml;
 
 namespace AccessibleEPUB
 {
+    /// <summary>
+    /// The <c>MathDialogBox</c> is used to add images to the EPUB file, which will be inside a figure, and it will 
+    /// contain LaTeX code for blind users as simple text.
+    /// </summary>
     public partial class MathDialogBox : Form
     {
+        /// <summary>
+        /// The display showing the parsed LaTeX code of the formula.
+        /// </summary>
         WpfMath.Controls.FormulaControl formula = new WpfMath.Controls.FormulaControl();
+
+        /// <summary>
+        /// The HTML document to which the figure with the math is added to.
+        /// </summary>
         IHTMLDocument2 doc;
+
+        /// <summary>
+        /// The parser which parses LaTeX math code so it can be shown visually.
+        /// </summary>
         private WpfMath.TexFormulaParser formulaParser = new WpfMath.TexFormulaParser();
+
+        /// <summary>
+        /// The path to the SVG file.
+        /// </summary>
         private string svgFile;
         //private string pngFile;
 
+        /// <summary>
+        /// The path to the temp image folder of the EPUB file.
+        /// </summary>
         string imageFolderPath;
         
 
 
         //string initialPath = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
-        string initialPath = Directory.GetCurrentDirectory();
+
+        
+        //string initialPath = Directory.GetCurrentDirectory();
         //string ip = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
         //string ip = Environment.CurrentDirectory.ToString();
+
+        /// <summary>
+        /// The path where Accessible EPUB is being executed.
+        /// </summary>
         string ip = System.Windows.Forms.Application.StartupPath;
 
+        /// <summary>
+        /// The name of the folder in the <c>tempFolder</c>, which Accessible EPUB uses.
+        /// </summary>
         string accEpubFolderName = Path.Combine(Path.GetTempPath(), "AccessibleEPUB");
 
-
+        /// <summary>
+        /// The constructor which is used to transfer information about the current EPUB file and editor
+        /// to the <c>MathDialogBox</c>.
+        /// </summary>
+        /// <param name="mainWindowDoc">The HTML document of the current file in the editor.</param>
+        /// <param name="imagePath">The temp path to the images folder.</param>
         public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
@@ -51,6 +87,7 @@ namespace AccessibleEPUB
 
             doc = mainWindowDoc;
 
+            /* The display showing the parsed formula is set up. */
             host.Dock = DockStyle.Fill;
             host.Child = formula;
 
@@ -59,10 +96,18 @@ namespace AccessibleEPUB
             formula.BorderThickness = new Thickness(3, 3, 3, 3);
 
             imageFolderPath = imagePath;
-            Console.WriteLine(ip);
             noneRadioButton.Checked = true;
         }
 
+        /// <summary>
+        /// The constructor used when an image is edited. All the important informatmathion is transferred as parameters.
+        /// </summary>
+        /// <param name="mainWindowDoc">The HTML document of the current file in the editor.</param>
+        /// <param name="imagePath">The temp path to the images folder.</param>
+        /// <param name="mathCode">The LaTeX code of the formula.</param>
+        /// <param name="title">The title of the formula.</param>
+        /// <param name="figCaption">The caption of the figure.</param>
+        /// <param name="floatValue">The alignment of the figure.</param>
         public MathDialogBox(IHTMLDocument2 mainWindowDoc, string imagePath, string mathCode, string title, string figCaption, string floatValue)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
@@ -70,6 +115,7 @@ namespace AccessibleEPUB
 
             doc = mainWindowDoc;
 
+            /* The display showing the parsed formula is set up. */
             host.Dock = DockStyle.Fill;
             host.Child = formula;
 
@@ -101,9 +147,15 @@ namespace AccessibleEPUB
         }
 
 
-
+        /// <summary>
+        /// Inserts a figure with a mathematic formula inside. A SVG is also there so that the formula can be shown 
+        /// in the WYSIWYG editor. 
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         private void insertFormulaButton_Click(object sender, EventArgs e)
         {
+            /* Checks if the parser override checkbox is checked, as the WPFMath parser does not support all LaTeX math features. */
             if (overrideParserCheckBox.Checked == false)
             {
                 if (this.formula.HasError)
@@ -119,7 +171,9 @@ namespace AccessibleEPUB
             string pandoc = Path.Combine(ip, "pandoc-2.1");
             string currentDic = Directory.GetCurrentDirectory();
 
+            /* accFile is how Accessible EPUB passes the LaTeX math code to pandoc. */
             string accFile = Path.Combine(accEpubFolderName, "accEpub.txt");
+            /* formulaResult is the result from pandoc. */
             string formulaResult = Path.Combine(accEpubFolderName, "formulaResult.txt");
 
             Directory.SetCurrentDirectory(pandoc);
@@ -133,11 +187,15 @@ namespace AccessibleEPUB
             
             string title;
             string titleTag;
+
+            //TODO Check that there are no special characters in the title.
+            /* The title of the formula is used to get a file name for the SVG. */
             if (!(titleTextBox.Text == ""))
             {
                 title = titleTextBox.Text;
                 titleTag = @""" title=""" + titleTextBox.Text + "\"";
             }
+            /* If no title is given, then a random file name is chosen instead. */
             else
             {
                 do
@@ -152,6 +210,7 @@ namespace AccessibleEPUB
 
             if (!(captionTextBox.Text == "")) {
                 caption = captionTextBox.Text;
+                //caption = captionTextBox.Text.Replace("\"", "\\\"");
                 captionTag = "<figcaption style=\"text-align:left\">" + caption + @"</figcaption>";
             }
             else
@@ -161,11 +220,11 @@ namespace AccessibleEPUB
 
             string styleTag = "";
 
-            if (noneRadioButton.Checked == true)
-            {
+            //if (noneRadioButton.Checked == true)
+            //{
 
-            }
-            else if (leftRadioButton.Checked == true)
+            //}
+            if (leftRadioButton.Checked == true)
             {
                 styleTag = " style=\"float:left;\" ";
             }
@@ -182,7 +241,7 @@ namespace AccessibleEPUB
             //    return;
             //}
 
-
+            /* Adds dollar signs, as pandoc needs these to recognized it as LaTeX math. */
             System.IO.File.WriteAllText(accFile, "$" + inputTextBox.Text + "$");
             //Console.WriteLine(System.IO.File.ReadAllText(accFile));
             //string imagesFolder = Path.Combine(imageFolderPath, "images");
@@ -203,6 +262,9 @@ namespace AccessibleEPUB
             imagePath = svgFile;
             Directory.SetCurrentDirectory(pandoc);
             //Console.WriteLine(svgFile);
+
+            /* Pandoc has to be called up indirectly via cmd (Windows command prompt) to avoid encoding errors with certain characters, 
+             * which appear if it is called up directly. */
             var proc = new Process
             {
                 StartInfo = new ProcessStartInfo
@@ -248,6 +310,8 @@ namespace AccessibleEPUB
             mathResult = mathResult.Substring(0, mathResult.LastIndexOf(split2) + split2.Length);
 
 
+            //TODO Should just "<annotation" be checked for instead of also including the "encoding"
+            // characteristic
             string annoStart = "<annotation encoding=\"application/x-tex\">";
             string annoEnd = "</annotation>";
 
@@ -259,11 +323,12 @@ namespace AccessibleEPUB
                 mathResult = mathResult.Replace(mathResult.Substring(start, end - start), "");
             }
 
-
+            /* MathML does not care about HTML entities, so the greater than (>) and less than (<) 
+             * have to be converted to their usual symbols. */
             mathResult = mathResult.Replace("&lt;", "<");
             mathResult = mathResult.Replace("&gt;", ">");
     
-            bool encodeMode = false;
+            //bool encodeMode = false;
       
             StringBuilder sb = new StringBuilder("");
             for (int i = 0; i < mathResult.Length; i++)
@@ -271,12 +336,12 @@ namespace AccessibleEPUB
                 string toAdd = "";
                 if (mathResult[i] == '>')
                 {
-                    encodeMode = true;
+                    //encodeMode = true;
                     toAdd = ">";
                 }
                 else if (mathResult[i] == '<')
                 {
-                    encodeMode = false;
+                    //encodeMode = false;
                     toAdd = "<";
                 } 
                 else
@@ -333,7 +398,8 @@ namespace AccessibleEPUB
             //        return;
             //    }
             //}
-     
+
+            /* Pieces together the math in the figure. */
             string formulaToAdd = "";
 
             formulaToAdd += "\n<figure>";
@@ -467,7 +533,11 @@ namespace AccessibleEPUB
             //            </div> ";
         }
 
-
+        /// <summary>
+        /// Converts LaTeX math code to <c>WpfMath.TexFormula</c> which is displayed in the formula view.
+        /// </summary>
+        /// <param name="input">The LaTeX math formula which will be parsed</param>
+        /// <returns>The parsed formula which is then displayed in the formula view.</returns>
         private WpfMath.TexFormula ParseFormula(string input)
         {
             // Create formula object from input text.
@@ -487,6 +557,12 @@ namespace AccessibleEPUB
             return formula;
         }
 
+        /// <summary>
+        /// Allows user to explicitly save a SVG of the currently entered math formula, without adding it to the EPUB document. 
+        /// This button was removed and the feature deactivated to simplify the layout.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         private void saveButton_Click(object sender, EventArgs e)
         {
             // Choose file
@@ -529,6 +605,12 @@ namespace AccessibleEPUB
             }
         }
 
+        /// <summary>
+        /// Saves an SVG of the math formula which is used in the WYSIWYG editor.
+        /// </summary>
+        /// <param name="input">LaTeX math code of the formula.</param>The 
+        /// <param name="filePath">Path where the svg will be located.</param>
+        /// <param name="title">The title of the math formula.</param>
         private void saveSVG(string input, string filePath, string title)
         {
             //string imagesFolder = Path.Combine(imageFolderPath, "images");
@@ -639,9 +721,13 @@ namespace AccessibleEPUB
 
             }
             Directory.SetCurrentDirectory(currentDic);
-
         }
 
+        /// <summary>
+        /// Adds a SVG header which has to added as an HTML tag.
+        /// </summary>
+        /// <param name="svgText">The code of the SVG image.</param>
+        /// <returns>The code of the SVG image in an appropriate tags.</returns>
         private string AddSVGHeader(string svgText)
         {
 
@@ -656,16 +742,21 @@ namespace AccessibleEPUB
 
 
 
-        private void MathDialogBox_Load(object sender, EventArgs e)
-        {
-            //this.formulaParser = new WpfMath.TexFormulaParser();
+        //private void MathDialogBox_Load(object sender, EventArgs e)
+        //{
+        //    //this.formulaParser = new WpfMath.TexFormulaParser();
 
-            //var testFormula1 = "\\int_0^{\\infty}{x^{2n} e^{-a x^2} dx} = \\frac{2n-1}{2a} \\int_0^{\\infty}{x^{2(n-1)} e^{-a x^2} dx} = \\frac{(2n-1)!!}{2^{n+1}} \\sqrt{\\frac{\\pi}{a^{2n+1}}}";
-            //var testFormula2 = "\\int_a^b{f(x) dx} = (b - a) \\sum_{n = 1}^{\\infty}  {\\sum_{m = 1}^{2^n  - 1} { ( { - 1} )^{m + 1} } } 2^{ - n} f(a + m ( {b - a}  )2^{-n} )";
-            //var testFormula3 = @"L = \int_a^b \sqrt[4]{ \left| \sum_{i,j=1}^ng_{ij}\left(\gamma(t)\right) \left[\frac{d}{dt}x^i\circ\gamma(t) \right] \left{\frac{d}{dt}x^j\circ\gamma(t) \right} \right|}dt";
-            //this.inputTextBox.Text = testFormula3;
-        }
+        //    //var testFormula1 = "\\int_0^{\\infty}{x^{2n} e^{-a x^2} dx} = \\frac{2n-1}{2a} \\int_0^{\\infty}{x^{2(n-1)} e^{-a x^2} dx} = \\frac{(2n-1)!!}{2^{n+1}} \\sqrt{\\frac{\\pi}{a^{2n+1}}}";
+        //    //var testFormula2 = "\\int_a^b{f(x) dx} = (b - a) \\sum_{n = 1}^{\\infty}  {\\sum_{m = 1}^{2^n  - 1} { ( { - 1} )^{m + 1} } } 2^{ - n} f(a + m ( {b - a}  )2^{-n} )";
+        //    //var testFormula3 = @"L = \int_a^b \sqrt[4]{ \left| \sum_{i,j=1}^ng_{ij}\left(\gamma(t)\right) \left[\frac{d}{dt}x^i\circ\gamma(t) \right] \left{\frac{d}{dt}x^j\circ\gamma(t) \right} \right|}dt";
+        //    //this.inputTextBox.Text = testFormula3;
+        //}
 
+        /// <summary>
+        /// Every change in the math input is parsed and immediately shown in the formula view.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         private void inputTextBox_TextChanged(object sender, EventArgs e)
         {
             string lastFormula = this.formula.Formula;
@@ -690,6 +781,12 @@ namespace AccessibleEPUB
 
         }
 
+        /// <summary>
+        /// Closes the window properly and sets <c>DialogResult.Cancel</c>, which tells the main form that the math formula should not be edited 
+        /// and there should not be any changes to it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

@@ -16,16 +16,44 @@ using System.Threading;
 
 namespace AccessibleEPUB
 {
+    /// <summary>
+    /// The <c>ImageDialogBox</c> is used to add images to the EPUB file, which will be inside a figure, and it will 
+    /// contain alternative text as simple text.
+    /// </summary>
     public partial class ImageDialogBox : Form
     {
+        /// <summary>
+        /// The HTML document to which the figure with the image is added to.
+        /// </summary>
         IHTMLDocument2 doc;
+
+        /// <summary>
+        /// The directory where images will be stored.
+        /// </summary>
         string imageFolderPath;
 
+        /// <summary>
+        /// The tag of image which is used for the alternative text.
+        /// </summary>
         string tag = "";
 
+        /// <summary>
+        /// The document language of the EPUB which is used to the text of the tags.
+        /// </summary>
         string docLanguage = "";
+
+        /// <summary>
+        /// Used to set the language of <c>ImageDialogBox</c>.
+        /// </summary>
         CultureInfo currentCI;
 
+        /// <summary>
+        /// The constructor which is used to transfer information about the current EPUB file and editor
+        /// to the <c>ImageDialogBox</c>.
+        /// </summary>
+        /// <param name="mainWindowDoc">The HTML document of the current file in the editor.</param>
+        /// <param name="ip">The temp path to the images folder.</param>
+        /// <param name="dl">The language of the EPUB document.</param>
         public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl)
         {       
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
@@ -35,12 +63,28 @@ namespace AccessibleEPUB
             imageFolderPath = ip;
             docLanguage = dl;
 
+            /* Setting the TabIndex in the Visual Studio design editor did not work so it had to be done during run time. */
             imageLocationTextBox.TabIndex = 1;
             noneRadioButton.Checked = true;
 
             initTypeList();
         }
 
+        /// <summary>
+        /// The constructor used when an image is edited. All the important information is transferred as parameters.
+        /// </summary>
+        /// <param name="mainWindowDoc">The HTML document of the current file in the editor.</param>
+        /// <param name="ip">The temp path of the image to the images folder.</param>
+        /// <param name="dl">The language of the EPUB document.</param>
+        /// <param name="location">The location of the image in the temp folder.</param>
+        /// <param name="title">The title of the image.</param>
+        /// <param name="altText">The alternative text of the image.</param>
+        /// <param name="caption">The caption of the figure.</param>
+        /// <param name="tag">The tag of the image.</param>
+        /// <param name="altImgLocation">The temp path of the alternative image to the images folder.</param>
+        /// <param name="width">The width of the figure.</param>
+        /// <param name="height">The height of the figure.</param>
+        /// <param name="floatValue">The alignment of the figure.</param>
         public ImageDialogBox(IHTMLDocument2 mainWindowDoc, string ip, string dl, string location, string title, string altText, string caption, string tag, string altImgLocation, string width, string height, string floatValue)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.ProgramLanguage.ToString());
@@ -76,7 +120,12 @@ namespace AccessibleEPUB
             }
         }
 
-
+        /// <summary>
+        /// Closes the window properly and sets <c>DialogResult.Cancel</c>, which tells the main form that the image should not be edited 
+        /// and there should not be any changes to it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
 
@@ -87,11 +136,18 @@ namespace AccessibleEPUB
             //this.Close();
         }
 
+        /// <summary>
+        /// Inserts a figure with an image and alternative text into the current HTML file of the EPUB file.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         private void addImageButton_Click(object sender, EventArgs e)
         {
             //this.DialogResult = DialogResult.OK;
+
+            /* Certain steps can be skipped if there is no alternative image. */
             bool altImageExists = false;
-            bool toEnd = false;
+            //bool toEnd = false;
      
             if (imageLocationTextBox.Text == "")
             {
@@ -142,6 +198,7 @@ namespace AccessibleEPUB
             string imagePath = Path.Combine(imageFolderPath, Path.GetFileName(imageLocationTextBox.Text));          
             string altImagePath = "";
             
+            /* Copies the image into the images folder and if it the file already exists, it asks if the image can be overwritten. */
             try
             {
                 if (imageLocationTextBox.Text != imagePath)
@@ -165,6 +222,7 @@ namespace AccessibleEPUB
                 }
             }
 
+            /* Copies the altImage into the images folder and if it the file already exists, it asks if the image can be overwritten. */
             if (altImageExists)
             {
                 try
@@ -189,16 +247,18 @@ namespace AccessibleEPUB
                     }
                 }
             }
+            /* If there is no altImage, it just uses the regular image twice. */
             else
             {               
                 altImagePath = imagePath;
             }
         
 
-
+            /* Gets the current selection of the HTML document. */
             dynamic currentLocation = doc.selection.createRange();
             //r.pasteHTML
 
+            /* If a tag exists, the greater than (>) and less than (<) have to be converted to a HTML entity. */
             string tagEnd = "";
             tag = typeComboBox.Text;
             if (typeComboBox.Text == "None")
@@ -211,13 +271,14 @@ namespace AccessibleEPUB
                 tag = "&lt;" + tag + "&gt;";
             }
 
+            /* The height and width tags are the strings which will be inserted as properties of the figure element. */
             string heightTag = "";
             string widthTag = "";
 
             int height = 0;
             int width = 0;
-
           
+            /* The empty if prevents the else if being reached. */
             if (heightTextBox.Text == "")
             {
 
@@ -233,7 +294,7 @@ namespace AccessibleEPUB
                 return;
             }
 
-
+            /* The empty if prevents the else if being reached. */
             if (widthTextBox.Text == "")
             {
 
@@ -251,11 +312,12 @@ namespace AccessibleEPUB
 
             string styleTag = "";
             
-            if (noneRadioButton.Checked == true)
-            {
+            
+            //if (noneRadioButton.Checked == true)
+            //{
 
-            }
-            else if (leftRadioButton.Checked == true)
+            //}
+            if (leftRadioButton.Checked == true)
             {
                 styleTag = " style=\"float:left;\" ";
             }
@@ -275,9 +337,11 @@ namespace AccessibleEPUB
             //Console.WriteLine("\n" + @"<div> <figure" + heightTag + widthTag + @"><img class=""imageOthers""  title=""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><img class=""imageImpaired"" title=""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent imageImpaired"">" +
             //   tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
 
-           
+
+            /* The HTML code of the figure with the image which will be inserted into the HTML document. */
             currentLocation.pasteHTML(@"<figure" + styleTag + heightTag + widthTag + @"><img class=""imageOthers""" + styleTag + @" title=""" + titleTextBox.Text + @""" src=""" + imagePath + @""" alt=""" + altTextTextBox.Text + "\"" + heightTag + widthTag + @"/><img class=""imageImpaired""" + styleTag + @"title=""" + titleTextBox.Text + @"""src=""" + altImagePath + @""" alt=""" + altTextTextBox.Text + "\"" + heightTag + widthTag + @"/><p class=""transparent"">" +
                tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure>");
+            
             // Old version with outside div
             //currentLocation.pasteHTML("\n" + @"<div style=""display:inline""> <figure" + styleTag + heightTag + widthTag + @"><img class=""imageOthers""" + styleTag +  @"title =""" + titleTextBox.Text + @"""src =""" + imagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><img class=""imageImpaired""" + styleTag + @"title =""" + titleTextBox.Text + @"""src =""" + altImagePath + @""" alt =""" + altTextTextBox.Text + heightTag + widthTag + @"""><p class=""transparent imageImpaired"">" +
             //   tag + altTextTextBox.Text + tagEnd + @"</p><figcaption style = ""text -align:center"" >" + captionTextBox.Text + @"</figcaption></figure></div>" + "\n");
@@ -302,6 +366,13 @@ namespace AccessibleEPUB
             //}
         }
 
+        //TODO If an invalid file is chosen, it somehow has to be tested that it is not an valid image file for EPUB files 
+        // and then tell the user it isn't accepted.
+        /// <summary>
+        /// Allows an image to be chosen which will then be inserted.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         private void chooseImageButton_Click(object sender, EventArgs e)
         {
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -318,6 +389,10 @@ namespace AccessibleEPUB
             }
         }
 
+        /// <summary>
+        /// Sets up the type tag list. Only German and English are supported for now, but if more languages are
+        /// eventually supported, the resources file must be lengthened.
+        /// </summary>
         private void initTypeList()
         {
             //typeComboBox.Items.Add("None");
@@ -345,6 +420,13 @@ namespace AccessibleEPUB
             typeComboBox.SelectedIndex = 1;
         }
 
+        //TODO If an invalid file is chosen, it somehow has to be tested that it is not an valid image file for EPUB files 
+        // and then tell the user it isn't accepted.
+        /// <summary>
+        /// Allows an alternative image to be chosen which will then be inserted.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         private void chooseAlternativeImageButton_Click(object sender, EventArgs e)
         {
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

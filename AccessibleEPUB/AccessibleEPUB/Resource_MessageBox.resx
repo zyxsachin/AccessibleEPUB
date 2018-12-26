@@ -219,6 +219,12 @@
   <data name="notEpubTitle" xml:space="preserve">
     <value>Not an EPUB file</value>
   </data>
+  <data name="noValidOpfContent" xml:space="preserve">
+    <value>No valid package document file (opf) found in the EPUB file.</value>
+  </data>
+  <data name="noValidOpfTitle" xml:space="preserve">
+    <value>No valid OPF file found</value>
+  </data>
   <data name="parseInputContent" xml:space="preserve">
     <value>An error occurred while parsing the given input:</value>
   </data>
@@ -266,5 +272,23 @@
   </data>
   <data name="tocJsTitle" xml:space="preserve">
     <value>Table of contents error</value>
+  </data>
+  <data name="tooManyOpfContent" xml:space="preserve">
+    <value>Too many package document files (opf) found in the EPUB file. There should only be one.</value>
+  </data>
+  <data name="tooManyOpfTitle" xml:space="preserve">
+    <value>Too many OPF files found</value>
+  </data>
+  <data name="notAnAepubFileContent" xml:space="preserve">
+    <value>The current EPUB file is not an Accessible EPUB file.</value>
+  </data>
+  <data name="notAnAepubFileTitle" xml:space="preserve">
+    <value>Not an Accessible EPUB file</value>
+  </data>
+  <data name="automaticRefreshDisabledContent" xml:space="preserve">
+    <value>Automatic refresh of the preview browser is deactivated due to a large number of formulas. Please use the button instead.</value>
+  </data>
+  <data name="automaticRefreshDisabledTitle" xml:space="preserve">
+    <value>Automatic refresh disabled</value>
   </data>
 </root>

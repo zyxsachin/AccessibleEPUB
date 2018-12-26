@@ -216,6 +216,12 @@
     <Compile Include="TableDialogBox.designer.cs">
       <DependentUpon>TableDialogBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm.Designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutDialogBox.de.resx">
       <DependentUpon>AboutDialogBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TableDialogBox.resx">
       <DependentUpon>TableDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AccessibleEPUB_TemporaryKey.pfx" />
     <None Include="ClassDiagram1.cd" />
