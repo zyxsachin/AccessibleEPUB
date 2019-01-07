@@ -35,7 +35,7 @@ $$\sqrt{5}$$
 - Verhalten der Inline-Formelumgebung hängt von Leerzeichen vor und nach $$ ab.
 - Vorschau-Aktualisierung springt zurück zu Anfang des Dokumentes.
 - Vorschau-Aktualisierung lässt Programm aufhängen und Cursor verliert Fokus auf das Eingabefenster.
-- last saved aktualisiert erst nach Eingabe eines neuen Zeichens
+- last saved aktualisiert erst nach Eingabe eines neuen Zeichens <u>Update:</u> anscheinend genügt ebenfalls eine Pfeiltasteneingabe.
 - TeX: Inline Formel `P(M) = \{ \{ 1,2 \} , \{ 1 \} , \{ 2 \} , \emptyset \}` funktioniert, aber über Formel einfügen-Fenster nicht.
 
 > 26.12.2018 18:00 - 22:00
@@ -46,7 +46,7 @@ $$\sqrt{5}$$
 - Disabled automatic refresh info-box is a great addition!
 - Again, conflict between target users (Question about formulas): The expression `Seien $$M, N$$ Mengen` presents the conflict: a double formula in order to respect the space between both sets makes it bloated for blind users (as would `$$M,\ N$$`).
   This should be clarified in the standard for all conflict cases (a priority is required).
-- **Major:** Typing in notepad++ and pressing CTRL+S triggers conversion inside the EPUB editor??? (a window opens telling "please wait while the conversion is done").
+- **<u>Major</u>:** Typing in notepad++ and pressing CTRL+S triggers conversion inside the EPUB editor??? (a window opens telling "please wait while the conversion is done").
   Also happens with Typora.
 - Selecting text and pressing the button for cursive should not set the following cursor to cursive, but only set the selected as cursive and allow to continue typing in standard formatting without further manipulation.
 - I am thinking of a user-readable standard formatting to mark the end of certain paragraphs.
@@ -59,7 +59,7 @@ $$\sqrt{5}$$
 - Restoration of crashed files? A file still is stored in AppData/Local/Temp/AccessibleEPUB after the crash.
 - Localization: French keyboards have numbers accessible through shift. Hence, "CTRL+3" does not work as a shortcut to set headers (resulting in a CTRL+"). 
 - Small window witdh: the buttons to add fomulas, tables, etc... could move up next to the save buttons, instead of disappearing inside a pop-up menu.
-- **Major:** See Bug 1
+- **<u>Major</u>:** See Bug 1
 - The visual formattin capabilites of the format should be clarified, most importantly in comparison with TeX-Files (f.e.: Smallcaps for names)
 
 ###Major Bug event 1:
@@ -104,7 +104,7 @@ It is unclear if I somehow interrupted the saving and conversion process.
 
 ! <u>Caption as well as title seems mandatory when inserting figure-formulas.</u> !
 
-- On small window (halved 1376px-wide screen): empty space is kept in the bottom bar between "_Character Count_" and "_Document language_", masking the last time the file was saved (when no save was done since opening the file).
+- On small window (halved 1376px-wide screen): empty space is kept in the bottom bar between "_Character Count_" and "_Document language_", masking the last sa the file was saved (when no save was done since opening the file).
   After save process: the Version display gets "kicked out" of the window to the right.
 - Saving/Conversion takes more than 2 minutes on this machine.
 
@@ -114,4 +114,31 @@ It is unclear if I somehow interrupted the saving and conversion process.
 
 - TeX: Compilers are inconsistent (inline recognises `\mathbb{R}` whereas figure doesn't).
 - TeX: `<`and `>`are not rendered and break formulas: they result in _`&gt;`_ and _`&lt;`_ instead. And the leading _`&`_ is even interpreted by TeX. 
-- 
+
+
+
+> 07.01.2019 00:30 - 06:20
+
+- pagebreaks inside of numbered lists are problematic: possiblity to start list at given number?
+- Secondary: Make Headers-Sidebar display hierarchy to get a better feeling for the structural clarity of the document.
+- Cross-references? (Jump to section)
+- possibility to manually insert list-bullets?
+- styling of lists produces bigger fontsize.
+- Custom font-colors are not saved (? at least not during same session)
+- Possiblity to select all matching words in CTRL+F search for consistent styling would be appreciated. Also "replace".
+- possiblity to synchronise scrolling in both panels?
+- TeX: (Update) The `<` and `>` : those inserted without space around them are **also** replaced in the editing panel, whereas those with space around them are only displayed wrongly. No logic coul be determined why this sometimes breaks the whole paragraph and others just the formula. However, the < and > symbols are displayed correctly in text-mode of the editor???
+  Added spaces before and after every concerned symbol.
+- Very positive: search for closing `$$` of inline-formulas ends after paragraph break, which avoids a lot of trouble.
+- TeX: (inline) command `\dotsm`not recognized?
+- Very positive: Inline-TeX works inside of table cells!
+- TeX: `\limits`command does not seem to work (normally force `_` and `^`below and above operator even in inline-display).
+- TeX: Applying color to inline-formulas does work!
+- pandoc crashed after 4 minutes of conversion time* (convert formulas button)
+  - cross on "please wait while conversion is done" does not close the info-window
+  - info-window closed after 5:30 minutes of conversion time*.
+- Not sure if saving and converting formulas-buttons handle formulas the same way (those at the end of the document may be skipped the first 1-2 times?)
+- Time fpr save-process: 5 minutes*. CTRL+S absolutely needs to be freed from global shortcuts.
+
+*on my desktop pc.
+
