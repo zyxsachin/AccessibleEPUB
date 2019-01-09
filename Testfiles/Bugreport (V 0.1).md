@@ -7,7 +7,7 @@
 - Verschiedene Seitennummerierungen? (i,ii,...,1,2,...)
 - Kein Feedback, ob erfolgreich gespeichert.
 
-> 10.09.2018 22:00 - 23:11
+> 10.09.2018 22:00 - 23:11 :ballot_box_with_check:
 
 Inline Math in HTML:
 
@@ -21,9 +21,9 @@ $$\sqrt{5}$$
 
 
 
-> 06.11.2018 17:00 - 19:45
+> 06.11.2018 17:00 - 19:45 :ballot_box_with_check:
 
-> 18.12.2018 18:26 - 18:40, 19:18 - 20:58
+> 18.12.2018 18:26 - 18:40, 19:18 - 20:58 :ballot_box_with_check:
 
 # V0.1.8:
 
@@ -38,7 +38,7 @@ $$\sqrt{5}$$
 - last saved aktualisiert erst nach Eingabe eines neuen Zeichens <u>Update:</u> anscheinend genügt ebenfalls eine Pfeiltasteneingabe.
 - TeX: Inline Formel `P(M) = \{ \{ 1,2 \} , \{ 1 \} , \{ 2 \} , \emptyset \}` funktioniert, aber über Formel einfügen-Fenster nicht.
 
-> 26.12.2018 18:00 - 22:00
+> 26.12.2018 18:00 - 22:00 :ballot_box_with_check:
 
 # V0.1.9:
 
@@ -87,7 +87,7 @@ It is unclear if I somehow interrupted the saving and conversion process.
 
 ---
 
-> 30.12.2018 11:15 - 12:00
+> 30.12.2018 11:15 - 12:00 :ballot_box_with_check:
 
 ### Bug encountered again: _"StartIndex cannot be less than zero."_
 
@@ -108,16 +108,16 @@ It is unclear if I somehow interrupted the saving and conversion process.
   After save process: the Version display gets "kicked out" of the window to the right.
 - Saving/Conversion takes more than 2 minutes on this machine.
 
-> 05.01.2019 17:30 - 18:15
+> 05.01.2019 17:30 - 18:15 :ballot_box_with_check:
 >
-> 06.01.2019 13:15 - 13:45
+> 06.01.2019 13:15 - 13:45 :ballot_box_with_check:
 
 - TeX: Compilers are inconsistent (inline recognises `\mathbb{R}` whereas figure doesn't).
 - TeX: `<`and `>`are not rendered and break formulas: they result in _`&gt;`_ and _`&lt;`_ instead. And the leading _`&`_ is even interpreted by TeX. 
 
 
 
-> 07.01.2019 00:30 - 06:20
+> 07.01.2019 00:30 - 06:35 :ballot_box_with_check:
 
 - pagebreaks inside of numbered lists are problematic: possiblity to start list at given number?
 - Secondary: Make Headers-Sidebar display hierarchy to get a better feeling for the structural clarity of the document.
