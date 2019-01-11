@@ -169,7 +169,7 @@ It is unclear if I somehow interrupted the saving and conversion process.
 ```
 - Possibly the conversion would go faster if all formulas would be loaded in the same txt-file? Bottleneck seems to be the multiple pandoc instances loaded one after another (watching the filesize of formulaResult.txt flickering).
 
-> 11.01.2019 17:30 - 
+> 11.01.2019 17:30 - 19:45
 
 | Table of Abbreviations: | Javascript | CSS  |
 | ----------------------- | ---------- | ---- |
