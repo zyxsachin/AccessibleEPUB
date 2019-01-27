@@ -15,7 +15,7 @@ See page 41 here:  https://web.archive.org/web/20110911011244/http://www.blista.
 
 
 
-### Typograhpic questions:
+### Typographic questions:
 
 How are `{` and `}` rendered?
 
@@ -43,6 +43,8 @@ Possible other improvements:
 
 
 
+---
+
 # Inline:
 
 Latex wird in accEpub.txt gespeichert
@@ -62,6 +64,8 @@ amssymb (`\mathbb{}`), amsmath (`\text{}`)
 Not working:
 
 - `\limits` ?
+- `\dotsm` needs to be typed as `\cdots`. But \dotsm is included in amsmath.
+- 
 
 
 
@@ -82,6 +86,8 @@ The use of `xelatex` or `lualatex` as the LaTeX engine requires [`fontspec`](htt
 
 
 
+
+---
 
 # Figures:
 
