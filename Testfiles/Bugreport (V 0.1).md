@@ -146,7 +146,7 @@ It is unclear if I somehow interrupted the saving and conversion process.
 
 ----
 
-> Erste Besprechung am 09.01.2019
+> #Erste Besprechung am 09.01.2019
 
 ---
 
@@ -169,7 +169,7 @@ It is unclear if I somehow interrupted the saving and conversion process.
 ```
 - Possibly the conversion would go faster if all formulas would be loaded in the same txt-file? Bottleneck seems to be the multiple pandoc instances loaded one after another (watching the filesize of formulaResult.txt flickering).
 
-> 11.01.2019 17:30 - 19:45
+> 11.01.2019 17:30 - 19:45 :ballot_box_with_check:
 
 | Table of Abbreviations: | Javascript | CSS  |
 | ----------------------- | ---------- | ---- |
@@ -199,4 +199,12 @@ Also, repeated crashes or bugs will now get names. Our first little friend got b
 - EC TeX-Figure: WPF-Example `L = \int_a^b \sqrt[4]{\left|\sum_{i,j=1}^ng_{ij}\left(\gamma(t)\right) \left[\frac{d}{dt}x^i\circ\gamma(t) \right]\left{\frac{d}{dt}x^j\circ\gamma(t)\right} \right|}dt` is recognised in Live-Preview, but (with title and caption) the "_StartIndex cannot be less than zero_" error is returned.
   - simple Formula `L` without title or caption works, but program crashes after clicking ok (no Leroy).
   - simple Formula `L` **with** title **and** caption works!
-  - But overwritting the formula with the above by double-clicking the figure-box, and it crashes again.
+  - But overwriting the formula with the above by double-clicking the figure-box, and it crashes again.
+
+
+
+> 24.01.2019 19:45 - 20:00 :ballot_box_with_check:
+
+
+
+> # --- SWITCH TO Bugreport (V 0.1.10).md ---
