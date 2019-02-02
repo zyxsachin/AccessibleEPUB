@@ -1,8 +1,8 @@
 > Erste Besprechung am 09.01.2019
 
 
-- [ ] (A) Bugreport für overide Parser typing wrong formula breaks everything
-- [ ] (B) Check header shortcut
+- [x] (A) Bugreport für overide Parser typing wrong formula breaks everything
+- [x] (B) Check header shortcut
 - [ ] (C) Top1: Neues Logo
 - [ ] (D) Sigil anschauen
 - [ ] (E) Brailleauthority.org checken http://www.brailleauthority.org/ueb/symbols_list.pdf
@@ -26,18 +26,23 @@
 |      | Defining Crash types: | Short Description                                            |
 | ---- | --------------------- | ------------------------------------------------------------ |
 |      | "Crash"/"Crashes"     | GUI is greyed out, Windows-Box appears "ACCESSIBLE EPUB" stopped working with single option "close" (or "exit"), then the editor-Window closes. |
+|      | Error Message         | An info-box with red cross opens, reporting an unhandled exception. |
 | [x]  | Leroy                 | "StartIndex is Less than Zero" ;)                            |
 | [x]  | Leyline               | Editor crashes when modifying an inline-formula in fiiles opened from Win-Explorer, EN-CSS. |
+|      | Void                  | Saving a newly created empty file causes an error message.   |
+|      |                       | Preview jumps unavoidably to the bottom.                     |
 
 ---
 
 #List of features wished for:
 
-- Pagebreak, with number and STRG+Enter
-- Scroll sync/lock
-- Possibility to load barrier free pictures in the file, that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?) --> See Fragen an SZS
-- Keyboard Shortcut to start rendering of inline formulas? --> See ToDo (S). 
-- 
+- [ ] Pagebreak, with number and STRG+Enter
+- [ ] Scroll sync/lock
+- [ ] Possibility to load barrier free pictures in the file, that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?) --> See Fragen an SZS
+- [ ] Keyboard Shortcut to start rendering of inline formulas? --> See ToDo (S). 
+- [ ] Keyboard Shortcut to insert inline-formula (inserts $$ $$ in editor).
+- [ ] Possibility to insert text "blocks". For Quotations or coloured/highlighted paragraphs? Already done via indent? Requires feedback.
+- [ ] 
 
 
 
@@ -117,7 +122,7 @@ Bug seems related to the info-box about automatic refresh.
 
 > 29.01.2019 Sachin contacted me, the Leyline-bug seems to be fixed. Tests pending. Changelog above synchronized with the released changelog.
 
-> 29.01.2019 18:00 - 19:00 :ballot_box_with_check:
+> 29.01.2019 18:00 - 19:10 :ballot_box_with_check:
 
 Began listing required icons for graphical update.
 
@@ -126,3 +131,132 @@ Reinstalled V0.1.10 with actualised installer, in which the Leyline-Bug has been
 - Bug does not seem to appear for Testfile EN-CSS.epub. Well done! :thumbsup:
 
 Exported Logo-sketch to .ico. Will be tested for next release.
+
+
+
+> 30.01.2019 19:00 - 20:45 :ballot_box_with_check:
+
+Leyline did not reappear.
+
+(B): Shortcuts for headers are not set. I don't know how I came to believed this last Christmas. Neither on the laptop with the old version, nor on desktop do they work, independently of keyboard configuration.
+
+
+
+> 01.02.2019 16:00 - 17:30 :ballot_box_with_check: 
+
+Testing the "import text":
+
+Extracted pages 59-61 from test PDF to import in EC file.
+
+- Have a file open.
+- Select "new file"
+- Create new file (title, author, publisher, EC)
+- clicked "import text". Nothing happens. I leave the file empty and click save.
+
+- <u>Error message:</u> `Value cannot be null. Parameter name: input` 
+
+```
+************** Exception Text **************
+System.ArgumentNullException: Value cannot be null.
+Parameter name: input
+   at System.Text.RegularExpressions.Regex.Matches(String input)
+   at AccessibleEPUB.Form1.wysiwygToHtml()
+   at AccessibleEPUB.Form1.saveFile()
+   at AccessibleEPUB.Form1.saveButton_Click(Object sender, EventArgs e)
+   at System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   at System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   at System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   at System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   at System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   at System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   at System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+```
+
+- Select `Continue` 
+- Program stays stable, I enter a single letter in the editor. Preview gets rendered.
+- Save, exit. Select "no" in info-box about saving file before exit.
+- reopen file. It is empty. 
+- Enter single letter, click save.
+- Close, no save-warning.
+- Reopen file, content is saved. 
+
+^ The first saving attempt seems not to have worked.
+
+- **Minor:** (EC+GC): An empty line needs to be inserted automatically at the very beginning of the document. For now, it is possible to write in the first line next to the CSS selectors.
+
+Trying above bug again:
+
+- Program start
+
+- Choose "crate new file". Done with title, author, publisher, EC.
+- Leave editor empty.
+- Click save icon.
+- <u>Error Message:</u> Like above.
+
+
+
+### [ Bug: Void
+
+Newly created files cannot be saved by clicking the icon or pressing CTRL+S, and cause an error message.
+
+However, they are written on the hard disk and use non-null disk space.
+
+Selecting `continue`does not cause the program to crash.
+
+The empty file can be reopened after this (WinExp), and saved without problems. 
+
+**Solution idea:** Insert a non-deletable empty line by default in new documents to avoid this, which could also solve the problem of users writing in the same line as the CSS selectors are placed.
+
+**]**
+
+
+
+Trying text import again, using pdftotext (on windows) preliminarily.
+
+pdftotext does not like the pdf (returns three bold upper arrows). But it likes the exported _Bugreport(V0.1).pdf_ ...
+
+**Update**: the windows powershell stinks.
+
+- (EC) insert exported text into the editor. 
+- Preview turns yellow and says:
+  XML Parsing Error: reference to invalid character number Location: file:///C:/Users/Zauberherrscher/AppData/Local/Temp/AccessibleEPUB/Testfile2%20EN-CSS/OEBPS/Text/Content.xhtml Line Number 20, Column 2041:
+  <u>with red text below corresponding to the source of the whole file.</u>
+- The Line+Column number do not correspond to the source txt but to the temp file.
+- Screenshot:
+
+![1549038594220](ARCHIVE/1549038594220.png)
+
+- exited without saving the file.
+
+This behaviour is hard to understand. The problematic characters are: `&#xC;V0.1.9:`, more exactly the #. However, this is not the only place in original file where a Header was set with the markdown syntax `# Text`. The extracted .txt file contains the symbol `` at this position. Notepad++ renders it as FF:
+
+![1549127153113](ARCHIVE/1549127153113.png)
+
+And Typora displays it as a red dot in the source view of the markdown document:
+
+![1549127263722](ARCHIVE/1549127263722.png)
+
+This is supposedly an error caused by pdftotext, but could also be created when converting a markdown file to pdf using Typora. Also possible: encoding inconsistency.
+
+> 02.02.2019 17:00 - 18:45
+
+Created Bugreport(V0.1)_cleaned.txt in which the problematic symbols have been removed.
+
+The text cna now be copy/pasted without problems in the editor.
+
+
+
+###[ Bug:
+
+The preview jumps back to bottom. Scrolling up only in the preview is not possible. This is independent of the cursor position and takes half a second after releasing the scroll wheel.
+
+**]**
+
