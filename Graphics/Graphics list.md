@@ -71,7 +71,7 @@
 
 - [ ] Toggle preview, On/Off
 - [ ] Toggle Editor, On/Off
-- [ ] Toggle Code Editor On/Off
+- [ ] Toggle Code Editor On/Off   
 - [ ] Toggle File Explorer Sidepane
 - [ ] Play or Pause preview refresh
 - [ ] Toggle Navigation Pane On/Off

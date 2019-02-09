@@ -1,16 +1,16 @@
 > Erste Besprechung am 09.01.2019
 
 
-- [x] (A) Bugreport f端r overide Parser typing wrong formula breaks everything
+- [x] (A) Bugreport für overide Parser typing wrong formula breaks everything
 - [x] (B) Check header shortcut
 - [ ] (C) Top1: Neues Logo
 - [ ] (D) Sigil anschauen
 - [ ] (E) Brailleauthority.org checken http://www.brailleauthority.org/ueb/symbols_list.pdf
-- [ ] (F) Inline Formeln 端berpr端fen zwischen pandoc und epub
+- [ ] (F) Inline Formeln überprüfen zwischen pandoc und epub
 - [ ] (G) **Inline**: MathML durch Pandoc, **figure live Preview**: WPF-Math, **figure in Text**: Wpf as svg
 - [ ] (H) Handbuch?
 - [ ] (I) < and > symbols after saving/reopening file. **-> Use \less \greater instead**
-- [ ] (T) Liste der TeX-Befehle die aus Blindenversion rausgefiltert werden m端ssen.
+- [ ] (T) Liste der TeX-Befehle die aus Blindenversion rausgefiltert werden müssen.
 - [ ] (S) Shortcuts need to be listed all at one place, to gain overview and adapt them best. Possible combination with Graphics-list?
 - [ ] 
 
@@ -23,25 +23,35 @@
 | English                 | EJ         | EC   |
 | German                  | GJ         | GC   |
 
-|      | Defining Crash types: | Short Description                                            |
-| ---- | --------------------- | ------------------------------------------------------------ |
-|      | "Crash"/"Crashes"     | GUI is greyed out, Windows-Box appears "ACCESSIBLE EPUB" stopped working with single option "close" (or "exit"), then the editor-Window closes. |
-|      | Error Message         | An info-box with red cross opens, reporting an unhandled exception. |
-| [x]  | Leroy                 | "StartIndex is Less than Zero" ;)                            |
-| [x]  | Leyline               | Editor crashes when modifying an inline-formula in fiiles opened from Win-Explorer, EN-CSS. |
-|      | Void                  | Saving a newly created empty file causes an error message.   |
-|      |                       | Preview jumps unavoidably to the bottom.                     |
+|      | Defining Problem types: | Short Description                                            |
+| ---- | ----------------------- | ------------------------------------------------------------ |
+|      | "Crash"/"Crashes"       | GUI is greyed out, Windows-Box appears "ACCESSIBLE EPUB" stopped working with single option "close" (or "exit"), then the editor-Window closes. |
+|      | Error Message           | An info-box with red cross opens, reporting an unhandled exception. |
+| [x]  | Leroy                   | "StartIndex is Less than Zero" ;)                            |
+| [x]  | Leyline                 | Editor crashes when modifying an inline-formula in fiiles opened from Win-Explorer, EN-CSS. |
+| [ ]  | Void                    | Saving a newly created empty file causes an error message.   |
+| [ ]  |                         | Preview jumps unavoidably to the bottom.                     |
+| [ ]  |                         | Program closes unexpectedly when open but not in use. *Requires further testing.* |
+| [ ]  |                         | List behaviour when changing symbol for unnumbered list breaks list. *Requires further testing.* |
+| [ ]  |                         | What does `Import Text` do?                                  |
+| [ ]  |                         | Text colours and applying/changing Preformatting             |
+| [ ]  |                         | Preview actualisation of Parser-incompatible figure formulas does not give feedback of working. |
+| [ ]  | Safeplace               | Window title does not change according to filename used in "save as..." |
 
 ---
 
 #List of features wished for:
 
 - [ ] Pagebreak, with number and STRG+Enter
-- [ ] Scroll sync/lock
+- [ ] Scroll sync/lock between editor and preview panel.
 - [ ] Possibility to load barrier free pictures in the file, that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?) --> See Fragen an SZS
 - [ ] Keyboard Shortcut to start rendering of inline formulas? --> See ToDo (S). 
 - [ ] Keyboard Shortcut to insert inline-formula (inserts $$ $$ in editor).
 - [ ] Possibility to insert text "blocks". For Quotations or coloured/highlighted paragraphs? Already done via indent? Requires feedback.
+- [ ] Possibility for me to access and modify the used icons via git.
+- [ ] Search/Replace function
+- [ ] **Table of EPUB readers and compatibility**
+- [ ] Hierarchised Headers Sidepanel
 - [ ] 
 
 
@@ -258,5 +268,57 @@ The text cna now be copy/pasted without problems in the editor.
 
 The preview jumps back to bottom. Scrolling up only in the preview is not possible. This is independent of the cursor position and takes half a second after releasing the scroll wheel.
 
+**Update - 09.02:** Now it is locked at the top? (HM-Skript_CSS2.epub) Is this the scroll lock? 
+
 **]**
+
+
+
+
+
+> 07.02.2019 20:00 - 22:45
+
+### [Bug:
+
+Encountered random crash. Program was open while writing the manual, but not active excepted a few times in-between to test banal specific behaviour.
+
+Happened two times.
+
+Requires further documentation.
+
+**]**
+
+
+
+### [Bug:
+
+Setting the Symbol for unnumbered lists to Square breaks the list.
+
+Requires further documentation.
+
+**]**
+
+
+
+> 09.02.2019 20:00 - 21:45
+
+Playing around with icons.
+
+Continuing writing math script (corrected sections [0-1[ ):
+
+- **Bug**: the preformatting of a header does reset user-selected colors for the text.
+  - Write text line
+  - Set as header 3
+  - Set first word to green
+  - Set line as header 2
+  - green replaced with black
+- **Bug:** Replacing formula in figure-formula does not change the preview?
+  - Opening existing document, open edit window for pre-existing figure formula
+  - replace formula with something the parser doesn't recognise (use of `\cases` for example)
+  - select "override parser", close window
+  - Preview in Editor remains the same as before the edit. Double-click on the figure shows the new formula is saved.
+- **Major:** "Safeplace" Opening an existing file (WinExplorer), "Saving as..." under a new name.
+  - The Window title of the program does not change to the new file name. 
+  - It is unclear, if saving will now replace the first file, or the newly created copy of it. <u>!!!!</u>
+- 
 
