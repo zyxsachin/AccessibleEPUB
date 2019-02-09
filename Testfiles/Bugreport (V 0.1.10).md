@@ -300,7 +300,7 @@ Requires further documentation.
 
 
 
-> 09.02.2019 20:00 - 21:45
+> 09.02.2019 20:00 - 22:00
 
 Playing around with icons.
 
