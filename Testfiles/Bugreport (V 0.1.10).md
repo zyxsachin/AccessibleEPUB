@@ -1,16 +1,16 @@
 > Erste Besprechung am 09.01.2019
 
 
-- [x] (A) Bugreport fè´‰r overide Parser typing wrong formula breaks everything
+- [x] (A) Bugreport f¬è≈§√§r overide Parser typing wrong formula breaks everything
 - [x] (B) Check header shortcut
 - [ ] (C) Top1: Neues Logo
 - [ ] (D) Sigil anschauen
 - [ ] (E) Brailleauthority.org checken http://www.brailleauthority.org/ueb/symbols_list.pdf
-- [ ] (F) Inline Formeln è´‰berprè´‰fen zwischen pandoc und epub
+- [ ] (F) Inline Formeln ¬è≈§√§berpr¬è≈§√§fen zwischen pandoc und epub
 - [ ] (G) **Inline**: MathML durch Pandoc, **figure live Preview**: WPF-Math, **figure in Text**: Wpf as svg
 - [ ] (H) Handbuch?
 - [ ] (I) < and > symbols after saving/reopening file. **-> Use \less \greater instead**
-- [ ] (T) Liste der TeX-Befehle die aus Blindenversion rausgefiltert werden mè´‰ssen.
+- [ ] (T) Liste der TeX-Befehle die aus Blindenversion rausgefiltert werden m¬è≈§√§ssen.
 - [ ] (S) Shortcuts need to be listed all at one place, to gain overview and adapt them best. Possible combination with Graphics-list?
 - [ ] 
 
@@ -43,7 +43,7 @@
 #List of features wished for:
 
 - [ ] Pagebreak, with number and STRG+Enter
-- [ ] Scroll sync/lock between editor and preview panel.
+- [ ] Scroll sync/lock between editor and preview panel (edited area should match previewed area).
 - [ ] Possibility to load barrier free pictures in the file, that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?) --> See Fragen an SZS
 - [ ] Keyboard Shortcut to start rendering of inline formulas? --> See ToDo (S). 
 - [ ] Keyboard Shortcut to insert inline-formula (inserts $$ $$ in editor).
@@ -52,6 +52,7 @@
 - [ ] Search/Replace function
 - [ ] **Table of EPUB readers and compatibility**
 - [ ] Hierarchised Headers Sidepanel
+- [ ] To ease development: a menu-button opening the path to the temp-folder containing the file in windows explorer.
 - [ ] 
 
 
@@ -256,7 +257,7 @@ And Typora displays it as a red dot in the source view of the markdown document:
 
 This is supposedly an error caused by pdftotext, but could also be created when converting a markdown file to pdf using Typora. Also possible: encoding inconsistency.
 
-> 02.02.2019 17:00 - 18:45
+> 02.02.2019 17:00 - 18:45 :ballot_box_with_check:
 
 Created Bugreport(V0.1)_cleaned.txt in which the problematic symbols have been removed.
 
@@ -268,7 +269,9 @@ The text cna now be copy/pasted without problems in the editor.
 
 The preview jumps back to bottom. Scrolling up only in the preview is not possible. This is independent of the cursor position and takes half a second after releasing the scroll wheel.
 
-**Update - 09.02:** Now it is locked at the top? (HM-Skript_CSS2.epub) Is this the scroll lock? 
+**Update - 09.02:** Now it is locked at the top? (HM-Skript_CSS2.epub) Is this what you call "scroll lock"? :sweat_smile: 
+
+**Update - 14.02:** The bug appears only after the "automatic refresh" info-box has been dismissed. Scrolling in both views works perfectly fine, until the editor window is selected and a text input is given. The bug makes the preview jump to the point it was at before dismissing the info-box.
 
 **]**
 
@@ -276,7 +279,7 @@ The preview jumps back to bottom. Scrolling up only in the preview is not possib
 
 
 
-> 07.02.2019 20:00 - 22:45
+> 07.02.2019 20:00 - 22:45 :ballot_box_with_check:
 
 ### [Bug:
 
@@ -300,7 +303,7 @@ Requires further documentation.
 
 
 
-> 09.02.2019 20:00 - 22:00
+> 09.02.2019 20:00 - 22:00 :ballot_box_with_check:
 
 Playing around with icons.
 
@@ -317,8 +320,62 @@ Continuing writing math script (corrected sections [0-1[ ):
   - replace formula with something the parser doesn't recognise (use of `\cases` for example)
   - select "override parser", close window
   - Preview in Editor remains the same as before the edit. Double-click on the figure shows the new formula is saved.
-- **Major:** "Safeplace" Opening an existing file (WinExplorer), "Saving as..." under a new name.
+- **Major:** "<u>Safeplace</u>" Opening an existing file (WinExplorer), "Saving as..." under a new name.
   - The Window title of the program does not change to the new file name. 
-  - It is unclear, if saving will now replace the first file, or the newly created copy of it. <u>!!!!</u>
-- 
+  - It is unclear, if saving will now replace the first file, or the newly created copy of it. <u>!!!!</u> (it actually does overwrite the newest copy)
 
+
+
+> 14.02.2019 19:00 - 20:00 :ballot_box_with_check:
+
+We have a problem concerning CSS-capable readers for Desktop (windows). Listed in Sachin's preliminary works are Reasily and Readium, but Reasily is Android-Only, and Readium is hard to access and currently only in an Alpha.2 release (see [here](https://github.com/readium/readium-desktop/releases)). This makes tests outside of the AEPUB-Editor difficult, and Sigil being an editor too, it is not really simulating the end-user experience.
+
+- Readium does not display math figures
+
+Quoting from the Bachelor's Thesis: "_In the preview browser in Accessible EPUB and when the individual XHTML Ô¨Åles were opened in web  browsers, the switching mechanism behaved correctly._". The Idea of directly readable XHTML-Files intrigues me, and makes me question the advantages of EPUB-Readers. Wouldn't a modern browser not offer all necessary features? What would be missing?
+
+
+
+Continue beautifying the HM-script:
+
+- this time, I don't get the bug of the preview jumping to top/bottom...?
+- CORRECTION: The bug appears only after the "automatic refresh" info-box has been dismissed. Scrolling in both views works perfectly fine, until the editor window is selected and a text input is given.
+- Could there be a way to recognise wrongly rendered inline-formulas? So that they are rendered in a different color f.e.. Seems hard to implement as there are various reasons why it isn't recognized, or working.
+- **Bug:** Program crashed again after longer inactivity, without saving.
+
+
+
+> 15.02.2019 18:00 - 19:00 :ballot_box_with_check:
+
+Continue beautifying the HM-script.
+
+- The < and > symbols seem not to be overwritten by editing the source.
+
+TeX: Testing further the TeX commands `\lt` and `\gt`
+
+- Writing in Testfile2 EN-CSS. Some text. First inline equation.
+  - Save, close, reopen.
+  - Add text, second equation.
+  - Save, close, reopen.
+  - Add text, third equation. All three with `\lt` and `\gt`.
+    - So far, no problems occuring with rendering the < and > symbols.
+- Add text, fourth equation, this time with `<` and `>`.
+  - Save, close, reopen
+- Add text, fifth equation, regular text <.
+  - Additional `amp;` is added in front of previous `\lt`.
+  - in-formula replaced by `&gt;`.
+  - in-text unproblematic.
+- Add text, sixth equation, regular text >.
+  - Save, close, reopen
+  - Enter text, seventh equation, regular text>.
+  - Save, conversion adds additional `amp;` in front of each `lt;` or `gt;`.
+- Trying to revert the bug:
+  - replacing `&amp;lt;` with `\lt` seems to work here. But the HM-script does not behave the same way.
+- HM-script: changed one single equation from `&amp;lt;` to `\lt`. (wait 8minutes...)
+  - This seems to have worked.
+  - Contrary to editing all formulas in one batch and converting only once.
+  - <u>correction:</u> I must have reopened the content.xhtml too early after the changes, editing all `amp` to `\lt`s at once seems to have worked as expected.
+
+
+
+> 25.02.2019 19:00 - 20:00 
