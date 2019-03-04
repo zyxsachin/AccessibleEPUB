@@ -1,10 +1,12 @@
 > Erste Besprechung am 09.01.2019
 
+#ToDo (Ulrich)
+
 
 - [x] (A) Bugreport fŤär overide Parser typing wrong formula breaks everything
 - [x] (B) Check header shortcut
 - [ ] (C) Top1: Neues Logo
-- [ ] (D) Sigil anschauen
+- [x] (D) Sigil anschauen
 - [ ] (E) Brailleauthority.org checken http://www.brailleauthority.org/ueb/symbols_list.pdf
 - [ ] (F) Inline Formeln ŤäberprŤäfen zwischen pandoc und epub
 - [ ] (G) **Inline**: MathML durch Pandoc, **figure live Preview**: WPF-Math, **figure in Text**: Wpf as svg
@@ -12,17 +14,25 @@
 - [ ] (I) < and > symbols after saving/reopening file. **-> Use \less \greater instead**
 - [ ] (T) Liste der TeX-Befehle die aus Blindenversion rausgefiltert werden mŤässen.
 - [ ] (S) Shortcuts need to be listed all at one place, to gain overview and adapt them best. Possible combination with Graphics-list?
-- [ ] 
+- [ ] (B) BMWF is to be checked out
+- [ ] (N) NVDA is a freely accessible Screen reader for Windows (recommend with the Windows-voices), and can be used to test the AEPUB-files.
+- [ ] (D) Additional tests related to manually set font-sizes influencing the displayed font-size in ebook-readers are required.
+- [ ] (Q) Formatting possibilities: begin and end markers for subparagraphs like examples? -> eventuell nur für Einrückungen
+- [ ] High: (L) Insert newly implemented Linebreaks to HM-Skript, +beautify it.
 
 
 
 
+
+
+#Table of Abbreviations
 
 | Table of Abbreviations: | Javascript | CSS  |
 | ----------------------- | ---------- | ---- |
 | English                 | EJ         | EC   |
 | German                  | GJ         | GC   |
 
+# Table of Bugs
 |      | Defining Problem types: | Short Description                                            |
 | ---- | ----------------------- | ------------------------------------------------------------ |
 |      | "Crash"/"Crashes"       | GUI is greyed out, Windows-Box appears "ACCESSIBLE EPUB" stopped working with single option "close" (or "exit"), then the editor-Window closes. |
@@ -30,29 +40,35 @@
 | [x]  | Leroy                   | "StartIndex is Less than Zero" ;)                            |
 | [x]  | Leyline                 | Editor crashes when modifying an inline-formula in fiiles opened from Win-Explorer, EN-CSS. |
 | [ ]  | Void                    | Saving a newly created empty file causes an error message.   |
-| [ ]  |                         | Preview jumps unavoidably to the bottom.                     |
-| [ ]  |                         | Program closes unexpectedly when open but not in use. *Requires further testing.* |
-| [ ]  |                         | List behaviour when changing symbol for unnumbered list breaks list. *Requires further testing.* |
-| [ ]  |                         | What does `Import Text` do?                                  |
-| [ ]  |                         | Text colours and applying/changing Preformatting             |
-| [ ]  |                         | Preview actualisation of Parser-incompatible figure formulas does not give feedback of working. |
+| [ ]  | Preview                 | Preview jumps unavoidably to the bottom.                     |
+| [ ]  | Idle                    | Program closes unexpectedly when open but not in use. *Requires further testing.* |
+| [ ]  | ListNumerBreaks         | List behaviour when changing symbol for unnumbered list breaks list. *Requires further testing.* |
+| [ ]  | TextImport              | What does `Import Text` do?                                  |
+| [ ]  | Preformatcolour         | Text colours and applying/changing Preformatting             |
+| [ ]  | ParserFeedback          | Preview actualisation of Parser-incompatible figure formulas does not give feedback of working. |
 | [ ]  | Safeplace               | Window title does not change according to filename used in "save as..." |
+| [ ]  | Metadata                | Metadata missing in Reasily                                  |
+| [ ]  | Macbreaks               | Pagebreaks in Mac/iOS default ebook-reader                   |
+| [ ]  | Reader Fontsize         | the fontsize between lists and plain text varies too much    |
+|      |                         |                                                              |
 
 ---
 
 #List of features wished for:
 
-- [ ] Pagebreak, with number and STRG+Enter
-- [ ] Scroll sync/lock between editor and preview panel (edited area should match previewed area).
-- [ ] Possibility to load barrier free pictures in the file, that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?) --> See Fragen an SZS
+- [ ] (very high) Pagebreak, with number and STRG+Enter, using the epub3-standard, as well as the SZS standard: `<seite>X<\seite>`
+- [ ] (high) Scroll sync/lock between editor and preview panel (edited area should match previewed area).
+- [ ] (very low) Possibility to load barrier free pictures in the file, that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?) --> See Fragen an SZS
 - [ ] Keyboard Shortcut to start rendering of inline formulas? --> See ToDo (S). 
 - [ ] Keyboard Shortcut to insert inline-formula (inserts $$ $$ in editor).
-- [ ] Possibility to insert text "blocks". For Quotations or coloured/highlighted paragraphs? Already done via indent? Requires feedback.
-- [ ] Possibility for me to access and modify the used icons via git.
+- [ ] (low) Possibility to insert text "blocks". For Quotations or coloured/highlighted paragraphs? Already done via indent? Requires feedback.
+- [ ] Possibility for me to access and modify the used menu-icons via git.
 - [ ] Search/Replace function
-- [ ] **Table of EPUB readers and compatibility**
+- [x] **Table of EPUB readers and compatibility**
 - [ ] Hierarchised Headers Sidepanel
 - [ ] To ease development: a menu-button opening the path to the temp-folder containing the file in windows explorer.
+- [ ] (medium) TeX-Filter for blind-version only, removing unnecessary layout/formatting-commands. --> See TeX-Limitations.md
+- [ ] (high) Footnotes. Inline or linked syntax? --> Needs testing.
 - [ ] 
 
 
@@ -214,7 +230,7 @@ Trying above bug again:
 
 
 
-### [ Bug: Void
+### [Bug: Void
 
 Newly created files cannot be saved by clicking the icon or pressing CTRL+S, and cause an error message.
 
@@ -265,7 +281,7 @@ The text cna now be copy/pasted without problems in the editor.
 
 
 
-###[ Bug:
+###[Bug: Preview
 
 The preview jumps back to bottom. Scrolling up only in the preview is not possible. This is independent of the cursor position and takes half a second after releasing the scroll wheel.
 
@@ -281,7 +297,7 @@ The preview jumps back to bottom. Scrolling up only in the preview is not possib
 
 > 07.02.2019 20:00 - 22:45 :ballot_box_with_check:
 
-### [Bug:
+### [Bug: Idle
 
 Encountered random crash. Program was open while writing the manual, but not active excepted a few times in-between to test banal specific behaviour.
 
@@ -293,7 +309,7 @@ Requires further documentation.
 
 
 
-### [Bug:
+### [Bug: ListNumerBreak
 
 Setting the Symbol for unnumbered lists to Square breaks the list.
 
@@ -309,20 +325,37 @@ Playing around with icons.
 
 Continuing writing math script (corrected sections [0-1[ ):
 
-- **Bug**: the preformatting of a header does reset user-selected colors for the text.
-  - Write text line
-  - Set as header 3
-  - Set first word to green
-  - Set line as header 2
-  - green replaced with black
-- **Bug:** Replacing formula in figure-formula does not change the preview?
-  - Opening existing document, open edit window for pre-existing figure formula
-  - replace formula with something the parser doesn't recognise (use of `\cases` for example)
-  - select "override parser", close window
-  - Preview in Editor remains the same as before the edit. Double-click on the figure shows the new formula is saved.
-- **Major:** "<u>Safeplace</u>" Opening an existing file (WinExplorer), "Saving as..." under a new name.
-  - The Window title of the program does not change to the new file name. 
-  - It is unclear, if saving will now replace the first file, or the newly created copy of it. <u>!!!!</u> (it actually does overwrite the newest copy)
+##[Bug: "Preformatcolour"
+
+the preformatting of a header does reset user-selected colors for the text.
+
+- Write text line
+- Set as header 3
+- Set first word to green
+- Set line as header 2
+- green replaced with black
+
+**]**
+
+##[Bug: "ParserFeedback"
+
+Replacing formula in figure-formula does not change the preview?
+
+- Opening existing document, open edit window for pre-existing figure formula
+- replace formula with something the parser doesn't recognise (use of `\cases` for example)
+- select "override parser", close window
+- Preview in Editor remains the same as before the edit. Double-click on the figure shows the new formula is saved.
+
+**]**
+
+## **Major:** "<u>Safeplace</u>"
+
+ Opening an existing file (WinExplorer), "Saving as..." under a new name.
+
+- The Window title of the program does not change to the new file name. 
+- It is unclear, if saving will now replace the first file, or the newly created copy of it. <u>!!!!</u> (it actually does overwrite the newest copy)
+
+**]**
 
 
 
@@ -341,7 +374,7 @@ Continue beautifying the HM-script:
 - this time, I don't get the bug of the preview jumping to top/bottom...?
 - CORRECTION: The bug appears only after the "automatic refresh" info-box has been dismissed. Scrolling in both views works perfectly fine, until the editor window is selected and a text input is given.
 - Could there be a way to recognise wrongly rendered inline-formulas? So that they are rendered in a different color f.e.. Seems hard to implement as there are various reasons why it isn't recognized, or working.
-- **Bug:** Program crashed again after longer inactivity, without saving.
+- **Bug:** (Idle) Program crashed again after longer inactivity, without saving.
 
 
 
@@ -378,4 +411,88 @@ TeX: Testing further the TeX commands `\lt` and `\gt`
 
 
 
-> 25.02.2019 19:00 - 20:00 
+> 25.02.2019 19:00 - 20:00 :ballot_box_with_check:
+
+---
+
+# Second Meeting on 28/02/2019
+
+---
+
+> 28.02.2019 10:00 - 11:25 Präsenz SZS :ballot_box_with_check:
+
+Meeting to discuss "Fragen an SZS.md" and further development.
+
+"Fragen an SZS.md":
+
+- <u>Feature:</u> TeX-Filter einbauen? Vereinfachung der Formeln. I.A.: Konflikte zwischen Formatierung des Umsetzers und reduzierter Version für Blinde.
+  - approved, requires list of TeX-commands (see "TeX-Limitations.md"), which can include the `\text{}`-command
+- (ToDo (C)) Logo-Gestaltung // Feedback, Ziele, Anforderungen
+  - approved. Haben vollkommene Freiheit.
+- <u>Feature:</u> Konkreter, standardisierter Syntax für Seitenangaben (Ende der Seite?, <> oder (())?). Und: Unterstützung durch Screenreader? Konflikte EPUB/Screenreader?
+  - `<seite>X<\seite>`
+- <u>Feature:</u> Possibility to load barrier free pictures in the file,  that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?)
+  - wanted, but secondary
+- _Test (Q)_ : The needed formatting possibilities need to be discussed: Textblocks for quotes/Coloured paragraphs? begin and end markers for subparagraphs like examples?
+  - eventuell für Einrückungen
+
+Other discussed themes:
+
+- <u>Feature</u>: Linebreaks using the EPUB3-standard, they have absolute priority and are planned for end of April. Also, a first implementation is required for the 6th of March, as demonstration usage.
+  Potentially, the CSS Mode-switcher could be displayed on each new page in a header.
+- **Bug: ** Metadata is missing in Reasily, this requires further testing. (Also in Calibre and Readium.)  :ballot_box_with_check:
+- _Test (B)_:  BMWF is to be checked out
+- _Test (N)_: NVDA is a freely accessible Screen reader for Windows (recommend with the Windows-voices), and can be used to test the AEPUB-files.
+- **Bug: ** the standard ebook-reader on Mac/iOS, pagebreaks are not working. Where lies the cause? To be tested on site at the SZS. :ballot_box_with_check:
+- Again, list of usable ebook-readers:
+  Marvin (iOS), Reasily (Android), Calibre+Readium (Win)
+- **Bug:** tests for the font-size are required. (Bug with plain text being too small.) :ballot_box_with_check:
+- <u>Feature:</u> Footnotes are a feature wished for.  On the long term, it has to be clarified, if they are to be written at the mark in the text, or just linked and developed further down below.
+- _Test (D)_: Additional tests related to manually set font-sizes influencing the displayed font-size in ebook-readers are required.
+
+Github issues created during the meeting:
+
+- Page numbers and page breaks (#9):
+  Page numbers allow blind users to work better with normally sighted users, as they tend to use page numbers to go to a section of text. Page breaks should be added with a separate button or CTRL+Enter and the number of pages should increment automatically.
+  Also add the changing hyperlinks right after the page number. First only do arabic numerals. Later roman numerals should be added.
+- Replace text < and > through their LaTeX code (#13):
+  Replace text < and > through their LaTeX code \lt and \gt, respectively.
+
+:ballot_box_with_check: Needed tests and ToDos added to ToDo-List.
+
+:ballot_box_with_check: ​Noted bugs added to Bug-List.
+
+:ballot_box_with_check: Wished for Features and requirements added to Feature-list.
+
+
+### [Bug: ("Metadata") Metadata missing in Reasily
+
+The Metadata is missing in Reasily, this requires further testing. (Also in Calibre and Readium.)
+
+
+
+**]**
+
+
+
+### [Bug: ("Macbreaks") Pagebreaks in Mac/iOS default ebook-reader
+
+In the standard ebook-reader on Mac/iOS, pagebreaks are not working. Where lies the cause? To be tested on site at the SZS.
+
+
+
+**]**
+
+
+
+### [Bug: ("Reader Fontsize") the fontsize between lists and plain text varies too much
+
+Further tests for the font-size are required. (Bug with plain text being too small.)
+
+
+
+**]**
+
+> 04.03.2019 22:30 - 00:00 Meeting summary and protocol :ballot_box_with_check:
+
+> 05.03.2019 00:00 - 00:45 :ballot_box_with_check:
