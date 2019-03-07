@@ -438,6 +438,7 @@ Meeting to discuss "Fragen an SZS.md" and further development.
 
 Other discussed themes:
 
+- Sachin will leave the project at end of March/April to spend more time on his studies. He offers further assistance beyond his contract duration time.
 - <u>Feature</u>: Linebreaks using the EPUB3-standard, they have absolute priority and are planned for end of April. Also, a first implementation is required for the 6th of March, as demonstration usage.
   Potentially, the CSS Mode-switcher could be displayed on each new page in a header.
 - **Bug: ** Metadata is missing in Reasily, this requires further testing. (Also in Calibre and Readium.)  :ballot_box_with_check:
@@ -465,11 +466,12 @@ Github issues created during the meeting:
 :ballot_box_with_check: Wished for Features and requirements added to Feature-list.
 
 
+
 ### [Bug: ("Metadata") Metadata missing in Reasily
 
 The Metadata is missing in Reasily, this requires further testing. (Also in Calibre and Readium.)
 
-
+Update (07.03.2019): Readium knows nothing, Calibre finds out the document language and title.
 
 **]**
 
@@ -496,3 +498,39 @@ Further tests for the font-size are required. (Bug with plain text being too sma
 > 04.03.2019 22:30 - 00:00 Meeting summary and protocol :ballot_box_with_check:
 
 > 05.03.2019 00:00 - 00:45 :ballot_box_with_check:
+
+> 07.03.2019 03:00 - 04:30
+
+Inserting page numbers to HM-script, into file `HM-Skript_Css3.epub`.
+
+- Page breaks reset list numbering, which is problematic if the source document has lists spanning multiple pages.
+
+Readium:
+
+- Paginated-mode only uses own page-breaks when space of single page is full. It does not respect the document-owned page markers.
+- empty pages are not rendered (instead two neighbouring page breaks are displayed one directly below another).
+
+Calibre:
+
+- It takes ages to process the math. Or to switch to fullscreen window size.
+- It seems to be caused by my computer lagging. Closing and reopening everything helped a lot to increase loading times.
+- maximizing the window still causes heavy lag and crashes calibre.
+- Calibre behaves the same way than readium. I suppose this is due to the EPUB-format being required to work independently of the end-user's device screen size.
+
+Reasily:
+
+- not CSS compatible...
+
+Shortened the file `HM-Skript_Css3.epub` to `HM-Skript_Css3-shortened.epub` in order to remove the preamble, and all pages numbered with roman numerals. Testing this version...
+
+- nothing changed.
+
+
+
+Updated Logo to: (during conversion time of HM-Skript :stuck_out_tongue_closed_eyes: )
+
+- remove white dots (not looking good on a small scale),
+- create version without "epub", probably better usable for file-associations.
+
+On the small taskbar (second monitor), the old logo is shown: ![1551926315382](ARCHIVE/1551926315382.png) whereas on the main taskbar, it is the new logo: ![1551926366689](ARCHIVE/1551926366689.png) .
+
