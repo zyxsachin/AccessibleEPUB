@@ -125,6 +125,12 @@ table, th, td {
 	display:initial;
 }
 
+.visible .pagebreak {
+  page-break-before:always;
+  visibility: hidden;
+  font-size:0px;
+}
+
 .impaired *
 {
 	font-family: "Arial", Helvetica, sans-serif !important;
@@ -190,6 +196,12 @@ table, th, td {
 
 .impaired .imageOthers {	
 	display:none; 
+}
+
+.impaired .pagebreak {
+  page-break-before:always;
+  visibility: hidden;
+  font-size:0px;
 }
 
 /*
@@ -260,3 +272,6 @@ table, th, td {
 	display:none; 
 }
 	
+.blind	.pagebreak {
+  page-break-before:always;
+}

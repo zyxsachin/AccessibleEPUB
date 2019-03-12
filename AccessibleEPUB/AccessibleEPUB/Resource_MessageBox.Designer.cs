@@ -169,6 +169,24 @@ namespace AccessibleEPUB {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The file does not exist..
+        /// </summary>
+        internal static string fileDoesNotExistContent {
+            get {
+                return ResourceManager.GetString("fileDoesNotExistContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File does not exist.
+        /// </summary>
+        internal static string fileDoesNotExistTitle {
+            get {
+                return ResourceManager.GetString("fileDoesNotExistTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Formula with same title already exists in the document. Should the file be overwritten?.
         /// </summary>
         internal static string formulaOverwriteContent {
@@ -417,6 +435,15 @@ namespace AccessibleEPUB {
         internal static string noValidOpfTitle {
             get {
                 return ResourceManager.GetString("noValidOpfTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page.
+        /// </summary>
+        internal static string page {
+            get {
+                return ResourceManager.GetString("page", resourceCulture);
             }
         }
         

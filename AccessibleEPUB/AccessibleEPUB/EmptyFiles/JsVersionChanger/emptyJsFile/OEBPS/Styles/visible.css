@@ -77,3 +77,9 @@ table, th, td {
     border-collapse: collapse;
     border-width:2px;
 }
+
+.pagebreak {
+     page-break-before:always;
+     visibility: hidden;
+     font-size:0px;
+}

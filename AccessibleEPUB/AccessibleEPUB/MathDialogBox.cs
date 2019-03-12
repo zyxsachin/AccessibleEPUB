@@ -242,7 +242,13 @@ namespace AccessibleEPUB
             //}
 
             /* Adds dollar signs, as pandoc needs these to recognized it as LaTeX math. */
-            System.IO.File.WriteAllText(accFile, "$" + inputTextBox.Text + "$");
+
+            string mathInput = inputTextBox.Text;
+
+            mathInput = mathInput.Replace("<", " \\lt ");
+            mathInput = mathInput.Replace(">", " \\gt ");
+
+            System.IO.File.WriteAllText(accFile, "$" + mathInput + "$");
             //Console.WriteLine(System.IO.File.ReadAllText(accFile));
             //string imagesFolder = Path.Combine(imageFolderPath, "images");
             string imagesFolder = imageFolderPath;
@@ -409,9 +415,9 @@ namespace AccessibleEPUB
             //encodedInputForAlt = "";
 
             // titleTag = @""" title=""" + titleTextBox.Text
-            string mathHeader = @"<div" + styleTag + @" role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath +  titleTag  + @""">"  + "<mstyle>";
+            string mathHeader = @"<div" + styleTag + @" role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">"  + "<mstyle>";
       
-            string mathHeaderImpaired = @"<div" + styleTag + @" role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""">"  + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
+            string mathHeaderImpaired = @"<div" + styleTag + @" role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">"  + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
            
             
             string mathEnd = "</mstyle></math>";

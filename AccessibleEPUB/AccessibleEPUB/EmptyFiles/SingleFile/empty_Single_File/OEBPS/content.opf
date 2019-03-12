@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package version="3.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId">
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="BookId">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/">
-    <dc:title></dc:title>
-    <dc:creator></dc:creator>
+    <dc:title>title</dc:title>
+    <dc:creator>creator</dc:creator>
     <dc:language>en</dc:language>
-    <dc:publisher></dc:publisher>
+    <dc:publisher>publisher</dc:publisher>
     <dc:identifier id="BookId">BookIdentificationNumber</dc:identifier>
-    <meta property="dcterms:modified"></meta>
-    <meta name="AccessibleEPUB" content="0.0.1" />
+    <meta property="dcterms:modified">2019-03-04T18:19:24Z</meta>
+    <meta name="AccessibleEPUB" content="0.0.1"/>
   </metadata>
   <manifest>
     <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>

@@ -1,5 +1,20 @@
 # Accessible EPUB changelog
 
+## 0.1.10
+- Removed bug where the AccessibleEPUB temp folder is not created and therefore an error is shown
+- Removed bug where "StartIndex can not be less than 0" is shown. This was due to the element "alttext" being removed when a math formula figure is added, now it has been added again
+- Removed the problem with the global saving 
+- Resizing of windows is possible below a certain size is now possible
+- The file dialogs remember the last directory location
+- Removed bug where CSS files opened with the "Open With" command crash
+- Removed bug where the program would crash if non-existent file was opened with the "Open With" command
+- Removed bug where the program would crash if a file with no text would be saved
+- Added keyboard shortcuts for adding inline formulas and conversion to inline formulas
+- The title of the window now changes after "Save As"
+- Adjusted font size difference between lists and normal text
+- Scroll lock has been added to prevent the preview from scrolling to the bottom after every change
+- Added page breaks and page numbers
+
 ## 0.1.9
 - Changed date of last modified of a new file to creation point
 - Pausing refresh now works earlier and avoids extra overhead

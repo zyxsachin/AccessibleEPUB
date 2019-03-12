@@ -12,9 +12,13 @@ The installer has to be downloaded. The installer requires about 50 MB of disk s
 
 ## The AccessibleEPUB format
 
+The AccessibleEPUB format is refinement of the EPUB 3 format. It was created to allow people with various visual abilities, them being visually impaired, blind and normal sighted people, to use the same document, the same file. There are three links at the top of the document to change the display style of the document.
+
 ### Switching versions
 
 #### Visually impaired
+
+
 
 #### Blind
 

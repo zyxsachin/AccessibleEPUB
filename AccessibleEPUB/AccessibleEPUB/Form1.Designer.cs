@@ -74,41 +74,7 @@
             this.toggleFileExplorerButton = new System.Windows.Forms.ToolStripButton();
             this.playPauseRefreshButton = new System.Windows.Forms.ToolStripButton();
             this.toggleNavigationPaneButton = new System.Windows.Forms.ToolStripButton();
-            this.editToolStrip = new System.Windows.Forms.ToolStrip();
-            this.boldButton = new System.Windows.Forms.ToolStripButton();
-            this.italicButton = new System.Windows.Forms.ToolStripButton();
-            this.underlineButton = new System.Windows.Forms.ToolStripButton();
-            this.strikethroughButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.orderedListButton = new System.Windows.Forms.ToolStripSplitButton();
-            this.numberedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alphabeticallyCapitalizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alphabeticallyLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.romanUppercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.romanLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unorderedListButton = new System.Windows.Forms.ToolStripSplitButton();
-            this.circleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emptyCircleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.squareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formatComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.indentButton = new System.Windows.Forms.ToolStripButton();
-            this.outdentButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.justifyLeftButton = new System.Windows.Forms.ToolStripButton();
-            this.justifyCenterButton = new System.Windows.Forms.ToolStripButton();
-            this.justifyRightButton = new System.Windows.Forms.ToolStripButton();
-            this.justifyButton = new System.Windows.Forms.ToolStripButton();
-            this.fontComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
-            this.fontSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.imageButton = new System.Windows.Forms.ToolStripButton();
-            this.tableButton = new System.Windows.Forms.ToolStripButton();
-            this.mathButton = new System.Windows.Forms.ToolStripButton();
-            this.importTextButton = new System.Windows.Forms.ToolStripButton();
-            this.convertInlineMathButton = new System.Windows.Forms.ToolStripButton();
-            this.changeBackgroundColorButton = new System.Windows.Forms.ToolStripButton();
+            this.scrollLockButton = new System.Windows.Forms.ToolStripButton();
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -143,11 +109,15 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.numberedListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bulletListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
+            this.insertPageNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeresetPageNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.boldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.italicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.underlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.strikethroughToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toInlineMathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.justifyLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,6 +129,7 @@
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.editImageMathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleBulletPointStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertPageWithInlineMathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.togglePreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -171,6 +142,44 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStrip = new System.Windows.Forms.ToolStrip();
+            this.boldButton = new System.Windows.Forms.ToolStripButton();
+            this.italicButton = new System.Windows.Forms.ToolStripButton();
+            this.underlineButton = new System.Windows.Forms.ToolStripButton();
+            this.strikethroughButton = new System.Windows.Forms.ToolStripButton();
+            this.toInlineMathButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.orderedListButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.numberedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alphabeticallyCapitalizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alphabeticallyLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.romanUppercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.romanLowercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unorderedListButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.circleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emptyCircleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.squareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.indentButton = new System.Windows.Forms.ToolStripButton();
+            this.outdentButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.justifyLeftButton = new System.Windows.Forms.ToolStripButton();
+            this.justifyCenterButton = new System.Windows.Forms.ToolStripButton();
+            this.justifyRightButton = new System.Windows.Forms.ToolStripButton();
+            this.justifyButton = new System.Windows.Forms.ToolStripButton();
+            this.fontComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
+            this.fontSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.imageButton = new System.Windows.Forms.ToolStripButton();
+            this.tableButton = new System.Windows.Forms.ToolStripButton();
+            this.mathButton = new System.Windows.Forms.ToolStripButton();
+            this.importTextButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.convertInlineMathButton = new System.Windows.Forms.ToolStripButton();
+            this.insertPageNumberSplitButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.changeresetPageNumberingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -202,8 +211,8 @@
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.iconsToolStrip.SuspendLayout();
-            this.editToolStrip.SuspendLayout();
             this.menuBar.SuspendLayout();
+            this.editToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -486,7 +495,8 @@
             this.toggleCodeButton,
             this.toggleFileExplorerButton,
             this.playPauseRefreshButton,
-            this.toggleNavigationPaneButton});
+            this.toggleNavigationPaneButton,
+            this.scrollLockButton});
             this.iconsToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.iconsToolStrip.Name = "iconsToolStrip";
             this.iconsToolStrip.Stretch = true;
@@ -560,275 +570,12 @@
             this.toggleNavigationPaneButton.Name = "toggleNavigationPaneButton";
             this.toggleNavigationPaneButton.Click += new System.EventHandler(this.toggleNavigationPaneButton_Click);
             // 
-            // editToolStrip
-            // 
-            resources.ApplyResources(this.editToolStrip, "editToolStrip");
-            this.editToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.editToolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.editToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.boldButton,
-            this.italicButton,
-            this.underlineButton,
-            this.strikethroughButton,
-            this.toolStripSeparator1,
-            this.orderedListButton,
-            this.unorderedListButton,
-            this.formatComboBox,
-            this.toolStripSeparator3,
-            this.indentButton,
-            this.outdentButton,
-            this.toolStripSeparator2,
-            this.justifyLeftButton,
-            this.justifyCenterButton,
-            this.justifyRightButton,
-            this.justifyButton,
-            this.fontComboBox,
-            this.colorPickerButton,
-            this.fontSizeComboBox,
-            this.toolStripSeparator4,
-            this.imageButton,
-            this.tableButton,
-            this.mathButton,
-            this.importTextButton,
-            this.convertInlineMathButton,
-            this.changeBackgroundColorButton});
-            this.editToolStrip.Name = "editToolStrip";
-            this.editToolStrip.Stretch = true;
-            // 
-            // boldButton
-            // 
-            resources.ApplyResources(this.boldButton, "boldButton");
-            this.boldButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.boldButton.Name = "boldButton";
-            this.boldButton.Click += new System.EventHandler(this.boldButton_Click);
-            // 
-            // italicButton
-            // 
-            this.italicButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.italicButton, "italicButton");
-            this.italicButton.Name = "italicButton";
-            this.italicButton.Click += new System.EventHandler(this.italicButton_Click);
-            // 
-            // underlineButton
-            // 
-            this.underlineButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.underlineButton, "underlineButton");
-            this.underlineButton.Name = "underlineButton";
-            this.underlineButton.Click += new System.EventHandler(this.underlineButton_Click);
-            // 
-            // strikethroughButton
-            // 
-            this.strikethroughButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.strikethroughButton, "strikethroughButton");
-            this.strikethroughButton.Name = "strikethroughButton";
-            this.strikethroughButton.Click += new System.EventHandler(this.strikethroughButton_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // orderedListButton
-            // 
-            this.orderedListButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.orderedListButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.numberedToolStripMenuItem,
-            this.alphabeticallyCapitalizedToolStripMenuItem,
-            this.alphabeticallyLowercaseToolStripMenuItem,
-            this.romanUppercaseToolStripMenuItem,
-            this.romanLowercaseToolStripMenuItem});
-            resources.ApplyResources(this.orderedListButton, "orderedListButton");
-            this.orderedListButton.Name = "orderedListButton";
-            this.orderedListButton.ButtonClick += new System.EventHandler(this.orderedListButton_ButtonClick);
-            // 
-            // numberedToolStripMenuItem
-            // 
-            resources.ApplyResources(this.numberedToolStripMenuItem, "numberedToolStripMenuItem");
-            this.numberedToolStripMenuItem.Name = "numberedToolStripMenuItem";
-            this.numberedToolStripMenuItem.Click += new System.EventHandler(this.numberedToolStripMenuItem_Click);
-            // 
-            // alphabeticallyCapitalizedToolStripMenuItem
-            // 
-            this.alphabeticallyCapitalizedToolStripMenuItem.Name = "alphabeticallyCapitalizedToolStripMenuItem";
-            resources.ApplyResources(this.alphabeticallyCapitalizedToolStripMenuItem, "alphabeticallyCapitalizedToolStripMenuItem");
-            this.alphabeticallyCapitalizedToolStripMenuItem.Click += new System.EventHandler(this.alphabeticallyCapitalizedToolStripMenuItem_Click);
-            // 
-            // alphabeticallyLowercaseToolStripMenuItem
-            // 
-            this.alphabeticallyLowercaseToolStripMenuItem.Name = "alphabeticallyLowercaseToolStripMenuItem";
-            resources.ApplyResources(this.alphabeticallyLowercaseToolStripMenuItem, "alphabeticallyLowercaseToolStripMenuItem");
-            this.alphabeticallyLowercaseToolStripMenuItem.Click += new System.EventHandler(this.alphabeticallyLowercaseToolStripMenuItem_Click);
-            // 
-            // romanUppercaseToolStripMenuItem
-            // 
-            this.romanUppercaseToolStripMenuItem.Name = "romanUppercaseToolStripMenuItem";
-            resources.ApplyResources(this.romanUppercaseToolStripMenuItem, "romanUppercaseToolStripMenuItem");
-            this.romanUppercaseToolStripMenuItem.Click += new System.EventHandler(this.romanUppercaseToolStripMenuItem_Click);
-            // 
-            // romanLowercaseToolStripMenuItem
-            // 
-            this.romanLowercaseToolStripMenuItem.Name = "romanLowercaseToolStripMenuItem";
-            resources.ApplyResources(this.romanLowercaseToolStripMenuItem, "romanLowercaseToolStripMenuItem");
-            this.romanLowercaseToolStripMenuItem.Click += new System.EventHandler(this.romanLowercaseToolStripMenuItem_Click);
-            // 
-            // unorderedListButton
-            // 
-            this.unorderedListButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.unorderedListButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.circleToolStripMenuItem,
-            this.emptyCircleToolStripMenuItem,
-            this.squareToolStripMenuItem});
-            resources.ApplyResources(this.unorderedListButton, "unorderedListButton");
-            this.unorderedListButton.Name = "unorderedListButton";
-            this.unorderedListButton.ButtonClick += new System.EventHandler(this.unorderedListButton_ButtonClick);
-            // 
-            // circleToolStripMenuItem
-            // 
-            this.circleToolStripMenuItem.Name = "circleToolStripMenuItem";
-            resources.ApplyResources(this.circleToolStripMenuItem, "circleToolStripMenuItem");
-            this.circleToolStripMenuItem.Click += new System.EventHandler(this.circleToolStripMenuItem_Click);
-            // 
-            // emptyCircleToolStripMenuItem
-            // 
-            this.emptyCircleToolStripMenuItem.Name = "emptyCircleToolStripMenuItem";
-            resources.ApplyResources(this.emptyCircleToolStripMenuItem, "emptyCircleToolStripMenuItem");
-            this.emptyCircleToolStripMenuItem.Click += new System.EventHandler(this.emptyCircleToolStripMenuItem_Click);
-            // 
-            // squareToolStripMenuItem
-            // 
-            this.squareToolStripMenuItem.Name = "squareToolStripMenuItem";
-            resources.ApplyResources(this.squareToolStripMenuItem, "squareToolStripMenuItem");
-            this.squareToolStripMenuItem.Click += new System.EventHandler(this.squareToolStripMenuItem_Click);
-            // 
-            // formatComboBox
-            // 
-            this.formatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.formatComboBox.Name = "formatComboBox";
-            resources.ApplyResources(this.formatComboBox, "formatComboBox");
-            this.formatComboBox.DropDown += new System.EventHandler(this.formatComboBox_DropDown);
-            this.formatComboBox.DropDownClosed += new System.EventHandler(this.formatComboBox_DropDownClosed);
-            this.formatComboBox.SelectedIndexChanged += new System.EventHandler(this.formatComboBox_SelectedIndexChanged);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-            // 
-            // indentButton
-            // 
-            this.indentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.indentButton, "indentButton");
-            this.indentButton.Name = "indentButton";
-            this.indentButton.Click += new System.EventHandler(this.indentButton_Click);
-            // 
-            // outdentButton
-            // 
-            this.outdentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.outdentButton, "outdentButton");
-            this.outdentButton.Name = "outdentButton";
-            this.outdentButton.Click += new System.EventHandler(this.outdentButton_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            // 
-            // justifyLeftButton
-            // 
-            this.justifyLeftButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.justifyLeftButton, "justifyLeftButton");
-            this.justifyLeftButton.Name = "justifyLeftButton";
-            this.justifyLeftButton.Click += new System.EventHandler(this.justifyLeftButton_Click);
-            // 
-            // justifyCenterButton
-            // 
-            this.justifyCenterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.justifyCenterButton, "justifyCenterButton");
-            this.justifyCenterButton.Name = "justifyCenterButton";
-            this.justifyCenterButton.Click += new System.EventHandler(this.justifyCenterButton_Click);
-            // 
-            // justifyRightButton
-            // 
-            this.justifyRightButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.justifyRightButton, "justifyRightButton");
-            this.justifyRightButton.Name = "justifyRightButton";
-            this.justifyRightButton.Click += new System.EventHandler(this.justifyRightButton_Click);
-            // 
-            // justifyButton
-            // 
-            this.justifyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.justifyButton, "justifyButton");
-            this.justifyButton.Name = "justifyButton";
-            this.justifyButton.Click += new System.EventHandler(this.justifyButton_Click);
-            // 
-            // fontComboBox
-            // 
-            this.fontComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.fontComboBox.Name = "fontComboBox";
-            resources.ApplyResources(this.fontComboBox, "fontComboBox");
-            // 
-            // colorPickerButton
-            // 
-            this.colorPickerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.colorPickerButton, "colorPickerButton");
-            this.colorPickerButton.Name = "colorPickerButton";
-            this.colorPickerButton.Click += new System.EventHandler(this.colorPickerButton_Click);
-            // 
-            // fontSizeComboBox
-            // 
-            this.fontSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.fontSizeComboBox.Name = "fontSizeComboBox";
-            resources.ApplyResources(this.fontSizeComboBox, "fontSizeComboBox");
-            this.fontSizeComboBox.DropDown += new System.EventHandler(this.fontSizeComboBox_DropDown);
-            this.fontSizeComboBox.DropDownClosed += new System.EventHandler(this.fontSizeComboBox_DropDownClosed);
-            this.fontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.fontSizeComboBox_SelectedIndexChanged);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
-            // 
-            // imageButton
-            // 
-            this.imageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.imageButton, "imageButton");
-            this.imageButton.Name = "imageButton";
-            this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
-            // 
-            // tableButton
-            // 
-            this.tableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.tableButton, "tableButton");
-            this.tableButton.Name = "tableButton";
-            this.tableButton.Click += new System.EventHandler(this.tableButton_Click);
-            // 
-            // mathButton
-            // 
-            this.mathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.mathButton, "mathButton");
-            this.mathButton.Name = "mathButton";
-            this.mathButton.Click += new System.EventHandler(this.mathButton_Click);
-            // 
-            // importTextButton
-            // 
-            this.importTextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.importTextButton, "importTextButton");
-            this.importTextButton.Name = "importTextButton";
-            this.importTextButton.Click += new System.EventHandler(this.importTextButton_Click);
-            // 
-            // convertInlineMathButton
-            // 
-            this.convertInlineMathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.convertInlineMathButton, "convertInlineMathButton");
-            this.convertInlineMathButton.Name = "convertInlineMathButton";
-            this.convertInlineMathButton.Click += new System.EventHandler(this.convertInlineMathButton_Click);
-            // 
-            // changeBackgroundColorButton
-            // 
-            this.changeBackgroundColorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.changeBackgroundColorButton, "changeBackgroundColorButton");
-            this.changeBackgroundColorButton.Name = "changeBackgroundColorButton";
-            this.changeBackgroundColorButton.Click += new System.EventHandler(this.changeBackgroundColorButton_Click);
+            // scrollLockButton
+            // 
+            this.scrollLockButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.scrollLockButton, "scrollLockButton");
+            this.scrollLockButton.Name = "scrollLockButton";
+            this.scrollLockButton.Click += new System.EventHandler(this.scrollLockButton_Click);
             // 
             // menuBar
             // 
@@ -1025,7 +772,10 @@
             this.insertMathToolStripMenuItem,
             this.toolStripSeparator13,
             this.numberedListToolStripMenuItem,
-            this.bulletListToolStripMenuItem});
+            this.bulletListToolStripMenuItem,
+            this.toolStripSeparator18,
+            this.insertPageNumberToolStripMenuItem,
+            this.changeresetPageNumberToolStripMenuItem});
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
             resources.ApplyResources(this.insertToolStripMenuItem, "insertToolStripMenuItem");
             // 
@@ -1064,6 +814,23 @@
             this.bulletListToolStripMenuItem.Name = "bulletListToolStripMenuItem";
             this.bulletListToolStripMenuItem.Click += new System.EventHandler(this.bulletListToolStripMenuItem_Click);
             // 
+            // toolStripSeparator18
+            // 
+            this.toolStripSeparator18.Name = "toolStripSeparator18";
+            resources.ApplyResources(this.toolStripSeparator18, "toolStripSeparator18");
+            // 
+            // insertPageNumberToolStripMenuItem
+            // 
+            resources.ApplyResources(this.insertPageNumberToolStripMenuItem, "insertPageNumberToolStripMenuItem");
+            this.insertPageNumberToolStripMenuItem.Name = "insertPageNumberToolStripMenuItem";
+            this.insertPageNumberToolStripMenuItem.Click += new System.EventHandler(this.insertPageNumberToolStripMenuItem_Click);
+            // 
+            // changeresetPageNumberToolStripMenuItem
+            // 
+            this.changeresetPageNumberToolStripMenuItem.Name = "changeresetPageNumberToolStripMenuItem";
+            resources.ApplyResources(this.changeresetPageNumberToolStripMenuItem, "changeresetPageNumberToolStripMenuItem");
+            this.changeresetPageNumberToolStripMenuItem.Click += new System.EventHandler(this.changeresetPageNumberToolStripMenuItem_Click);
+            // 
             // formatToolStripMenuItem
             // 
             this.formatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1071,6 +838,7 @@
             this.italicToolStripMenuItem,
             this.underlineToolStripMenuItem,
             this.strikethroughToolStripMenuItem,
+            this.toInlineMathToolStripMenuItem,
             this.toolStripSeparator5,
             this.justifyLeftToolStripMenuItem,
             this.centerToolStripMenuItem,
@@ -1081,7 +849,8 @@
             this.outdentToolStripMenuItem,
             this.toolStripSeparator15,
             this.editImageMathToolStripMenuItem,
-            this.toggleBulletPointStyleToolStripMenuItem});
+            this.toggleBulletPointStyleToolStripMenuItem,
+            this.convertPageWithInlineMathToolStripMenuItem});
             this.formatToolStripMenuItem.Name = "formatToolStripMenuItem";
             resources.ApplyResources(this.formatToolStripMenuItem, "formatToolStripMenuItem");
             // 
@@ -1108,6 +877,12 @@
             resources.ApplyResources(this.strikethroughToolStripMenuItem, "strikethroughToolStripMenuItem");
             this.strikethroughToolStripMenuItem.Name = "strikethroughToolStripMenuItem";
             this.strikethroughToolStripMenuItem.Click += new System.EventHandler(this.strikethroughToolStripMenuItem_Click);
+            // 
+            // toInlineMathToolStripMenuItem
+            // 
+            resources.ApplyResources(this.toInlineMathToolStripMenuItem, "toInlineMathToolStripMenuItem");
+            this.toInlineMathToolStripMenuItem.Name = "toInlineMathToolStripMenuItem";
+            this.toInlineMathToolStripMenuItem.Click += new System.EventHandler(this.toInlineMathToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -1171,6 +946,12 @@
             this.toggleBulletPointStyleToolStripMenuItem.Name = "toggleBulletPointStyleToolStripMenuItem";
             resources.ApplyResources(this.toggleBulletPointStyleToolStripMenuItem, "toggleBulletPointStyleToolStripMenuItem");
             this.toggleBulletPointStyleToolStripMenuItem.Click += new System.EventHandler(this.toggleBulletPointStyleToolStripMenuItem_Click);
+            // 
+            // convertPageWithInlineMathToolStripMenuItem
+            // 
+            resources.ApplyResources(this.convertPageWithInlineMathToolStripMenuItem, "convertPageWithInlineMathToolStripMenuItem");
+            this.convertPageWithInlineMathToolStripMenuItem.Name = "convertPageWithInlineMathToolStripMenuItem";
+            this.convertPageWithInlineMathToolStripMenuItem.Click += new System.EventHandler(this.convertPageWithInlineMathToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -1254,6 +1035,298 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // editToolStrip
+            // 
+            resources.ApplyResources(this.editToolStrip, "editToolStrip");
+            this.editToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.editToolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.editToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.boldButton,
+            this.italicButton,
+            this.underlineButton,
+            this.strikethroughButton,
+            this.toInlineMathButton,
+            this.toolStripSeparator1,
+            this.orderedListButton,
+            this.unorderedListButton,
+            this.formatComboBox,
+            this.toolStripSeparator3,
+            this.indentButton,
+            this.outdentButton,
+            this.toolStripSeparator2,
+            this.justifyLeftButton,
+            this.justifyCenterButton,
+            this.justifyRightButton,
+            this.justifyButton,
+            this.fontComboBox,
+            this.colorPickerButton,
+            this.fontSizeComboBox,
+            this.toolStripSeparator4,
+            this.imageButton,
+            this.tableButton,
+            this.mathButton,
+            this.importTextButton,
+            this.toolStripSeparator17,
+            this.convertInlineMathButton,
+            this.insertPageNumberSplitButton});
+            this.editToolStrip.Name = "editToolStrip";
+            this.editToolStrip.Stretch = true;
+            // 
+            // boldButton
+            // 
+            resources.ApplyResources(this.boldButton, "boldButton");
+            this.boldButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.boldButton.Name = "boldButton";
+            this.boldButton.Click += new System.EventHandler(this.boldButton_Click);
+            // 
+            // italicButton
+            // 
+            this.italicButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.italicButton, "italicButton");
+            this.italicButton.Name = "italicButton";
+            this.italicButton.Click += new System.EventHandler(this.italicButton_Click);
+            // 
+            // underlineButton
+            // 
+            this.underlineButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.underlineButton, "underlineButton");
+            this.underlineButton.Name = "underlineButton";
+            this.underlineButton.Click += new System.EventHandler(this.underlineButton_Click);
+            // 
+            // strikethroughButton
+            // 
+            this.strikethroughButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.strikethroughButton, "strikethroughButton");
+            this.strikethroughButton.Name = "strikethroughButton";
+            this.strikethroughButton.Click += new System.EventHandler(this.strikethroughButton_Click);
+            // 
+            // toInlineMathButton
+            // 
+            this.toInlineMathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toInlineMathButton, "toInlineMathButton");
+            this.toInlineMathButton.Name = "toInlineMathButton";
+            this.toInlineMathButton.Click += new System.EventHandler(this.toInlineMathButton_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // orderedListButton
+            // 
+            this.orderedListButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.orderedListButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.numberedToolStripMenuItem,
+            this.alphabeticallyCapitalizedToolStripMenuItem,
+            this.alphabeticallyLowercaseToolStripMenuItem,
+            this.romanUppercaseToolStripMenuItem,
+            this.romanLowercaseToolStripMenuItem});
+            resources.ApplyResources(this.orderedListButton, "orderedListButton");
+            this.orderedListButton.Name = "orderedListButton";
+            this.orderedListButton.ButtonClick += new System.EventHandler(this.orderedListButton_ButtonClick);
+            // 
+            // numberedToolStripMenuItem
+            // 
+            resources.ApplyResources(this.numberedToolStripMenuItem, "numberedToolStripMenuItem");
+            this.numberedToolStripMenuItem.Name = "numberedToolStripMenuItem";
+            this.numberedToolStripMenuItem.Click += new System.EventHandler(this.numberedToolStripMenuItem_Click);
+            // 
+            // alphabeticallyCapitalizedToolStripMenuItem
+            // 
+            this.alphabeticallyCapitalizedToolStripMenuItem.Name = "alphabeticallyCapitalizedToolStripMenuItem";
+            resources.ApplyResources(this.alphabeticallyCapitalizedToolStripMenuItem, "alphabeticallyCapitalizedToolStripMenuItem");
+            this.alphabeticallyCapitalizedToolStripMenuItem.Click += new System.EventHandler(this.alphabeticallyCapitalizedToolStripMenuItem_Click);
+            // 
+            // alphabeticallyLowercaseToolStripMenuItem
+            // 
+            this.alphabeticallyLowercaseToolStripMenuItem.Name = "alphabeticallyLowercaseToolStripMenuItem";
+            resources.ApplyResources(this.alphabeticallyLowercaseToolStripMenuItem, "alphabeticallyLowercaseToolStripMenuItem");
+            this.alphabeticallyLowercaseToolStripMenuItem.Click += new System.EventHandler(this.alphabeticallyLowercaseToolStripMenuItem_Click);
+            // 
+            // romanUppercaseToolStripMenuItem
+            // 
+            this.romanUppercaseToolStripMenuItem.Name = "romanUppercaseToolStripMenuItem";
+            resources.ApplyResources(this.romanUppercaseToolStripMenuItem, "romanUppercaseToolStripMenuItem");
+            this.romanUppercaseToolStripMenuItem.Click += new System.EventHandler(this.romanUppercaseToolStripMenuItem_Click);
+            // 
+            // romanLowercaseToolStripMenuItem
+            // 
+            this.romanLowercaseToolStripMenuItem.Name = "romanLowercaseToolStripMenuItem";
+            resources.ApplyResources(this.romanLowercaseToolStripMenuItem, "romanLowercaseToolStripMenuItem");
+            this.romanLowercaseToolStripMenuItem.Click += new System.EventHandler(this.romanLowercaseToolStripMenuItem_Click);
+            // 
+            // unorderedListButton
+            // 
+            this.unorderedListButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.unorderedListButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.circleToolStripMenuItem,
+            this.emptyCircleToolStripMenuItem,
+            this.squareToolStripMenuItem});
+            resources.ApplyResources(this.unorderedListButton, "unorderedListButton");
+            this.unorderedListButton.Name = "unorderedListButton";
+            this.unorderedListButton.ButtonClick += new System.EventHandler(this.unorderedListButton_ButtonClick);
+            // 
+            // circleToolStripMenuItem
+            // 
+            this.circleToolStripMenuItem.Name = "circleToolStripMenuItem";
+            resources.ApplyResources(this.circleToolStripMenuItem, "circleToolStripMenuItem");
+            this.circleToolStripMenuItem.Click += new System.EventHandler(this.circleToolStripMenuItem_Click);
+            // 
+            // emptyCircleToolStripMenuItem
+            // 
+            this.emptyCircleToolStripMenuItem.Name = "emptyCircleToolStripMenuItem";
+            resources.ApplyResources(this.emptyCircleToolStripMenuItem, "emptyCircleToolStripMenuItem");
+            this.emptyCircleToolStripMenuItem.Click += new System.EventHandler(this.emptyCircleToolStripMenuItem_Click);
+            // 
+            // squareToolStripMenuItem
+            // 
+            this.squareToolStripMenuItem.Name = "squareToolStripMenuItem";
+            resources.ApplyResources(this.squareToolStripMenuItem, "squareToolStripMenuItem");
+            this.squareToolStripMenuItem.Click += new System.EventHandler(this.squareToolStripMenuItem_Click);
+            // 
+            // formatComboBox
+            // 
+            this.formatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.formatComboBox.Name = "formatComboBox";
+            resources.ApplyResources(this.formatComboBox, "formatComboBox");
+            this.formatComboBox.DropDown += new System.EventHandler(this.formatComboBox_DropDown);
+            this.formatComboBox.DropDownClosed += new System.EventHandler(this.formatComboBox_DropDownClosed);
+            this.formatComboBox.SelectedIndexChanged += new System.EventHandler(this.formatComboBox_SelectedIndexChanged);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
+            // indentButton
+            // 
+            this.indentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.indentButton, "indentButton");
+            this.indentButton.Name = "indentButton";
+            this.indentButton.Click += new System.EventHandler(this.indentButton_Click);
+            // 
+            // outdentButton
+            // 
+            this.outdentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.outdentButton, "outdentButton");
+            this.outdentButton.Name = "outdentButton";
+            this.outdentButton.Click += new System.EventHandler(this.outdentButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
+            // justifyLeftButton
+            // 
+            this.justifyLeftButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.justifyLeftButton, "justifyLeftButton");
+            this.justifyLeftButton.Name = "justifyLeftButton";
+            this.justifyLeftButton.Click += new System.EventHandler(this.justifyLeftButton_Click);
+            // 
+            // justifyCenterButton
+            // 
+            this.justifyCenterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.justifyCenterButton, "justifyCenterButton");
+            this.justifyCenterButton.Name = "justifyCenterButton";
+            this.justifyCenterButton.Click += new System.EventHandler(this.justifyCenterButton_Click);
+            // 
+            // justifyRightButton
+            // 
+            this.justifyRightButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.justifyRightButton, "justifyRightButton");
+            this.justifyRightButton.Name = "justifyRightButton";
+            this.justifyRightButton.Click += new System.EventHandler(this.justifyRightButton_Click);
+            // 
+            // justifyButton
+            // 
+            this.justifyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.justifyButton, "justifyButton");
+            this.justifyButton.Name = "justifyButton";
+            this.justifyButton.Click += new System.EventHandler(this.justifyButton_Click);
+            // 
+            // fontComboBox
+            // 
+            this.fontComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fontComboBox.Name = "fontComboBox";
+            resources.ApplyResources(this.fontComboBox, "fontComboBox");
+            // 
+            // colorPickerButton
+            // 
+            this.colorPickerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.colorPickerButton, "colorPickerButton");
+            this.colorPickerButton.Name = "colorPickerButton";
+            this.colorPickerButton.Click += new System.EventHandler(this.colorPickerButton_Click);
+            // 
+            // fontSizeComboBox
+            // 
+            this.fontSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fontSizeComboBox.Name = "fontSizeComboBox";
+            resources.ApplyResources(this.fontSizeComboBox, "fontSizeComboBox");
+            this.fontSizeComboBox.DropDown += new System.EventHandler(this.fontSizeComboBox_DropDown);
+            this.fontSizeComboBox.DropDownClosed += new System.EventHandler(this.fontSizeComboBox_DropDownClosed);
+            this.fontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.fontSizeComboBox_SelectedIndexChanged);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // imageButton
+            // 
+            this.imageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.imageButton, "imageButton");
+            this.imageButton.Name = "imageButton";
+            this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
+            // 
+            // tableButton
+            // 
+            this.tableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tableButton, "tableButton");
+            this.tableButton.Name = "tableButton";
+            this.tableButton.Click += new System.EventHandler(this.tableButton_Click);
+            // 
+            // mathButton
+            // 
+            this.mathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.mathButton, "mathButton");
+            this.mathButton.Name = "mathButton";
+            this.mathButton.Click += new System.EventHandler(this.mathButton_Click);
+            // 
+            // importTextButton
+            // 
+            this.importTextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.importTextButton, "importTextButton");
+            this.importTextButton.Name = "importTextButton";
+            this.importTextButton.Click += new System.EventHandler(this.importTextButton_Click);
+            // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            resources.ApplyResources(this.toolStripSeparator17, "toolStripSeparator17");
+            // 
+            // convertInlineMathButton
+            // 
+            this.convertInlineMathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.convertInlineMathButton, "convertInlineMathButton");
+            this.convertInlineMathButton.Name = "convertInlineMathButton";
+            this.convertInlineMathButton.Click += new System.EventHandler(this.convertInlineMathButton_Click);
+            // 
+            // insertPageNumberSplitButton
+            // 
+            this.insertPageNumberSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.insertPageNumberSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeresetPageNumberingToolStripMenuItem});
+            resources.ApplyResources(this.insertPageNumberSplitButton, "insertPageNumberSplitButton");
+            this.insertPageNumberSplitButton.Name = "insertPageNumberSplitButton";
+            this.insertPageNumberSplitButton.ButtonClick += new System.EventHandler(this.insertPageNumberSplitButton_ButtonClick);
+            // 
+            // changeresetPageNumberingToolStripMenuItem
+            // 
+            this.changeresetPageNumberingToolStripMenuItem.Name = "changeresetPageNumberingToolStripMenuItem";
+            resources.ApplyResources(this.changeresetPageNumberingToolStripMenuItem, "changeresetPageNumberingToolStripMenuItem");
+            this.changeresetPageNumberingToolStripMenuItem.Click += new System.EventHandler(this.changeresetPageNumberingToolStripMenuItem_Click);
+            // 
             // BottomToolStripPanel
             // 
             resources.ApplyResources(this.BottomToolStripPanel, "BottomToolStripPanel");
@@ -1304,6 +1377,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
             this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.BottomToolStripPanel.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
@@ -1335,10 +1409,10 @@
             this.tabPage3.ResumeLayout(false);
             this.iconsToolStrip.ResumeLayout(false);
             this.iconsToolStrip.PerformLayout();
-            this.editToolStrip.ResumeLayout(false);
-            this.editToolStrip.PerformLayout();
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            this.editToolStrip.ResumeLayout(false);
+            this.editToolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1490,8 +1564,17 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem cSSToJavaScriptToolStripMenuItem;
         private System.Windows.Forms.Integration.ElementHost elementHost2;
-        private System.Windows.Forms.ToolStripButton changeBackgroundColorButton;
         private System.Windows.Forms.ToolStripButton convertInlineMathButton;
+        private System.Windows.Forms.ToolStripButton toInlineMathButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
+        private System.Windows.Forms.ToolStripMenuItem toInlineMathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convertPageWithInlineMathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSplitButton insertPageNumberSplitButton;
+        private System.Windows.Forms.ToolStripMenuItem changeresetPageNumberingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
+        private System.Windows.Forms.ToolStripMenuItem insertPageNumberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeresetPageNumberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton scrollLockButton;
     }
 
 

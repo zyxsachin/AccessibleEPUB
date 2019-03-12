@@ -291,4 +291,13 @@
   <data name="automaticRefreshDisabledTitle" xml:space="preserve">
     <value>Automatische Aktualisierung deaktiviert</value>
   </data>
+  <data name="fileDoesNotExistContent" xml:space="preserve">
+    <value>Die Datei existiert nicht.</value>
+  </data>
+  <data name="fileDoesNotExistTitle" xml:space="preserve">
+    <value>Datei existiert nicht</value>
+  </data>
+  <data name="page" xml:space="preserve">
+    <value>Seite</value>
+  </data>
 </root>

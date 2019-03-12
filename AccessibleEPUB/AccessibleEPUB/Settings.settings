@@ -17,5 +17,8 @@
     <Setting Name="DefaultEpubFormat" Type="System.String" Scope="User">
       <Value Profile="(Default)">singleFileJs</Value>
     </Setting>
+    <Setting Name="LastDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -30,7 +30,7 @@ using ICSharpCode.AvalonEdit;
 
 using Microsoft.Win32;
 
-using GlobalHotKey;
+//using GlobalHotKey;
 using System.Windows.Input;
 
 using Ionic;
@@ -125,8 +125,8 @@ namespace AccessibleEPUB
         /// </summary>
         bool containsFile = false;
 
-        string currentTab = null;
-        string lastTab = null;
+        //string currentTab = null;
+        //string lastTab = null;
         
         /// <summary>
         /// The title of the EPUB file, as specified by the Dublin Core Metadata Initiative.
@@ -163,7 +163,6 @@ namespace AccessibleEPUB
         /// </summary>
         bool refresh = true;
 
-        bool refreshMath = true;
 
         //bool split1panel1Visible = false;
 
@@ -184,6 +183,20 @@ namespace AccessibleEPUB
         /// so that the program knows when to ask if the user wants to quit without saving. 
         /// </summary>
         bool fileNotSaved = false;
+
+        /// <summary>
+        /// Used to check if the method <c>refreshBrowsers</c> occurred, so that the preview browsers can be scrolled 
+        /// to the position of <c>scrollHeight</c>.
+        /// </summary>
+        bool shouldScroll = false;
+
+        /// <summary>
+        /// scrollHeight is the current vertical position of the WYSIWYG editor and this will be passed to the 
+        /// preview browsers so that the user doesn't have to scroll to the bottom of the screen the whole time.
+        /// </summary>
+        int scrollHeight = 0;
+
+        bool scrollLock = false;
 
         /// <summary>
         /// The default location of the open and save file dialogs. 
@@ -272,7 +285,7 @@ namespace AccessibleEPUB
         /// <summary>
         /// The HotKeyManager is used to capture global keyboard shortcuts, such as Ctrl + s for saving.
         /// </summary>
-        GlobalHotKey.HotKeyManager hkm = new GlobalHotKey.HotKeyManager();
+        //GlobalHotKey.HotKeyManager hkm = new GlobalHotKey.HotKeyManager();
 
         //string[] args;     
 
@@ -312,6 +325,9 @@ namespace AccessibleEPUB
         DispatcherTimer timerForHeaders;
 
 
+        int currentPageNumber = 1;
+        bool isRomanPageNumber = false;
+
         /* Program startup */
 
 
@@ -347,11 +363,11 @@ namespace AccessibleEPUB
             //Xpcom.Initialize("Firefox");
            
            
-            var hotKey = hkm.Register(System.Windows.Input.Key.S, System.Windows.Input.ModifierKeys.Control);
+            //var hotKey = hkm.Register(System.Windows.Input.Key.S, System.Windows.Input.ModifierKeys.Control);
             //var globalReload = hkm.Register(System.Windows.Input.Key.None, System.Windows.Input.ModifierKeys.None);
 
-            hkm.KeyPressed += keyPressSave;
-
+            //hkm.KeyPressed += keyPressSave;
+            
             origWordCountLabel = wordCountLabel.Text;
             origCharacterCountLabel = characterCountLabel.Text;
 
@@ -453,7 +469,7 @@ namespace AccessibleEPUB
 
         }
         p {
-  font-size:16px;
+  font-size:initial;
 
 word-wrap: break-word;
 }
@@ -1292,8 +1308,14 @@ body {
         /// </summary>
         /// <param name="parameter">The location of the file to be opened.</param>
         public void parameterOpenFile(string parameter)
-        {          
-            
+        {
+
+            if (!File.Exists(parameter))
+            {
+                MessageBox.Show(Resource_MessageBox.fileDoesNotExistContent, Resource_MessageBox.fileDoesNotExistTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             /* The name of the EPUB file when located to the temp folder. */
             string epubFileName;       // Formerly tempFile
 
@@ -1335,7 +1357,7 @@ body {
                 //tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
 
                 /* Creates the Accessible EPUB temp folder if it doesn't exist yet. */
-                //DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
+                DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
 
                 //string accEpubFolderName = accEpubFolder.Name;
 
@@ -1401,7 +1423,7 @@ body {
                     }
                 }
 
-
+                
 
                 //treeView1.Nodes.Clear();
                 //richTextBox1.Clear();
@@ -1712,9 +1734,15 @@ body {
         /// </summary>
         private void openFile()
         {
-          
+            string initialDirectory = Settings.Default.LastDirectory;
+            if (initialDirectory == "")
+            {
+                initialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            }
+
+
             System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            openFileDialog1.InitialDirectory = homePath;
+            openFileDialog1.InitialDirectory = initialDirectory;
             openFileDialog1.Filter = "EPUB|*.epub|All Files|*.*";
 
 
@@ -1750,6 +1778,8 @@ body {
             
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                Settings.Default.LastDirectory = Path.GetDirectoryName(openFileDialog1.FileName);
+
                 if (!openFileDialog1.FileName.EndsWith(".epub")){
                     MessageBox.Show(Resource_MessageBox.notEpubContent, Resource_MessageBox.notEpubTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -1763,7 +1793,7 @@ body {
                 //tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
 
                 /* Creates the Accessible EPUB temp folder if it doesn't exist yet. */
-                //DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
+                DirectoryInfo accEpubFolder = Directory.CreateDirectory(accEpubFolderName);
 
                 //string accEpubFolderName = accEpubFolder.Name;
 
@@ -2047,9 +2077,9 @@ body {
           
             //if (mode != (int)fileMode.none)
             //{
-                geckoWebBrowser4.Navigate(contentFile);
+            geckoWebBrowser4.Navigate(contentFile);
 
-                htmlToWysiwyg();
+            htmlToWysiwyg();
 
             //}
 
@@ -2117,6 +2147,26 @@ body {
 
             documentLanguageLabel.Text = origDocumentLanguageLabel + language;
 
+            string bodyText = HTMLEditor.Document.Body.OuterHtml;
+
+            string toFind = "xml:id=\"page";
+
+            int pageNumberIndex = bodyText.LastIndexOf(toFind);
+            Console.WriteLine("PageNumberIndex: " + pageNumberIndex);
+            if (pageNumberIndex > 0)
+            {
+                string pageNumberText = "";
+                int i = 0;
+                while (char.IsDigit(bodyText[pageNumberIndex + toFind.Length + i])) {
+                    pageNumberText = pageNumberText + bodyText[pageNumberIndex + toFind.Length + i];
+                    i++;
+                }
+                Int32.TryParse(pageNumberText, out currentPageNumber);
+                currentPageNumber++;
+            }
+
+
+
             updateHeaderList();
 
             splitContainer1.Panel1Collapsed = false;
@@ -2179,6 +2229,7 @@ body {
             //tabsToTextEditors.Clear();
 
             containsFile = false;
+            fileEdited = false;
 
             HTMLEditor.Document.Body.InnerHtml = "";
             geckoWebBrowser1.Navigate("about:blank");
@@ -2272,11 +2323,16 @@ body {
 
             //tempFolder = Path.Combine(tempPath, "AccessibleEPUB");
 
+            string initialDirectory = Settings.Default.LastDirectory;
+            if (initialDirectory == "")
+            {
+                initialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            }
 
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
             saveFileDialog1.Title = "Create a new EPUB File";
-            saveFileDialog1.InitialDirectory = homePath;
+            saveFileDialog1.InitialDirectory = initialDirectory;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName == "")
@@ -2284,6 +2340,7 @@ body {
                 return;
             }
 
+            Settings.Default.LastDirectory = Path.GetDirectoryName(saveFileDialog1.FileName);
 
             NewFileDialogBox nfd = new NewFileDialogBox(this);
             nfd.ShowDialog();
@@ -2496,7 +2553,7 @@ body {
 
                 File.Delete(Path.Combine(accEpubFolderName, "empty_Single_File.zip"));
             }
-            
+
             /* Shows the CSS specific window view. */
             if (mode == (int)fileMode.singleFileCss)
             {
@@ -2512,6 +2569,7 @@ body {
                 splitContainer2.Panel2.Show();
                 splitContainer2.Panel2.Visible = true;
                 geckoWebBrowser4.Visible = false;
+                TabControl1.Visible = true;
             }
             
             //using (File.Create(epubFileName)) ;
@@ -2561,7 +2619,7 @@ body {
             /* Creation date of the file. */
             string time = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
             //string identifier = "AccessibleEPUB:" + DateTime.UtcNow.ToString("yyyy-MM-ddTZ");
-
+  
             /* The indices are to find the position of the tags and place the appropriate values in between
              * the start and end of the tags.  */
             int titleStartIndex = metadata.IndexOf(titleStart);
@@ -2622,7 +2680,7 @@ body {
             tagsList.Add(new Tuple<int, string, string>(timeStartIndex, timeStart, time));
             tagsList.Add(new Tuple<int, string, string>(timeEndIndex, timeEnd, ""));
 
-    
+
 
             //SortedDictionary<int, string> tagsList = new SortedDictionary<int, string>();
             //tagsList.Add(titleStartIndex, titleStart);
@@ -2635,7 +2693,7 @@ body {
             /* Orders by appearance of tag in the metadata file.  */
             tagsList = tagsList.OrderBy(x => x.Item1).ToList();
             tagsList.Sort();
-            
+
             //List<string> metaItems = new List<string>();
 
             //for (int i = 0; i < ((tagsList.Count / 2) + 1) ; i++) {
@@ -2672,7 +2730,6 @@ body {
             string sixth = metadata.Substring(tagsList[9].Item1);
             //string sixth = metadata.Substring(tagsList[9].Item1, tagsList[10].Item1 + tagsList[10].Item2.Length - tagsList[9].Item1);
             //string seventh = metadata.Substring(tagsList[11].Item1);
-
 
             //string first = metadata.Substring(0, titleStartIndex + titleStart.Length);
             //string second = metadata.Substring(titleEndIndex, creatorStartIndex + creatorStart.Length - titleEndIndex);
@@ -2736,6 +2793,8 @@ body {
 
             /* Sets up the view before use */
             determineLanguage();
+
+            HTMLEditor.Document.Body.InnerText += "\n";
 
             geckoWebBrowser1.Navigate(contentFile);
             geckoWebBrowser2.Navigate(impairedContentFile);
@@ -3282,26 +3341,32 @@ body {
         /// The marker for the beginning of the content section in the XHTML body. The links to change the display style are placed ahead of this marker.
         /// </summary>
         string startOfContent = "<!--StartOfContent-->";
+
         /// <summary>
         /// The marker for the start of the visually impaired section.
         /// </summary>
         string imp = "<div style=\"padding:none\" id=\"impaired\" class=\"impaired\">\n<!--StartOfImpairedSection-->\n";
+
         /// <summary>
         /// The marker for the end of the visually impaired section.
         /// </summary>
         string impEnd = "<!--EndOfImpairedSection-->\n</div>\n";
+
         /// <summary>
         /// The marker for the start of the blind section.
         /// </summary>
         string bli = "<div id=\"blind\" class=\"blind\">\n<!--StartOfBlindSection-->\n";
+
         /// <summary>
         /// The marker for the end of the blind section.
         /// </summary>
         string bliEnd = "<!--EndOfBlindSection-->\n</div>\n";
+
         /// <summary>
         /// The marker for the start of the normal section.
         /// </summary>
         string vis = "<div id=\"visible\" class=\"visible\">\n<!--StartOfVisibleSection-->\n";
+
         /// <summary>
         /// The marker for the end of the normal section.
         /// </summary>
@@ -3442,8 +3507,16 @@ body {
             if (elementHost2.Visible == false)
             {
 
-                //wysiwygToHtml();
-                convertInlineFormula();
+                if (refresh == true)
+                {
+                    wysiwygToHtml();
+                }
+                else
+                {
+                    convertInlineFormula();
+                }
+
+              
             }
             else
             {
@@ -4108,7 +4181,7 @@ body {
             Regex spanRegex = new Regex(@"<span[^>]*>(.*?)<\/span>");
             //Console.WriteLine(body);
             MatchCollection spanMatches = spanRegex.Matches(body);
-            
+
             //Console.WriteLine("LALA:" + sp.ToString());
             //Console.WriteLine("BABA:" + sp.Groups[1].ToString());
 
@@ -4116,9 +4189,9 @@ body {
             //{
             //    string replacementString = span.Groups[1].ToString();
             //    body = body.Replace(span.ToString(), replacementString);
-               
-            //}
 
+            //}
+           
             if (body == null)
             {
                 return;
@@ -4130,6 +4203,7 @@ body {
             string contentBody = "";
 
             string textFolder = Path.Combine(Path.Combine(Path.Combine(epubFolderName, rootFolderName), "Text"));
+            
             try
             {
                 contentBody = System.IO.File.ReadAllText(contentFile);
@@ -4314,6 +4388,7 @@ body {
                 setRefresh(true);
             }
 
+            
             if (refresh == true)
             {
                 if (inlineFormulasMatches.Count > 0)
@@ -4397,7 +4472,7 @@ body {
                     }
                 }
             }
-          
+
 
             //HtmlAgilityPack.HtmlDocument hap = new HtmlAgilityPack.HtmlDocument();
             //hap.LoadHtml(newContent);
@@ -4405,11 +4480,11 @@ body {
             //newContent = hap.ParsedText;
 
 
-           
+
             //string fileLocation = Path.Combine(Path.Combine(epubFolderName, rootFolderName), "Text");
-
+            
             System.IO.File.WriteAllText(contentFile, newContent);
-
+            
             codeEditor.Load(contentFile);
 
             ///* Loads a file to a code editor. */
@@ -5838,7 +5913,7 @@ body {
         }
 
         /// <summary>
-        /// Calls up method every time the timer ticks.
+        /// This method is called up every time the timer ticks.
         /// </summary>
         /// <param name="sender">Not used.</param>
         /// <param name="e">Not used.</param>
@@ -5856,6 +5931,12 @@ body {
 
         }
 
+        /// <summary>
+        /// This method is called up every time the header timer ticks, which only less frequently than 
+        /// the other timer, as seeing the header list refresh frequently can be irritating.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">Not used.</param>
         void timerForHeaders_Tick(object sender, EventArgs e)
         {
 
@@ -6223,18 +6304,33 @@ body {
             //geckoWebBrowser3.Reload();
             //geckoWebBrowser4.Reload();
 
+            scrollHeight = HTMLEditor.Document.Body.ScrollTop;
 
             if (mode == (int)fileMode.singleFileJs)
             {
+
+                //g1y = geckoWebBrowser1.Window.ScrollY;
+                
+  
+
+
                 geckoWebBrowser1.Navigate(contentFile);
            
                 geckoWebBrowser2.Navigate(impairedContentFile);
                 geckoWebBrowser3.Navigate(blindContentFile);
-            }
-            geckoWebBrowser4.Navigate(contentFile);
 
+                //geckoWebBrowser1.Window.ScrollTo(0, int.MaxValue);
+                //geckoWebBrowser2.Window.ScrollTo(0, int.MaxValue);
+                //geckoWebBrowser3.Window.ScrollTo(0, int.MaxValue);
+
+            }
+
+
+            geckoWebBrowser4.Navigate(contentFile);
+          
+            shouldScroll = true;
             fileEdited = false;
-            
+
         }
 
    
@@ -6849,13 +6945,13 @@ body {
         /// </summary>
         /// <param name="sender">Not used.</param>
         /// <param name="e">Event with information containing which keys were pressed.</param>
-        private void keyPressSave(object sender, KeyPressedEventArgs e)
-        {
-            if (e.HotKey.Key == Key.S)
-            {
-                saveFile();
-            }
-        }
+        //private void keyPressSave(object sender, KeyPressedEventArgs e)
+        //{
+        //    if (e.HotKey.Key == Key.S)
+        //    {
+        //        //saveFile();
+        //    }
+        //}
 
        
 
@@ -6980,6 +7076,7 @@ body {
             {
                 return;
             }
+            
             SendKeys.Send("^(f)");
         }
 
@@ -7138,10 +7235,17 @@ body {
             {
                 return;
             }
+
+            string initialDirectory = Settings.Default.LastDirectory;
+            if (initialDirectory == "")
+            {
+                initialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            }
+
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
             saveFileDialog1.Title = "Create a new EPUB File";
-            saveFileDialog1.InitialDirectory = homePath;
+            saveFileDialog1.InitialDirectory = initialDirectory;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName == "")
@@ -7154,10 +7258,13 @@ body {
                 File.Delete(saveFileDialog1.FileName);
             }
 
+            Settings.Default.LastDirectory = Path.GetDirectoryName(saveFileDialog1.FileName);
 
             target = saveFileDialog1.FileName;
 
             saveFile();
+
+            this.Text = Path.GetFileName(target) + " - " + accessibleEpubFormText;
         }
 
         private void newFileSplashButton_Click(object sender, EventArgs e)
@@ -7207,6 +7314,10 @@ body {
             closeFile();
         }
 
+        /// <summary>
+        /// Sets <c>refresh</c> to the parameter.
+        /// </summary>
+        /// <param name="toSet">The new value of <c>refresh.</c></param>
         private void setRefresh(bool toSet)
         {
             refresh = toSet;
@@ -7487,16 +7598,22 @@ body {
         /// <summary>
         /// Stops the timer at the beginning of the method when any key is pressed to prevent overhead and slowdowns while typing and starts it again at the end of the method. Furthermore, indents and outdents are also handled.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">The key which was pressed.</param>
         private void HTMLEditor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             timer.Stop();
-            
+
             //IHTMLElement ielem = null;
             //HtmlElement elem;
 
-            if (e.KeyCode == Keys.Tab)
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                e.IsInputKey = true;
+                saveFile();
+            }
+
+            else if (e.KeyCode == Keys.Tab)
             {
                 e.IsInputKey = true;
                 indent();
@@ -7506,6 +7623,14 @@ body {
                 e.IsInputKey = true;
                 outdent();
             }
+
+            else if (e.Control && e.KeyCode == Keys.Enter)
+            {
+                e.IsInputKey = true;
+                insertPageNumberSplitButton.PerformButtonClick();                
+            }
+
+
             //else if (e.Control && e.KeyCode == Keys.F3)
             //{
 
@@ -7664,13 +7789,13 @@ body {
             //}
 
             //}
-           
-           
+
+
             //handleRefresh();
             //if (containsFile == true && fileEdited == true && refresh == true)
             //{
-               
-               
+
+
             //    refreshBrowsers();
 
             //    //HTMLEditor.Document.Focus();
@@ -7683,6 +7808,21 @@ body {
             //updateFontFormat();
         }
 
+        /// <summary>
+        /// Captures input anywhere in the whole form.
+        /// </summary>
+        /// <param name="sender">Not used.</param>
+        /// <param name="e">The key which was pressed.</param>
+        private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                e.IsInputKey = true;
+                saveFile();
+            }
+
+        }
+
         //[System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.Synchronized)]
         /// <summary>
         /// Handles the refresh of everyting in the main window, such as the preview browsers, current font format, header and figure lists 
@@ -7690,12 +7830,13 @@ body {
         /// </summary>
         private void handleRefresh()
         {
-
+           
             refreshBrowsers();
+           
 
             updateFontFormat();
             //updateHeaderList();
-
+            
             DateTime time = DateTime.UtcNow;
 
             if (lastSave.Year == time.Year)
@@ -7724,8 +7865,26 @@ body {
 
 
             //}
+  
+            
+            if (!scrollLock && shouldScroll)
+            {
+                if (mode == (int)fileMode.singleFileJs)
+                {
+                    geckoWebBrowser1.Window.ScrollTo(0, scrollHeight);
+                    geckoWebBrowser2.Window.ScrollTo(0, scrollHeight);
+                    geckoWebBrowser3.Window.ScrollTo(0, scrollHeight);
+                }
 
+                else if (mode == (int)fileMode.singleFileCss)
+                {
+                    geckoWebBrowser4.Window.ScrollTo(0, scrollHeight);
+                }
 
+                // If this is set to "shouldScroll = false;" it will not scroll the preview window any more.
+                shouldScroll = true;
+            }
+            
         }
 
         private void textToolStripMenuItem_Click(object sender, EventArgs e)
@@ -7746,10 +7905,16 @@ body {
         /// <param name="e"></param>
         private void importText(object sender, EventArgs e)
         {
-            string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string initialDirectory = Settings.Default.LastDirectory;
+            if (initialDirectory == "")
+            {
+                initialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            }
+            //string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
-            ofd.InitialDirectory = documents;
+            ofd.InitialDirectory = initialDirectory;
+
             ofd.Filter = "Text files (txt,text,rtf)|*.txt;*.text;*.rtf|All files (*.*)|*.*";
             ofd.RestoreDirectory = true;
 
@@ -7762,7 +7927,7 @@ body {
                 string finalString = "";
                 finalString = infile;
 
-
+                Settings.Default.LastDirectory = Path.GetDirectoryName(ofd.FileName);
                 //System.IO.StreamReader file = new System.IO.StreamReader(ofd.FileName);
 
                 //while ((line = file.ReadLine()) != null)
@@ -8150,10 +8315,16 @@ body {
                 return;   
             }
 
+            string initialDirectory = Settings.Default.LastDirectory;
+            if (initialDirectory == "")
+            {
+                initialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            }
+
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
             saveFileDialog1.Title = "Create a new EPUB File";
-            saveFileDialog1.InitialDirectory = homePath;
+            saveFileDialog1.InitialDirectory = initialDirectory;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName == "")
@@ -8168,7 +8339,7 @@ body {
 
             /* Saves it under a new target so that the current file remains in the editor. */
             string newTarget = saveFileDialog1.FileName;
-
+            Settings.Default.LastDirectory = Path.GetDirectoryName(saveFileDialog1.FileName);
 
             /* The remaining steps are very similar to the saveFile() method. */
             string tempFolderName = epubFolderName + "temp";
@@ -8270,10 +8441,17 @@ body {
                 return;   
             }
 
+            string initialDirectory = Settings.Default.LastDirectory;
+            if (initialDirectory == "")
+            {
+                initialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            }
+
+
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             saveFileDialog1.Filter = "EPUB|*.epub";
             saveFileDialog1.Title = "Create a new EPUB File";
-            saveFileDialog1.InitialDirectory = homePath;
+            saveFileDialog1.InitialDirectory = initialDirectory;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName == "")
@@ -8288,7 +8466,7 @@ body {
 
             /* Saves it under a new target so that the current file remains in the editor. */
             string newTarget = saveFileDialog1.FileName;
-
+            Settings.Default.LastDirectory = Path.GetDirectoryName(saveFileDialog1.FileName);
 
             /* The remaining steps are very similar to the saveFile() method. */
             string tempFolderName = epubFolderName + "temp";
@@ -8445,8 +8623,13 @@ body {
             timer.Start();
         }
 
-        private void convertInlineMathButton_Click(object sender, EventArgs e)
+        private void convertInlineMathAndRefresh()
         {
+            if (containsFile == false)
+            {
+                return;
+            }
+
             convertInlineFormula();
 
 
@@ -8532,7 +8715,7 @@ body {
 
             //;"
 
-       
+
 
             //wysiwygToHtml();
 
@@ -8716,5 +8899,160 @@ body {
                 lastSavedLabel.Text = origLastSavedLabel + span.Minutes + " Min ago";
             }
         }
+
+        private void convertInlineMathButton_Click(object sender, EventArgs e)
+        {
+            convertInlineMathAndRefresh();
+        }
+
+        private void convertPageWithInlineMathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            convertInlineMathAndRefresh();
+        }
+
+        private void toInlineMath()
+        {
+              if (containsFile == false)
+            {
+                return;
+            }
+
+            IHTMLSelectionObject currentSelection = doc.selection;
+
+            if (currentSelection != null)
+            {
+                IHTMLTxtRange range = currentSelection.createRange() as IHTMLTxtRange;
+
+                if (range.text.StartsWith("$$") && range.text.EndsWith("$$"))
+                {
+                    range.text = range.text.Substring(2, range.text.Length - 4);
+                }
+                else
+                {
+                    range.text = "$$" + range.text + "$$";
+                }
+
+            }
+
+            fileEdited = true;
+            fileNotSaved = true;
+
+            handleRefresh();
+
+        }
+
+        private void toInlineMathButton_Click(object sender, EventArgs e)
+        {
+            toInlineMath();
+        }
+
+        private void toInlineMathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toInlineMath();
+        }
+
+        private void insertPageNumberSplitButton_ButtonClick(object sender, EventArgs e)
+        {
+            insertPageNumber();
+        }
+
+        private void insertPageNumber()
+        {
+            dynamic currentLocation = doc.selection.createRange();
+            string pageNumberFormatStart = "&lt;" + Resource_MessageBox.page + "&gt;";
+            string pageNumberFormatEnd = "&lt;/" + Resource_MessageBox.page + "&gt;";
+
+    //        string versionChangerLinksJavaScript = "<a id=\"a1_p" + currentPageNumber +
+    //"\" href=\"#a1\" onclick=\"selectVisible();\">Normal</a> " +
+    //"<a id=\"a2_p" + currentPageNumber + "\"href=\"#a2\" onclick=\"selectImpaired();\">Visually impaired</a> " +
+    //"<a id=\"a3_p" + currentPageNumber + "\"href=\"#a3\" onclick=\"selectBlind();\">Blind</a>";
+
+            string pageNumberHtml = "";
+
+            string currentPageNumberString = currentPageNumber + "";
+
+            if (isRomanPageNumber)
+            {
+                currentPageNumberString = toRomanNumeral(currentPageNumber);
+            }
+
+
+
+            //if (mode == (int)fileMode.singleFileCss)
+            //{
+            //    pageNumberHtml = "<span xml:id=\"page" + currentPageNumber + "\" epub:type=\"pagebreak\" ><p class=\"pagebreak\">" +
+            //        pageNumberFormatStart + currentPageNumber + pageNumberFormatEnd + "</p></span>";
+            //}
+            //else if (mode == (int)fileMode.singleFileJs)
+            //{
+            //    pageNumberHtml = "<span xml:id=\"page" + currentPageNumber + "\" epub:type=\"pagebreak\" >" +
+            //   versionChangerLinksJavaScript + "<p class=\"pagebreak\">" +
+            //   pageNumberFormatStart + currentPageNumber + pageNumberFormatEnd + "</p></span>";
+            //}
+
+
+            pageNumberHtml = "<span xml:id=\"page" + currentPageNumberString + "\" epub:type=\"pagebreak\" ><p class=\"pagebreak\">" +
+                   pageNumberFormatStart + currentPageNumberString + pageNumberFormatEnd + "</p></span>";
+
+            currentLocation.pasteHTML(pageNumberHtml + "\n");
+
+
+            currentPageNumber++;
+        }
+
+
+        //TODO: Fix error messages
+        public string toRomanNumeral(int number)
+        {
+            if ((number < 0) || (number > 3999)) throw new ArgumentOutOfRangeException("Insert value betwheen 1 and 3999");
+            if (number < 1) return string.Empty;
+            if (number >= 1000) return "M" + toRomanNumeral(number - 1000);
+            if (number >= 900) return "CM" + toRomanNumeral(number - 900);
+            if (number >= 500) return "D" + toRomanNumeral(number - 500);
+            if (number >= 400) return "CD" + toRomanNumeral(number - 400);
+            if (number >= 100) return "C" + toRomanNumeral(number - 100);
+            if (number >= 90) return "XC" + toRomanNumeral(number - 90);
+            if (number >= 50) return "L" + toRomanNumeral(number - 50);
+            if (number >= 40) return "XL" + toRomanNumeral(number - 40);
+            if (number >= 10) return "X" + toRomanNumeral(number - 10);
+            if (number >= 9) return "IX" + toRomanNumeral(number - 9);
+            if (number >= 5) return "V" + toRomanNumeral(number - 5);
+            if (number >= 4) return "IV" + toRomanNumeral(number - 4);
+            if (number >= 1) return "I" + toRomanNumeral(number - 1);
+            throw new ArgumentOutOfRangeException("Error with roman numerals");
+        }
+
+        private void changeresetPageNumberingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeResetPageNumber();
+        }
+
+        private void changeResetPageNumber()
+        {
+            PageNumberDialogBox pndb = new PageNumberDialogBox(currentPageNumber, this);
+            pndb.ShowDialog();
+        }
+
+        public void setPageNumber(int pageNumber, bool isRoman)
+        {
+            currentPageNumber = pageNumber;
+            isRomanPageNumber = isRoman;
+        }
+
+        private void insertPageNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertPageNumber();
+        }
+
+        private void changeresetPageNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeResetPageNumber();
+        }
+
+        private void scrollLockButton_Click(object sender, EventArgs e)
+        {
+            scrollLock = !scrollLock;
+        }
     }
 }
+    
