@@ -8,17 +8,31 @@
 - [ ] (C) Top1: Neues Logo
 - [x] (D) Sigil anschauen
 - [ ] (E) Brailleauthority.org checken http://www.brailleauthority.org/ueb/symbols_list.pdf
-- [ ] (F) Inline Formeln ŤäberprŤäfen zwischen pandoc und epub
 - [ ] (G) **Inline**: MathML durch Pandoc, **figure live Preview**: WPF-Math, **figure in Text**: Wpf as svg
 - [ ] (H) Handbuch?
-- [ ] (I) < and > symbols after saving/reopening file. **-> Use \less \greater instead**
-- [ ] (T) Liste der TeX-Befehle die aus Blindenversion rausgefiltert werden mŤässen.
+- [x] (I) < and > symbols after saving/reopening file. **-> Use \lt \gt instead**
+- [ ] (T) Liste der TeX-Befehle die aus Blindenversion rausgefiltert werden müssen.
 - [ ] (S) Shortcuts need to be listed all at one place, to gain overview and adapt them best. Possible combination with Graphics-list?
 - [ ] (B) BMWF is to be checked out
 - [ ] (N) NVDA is a freely accessible Screen reader for Windows (recommend with the Windows-voices), and can be used to test the AEPUB-files.
-- [ ] (D) Additional tests related to manually set font-sizes influencing the displayed font-size in ebook-readers are required.
 - [ ] (Q) Formatting possibilities: begin and end markers for subparagraphs like examples? -> eventuell nur für Einrückungen
 - [ ] High: (L) Insert newly implemented Linebreaks to HM-Skript, +beautify it.
+
+
+
+#Pending Tests (Ulrich)
+
+- [ ] _Test (tF)_ Inline Formeln überprüfen zwischen pandoc und epub
+- [ ] _Test (tD)_ Additional tests related to manually set font-sizes influencing the displayed font-size in ebook-readers are required.
+- [ ] _Test (GreaterThan)_: The replace function concerning `<` and `>` symbols has been implemented
+- [ ] _Test (Preview)_: A button has been implemented to allow [refresh of preview browser] without [scrolling to the bottom every time].
+- [x] _Test (tF)_: A shortcut launching the inline-formula conversion has been implemented with CTRL+Shift+C.
+  --> It works.
+- [ ] _Test (tP)_: Page breaks are not 100% reliable yet. Investigation pending
+- [x] _Test (Void)_: A new line (\n) is added after creating a new file to prevent this.
+- [x] _Test (Safeplace)_: Save as in Windows title of the window is not updated to the new file name 
+- [ ] _Test (Reader Fontsize)_: The text size of lists and normal text should now be fixed, but still has to be tested.
+- [ ] 
 
 
 
@@ -38,19 +52,21 @@
 |      | "Crash"/"Crashes"       | GUI is greyed out, Windows-Box appears "ACCESSIBLE EPUB" stopped working with single option "close" (or "exit"), then the editor-Window closes. |
 |      | Error Message           | An info-box with red cross opens, reporting an unhandled exception. |
 | [x]  | Leroy                   | "StartIndex is Less than Zero" ;)                            |
-| [x]  | Leyline                 | Editor crashes when modifying an inline-formula in fiiles opened from Win-Explorer, EN-CSS. |
-| [ ]  | Void                    | Saving a newly created empty file causes an error message.   |
+| [x]  | Leyline                 | Editor crashes when modifying an inline-formula in files opened from Win-Explorer, EN-CSS. |
+| [x]  | Void                    | Saving a newly created empty file causes an error message.   |
 | [ ]  | Preview                 | Preview jumps unavoidably to the bottom.                     |
 | [ ]  | Idle                    | Program closes unexpectedly when open but not in use. *Requires further testing.* |
 | [ ]  | ListNumerBreaks         | List behaviour when changing symbol for unnumbered list breaks list. *Requires further testing.* |
 | [ ]  | TextImport              | What does `Import Text` do?                                  |
 | [ ]  | Preformatcolour         | Text colours and applying/changing Preformatting             |
 | [ ]  | ParserFeedback          | Preview actualisation of Parser-incompatible figure formulas does not give feedback of working. |
-| [ ]  | Safeplace               | Window title does not change according to filename used in "save as..." |
+| [x]  | Safeplace               | Window title does not change according to filename used in "save as..." |
 | [ ]  | Metadata                | Metadata missing in Reasily                                  |
 | [ ]  | Macbreaks               | Pagebreaks in Mac/iOS default ebook-reader                   |
 | [ ]  | Reader Fontsize         | the fontsize between lists and plain text varies too much    |
-|      |                         |                                                              |
+| [ ]  | GreaterThan             | Handling of `<` and `>` symbols inside inline formulas is problematic. |
+| [ ]  | Traces                  | Older files not being forward-compatible with some features. |
+| [ ]  | CopyLess                | Copying text from one instance to another causes problems when pagebreaks are included in the copied content. |
 
 ---
 
@@ -87,6 +103,13 @@
 - Resizing of windows is possible below a certain size is now possible
 - The file dialogs remember the last directory location
 - Removed bug where CSS files opened with the OS's "Open With" command crash
+- Removed bug where the program would crash if non-existent file was opened with the "Open With" command
+- Removed bug where the program would crash if a file with no text would be saved
+- Added keyboard shortcuts for adding inline formulas and conversion to inline formulas
+- The title of the window now changes after "Save As"
+- Adjusted font size difference between lists and normal text
+- Scroll lock has been added to prevent the preview from scrolling to the bottom after every change
+- Added page breaks and page numbers
 
 ---
 
@@ -102,7 +125,6 @@ Took a look at sigil: (with EC file)
 
 - Sigil seems to handle math internally, as switching View-mode starts a "Processing math" process in the preview, followed by a "Typesetting Math" process.
 - Sigil does not render the Figure-Formulas in the preview. Displays "<u>[Math Processing Error]</u>" instead. Editor works fine.
-- 
 
 
 
@@ -152,6 +174,10 @@ Bug seems related to the info-box about automatic refresh.
 > 29.01.2019 18:00 - 19:10 :ballot_box_with_check:
 
 Began listing required icons for graphical update.
+
+
+
+#V 0.1.10 #1,5 (In-Between Bug correction)
 
 Reinstalled V0.1.10 with actualised installer, in which the Leyline-Bug has been corrected.
 
@@ -232,7 +258,7 @@ Trying above bug again:
 
 ### [Bug: Void
 
-Newly created files cannot be saved by clicking the icon or pressing CTRL+S, and cause an error message.
+Empty newly created files cannot be saved by clicking the icon or pressing CTRL+S, and cause an error message.
 
 However, they are written on the hard disk and use non-null disk space.
 
@@ -240,7 +266,11 @@ Selecting `continue`does not cause the program to crash.
 
 The empty file can be reopened after this (WinExp), and saved without problems. 
 
-**Solution idea:** Insert a non-deletable empty line by default in new documents to avoid this, which could also solve the problem of users writing in the same line as the CSS selectors are placed.
+**Solution idea:** Insert a non-deletable empty line by default in new documents to avoid this, which could also solve the problem of users writing in the same line as the one in which CSS selectors are placed.
+
+**Update -13.03:** A solution has been implemented to avoid this, by inserting an automated new line in any new document.
+
+_Tests:_ An empty file can now be saved correctly and the program behaves as expected. No error message was returned. However,  it is still possible to write on the Mode-Switcher line using the first line in the editor. Interestingly, the inserted line by default is not deletable, as clicking in the editor forces the cursor to be on an existing empty line.
 
 **]**
 
@@ -289,6 +319,10 @@ The preview jumps back to bottom. Scrolling up only in the preview is not possib
 
 **Update - 14.02:** The bug appears only after the "automatic refresh" info-box has been dismissed. Scrolling in both views works perfectly fine, until the editor window is selected and a text input is given. The bug makes the preview jump to the point it was at before dismissing the info-box.
 
+**Update - 13.03:** A button has been implemented to allow [refresh of preview browser] without [scrolling to the bottom every time].
+
+_Test:_ I have to dig further, but the behaviour is not fully satisfactory yet (I feel like it now jumps back to the place I first activated Scroll lock). The button should give feedback when it is pressed.
+
 **]**
 
 
@@ -325,7 +359,7 @@ Playing around with icons.
 
 Continuing writing math script (corrected sections [0-1[ ):
 
-##[Bug: "Preformatcolour"
+###[Bug: "Preformatcolour"
 
 the preformatting of a header does reset user-selected colors for the text.
 
@@ -337,7 +371,7 @@ the preformatting of a header does reset user-selected colors for the text.
 
 **]**
 
-##[Bug: "ParserFeedback"
+###[Bug: "ParserFeedback"
 
 Replacing formula in figure-formula does not change the preview?
 
@@ -354,6 +388,10 @@ Replacing formula in figure-formula does not change the preview?
 
 - The Window title of the program does not change to the new file name. 
 - It is unclear, if saving will now replace the first file, or the newly created copy of it. <u>!!!!</u> (it actually does overwrite the newest copy)
+
+**Update - 13.03:** The title bar should now display the last file name it was saved as.
+
+_Test:_ It does.
 
 **]**
 
@@ -409,7 +447,21 @@ TeX: Testing further the TeX commands `\lt` and `\gt`
   - Contrary to editing all formulas in one batch and converting only once.
   - <u>correction:</u> I must have reopened the content.xhtml too early after the changes, editing all `amp` to `\lt`s at once seems to have worked as expected.
 
+### [Bug: GreaterThan
 
+Opened 13.03: in order to group all updates here (should have been marked as a bug from the beginning).
+
+The preview Browser is not capable of rendering `<` and `>` symbols inside inline formulas, displaying `&lt;` and `&gt` instead. This caused a loop where each time opening the file, an `&amp;` was appended. Also, this blocked the rendering of inline formulas (see tests above).
+
+**Update - 13.03:** A solution has been implemented, where text inputs of `<, >` are replaced by `\lt, \gt`. Hence, the problem should be avoided now.
+
+_Test:_ At which moment is the input replaced? Opening the older `Testfile2 EN-CSS.epub` and trying around by inputting new formulas including an `<` still gives the described behaviour from the bug.
+
+
+
+
+
+**]**
 
 > 25.02.2019 19:00 - 20:00 :ballot_box_with_check:
 
@@ -449,7 +501,7 @@ Other discussed themes:
   Marvin (iOS), Reasily (Android), Calibre+Readium (Win)
 - **Bug:** tests for the font-size are required. (Bug with plain text being too small.) :ballot_box_with_check:
 - <u>Feature:</u> Footnotes are a feature wished for.  On the long term, it has to be clarified, if they are to be written at the mark in the text, or just linked and developed further down below.
-- _Test (D)_: Additional tests related to manually set font-sizes influencing the displayed font-size in ebook-readers are required.
+- _Test (tD)_: Additional tests related to manually set font-sizes influencing the displayed font-size in ebook-readers are required.
 
 Github issues created during the meeting:
 
@@ -491,6 +543,8 @@ In the standard ebook-reader on Mac/iOS, pagebreaks are not working. Where lies 
 
 Further tests for the font-size are required. (Bug with plain text being too small.)
 
+**Update - 13.03:** This has been corrected. Tests pending.
+
 
 
 **]**
@@ -500,6 +554,8 @@ Further tests for the font-size are required. (Bug with plain text being too sma
 > 05.03.2019 00:00 - 00:45 :ballot_box_with_check:
 
 > 07.03.2019 03:00 - 04:30
+
+#V 0.1.10 #2 (Second Instance, Pagebreaks)
 
 Inserting page numbers to HM-script, into file `HM-Skript_Css3.epub`.
 
@@ -534,3 +590,64 @@ Updated Logo to: (during conversion time of HM-Skript :stuck_out_tongue_closed_e
 
 On the small taskbar (second monitor), the old logo is shown: ![1551926315382](ARCHIVE/1551926315382.png) whereas on the main taskbar, it is the new logo: ![1551926366689](ARCHIVE/1551926366689.png) .
 
+
+
+
+
+# V.0.1.10 #3 (Third instance, "release" version)
+
+> 13.03.2019 14:45-
+
+Catching up on new features.
+
+The Changelog on top of this log has been completed, according to Sachin's markdown file. New in this instance and the previous one:
+
+- Removed bug where the program would crash if non-existent file was opened with the "Open With" command
+- Removed bug where the program would crash if a file with no text would be saved
+- Added keyboard shortcuts for adding inline formulas and conversion to inline formulas
+- The title of the window now changes after "Save As"
+- Adjusted font size difference between lists and normal text
+- Scroll lock has been added to prevent the preview from scrolling to the bottom after every change
+- Added page breaks and page numbers
+
+
+
+Catching up on Github.
+
+- _Test (GreaterThan)_: The replace function concerning `<` and `>` symbols has been implemented
+- _Test (Preview)_: A button has been implemented to allow [refresh of preview browser] without [scrolling to the bottom every time].
+- _Test (tF)_: A shortcut launching the inline-formula conversion has been implemented with CTRL+Shift+C.
+- _Test (tP)_: Page breaks are not 100% reliable yet. Investigation pending
+- _Test (Void)_: A new line (\n) is added after creating a new file to prevent this.
+- _Test (Safeplace)_: Save as in Windows title of the window is not updated to the new file name 
+- _Test (Reader Fontsize)_: The text size of lists and normal text should now be fixed, but still has to be tested.
+
+
+
+The third instance has now been installed on my computer.
+
+The bugs "Void" and "Safeplace" are confirmed to be solved. "Preview" is not fully functional yet.
+
+"GreaterThan", "Traces" and "CopyLess" have been added to the bug list.
+
+
+
+### [Bug: Traces
+
+I suppose that newly implemented features do not always work with non-empty files older than their implementation.
+
+So far, this seems to concern pagebreaks as well as the <-text-replace function.
+
+
+
+**]**
+
+### [Bug: CopyLess
+
+When copying selected text from one editor instance of Accessible EPUB (CTRL+C), and then inserting it in another editor instance (CTRL+V):
+
+Error message "problem converting WYSIWYG to HTML" is returned. This is caused by the presence of pagebreaks in the clipboard and the WYSIWIG text. Removing them allows conversion of the document, and pagebreaks can then be inserted again in the editor without causing problems.
+
+
+
+**]**
