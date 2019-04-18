@@ -324,12 +324,19 @@ namespace AccessibleEPUB
         /// </summary>
         DispatcherTimer timerForHeaders;
 
-
+        /// <summary>
+        /// The current page number in the current EPUB file.
+        /// </summary>
         int currentPageNumber = 1;
+
+        /// <summary>
+        /// Indicates if the current page number is counted as a roman numeral.
+        /// </summary>
         bool isRomanPageNumber = false;
 
-        /* Program startup */
 
+
+        /* Program startup */
 
         /// <summary>
         /// Constructor of <c>Form1</c>, which sets the language, initiates Firefox, the HotKeyManager and the labels.
@@ -864,21 +871,27 @@ body {
             //richTextBox1.Text = geckoWebBrowser1.Text;
         }
 
- 
-        /// <summary>
-        /// The clicked header will have its corresponding HtmlElement found, and then is scrolled to.
-        /// </summary>
-        /// <param name="sender">Not used.</param>
-        /// <param name="e">Not used.</param>
+
+
+
+        ///// <summary>
+        ///// The clicked header will have its corresponding HtmlElement found, and then is scrolled to.
+        ///// </summary>
+        ///// <param name="sender">Not used.</param>
+        ///// <param name="e">Not used.</param>
         private void headerTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             string outerHtmlKey = e.Node.Name;
             foreach (HtmlElement el in HTMLEditor.Document.Body.Children)
             {
                 if (outerHtmlKey == el.OuterHtml)
                 {
                     el.ScrollIntoView(true);
+
+                    e.Node.Expand();
                 }
+
             }
         }
 
@@ -2907,7 +2920,6 @@ body {
 
         /// <summary>
         /// Copies the contents of the directory, but not the directory itself.
-
         /// </summary>
         /// <param name="sourceDirName">The directory from where the contents are copied.</param>
         /// <param name="destDirName">The directory to where the contents are copied. </param>
@@ -4063,9 +4075,10 @@ body {
                     string formulaResult = Path.Combine(accEpubFolderName, "formulaResult.txt");
 
                     Directory.SetCurrentDirectory(pandoc);
-
+                    string mathInput = m.ToString().Substring(1, m.ToString().Length - 2).Replace("&lt;", "<");
+                    mathInput = mathInput.Replace("&gt;", ">");
                     /* The first and last character are not required as they are $ (dollar) signs. */
-                    System.IO.File.WriteAllText(accFile, m.ToString().Substring(1, m.ToString().Length - 2));
+                    System.IO.File.WriteAllText(accFile, mathInput);
 
                     /* Pandoc has to be called up indirectly via cmd (Windows command prompt) to avoid encoding errors with certain characters, 
                         * which appear if it is called up directly. */
@@ -4405,7 +4418,9 @@ body {
                         Directory.SetCurrentDirectory(pandoc);
 
                         /* The first and last character are not required as they are $ (dollar) signs. */
-                        System.IO.File.WriteAllText(accFile, m.ToString().Substring(1, m.ToString().Length - 2));
+                        string mathInput = m.ToString().Substring(1, m.ToString().Length - 2).Replace("&lt;", "<");
+                        mathInput = mathInput.Replace("&gt;", ">");
+                        System.IO.File.WriteAllText(accFile, mathInput);
 
                         /* Pandoc has to be called up indirectly via cmd (Windows command prompt) to avoid encoding errors with certain characters, 
                          * which appear if it is called up directly. */
@@ -5976,11 +5991,21 @@ body {
             
             foreach (HtmlElement el in HTMLEditor.Document.Body.Children)
             {
-                if ((el.TagName == "H1") || (el.TagName == "H2") || (el.TagName == "H3") || (el.TagName == "H4") || (el.TagName == "H5") || (el.TagName == "H6"))
+                if ((el.TagName == "H1"))
+                //if ((el.TagName == "H1") || (el.TagName == "H2") || (el.TagName == "H3") || (el.TagName == "H4") || (el.TagName == "H5") || (el.TagName == "H6"))
                 {
                     //headerOrder.Add(el);
                     //headerMap.Add(el, el.InnerText);
                     headerTreeView.Nodes.Add(el.OuterHtml, el.InnerText);
+                }
+
+                if ((el.TagName == "H2") || (el.TagName == "H3") || (el.TagName == "H4") || (el.TagName == "H5") || (el.TagName == "H6"))
+                {
+                    //headerOrder.Add(el);
+                    //headerMap.Add(el, el.InnerText);
+                    //headerTreeView.no
+                    //headerTreeView.Nodes.Add(el.OuterHtml, el.InnerText);
+                    headerTreeView.Nodes[headerTreeView.GetNodeCount(false) - 1].Nodes.Add(el.OuterHtml, el.InnerText);
                 }
               
                 //TODO This was commented out before. Why? Is it suspectible to errors?
@@ -6879,7 +6904,6 @@ body {
         }
 
 
-
         private void indentButton_Click(object sender, EventArgs e)
         {
             HTMLEditor.Document.ExecCommand("Indent", false, null);
@@ -7407,6 +7431,7 @@ body {
             playPauseRefreshButton.Visible = true;
             toggleToolStripSeparator.Visible = true;
             toggleNavigationPaneButton.Visible = true;
+            scrollLockButton.Visible = true;
         }
 
         /// <summary>
@@ -7422,6 +7447,7 @@ body {
             playPauseRefreshButton.Visible = false;
             toggleToolStripSeparator.Visible = false;
             toggleNavigationPaneButton.Visible = false;
+            scrollLockButton.Visible = true;
         }
 
         /// <summary>
@@ -8623,6 +8649,10 @@ body {
             timer.Start();
         }
 
+        /// <summary>
+        /// Converts the inline math if there are too many formulas on the page, as this slows 
+        /// the program down, and refreshes the preview browsers.
+        /// </summary>
         private void convertInlineMathAndRefresh()
         {
             if (containsFile == false)
@@ -8910,6 +8940,9 @@ body {
             convertInlineMathAndRefresh();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void toInlineMath()
         {
               if (containsFile == false)
@@ -8956,6 +8989,9 @@ body {
             insertPageNumber();
         }
 
+        /// <summary>
+        /// Inserts a new page with the current page number and increments the page number counter.
+        /// </summary>
         private void insertPageNumber()
         {
             dynamic currentLocation = doc.selection.createRange();
@@ -9002,6 +9038,12 @@ body {
 
 
         //TODO: Fix error messages
+        /// <summary>
+        /// Accepts a normal integer as a parameter and returns a string of the roman numeral
+        /// equivalent.
+        /// </summary>
+        /// <param name="number">Number to convert to a roman numeral</param>
+        /// <returns>The roman numeral string equivalent of the parameter number</returns>
         public string toRomanNumeral(int number)
         {
             if ((number < 0) || (number > 3999)) throw new ArgumentOutOfRangeException("Insert value betwheen 1 and 3999");
@@ -9033,6 +9075,11 @@ body {
             pndb.ShowDialog();
         }
 
+        /// <summary>
+        /// Sets the current page number and if it should be a roman numeral.
+        /// </summary>
+        /// <param name="pageNumber">The new page number</param>
+        /// <param name="isRoman">Sets if the number should be shown as a roman numeral</param>
         public void setPageNumber(int pageNumber, bool isRoman)
         {
             currentPageNumber = pageNumber;
@@ -9049,10 +9096,21 @@ body {
             changeResetPageNumber();
         }
 
+
         private void scrollLockButton_Click(object sender, EventArgs e)
         {
-            scrollLock = !scrollLock;
+            toggleScrollLock();
         }
+
+        /// <summary>
+        /// Toggles the scroll lock and resets the default scroll height to 0, the top of the preview browser.
+        /// </summary>
+        private void toggleScrollLock()
+        {
+            scrollLock = !scrollLock;
+            scrollHeight = 0;
+        }
+  
     }
 }
     

@@ -245,8 +245,8 @@ namespace AccessibleEPUB
 
             string mathInput = inputTextBox.Text;
 
-            mathInput = mathInput.Replace("<", " \\lt ");
-            mathInput = mathInput.Replace(">", " \\gt ");
+            //mathInput = mathInput.Replace("<", " \\lt ");
+            //mathInput = mathInput.Replace(">", " \\gt ");
 
             System.IO.File.WriteAllText(accFile, "$" + mathInput + "$");
             //Console.WriteLine(System.IO.File.ReadAllText(accFile));
@@ -333,9 +333,9 @@ namespace AccessibleEPUB
              * have to be converted to their usual symbols. */
             mathResult = mathResult.Replace("&lt;", "<");
             mathResult = mathResult.Replace("&gt;", ">");
-    
+
             //bool encodeMode = false;
-      
+
             StringBuilder sb = new StringBuilder("");
             for (int i = 0; i < mathResult.Length; i++)
             {
@@ -410,14 +410,16 @@ namespace AccessibleEPUB
 
             formulaToAdd += "\n<figure>";
 
-            string encodedInputForAlt = inputTextBox.Text.Replace("<", "&lt;");
-            encodedInputForAlt = encodedInputForAlt.Replace(">", "&gt;");
+            string encodedInputForAlt = inputTextBox.Text.Replace("<", " &lt; ");
+            encodedInputForAlt = encodedInputForAlt.Replace(">", " &gt; ");
+            string altText = " alttext= \"" + encodedInputForAlt + "\" ";
+            altText = "";
             //encodedInputForAlt = "";
 
             // titleTag = @""" title=""" + titleTextBox.Text
-            string mathHeader = @"<div" + styleTag + @" role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">"  + "<mstyle>";
+            string mathHeader = @"<div" + styleTag + @" role=""math"" class=""math""><math xmlns=""http://www.w3.org/1998/Math/MathML""" + altText + @"altimg=""" + imagePath + titleTag + @""">"  + "<mstyle>";
       
-            string mathHeaderImpaired = @"<div" + styleTag + @" role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML"" altimg=""" + imagePath + titleTag + @""" alttext=""" + inputTextBox.Text + @""">"  + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
+            string mathHeaderImpaired = @"<div" + styleTag + @" role=""math"" class=""mathImpaired""><math xmlns=""http://www.w3.org/1998/Math/MathML""" + altText + @"altimg=""" + imagePath + titleTag + @""">"  + "<mstyle scriptsizemultiplier=\"1\" lspace=\"20%\" rspace=\"20%\" mathvariant=\"sans-serif\">";
            
             
             string mathEnd = "</mstyle></math>";

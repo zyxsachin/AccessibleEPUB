@@ -153,6 +153,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_60558943223E40E0B50EA7FC9097E7C1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6244967F98594D6F8904E43F5D024995"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -997,6 +1003,11 @@
             "AssemblyAsmDisplayName" = "8:ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_5A73ECE03BC41FE9907587AB46F53AC6"
+                    {
+                    "Name" = "8:ICSharpCode.AvalonEdit.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:ICSharpCode.AvalonEdit.dll"
             "TargetName" = "8:"
@@ -1042,6 +1053,26 @@
             "TargetName" = "8:container.xml"
             "Tag" = "8:"
             "Folder" = "8:_3169D0E5DA5C4390AA0BFC57E0B86C24"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_60558943223E40E0B50EA7FC9097E7C1"
+            {
+            "SourcePath" = "8:..\\..\\..\\Graphics\\Logo-icon128borderless.ico"
+            "TargetName" = "8:Logo-icon128borderless.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1263,6 +1294,11 @@
             "AssemblyAsmDisplayName" = "8:Geckofx-Core, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_87CB85602E17A45F04945059C0DACB31"
+                    {
+                    "Name" = "8:Geckofx-Core.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Geckofx-Core.dll"
             "TargetName" = "8:"
@@ -1289,6 +1325,11 @@
             "AssemblyAsmDisplayName" = "8:DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_89518CC87C5AC1C1FE52F6F2505687C2"
+                    {
+                    "Name" = "8:DotNetZip.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:DotNetZip.dll"
             "TargetName" = "8:"
@@ -1375,6 +1416,11 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
+                    "_9FC908196983F6458748A60C6B97B18B"
+                    {
+                    "Name" = "8:System.IO.Compression.FileSystem.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
             "TargetName" = "8:"
@@ -1501,6 +1547,11 @@
             "AssemblyAsmDisplayName" = "8:SgmlReaderDll, Version=1.8.14.0, Culture=neutral, PublicKeyToken=46b2db9ca481831b, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_B7C0B317F68F4396034B3B49187E41EE"
+                    {
+                    "Name" = "8:SgmlReaderDll.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:SgmlReaderDll.dll"
             "TargetName" = "8:"
@@ -1587,6 +1638,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_C34E665523FF642D0C353D239C199149"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -1924,6 +1980,11 @@
             "AssemblyAsmDisplayName" = "8:GlobalHotKey, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_F7A70979891D6C191D324971B516089E"
+                    {
+                    "Name" = "8:GlobalHotKey.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:GlobalHotKey.dll"
             "TargetName" = "8:"
@@ -1950,6 +2011,11 @@
             "AssemblyAsmDisplayName" = "8:WpfMath, Version=0.5.0.41790, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_F8291539A13FA0EAA8F2DF450AFB1E7F"
+                    {
+                    "Name" = "8:WpfMath.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:WpfMath.dll"
             "TargetName" = "8:"
@@ -1996,6 +2062,11 @@
             "AssemblyAsmDisplayName" = "8:Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_FC492C8F641D9DE9645E596F8BCBEC79"
+                    {
+                    "Name" = "8:Geckofx-Winforms.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Geckofx-Winforms.dll"
             "TargetName" = "8:"
@@ -2293,7 +2364,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SZS AccessibleEPUB"
         "ProductCode" = "8:{7DDE64E3-3FF4-4154-BEAE-C0B8B3B4988D}"
-        "PackageCode" = "8:{FBB92977-BD98-4D09-B7DF-8B1893825A29}"
+        "PackageCode" = "8:{CA9B08FA-4F54-467A-979E-2ACB00A8E58D}"
         "UpgradeCode" = "8:{B31233DE-8E67-43E3-9988-FF16EB2BF624}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2424,7 +2495,7 @@
             "Target" = "8:_54514DC846574178B16B59BE7976451A"
             "Folder" = "8:_7AFE1651FCFB416C86BF4A058DD18308"
             "WorkingFolder" = "8:_B4673C3A31744BF897AC12FEF08939C1"
-            "Icon" = "8:_4BC83FEE2F6D487EA952BAEFE6621387"
+            "Icon" = "8:_60558943223E40E0B50EA7FC9097E7C1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8B5AB1CE3FD2443F8CEF000BC5A24CEE"

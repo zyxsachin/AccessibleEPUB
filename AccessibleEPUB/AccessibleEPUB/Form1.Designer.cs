@@ -504,6 +504,7 @@
             // newFileButton
             // 
             this.newFileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newFileButton.Image = global::AccessibleEPUB.Properties.Resources.NewCatalog_16x_24;
             resources.ApplyResources(this.newFileButton, "newFileButton");
             this.newFileButton.Name = "newFileButton";
             this.newFileButton.Click += new System.EventHandler(this.newFileButton_Click);
@@ -511,6 +512,7 @@
             // openFileButton
             // 
             this.openFileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openFileButton.Image = global::AccessibleEPUB.Properties.Resources.ProjectFolderOpen_16x_24;
             resources.ApplyResources(this.openFileButton, "openFileButton");
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
@@ -518,6 +520,7 @@
             // saveButton
             // 
             this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveButton.Image = global::AccessibleEPUB.Properties.Resources.Save_16x_24;
             resources.ApplyResources(this.saveButton, "saveButton");
             this.saveButton.Name = "saveButton";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -530,6 +533,7 @@
             // togglePreviewButton
             // 
             this.togglePreviewButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.togglePreviewButton.Image = global::AccessibleEPUB.Properties.Resources.PreviewWebTab_16x;
             resources.ApplyResources(this.togglePreviewButton, "togglePreviewButton");
             this.togglePreviewButton.Name = "togglePreviewButton";
             this.togglePreviewButton.Click += new System.EventHandler(this.togglePreviewButton_Click);
@@ -537,6 +541,7 @@
             // toggleEditorButton
             // 
             this.toggleEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toggleEditorButton.Image = global::AccessibleEPUB.Properties.Resources.Editor_16x_24;
             resources.ApplyResources(this.toggleEditorButton, "toggleEditorButton");
             this.toggleEditorButton.Name = "toggleEditorButton";
             this.toggleEditorButton.Click += new System.EventHandler(this.toggleEditorButton_Click);
@@ -544,6 +549,7 @@
             // toggleCodeButton
             // 
             this.toggleCodeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toggleCodeButton.Image = global::AccessibleEPUB.Properties.Resources.Console_16x_24;
             resources.ApplyResources(this.toggleCodeButton, "toggleCodeButton");
             this.toggleCodeButton.Name = "toggleCodeButton";
             this.toggleCodeButton.Click += new System.EventHandler(this.toggleCode_Click);
@@ -551,6 +557,7 @@
             // toggleFileExplorerButton
             // 
             this.toggleFileExplorerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toggleFileExplorerButton.Image = global::AccessibleEPUB.Properties.Resources.TreeView_16x_24;
             resources.ApplyResources(this.toggleFileExplorerButton, "toggleFileExplorerButton");
             this.toggleFileExplorerButton.Name = "toggleFileExplorerButton";
             this.toggleFileExplorerButton.Click += new System.EventHandler(this.toggleFileExplorerButton_Click);
@@ -566,6 +573,7 @@
             // toggleNavigationPaneButton
             // 
             this.toggleNavigationPaneButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toggleNavigationPaneButton.Image = global::AccessibleEPUB.Properties.Resources.NavigateMenu_16x_24;
             resources.ApplyResources(this.toggleNavigationPaneButton, "toggleNavigationPaneButton");
             this.toggleNavigationPaneButton.Name = "toggleNavigationPaneButton";
             this.toggleNavigationPaneButton.Click += new System.EventHandler(this.toggleNavigationPaneButton_Click);
@@ -573,6 +581,7 @@
             // scrollLockButton
             // 
             this.scrollLockButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.scrollLockButton.Image = global::AccessibleEPUB.Properties.Resources.Scrollbar_16x_24;
             resources.ApplyResources(this.scrollLockButton, "scrollLockButton");
             this.scrollLockButton.Name = "scrollLockButton";
             this.scrollLockButton.Click += new System.EventHandler(this.scrollLockButton_Click);
@@ -613,14 +622,16 @@
             // 
             // newDocumentToolStripMenuItem
             // 
-            resources.ApplyResources(this.newDocumentToolStripMenuItem, "newDocumentToolStripMenuItem");
+            this.newDocumentToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.NewCatalog_16x;
             this.newDocumentToolStripMenuItem.Name = "newDocumentToolStripMenuItem";
+            resources.ApplyResources(this.newDocumentToolStripMenuItem, "newDocumentToolStripMenuItem");
             this.newDocumentToolStripMenuItem.Click += new System.EventHandler(this.newDocumentToolStripMenuItem_Click);
             // 
             // openFileToolStripMenuItem
             // 
-            resources.ApplyResources(this.openFileToolStripMenuItem, "openFileToolStripMenuItem");
+            this.openFileToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.ProjectFolderOpen_16x;
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
+            resources.ApplyResources(this.openFileToolStripMenuItem, "openFileToolStripMenuItem");
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click_1);
             // 
             // toolStripSeparator11
@@ -630,12 +641,14 @@
             // 
             // saveToolStripMenuItem
             // 
-            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
+            this.saveToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Save_16x;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
+            this.saveAsToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.SaveAs_16x;
             resources.ApplyResources(this.saveAsToolStripMenuItem, "saveAsToolStripMenuItem");
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
@@ -647,8 +660,9 @@
             // 
             // textToolStripMenuItem
             // 
-            resources.ApplyResources(this.textToolStripMenuItem, "textToolStripMenuItem");
+            this.textToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.AddTextFile_16x;
             this.textToolStripMenuItem.Name = "textToolStripMenuItem";
+            resources.ApplyResources(this.textToolStripMenuItem, "textToolStripMenuItem");
             // 
             // toolStripSeparator14
             // 
@@ -714,14 +728,16 @@
             // 
             // undoToolStripMenuItem
             // 
-            resources.ApplyResources(this.undoToolStripMenuItem, "undoToolStripMenuItem");
+            this.undoToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Undo_16x;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            resources.ApplyResources(this.undoToolStripMenuItem, "undoToolStripMenuItem");
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
-            resources.ApplyResources(this.redoToolStripMenuItem, "redoToolStripMenuItem");
+            this.redoToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Redo_16x;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            resources.ApplyResources(this.redoToolStripMenuItem, "redoToolStripMenuItem");
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
@@ -731,20 +747,23 @@
             // 
             // cutToolStripMenuItem
             // 
-            resources.ApplyResources(this.cutToolStripMenuItem, "cutToolStripMenuItem");
+            this.cutToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Cut_16x;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            resources.ApplyResources(this.cutToolStripMenuItem, "cutToolStripMenuItem");
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem
             // 
-            resources.ApplyResources(this.copyToolStripMenuItem, "copyToolStripMenuItem");
+            this.copyToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Copy_16x;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            resources.ApplyResources(this.copyToolStripMenuItem, "copyToolStripMenuItem");
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
-            resources.ApplyResources(this.pasteToolStripMenuItem, "pasteToolStripMenuItem");
+            this.pasteToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Paste_16x;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            resources.ApplyResources(this.pasteToolStripMenuItem, "pasteToolStripMenuItem");
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
@@ -760,8 +779,9 @@
             // 
             // findToolStripMenuItem
             // 
-            resources.ApplyResources(this.findToolStripMenuItem, "findToolStripMenuItem");
+            this.findToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.QuickFind_16x;
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            resources.ApplyResources(this.findToolStripMenuItem, "findToolStripMenuItem");
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // insertToolStripMenuItem
@@ -781,20 +801,23 @@
             // 
             // insertImageToolStripMenuItem
             // 
-            resources.ApplyResources(this.insertImageToolStripMenuItem, "insertImageToolStripMenuItem");
+            this.insertImageToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.AddImage_16x;
             this.insertImageToolStripMenuItem.Name = "insertImageToolStripMenuItem";
+            resources.ApplyResources(this.insertImageToolStripMenuItem, "insertImageToolStripMenuItem");
             this.insertImageToolStripMenuItem.Click += new System.EventHandler(this.insertImageToolStripMenuItem_Click);
             // 
             // insertTableToolStripMenuItem
             // 
-            resources.ApplyResources(this.insertTableToolStripMenuItem, "insertTableToolStripMenuItem");
+            this.insertTableToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Table_16x;
             this.insertTableToolStripMenuItem.Name = "insertTableToolStripMenuItem";
+            resources.ApplyResources(this.insertTableToolStripMenuItem, "insertTableToolStripMenuItem");
             this.insertTableToolStripMenuItem.Click += new System.EventHandler(this.insertTableToolStripMenuItem_Click);
             // 
             // insertMathToolStripMenuItem
             // 
-            resources.ApplyResources(this.insertMathToolStripMenuItem, "insertMathToolStripMenuItem");
+            this.insertMathToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Effects_16x;
             this.insertMathToolStripMenuItem.Name = "insertMathToolStripMenuItem";
+            resources.ApplyResources(this.insertMathToolStripMenuItem, "insertMathToolStripMenuItem");
             this.insertMathToolStripMenuItem.Click += new System.EventHandler(this.insertMathToolStripMenuItem_Click);
             // 
             // toolStripSeparator13
@@ -804,14 +827,16 @@
             // 
             // numberedListToolStripMenuItem
             // 
-            resources.ApplyResources(this.numberedListToolStripMenuItem, "numberedListToolStripMenuItem");
+            this.numberedListToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.OrderedList_16x;
             this.numberedListToolStripMenuItem.Name = "numberedListToolStripMenuItem";
+            resources.ApplyResources(this.numberedListToolStripMenuItem, "numberedListToolStripMenuItem");
             this.numberedListToolStripMenuItem.Click += new System.EventHandler(this.numberedListToolStripMenuItem_Click);
             // 
             // bulletListToolStripMenuItem
             // 
-            resources.ApplyResources(this.bulletListToolStripMenuItem, "bulletListToolStripMenuItem");
+            this.bulletListToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.BulletList_16x;
             this.bulletListToolStripMenuItem.Name = "bulletListToolStripMenuItem";
+            resources.ApplyResources(this.bulletListToolStripMenuItem, "bulletListToolStripMenuItem");
             this.bulletListToolStripMenuItem.Click += new System.EventHandler(this.bulletListToolStripMenuItem_Click);
             // 
             // toolStripSeparator18
@@ -821,8 +846,9 @@
             // 
             // insertPageNumberToolStripMenuItem
             // 
-            resources.ApplyResources(this.insertPageNumberToolStripMenuItem, "insertPageNumberToolStripMenuItem");
+            this.insertPageNumberToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.InsertPage_16x;
             this.insertPageNumberToolStripMenuItem.Name = "insertPageNumberToolStripMenuItem";
+            resources.ApplyResources(this.insertPageNumberToolStripMenuItem, "insertPageNumberToolStripMenuItem");
             this.insertPageNumberToolStripMenuItem.Click += new System.EventHandler(this.insertPageNumberToolStripMenuItem_Click);
             // 
             // changeresetPageNumberToolStripMenuItem
@@ -856,32 +882,37 @@
             // 
             // boldToolStripMenuItem
             // 
-            resources.ApplyResources(this.boldToolStripMenuItem, "boldToolStripMenuItem");
+            this.boldToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Bold_16x;
             this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
+            resources.ApplyResources(this.boldToolStripMenuItem, "boldToolStripMenuItem");
             this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
             // 
             // italicToolStripMenuItem
             // 
-            resources.ApplyResources(this.italicToolStripMenuItem, "italicToolStripMenuItem");
+            this.italicToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Italic_16x;
             this.italicToolStripMenuItem.Name = "italicToolStripMenuItem";
+            resources.ApplyResources(this.italicToolStripMenuItem, "italicToolStripMenuItem");
             this.italicToolStripMenuItem.Click += new System.EventHandler(this.italicToolStripMenuItem_Click);
             // 
             // underlineToolStripMenuItem
             // 
-            resources.ApplyResources(this.underlineToolStripMenuItem, "underlineToolStripMenuItem");
+            this.underlineToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Underline_16x;
             this.underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
+            resources.ApplyResources(this.underlineToolStripMenuItem, "underlineToolStripMenuItem");
             this.underlineToolStripMenuItem.Click += new System.EventHandler(this.underlineToolStripMenuItem_Click);
             // 
             // strikethroughToolStripMenuItem
             // 
-            resources.ApplyResources(this.strikethroughToolStripMenuItem, "strikethroughToolStripMenuItem");
+            this.strikethroughToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.StrikeThrough_16x;
             this.strikethroughToolStripMenuItem.Name = "strikethroughToolStripMenuItem";
+            resources.ApplyResources(this.strikethroughToolStripMenuItem, "strikethroughToolStripMenuItem");
             this.strikethroughToolStripMenuItem.Click += new System.EventHandler(this.strikethroughToolStripMenuItem_Click);
             // 
             // toInlineMathToolStripMenuItem
             // 
-            resources.ApplyResources(this.toInlineMathToolStripMenuItem, "toInlineMathToolStripMenuItem");
+            this.toInlineMathToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Assign_16x;
             this.toInlineMathToolStripMenuItem.Name = "toInlineMathToolStripMenuItem";
+            resources.ApplyResources(this.toInlineMathToolStripMenuItem, "toInlineMathToolStripMenuItem");
             this.toInlineMathToolStripMenuItem.Click += new System.EventHandler(this.toInlineMathToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
@@ -891,26 +922,30 @@
             // 
             // justifyLeftToolStripMenuItem
             // 
-            resources.ApplyResources(this.justifyLeftToolStripMenuItem, "justifyLeftToolStripMenuItem");
+            this.justifyLeftToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.TextLeftJustify_16x;
             this.justifyLeftToolStripMenuItem.Name = "justifyLeftToolStripMenuItem";
+            resources.ApplyResources(this.justifyLeftToolStripMenuItem, "justifyLeftToolStripMenuItem");
             this.justifyLeftToolStripMenuItem.Click += new System.EventHandler(this.justifyLeftToolStripMenuItem_Click);
             // 
             // centerToolStripMenuItem
             // 
-            resources.ApplyResources(this.centerToolStripMenuItem, "centerToolStripMenuItem");
+            this.centerToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.TextCenter_16x;
             this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
+            resources.ApplyResources(this.centerToolStripMenuItem, "centerToolStripMenuItem");
             this.centerToolStripMenuItem.Click += new System.EventHandler(this.centerToolStripMenuItem_Click);
             // 
             // justifyRightToolStripMenuItem
             // 
-            resources.ApplyResources(this.justifyRightToolStripMenuItem, "justifyRightToolStripMenuItem");
+            this.justifyRightToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.TextRightJustify_16x;
             this.justifyRightToolStripMenuItem.Name = "justifyRightToolStripMenuItem";
+            resources.ApplyResources(this.justifyRightToolStripMenuItem, "justifyRightToolStripMenuItem");
             this.justifyRightToolStripMenuItem.Click += new System.EventHandler(this.justifyRightToolStripMenuItem_Click);
             // 
             // justifyToolStripMenuItem
             // 
-            resources.ApplyResources(this.justifyToolStripMenuItem, "justifyToolStripMenuItem");
+            this.justifyToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.TextJustify_16x;
             this.justifyToolStripMenuItem.Name = "justifyToolStripMenuItem";
+            resources.ApplyResources(this.justifyToolStripMenuItem, "justifyToolStripMenuItem");
             this.justifyToolStripMenuItem.Click += new System.EventHandler(this.justifyToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
@@ -920,14 +955,16 @@
             // 
             // indentToolStripMenuItem
             // 
-            resources.ApplyResources(this.indentToolStripMenuItem, "indentToolStripMenuItem");
+            this.indentToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.TextIndent_16x;
             this.indentToolStripMenuItem.Name = "indentToolStripMenuItem";
+            resources.ApplyResources(this.indentToolStripMenuItem, "indentToolStripMenuItem");
             this.indentToolStripMenuItem.Click += new System.EventHandler(this.indentToolStripMenuItem_Click);
             // 
             // outdentToolStripMenuItem
             // 
-            resources.ApplyResources(this.outdentToolStripMenuItem, "outdentToolStripMenuItem");
+            this.outdentToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.TextOutdent_16x;
             this.outdentToolStripMenuItem.Name = "outdentToolStripMenuItem";
+            resources.ApplyResources(this.outdentToolStripMenuItem, "outdentToolStripMenuItem");
             this.outdentToolStripMenuItem.Click += new System.EventHandler(this.outdentToolStripMenuItem_Click);
             // 
             // toolStripSeparator15
@@ -949,8 +986,9 @@
             // 
             // convertPageWithInlineMathToolStripMenuItem
             // 
-            resources.ApplyResources(this.convertPageWithInlineMathToolStripMenuItem, "convertPageWithInlineMathToolStripMenuItem");
+            this.convertPageWithInlineMathToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.EffectsEnabled_16x;
             this.convertPageWithInlineMathToolStripMenuItem.Name = "convertPageWithInlineMathToolStripMenuItem";
+            resources.ApplyResources(this.convertPageWithInlineMathToolStripMenuItem, "convertPageWithInlineMathToolStripMenuItem");
             this.convertPageWithInlineMathToolStripMenuItem.Click += new System.EventHandler(this.convertPageWithInlineMathToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
@@ -967,26 +1005,30 @@
             // 
             // togglePreviewToolStripMenuItem
             // 
-            resources.ApplyResources(this.togglePreviewToolStripMenuItem, "togglePreviewToolStripMenuItem");
+            this.togglePreviewToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.PreviewWebTab_16x;
             this.togglePreviewToolStripMenuItem.Name = "togglePreviewToolStripMenuItem";
+            resources.ApplyResources(this.togglePreviewToolStripMenuItem, "togglePreviewToolStripMenuItem");
             this.togglePreviewToolStripMenuItem.Click += new System.EventHandler(this.togglePreviewButton_Click);
             // 
             // toggleEditorToolStripMenuItem
             // 
-            resources.ApplyResources(this.toggleEditorToolStripMenuItem, "toggleEditorToolStripMenuItem");
+            this.toggleEditorToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Editor_16x;
             this.toggleEditorToolStripMenuItem.Name = "toggleEditorToolStripMenuItem";
+            resources.ApplyResources(this.toggleEditorToolStripMenuItem, "toggleEditorToolStripMenuItem");
             this.toggleEditorToolStripMenuItem.Click += new System.EventHandler(this.toggleEditorButton_Click);
             // 
             // toggleCodeEditorToolStripMenuItem
             // 
-            resources.ApplyResources(this.toggleCodeEditorToolStripMenuItem, "toggleCodeEditorToolStripMenuItem");
+            this.toggleCodeEditorToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.Console_16x;
             this.toggleCodeEditorToolStripMenuItem.Name = "toggleCodeEditorToolStripMenuItem";
+            resources.ApplyResources(this.toggleCodeEditorToolStripMenuItem, "toggleCodeEditorToolStripMenuItem");
             this.toggleCodeEditorToolStripMenuItem.Click += new System.EventHandler(this.toggleCode_Click);
             // 
             // toggleFileViewToolStripMenuItem
             // 
-            resources.ApplyResources(this.toggleFileViewToolStripMenuItem, "toggleFileViewToolStripMenuItem");
+            this.toggleFileViewToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.TreeView_16x;
             this.toggleFileViewToolStripMenuItem.Name = "toggleFileViewToolStripMenuItem";
+            resources.ApplyResources(this.toggleFileViewToolStripMenuItem, "toggleFileViewToolStripMenuItem");
             this.toggleFileViewToolStripMenuItem.Click += new System.EventHandler(this.toggleFileExplorerButton_Click);
             // 
             // toggleRefreshPreviewToolStripMenuItem
@@ -998,8 +1040,9 @@
             // 
             // toggleNavigationPaneToolStripMenuItem
             // 
-            resources.ApplyResources(this.toggleNavigationPaneToolStripMenuItem, "toggleNavigationPaneToolStripMenuItem");
+            this.toggleNavigationPaneToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.NavigateMenu_16x;
             this.toggleNavigationPaneToolStripMenuItem.Name = "toggleNavigationPaneToolStripMenuItem";
+            resources.ApplyResources(this.toggleNavigationPaneToolStripMenuItem, "toggleNavigationPaneToolStripMenuItem");
             this.toggleNavigationPaneToolStripMenuItem.Click += new System.EventHandler(this.toggleNavigationPaneToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
@@ -1025,14 +1068,16 @@
             // 
             // viewHelpToolStripMenuItem
             // 
-            resources.ApplyResources(this.viewHelpToolStripMenuItem, "viewHelpToolStripMenuItem");
+            this.viewHelpToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.StatusHelp_16x;
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
+            resources.ApplyResources(this.viewHelpToolStripMenuItem, "viewHelpToolStripMenuItem");
             this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
-            resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
+            this.aboutToolStripMenuItem.Image = global::AccessibleEPUB.Properties.Resources.InformationSymbol_16x;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // editToolStrip
@@ -1076,12 +1121,14 @@
             // 
             resources.ApplyResources(this.boldButton, "boldButton");
             this.boldButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.boldButton.Image = global::AccessibleEPUB.Properties.Resources.Bold_16x_24;
             this.boldButton.Name = "boldButton";
             this.boldButton.Click += new System.EventHandler(this.boldButton_Click);
             // 
             // italicButton
             // 
             this.italicButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.italicButton.Image = global::AccessibleEPUB.Properties.Resources.Italic_16x_24;
             resources.ApplyResources(this.italicButton, "italicButton");
             this.italicButton.Name = "italicButton";
             this.italicButton.Click += new System.EventHandler(this.italicButton_Click);
@@ -1089,6 +1136,7 @@
             // underlineButton
             // 
             this.underlineButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.underlineButton.Image = global::AccessibleEPUB.Properties.Resources.Underline_16x_24;
             resources.ApplyResources(this.underlineButton, "underlineButton");
             this.underlineButton.Name = "underlineButton";
             this.underlineButton.Click += new System.EventHandler(this.underlineButton_Click);
@@ -1096,6 +1144,7 @@
             // strikethroughButton
             // 
             this.strikethroughButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.strikethroughButton.Image = global::AccessibleEPUB.Properties.Resources.StrikeThrough_16x_24;
             resources.ApplyResources(this.strikethroughButton, "strikethroughButton");
             this.strikethroughButton.Name = "strikethroughButton";
             this.strikethroughButton.Click += new System.EventHandler(this.strikethroughButton_Click);
@@ -1103,6 +1152,7 @@
             // toInlineMathButton
             // 
             this.toInlineMathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toInlineMathButton.Image = global::AccessibleEPUB.Properties.Resources.Assign_16x_24;
             resources.ApplyResources(this.toInlineMathButton, "toInlineMathButton");
             this.toInlineMathButton.Name = "toInlineMathButton";
             this.toInlineMathButton.Click += new System.EventHandler(this.toInlineMathButton_Click);
@@ -1121,6 +1171,7 @@
             this.alphabeticallyLowercaseToolStripMenuItem,
             this.romanUppercaseToolStripMenuItem,
             this.romanLowercaseToolStripMenuItem});
+            this.orderedListButton.Image = global::AccessibleEPUB.Properties.Resources.OrderedList_16x;
             resources.ApplyResources(this.orderedListButton, "orderedListButton");
             this.orderedListButton.Name = "orderedListButton";
             this.orderedListButton.ButtonClick += new System.EventHandler(this.orderedListButton_ButtonClick);
@@ -1162,6 +1213,7 @@
             this.circleToolStripMenuItem,
             this.emptyCircleToolStripMenuItem,
             this.squareToolStripMenuItem});
+            this.unorderedListButton.Image = global::AccessibleEPUB.Properties.Resources.BulletList_16x;
             resources.ApplyResources(this.unorderedListButton, "unorderedListButton");
             this.unorderedListButton.Name = "unorderedListButton";
             this.unorderedListButton.ButtonClick += new System.EventHandler(this.unorderedListButton_ButtonClick);
@@ -1201,6 +1253,7 @@
             // indentButton
             // 
             this.indentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.indentButton.Image = global::AccessibleEPUB.Properties.Resources.TextIndent_16x_24;
             resources.ApplyResources(this.indentButton, "indentButton");
             this.indentButton.Name = "indentButton";
             this.indentButton.Click += new System.EventHandler(this.indentButton_Click);
@@ -1208,6 +1261,7 @@
             // outdentButton
             // 
             this.outdentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.outdentButton.Image = global::AccessibleEPUB.Properties.Resources.TextOutdent_16x_24;
             resources.ApplyResources(this.outdentButton, "outdentButton");
             this.outdentButton.Name = "outdentButton";
             this.outdentButton.Click += new System.EventHandler(this.outdentButton_Click);
@@ -1220,6 +1274,7 @@
             // justifyLeftButton
             // 
             this.justifyLeftButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.justifyLeftButton.Image = global::AccessibleEPUB.Properties.Resources.TextLeftJustify_16x_24;
             resources.ApplyResources(this.justifyLeftButton, "justifyLeftButton");
             this.justifyLeftButton.Name = "justifyLeftButton";
             this.justifyLeftButton.Click += new System.EventHandler(this.justifyLeftButton_Click);
@@ -1227,6 +1282,7 @@
             // justifyCenterButton
             // 
             this.justifyCenterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.justifyCenterButton.Image = global::AccessibleEPUB.Properties.Resources.TextCenter_16x_24;
             resources.ApplyResources(this.justifyCenterButton, "justifyCenterButton");
             this.justifyCenterButton.Name = "justifyCenterButton";
             this.justifyCenterButton.Click += new System.EventHandler(this.justifyCenterButton_Click);
@@ -1234,6 +1290,7 @@
             // justifyRightButton
             // 
             this.justifyRightButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.justifyRightButton.Image = global::AccessibleEPUB.Properties.Resources.TextRightJustify_16x_24;
             resources.ApplyResources(this.justifyRightButton, "justifyRightButton");
             this.justifyRightButton.Name = "justifyRightButton";
             this.justifyRightButton.Click += new System.EventHandler(this.justifyRightButton_Click);
@@ -1241,6 +1298,7 @@
             // justifyButton
             // 
             this.justifyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.justifyButton.Image = global::AccessibleEPUB.Properties.Resources.TextJustify_16x_24;
             resources.ApplyResources(this.justifyButton, "justifyButton");
             this.justifyButton.Name = "justifyButton";
             this.justifyButton.Click += new System.EventHandler(this.justifyButton_Click);
@@ -1254,6 +1312,7 @@
             // colorPickerButton
             // 
             this.colorPickerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.colorPickerButton.Image = global::AccessibleEPUB.Properties.Resources.FontColor_16x_24;
             resources.ApplyResources(this.colorPickerButton, "colorPickerButton");
             this.colorPickerButton.Name = "colorPickerButton";
             this.colorPickerButton.Click += new System.EventHandler(this.colorPickerButton_Click);
@@ -1275,6 +1334,7 @@
             // imageButton
             // 
             this.imageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.imageButton.Image = global::AccessibleEPUB.Properties.Resources.AddImage_16x_24;
             resources.ApplyResources(this.imageButton, "imageButton");
             this.imageButton.Name = "imageButton";
             this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
@@ -1282,6 +1342,7 @@
             // tableButton
             // 
             this.tableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tableButton.Image = global::AccessibleEPUB.Properties.Resources.Table_16x_24;
             resources.ApplyResources(this.tableButton, "tableButton");
             this.tableButton.Name = "tableButton";
             this.tableButton.Click += new System.EventHandler(this.tableButton_Click);
@@ -1289,6 +1350,7 @@
             // mathButton
             // 
             this.mathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mathButton.Image = global::AccessibleEPUB.Properties.Resources.Effects_16x_24;
             resources.ApplyResources(this.mathButton, "mathButton");
             this.mathButton.Name = "mathButton";
             this.mathButton.Click += new System.EventHandler(this.mathButton_Click);
@@ -1296,6 +1358,7 @@
             // importTextButton
             // 
             this.importTextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.importTextButton.Image = global::AccessibleEPUB.Properties.Resources.AddTextFile_16x_24;
             resources.ApplyResources(this.importTextButton, "importTextButton");
             this.importTextButton.Name = "importTextButton";
             this.importTextButton.Click += new System.EventHandler(this.importTextButton_Click);
@@ -1308,6 +1371,7 @@
             // convertInlineMathButton
             // 
             this.convertInlineMathButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.convertInlineMathButton.Image = global::AccessibleEPUB.Properties.Resources.EffectsEnabled_16x_24;
             resources.ApplyResources(this.convertInlineMathButton, "convertInlineMathButton");
             this.convertInlineMathButton.Name = "convertInlineMathButton";
             this.convertInlineMathButton.Click += new System.EventHandler(this.convertInlineMathButton_Click);
@@ -1317,6 +1381,7 @@
             this.insertPageNumberSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.insertPageNumberSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeresetPageNumberingToolStripMenuItem});
+            this.insertPageNumberSplitButton.Image = global::AccessibleEPUB.Properties.Resources.InsertPage_16x;
             resources.ApplyResources(this.insertPageNumberSplitButton, "insertPageNumberSplitButton");
             this.insertPageNumberSplitButton.Name = "insertPageNumberSplitButton";
             this.insertPageNumberSplitButton.ButtonClick += new System.EventHandler(this.insertPageNumberSplitButton_ButtonClick);
