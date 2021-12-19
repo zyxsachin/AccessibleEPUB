@@ -5,7 +5,7 @@
 
 - [x] (A) Bugreport fŤär overide Parser typing wrong formula breaks everything
 - [x] (B) Check header shortcut
-- [ ] (C) Top1: Neues Logo
+- [x] (C) Top1: Neues Logo
 - [x] (D) Sigil anschauen
 - [ ] (E) Brailleauthority.org checken http://www.brailleauthority.org/ueb/symbols_list.pdf
 - [ ] (G) **Inline**: MathML durch Pandoc, **figure live Preview**: WPF-Math, **figure in Text**: Wpf as svg
@@ -16,7 +16,7 @@
 - [ ] (B) BMWF is to be checked out
 - [ ] (N) NVDA is a freely accessible Screen reader for Windows (recommend with the Windows-voices), and can be used to test the AEPUB-files.
 - [ ] (Q) Formatting possibilities: begin and end markers for subparagraphs like examples? -> eventuell nur für Einrückungen
-- [ ] High: (L) Insert newly implemented Linebreaks to HM-Skript, +beautify it.
+- [x] High: (L) Insert newly implemented Linebreaks to HM-Skript, +beautify it.
 
 
 
@@ -32,7 +32,7 @@
 - [x] _Test (Void)_: A new line (\n) is added after creating a new file to prevent this.
 - [x] _Test (Safeplace)_: Save as in Windows title of the window is not updated to the new file name 
 - [ ] _Test (Reader Fontsize)_: The text size of lists and normal text should now be fixed, but still has to be tested.
-- [ ] 
+- [ ] _Test (LNB)_: Tests required for Bug ListNumerBreaks pending.
 
 
 
@@ -47,33 +47,42 @@
 | German                  | GJ         | GC   |
 
 # Table of Bugs
-|      | Defining Problem types:                                   | Short Description                                            |
-| ---- | --------------------------------------------------------- | ------------------------------------------------------------ |
-|      | "Crash"/"Crashes"                                         | GUI is greyed out, Windows-Box appears "ACCESSIBLE EPUB" stopped working with single option "close" (or "exit"), then the editor-Window closes. |
-|      | Error Message                                             | An info-box with red cross opens, reporting an unhandled exception. |
-| [x]  | Leroy                                                     | "StartIndex is Less than Zero" ;)                            |
-| [x]  | Leyline                                                   | Editor crashes when modifying an inline-formula in files opened from Win-Explorer, EN-CSS. |
-| [x]  | Void                                                      | Saving a newly created empty file causes an error message.   |
-| [ ]  | Preview                                                   | Preview jumps unavoidably to the bottom.                     |
-| [ ]  | Idle                                                      | Program closes unexpectedly when open but not in use. *Requires further testing.* |
-| [ ]  | ListNumerBreaks                                           | List behaviour when changing symbol for unnumbered list breaks list. *Requires further testing.* |
-| [ ]  | TextImport                                                | What does `Import Text` do?                                  |
-| [ ]  | Preformatcolour                                           | Text colours and applying/changing Preformatting             |
-| [ ]  | [ParserFeedback](#[[Bug](#Table of Bugs): ParserFeedback) | Preview actualisation of Parser-incompatible figure formulas does not give feedback of working. |
-| [x]  | Safeplace                                                 | Window title does not change according to filename used in "save as..." |
-| [ ]  | Metadata                                                  | Metadata missing in Reasily                                  |
-| [ ]  | Macbreaks                                                 | Pagebreaks in Mac/iOS default ebook-reader                   |
-| [ ]  | Reader Fontsize                                           | the fontsize between lists and plain text varies too much    |
-| [ ]  | GreaterThan                                               | Handling of `<` and `>` symbols inside inline formulas is problematic. |
-| [ ]  | Traces                                                    | Older files not being forward-compatible with some features. |
-| [ ]  | CopyLess                                                  | Copying text from one instance to another causes problems when pagebreaks are included in the copied content. |
-| [ ]  | PageCounter                                               | The increase in the page numbering does not consider deleted page breaks |
+
+[ ] open, [x] solved, **[x]** confirmed and closed.
+
+|         | Defining Problem types:                                   | Short Description                                            |
+| ------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+|         | "Crash"/"Crashes"                                         | GUI is greyed out, Windows-Box appears "ACCESSIBLE EPUB" stopped working with single option "close" (or "exit"), then the editor-Window closes. |
+|         | Error Message                                             | An info-box with red cross opens, reporting an unhandled exception. |
+| **[x]** | Leroy                                                     | "StartIndex is Less than Zero" ;)                            |
+| **[x]** | Leyline                                                   | Editor crashes when modifying an inline-formula in files opened from Win-Explorer, EN-CSS. |
+| **[x]** | Void                                                      | Saving a newly created empty file causes an error message.   |
+| [ ]     | Preview                                                   | Preview jumps unavoidably to the bottom.                     |
+| [ ]     | Idle                                                      | Program closes unexpectedly when open but not in use. *Requires further testing.* |
+| [ ]     | ListNumerBreaks                                           | List behaviour when changing symbol for unnumbered list breaks list. *Requires further testing.* |
+| [ ]     | TextImport                                                | What does `Import Text` do?                                  |
+| [ ]     | Preformatcolour                                           | Text colours and applying/changing Preformatting             |
+| [ ]     | [ParserFeedback](#[[Bug](#Table of Bugs): ParserFeedback) | Preview actualisation of Parser-incompatible figure formulas does not give feedback of working. |
+| **[x]** | Safeplace                                                 | Window title does not change according to filename used in "save as..." |
+| **[x]** | Metadata                                                  | Metadata missing in Reasily                                  |
+| [ ]     | Macbreaks                                                 | Pagebreaks in Mac/iOS default ebook-reader                   |
+| [ ]     | Reader Fontsize                                           | the fontsize between lists and plain text varies too much    |
+| [ ]     | GreaterThan                                               | Handling of `<` and `>` symbols inside inline formulas is problematic. |
+| [ ]     | Traces                                                    | Older files not being forward-compatible with some features. |
+| [ ]     | CopyLess                                                  | Copying text from one instance to another causes problems when pagebreaks are included in the copied content. |
+| [ ]     | PageCounter                                               | The increase in the page numbering does not consider deleted page breaks |
+| [ ]     | ClosingTree                                               | Clicking the Editor-Window closes expanded tree-elements in headers panel |
+| [ ]     | UnsavedRendering                                          | Opening a previously rendered file does not show the rendered version in preview |
+| [ ]     | Non-generatedToC                                          | Neither Readium nor Reasily show a table of contents.        |
+| [ ]     | InstanceDifferentiation                                   | Auto-refresh is inconsistent across multiple simultaneous instances |
+| [ ]     | EndOfPreformatting                                        | Some formatting presets should end when `enter` is given as input. |
 
 ---
 
 #List of features wished for:
 
-- [ ] (very high) Pagebreak, with number and STRG+Enter, using the epub3-standard, as well as the SZS standard: `<seite>X<\seite>`
+- [x] (very high) Pagebreak, with number and STRG+Enter, using the epub3-standard, as well as the SZS standard: `<seite>X<\seite>`
+  10.05: This feature is considered as implemented, further discussion via bugs.
 - [ ] (high) Scroll sync/lock between editor and preview panel (edited area should match previewed area).
 - [ ] (very low) Possibility to load barrier free pictures in the file, that are associated to the normal images and could eventually be printed. (or create "linked" additional-file?) --> See Fragen an SZS
 - [ ] Keyboard Shortcut to start rendering of inline formulas? --> See ToDo (S). 
@@ -82,11 +91,14 @@
 - [ ] Possibility for me to access and modify the used menu-icons via git.
 - [ ] Search/Replace function
 - [x] **Table of EPUB readers and compatibility**
-- [ ] Hierarchised Headers Sidepanel
+- [x] Hierarchised Headers Sidepanel
 - [ ] To ease development: a menu-button opening the path to the temp-folder containing the file in windows explorer.
 - [ ] (medium) TeX-Filter for blind-version only, removing unnecessary layout/formatting-commands. --> See TeX-Limitations.md
 - [ ] (high) Footnotes. Inline or linked syntax? --> Needs testing.
-- [ ] 
+- [ ] Tree view of Headers structure should go deeper than level 2.
+- [ ] (medium) Numbered lists starting from any number, to avoid counter reset after a paragraph or page break. (Example: 1. :leftwards_arrow_with_hook: 2. ↩️ 3. ↩️ /`pagebreak`/ 1. ↩️ is not the desired outcome.)
+- [ ] (very high) Possibility to insert commentaries equivalent to `<Anmerkung></Anmerkung>`.
+- [ ] (medium) Multi-Line text field for figure-formulas.
 
 
 
@@ -257,7 +269,7 @@ Trying above bug again:
 
 
 
-### [Bug: Void
+### [Bug: Void - [Closed]
 
 Empty newly created files cannot be saved by clicking the icon or pressing CTRL+S, and cause an error message.
 
@@ -383,7 +395,7 @@ Replacing formula in figure-formula does not change the preview?
 
 **]**
 
-## **Major:** <u>Safeplace</u>
+## **Major:** <u>Safeplace</u> - [Closed]
 
  Opening an existing file (WinExplorer), "Saving as..." under a new name.
 
@@ -520,11 +532,15 @@ Github issues created during the meeting:
 
 
 
-### [Bug: Metadata
+### [Bug: Metadata - [Closed]
 
 The Metadata is missing in Reasily, this requires further testing. (Also in Calibre and Readium.)
 
-Update (07.03.2019): Readium knows nothing, Calibre finds out the document language and title.
+**Update (07.03.2019)**: Readium knows nothing, Calibre finds out the document language and title.
+
+**Update - 10.05:** (DE-CSS) Book Details are read out correctly by Reasily. However the file title is "content.xml" in the reading window. 
+
+**Update - 10.05**: Considered closed, since working.
 
 **]**
 
@@ -532,7 +548,7 @@ Update (07.03.2019): Readium knows nothing, Calibre finds out the document langu
 
 ### [Bug: Macbreaks
 
-In the standard ebook-reader on Mac/iOS, pagebreaks are not working. Where lies the cause? To be tested on site at the SZS.
+In the standard ebook-reader on Mac/iOS, pagebreaks are not working. What causes this? To be tested on site at the SZS.
 
 
 
@@ -546,7 +562,19 @@ Further tests for the font-size are required. (Bug with plain text being too sma
 
 **Update - 13.03:** This has been corrected. Tests pending.
 
+**Update - 10.05:** Still present in 0.1.10-4., with Calibre, also in Reasily
 
+A screenshot from Calibre:
+
+![1557500799574](ARCHIVE/1557500799574.png)
+
+The bug seems to concern only the "normal" mode, as the "Impaired" and "Blind" modes do not show this problem. This also concerns inline-formulas.
+
+Calibre scales inline-formulas differently (see screenshot)
+
+The same view in Reasily (which makes everything look really nice):
+
+![1557501757885](ARCHIVE/1557501757885.png)
 
 **]**
 
@@ -708,3 +736,141 @@ The increase in the page numbering does not consider deleted page breaks. It inc
 
 
 **]**
+
+
+
+
+
+# V.0.1.10 #4 (Fourth instance, Treeview)
+
+> 04.05.2019 18:15 - 18:30 :ballot_box_with_check:
+
+Catching up, taking a look at everything, installing fourth instance of 0.1.10.
+
+> 08.05.2019 18:30 - 20:00 :ballot_box_with_check:
+
+The tree view of the headers side panel does only support level 1 and below without further differentiation.
+
+Corrected new file until Page 12 (1.3. Natürliche Zahlen)
+
+### [Bug: ClosingTree
+
+Expanding an entry in the headers side panel. Then clicking in the editor window closes the element in the side panel.
+
+**]**
+
+
+
+> 10.05.2019 16:15 - 18:00 :ballot_box_with_check:
+
+### [Bug: UnsavedRendering
+
+When opening a non-empty file the first time in a session: If it was already rendered/converted by the editor, this information was not saved during the previous session. Thus, the editor converts the _whole_ document again, even though this is does not appear to be needed.
+
+The main problem here is that the preview-panel does not show any inline-formulas up until after the first save-process.
+
+**]**
+
+
+
+### [Bug: Non-generatedToC
+
+The Table of Contents, as understood by Calibre or Reasily, is empty, or rather, only contains the element "Start".
+
+**]**
+
+
+
+Updated bugs: ReaderFontsize
+
+
+
+> 13.05.2019 22:30 - 00:00 :ballot_box_with_check:
+
+The HM-script is, as of now, considered finished concerning formatting and document structure.
+
+Appending additional chapters to the HM- script to further test limits of usability and formatting. The previous `HM-Skript_Css4.epub` is now discontinued, and copied to `HM-Skript_Css5.epub`which contains the new non-continuous material.
+
+
+
+### [Bug: InstanceDifferentiation
+
+The program does not distinguish different instances of itself well enough.  This causes problems with the auto-refresh/conversion functions.
+
+Open one large file (like the script). Open a second program instance with an empty test file.
+
+The empty file will have deactivated automatic refreshing of the preview, albeit there is no reason for this behaviour.
+
+Toggling this and switching back to the first instance causes a crash in the instance with the large file.
+
+
+
+Requires further testing to recreate the error message and get the ID of the exception.
+
+
+
+**]**
+
+
+
+### [Bug: EndOfPreformatting
+
+Some formatting presets should end when a line break (`enter`) is given as input.
+
+As of now, the headers 1-6 do not end when a line break (creation of a new paragraph) is entered.
+
+This is classified as bug and not as feature request, since it is normally expected behaviour.
+
+
+
+**]**
+
+
+
+> 25.05.2019 15:51 - 17:00
+
+
+
+### [Bug: FormulaFigureSize
+
+The size of a formula box inserted as figure should be adapted to the presence/absence of a title and caption.
+
+This is not the case, resulting in unnecessary space for one-lined formulas.
+
+Resizing results in two different boxes (one invisible overlaying the other) that are to resize separately.
+
+
+
+**]**
+
+Continuing the script. Inserted FigureFormula in line of a numbered list, this did not break the list, which is a good thing!
+
+
+
+### [Bug: ParenthesisSizeFigForm
+
+Adding new formula as figure. No Title, no Caption, override Parser.
+
+Inserting the following TeX-code:
+
+`f(x) := \begin{cases} x^2 & \text{falls } 0<x<\frac{1}{2}	\\ 1	& \text{falls } \frac{1}{2}<x<1	\\ \frac{1}{7}& \text{falls } x=1	\\ \frac{1}{2} & \text{falls } x=\frac{1}{2}\\	\end{cases}`
+
+
+```
+	f(x) := \begin{cases}
+				 x^2 & \text{falls } 0<x<\frac{1}{2}	\\
+				 1	& \text{falls } \frac{1}{2}<x<1	\\
+				 \frac{1}{7}& \text{falls } x=1	\\
+				 \frac{1}{2} & \text{falls } x=\frac{1}{2}\\
+			\end{cases}
+```
+
+Results in the parenthesis (`f(x)`) being resized to the height of the `{cases}` command.
+
+![1558794513634](ARCHIVE/1558794513634.png)
+
+]
+
+This has been inserted in `HM-Skript_Css6.epub` to avoid corruption due to uncertain experiments. I was again confronted to the problem of page breaks breaking up the counter of lists.
+
+Extracting the image "Bsp6.6.Seite72" (page 72 in the PDF of reference ) turned out relatively easy (print selection), it was imported into inkscape from PDF, where I redrew it using "bitmap to path" and increased the border size to create an alternative version for visually impaired.
